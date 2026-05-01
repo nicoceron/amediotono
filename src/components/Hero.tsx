@@ -40,11 +40,6 @@ export function Hero() {
               Ver cursos →
             </a>
           </div>
-          <div className="hero-stats">
-            <div className="hero-stat"><span className="num">8+</span><span className="lbl">disciplinas</span></div>
-            <div className="hero-stat"><span className="num">200+</span><span className="lbl">estudiantes felices</span></div>
-            <div className="hero-stat"><span className="num">3-99</span><span className="lbl">edades bienvenidas</span></div>
-          </div>
         </div>
       </div>
     </section>

@@ -25,7 +25,7 @@
   --font-hand-2: "Patrick Hand", cursive;
   --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
 
-  --base-size: 18px;
+  --base-size: 16px;
 }
 
 [data-theme="dark"] {
@@ -238,8 +238,9 @@ p { margin: 0 0 1em 0; }
   min-height: calc(100vh - 58px);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   padding-bottom: 0;
+  padding-top: 10vh;
   background-color: var(--bg);
 }
 .hero-with-bg::after {
@@ -247,6 +248,8 @@ p { margin: 0 0 1em 0; }
   position: absolute;
   inset: 0;
   z-index: 1;
+  background: var(--bg);
+  opacity: 0.3;
 }
 .hero-grid {
   display: grid;
