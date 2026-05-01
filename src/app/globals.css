@@ -29,9 +29,9 @@
 }
 
 [data-theme="dark"] {
-  --bg: #1A1424;
-  --bg-2: #241934;
-  --paper: #2A1B3D;
+  --bg: #14101F;
+  --bg-2: #1F162E;
+  --paper: #362449;
   --ink: #FFF8EE;
   --ink-soft: #C8B8DC;
   --line: #FFF8EE;
@@ -58,7 +58,7 @@ body::before {
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.65  0 0 0 0 0.55  0 0 0 0 0.4  0 0 0 0.08 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
 }
 
-[data-theme="dark"] body::before { opacity: 0.3; }
+[data-theme="dark"] body::before { opacity: 0.12; }
 
 main, header, section, footer { position: relative; z-index: 1; }
 
@@ -754,24 +754,16 @@ footer .foot-logo { font-family: var(--font-display); font-size: 1.4rem; margin-
   position: relative;
   z-index: 2;
   padding: 20px 0;
-  background: #2A1B3D;
-  border-top: 2px dashed #FFF8EE;
-  border-bottom: 2px dashed #FFF8EE;
+  background: var(--bg);
+  border-top: 2px dashed var(--line);
+  border-bottom: 2px dashed var(--line);
   text-align: center;
-}
-[data-theme="dark"] .voces-strip {
-  background: #FFFDF7;
-  border-top-color: #2A1B3D;
-  border-bottom-color: #2A1B3D;
 }
 .voces-message {
   font-family: var(--font-hand);
   font-size: clamp(1.4rem, 3vw, 2rem);
   font-weight: 700;
-  color: #FFF8EE;
+  color: var(--ink);
   margin: 0;
   line-height: 1.3;
-}
-[data-theme="dark"] .voces-message {
-  color: #2A1B3D;
 }
