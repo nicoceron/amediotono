@@ -6,11 +6,11 @@ import { Sun, Moon } from "lucide-react";
 
 function useTheme() {
   const getSnapshot = useCallback(() => {
-    if (typeof window === "undefined") return "dark";
-    return document.documentElement.getAttribute("data-theme") as "light" | "dark" || "dark";
+if (typeof window === "undefined") return "light";
+return document.documentElement.getAttribute("data-theme") as "light" | "dark" || "light";
   }, []);
 
-  const getServerSnapshot = useCallback(() => "dark", []);
+  const getServerSnapshot = useCallback(() => "light", []);
 
   const subscribe = useCallback((callback: () => void) => {
     const observer = new MutationObserver(callback);

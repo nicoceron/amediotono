@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Caprasimo&family=Caveat:wght@400;600;700&family=Nunito:wght@400;600;700;800;900&family=Patrick+Hand&display=swap');
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -19,10 +18,10 @@
   --line: #2A1B3D;
   --accent: var(--pink);
 
-  --font-display: "Caprasimo", "Lilita One", system-ui, serif;
-  --font-body: "Nunito", system-ui, sans-serif;
-  --font-hand: "Caveat", "Patrick Hand", cursive;
-  --font-hand-2: "Patrick Hand", cursive;
+--font-display: var(--font-caprasimo), "Caprasimo", "Lilita One", system-ui, serif;
+--font-body: var(--font-nunito), "Nunito", system-ui, sans-serif;
+--font-hand: var(--font-caveat), "Caveat", "Patrick Hand", cursive;
+--font-hand-2: var(--font-patrick), "Patrick Hand", cursive;
   --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
 
   --base-size: 20px;
