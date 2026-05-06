@@ -1,8 +1,3 @@
-"use client";
-
-import { useEffect, useRef } from "react";
-import { gsap } from "@/lib/gsap";
-
 function SectionHeader({ eyebrow, title, sub, titleColors }: { eyebrow?: string; title: string; sub?: string; titleColors?: string[] }) {
   const words = title.split(" ");
   return (
@@ -10,7 +5,18 @@ function SectionHeader({ eyebrow, title, sub, titleColors }: { eyebrow?: string;
       {eyebrow && <div className="sec-eyebrow">{eyebrow}</div>}
       <h2>
         {titleColors
-          ? words.map((w, i) => <span key={i} style={{ color: titleColors[i] || "inherit", marginRight: 12, display: "inline-block" }}>{w}</span>)
+          ? words.map((w, i) => (
+            <span
+              key={i}
+              style={{
+                color: titleColors[i] || "inherit",
+                marginRight: i === words.length - 1 ? 0 : 12,
+                display: "inline-block",
+              }}
+            >
+              {w}{i === words.length - 1 ? "" : " "}
+            </span>
+          ))
           : title}
       </h2>
       {sub && <div className="sec-sub">{sub}</div>}
@@ -32,41 +38,8 @@ function initials(name: string) {
 }
 
 export function TestimoniosSection() {
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      const headerEl = sectionRef.current!.querySelector(".sec-head");
-      const cards = sectionRef.current!.querySelectorAll(".testi-card");
-
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 80%",
-          once: true,
-        },
-      });
-
-      if (headerEl) {
-        const parts = [headerEl.querySelector(".sec-eyebrow"), headerEl.querySelector("h2")].filter(Boolean);
-        tl.from(parts, { opacity: 0, y: 25, duration: 0.7, stagger: 0.1, ease: "power3.out" });
-      }
-
-      tl.from(cards, {
-        opacity: 0,
-        y: 35,
-        rotate: (i) => (i % 3 === 0 ? -2 : i % 3 === 1 ? 2 : -1),
-        duration: 0.75,
-        stagger: 0.1,
-        ease: "power3.out",
-      }, "-=0.3");
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <section ref={sectionRef} className="block" id="testimonios" data-screen-label="Testimonios">
+    <section className="block" id="testimonios" data-screen-label="Testimonios">
       <div className="container">
         <SectionHeader
           eyebrow="Lo que dicen las familias"

@@ -1,8 +1,3 @@
-"use client";
-
-import { useEffect, useRef } from "react";
-import { gsap } from "@/lib/gsap";
-
 function SectionHeader({ eyebrow, title, sub, titleColors }: { eyebrow?: string; title: string; sub?: string; titleColors?: string[] }) {
   const words = title.split(" ");
   return (
@@ -24,69 +19,9 @@ const FOUNDERS = [
 ];
 
 export function MisionSection() {
-  const missionRef = useRef<HTMLElement>(null);
-  const foundersRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Mission section
-      const mHeader = missionRef.current!.querySelector(".sec-head");
-      const mCards = missionRef.current!.querySelectorAll(".mvo-card");
-
-      const tl1 = gsap.timeline({
-        scrollTrigger: {
-          trigger: missionRef.current,
-          start: "top 80%",
-          once: true,
-        },
-      });
-
-      if (mHeader) {
-        const parts = [mHeader.querySelector(".sec-eyebrow"), mHeader.querySelector("h2"), mHeader.querySelector(".sec-sub")].filter(Boolean);
-        tl1.from(parts, { opacity: 0, y: 30, duration: 0.7, stagger: 0.1, ease: "power3.out" });
-      }
-
-      tl1.from(mCards, {
-        opacity: 0,
-        y: 50,
-        scale: 0.96,
-        duration: 0.75,
-        stagger: 0.12,
-        ease: "power3.out",
-      }, "-=0.4");
-
-      // Founders section
-      const fHeader = foundersRef.current!.querySelector(".sec-head");
-      const fCards = foundersRef.current!.querySelectorAll(".teacher-card");
-
-      const tl2 = gsap.timeline({
-        scrollTrigger: {
-          trigger: foundersRef.current,
-          start: "top 80%",
-          once: true,
-        },
-      });
-
-      if (fHeader) {
-        const parts = [fHeader.querySelector(".sec-eyebrow"), fHeader.querySelector("h2")].filter(Boolean);
-        tl2.from(parts, { opacity: 0, y: 30, duration: 0.7, stagger: 0.1, ease: "power3.out" });
-      }
-
-      tl2.from(fCards, {
-        opacity: 0,
-        y: 40,
-        duration: 0.7,
-        stagger: 0.12,
-        ease: "power3.out",
-      }, "-=0.3");
-    });
-
-    return () => ctx.revert();
-  }, []);
-
   return (
     <>
-      <section ref={missionRef} className="block alt" id="mision" data-screen-label="Misión / Visión">
+      <section className="block alt" id="mision" data-screen-label="Misión / Visión">
         <div className="container">
           <SectionHeader
             eyebrow="Quiénes somos"
@@ -111,7 +46,7 @@ export function MisionSection() {
         </div>
       </section>
 
-      <section ref={foundersRef} className="block" id="fundadoras" data-screen-label="Fundadoras">
+      <section className="block" id="fundadoras" data-screen-label="Fundadoras">
         <div className="container">
           <SectionHeader
             eyebrow="Las fundadoras"

@@ -1,8 +1,3 @@
-"use client";
-
-import { useEffect, useRef } from "react";
-import { gsap } from "@/lib/gsap";
-
 const TEACHERS = [
   {
     name: "Gisselle Torres",
@@ -55,49 +50,8 @@ function ColoredProfes() {
 }
 
 export function ProfesSection() {
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      const left = sectionRef.current!.querySelector(".profes-left");
-      if (left) {
-        gsap.from(left.children, {
-          opacity: 0,
-          y: 36,
-          duration: 0.9,
-          stagger: 0.14,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 80%",
-            once: true,
-          },
-        });
-      }
-
-      const items = sectionRef.current!.querySelectorAll(".profes-grid-item");
-      if (items.length) {
-        gsap.from(items, {
-          opacity: 0,
-          y: 40,
-          duration: 0.8,
-          stagger: 0.12,
-          ease: "power3.out",
-          delay: 0.2,
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 75%",
-            once: true,
-          },
-        });
-      }
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <section ref={sectionRef} className="block alt" id="profes" data-screen-label="Profesores">
+    <section className="block alt" id="profes" data-screen-label="Profesores">
       <div className="container">
         <div className="profes-layout">
           {/* Left: Title */}
@@ -111,7 +65,7 @@ export function ProfesSection() {
 
         {/* Minimalist 2x2 grid */}
         <div className="profes-grid">
-          {TEACHERS.map((t, i) => (
+          {TEACHERS.map((t) => (
             <div className="profes-grid-item" key={t.name}>
               <div className="profes-grid-photo" style={{ borderColor: t.color }}>
                 <div className="profes-grid-photo-bg" style={{ background: t.color }} />

@@ -24,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="es" className={`antialiased ${caprasimo.variable} ${caveat.variable} ${nunito.variable} ${patrick.variable}`} suppressHydrationWarning>
       <head />
-      <body>
+      <body suppressHydrationWarning>
         <Script src="/theme-init.js" strategy="beforeInteractive" />
         <SmoothScrollProvider>
           <Navbar />

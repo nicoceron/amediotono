@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useRef, useState, useCallback, useSyncExternalStore } from "react";
+import { useEffect, useState, useCallback, useSyncExternalStore } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { Sun, Moon } from "lucide-react";
-import { gsap } from "@/lib/gsap";
 
 function useTheme() {
   const getSnapshot = useCallback(() => {
@@ -23,47 +23,13 @@ function useTheme() {
 }
 
 export function Navbar() {
-  const [open, setOpen] = useState(false);
-  const [hidden, setHidden] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const lastScrollY = useRef(0);
-  const navRef = useRef<HTMLElement>(null);
   const theme = useTheme();
 
   useEffect(() => {
-    const handleScroll = () => {
-      const currentY = window.scrollY;
-      const delta = currentY - lastScrollY.current;
-
-      if (currentY > 80) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-        setHidden(false);
-      }
-
-      if (delta > 10 && currentY > 200) {
-        setHidden(true);
-        setOpen(false);
-      } else if (delta < -5) {
-        setHidden(false);
-      }
-
-      lastScrollY.current = currentY;
-    };
-
+    const handleScroll = () => setScrolled(window.scrollY > 80);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
-    if (navRef.current) {
-      gsap.fromTo(
-        navRef.current,
-        { y: -30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.8, ease: "power3.out", delay: 0.2 }
-      );
-    }
   }, []);
 
   const toggleTheme = () => {
@@ -72,28 +38,37 @@ export function Navbar() {
     localStorage.setItem("tono-theme", next);
   };
 
-  const navClasses = [
-    "topnav",
-    hidden ? "topnav--hidden" : "",
-    scrolled ? "topnav--scrolled" : "",
-  ].join(" ");
+  const navClasses = ["topnav", scrolled ? "topnav--scrolled" : ""].join(" ");
 
   return (
-    <header ref={navRef} className={navClasses} style={{ opacity: 0 }}>
+    <header className={navClasses}>
       <div className="container topnav-inner">
-        <a href="/" className="nav-logo" aria-label="A medio tono — inicio">
-          <span className="a">A</span><span className="half">½</span><span className="t">t</span><span className="o1">o</span><span className="n">n</span><span className="o2">o</span>
-        </a>
+        <Link href="/" className="nav-logo" aria-label="A medio tono — inicio">
+          <Image
+            className="nav-logo-img"
+            src="/logo-nav.svg"
+            alt="A ½ tono"
+            width={1205}
+            height={300}
+            priority
+            style={{ width: "100%", height: "auto" }}
+          />
+        </Link>
 
         <div className="nav-right">
-          <nav className={`nav-links${open ? " open" : ""}`} id="navLinks">
-            <Link href="/nosotros" onClick={() => setOpen(false)}>Nosotros</Link>
+          <nav className="nav-links" id="navLinks">
+            <Link href="/nosotros">Nosotros</Link>
           </nav>
-          <button className="theme-toggle" onClick={toggleTheme} aria-label={theme === "dark" ? "Cambiar a modo claro" : "Cambiar a modo oscuro"}>
+          <button
+            className="theme-toggle"
+            onClick={toggleTheme}
+            aria-label={
+              theme === "dark"
+                ? "Cambiar a modo claro"
+                : "Cambiar a modo oscuro"
+            }
+          >
             {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
-          </button>
-          <button className="mobile-toggle" onClick={() => setOpen(!open)} aria-label="Abrir menú">
-            ☰ Menú
           </button>
         </div>
       </div>

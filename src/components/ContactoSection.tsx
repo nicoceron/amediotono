@@ -1,90 +1,71 @@
-"use client";
-
-import { useEffect, useRef } from "react";
-import { gsap } from "@/lib/gsap";
+import { ArrowRight, Mail } from "lucide-react";
 
 const WA_NUMBER = "573228725396";
 const WA_MSG = encodeURIComponent("¡Hola! Quiero más información sobre los cursos.");
 const WA_URL = `https://wa.me/${WA_NUMBER}?text=${WA_MSG}`;
+const IG_URL = "https://instagram.com/amediotonomusic";
+const EMAIL = "amediotono1@gmail.com";
 
 export function ContactoSection() {
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      const card = sectionRef.current!.querySelector(".contact-card");
-      const eyebrow = sectionRef.current!.querySelector(".sec-eyebrow");
-      const h2 = sectionRef.current!.querySelector("h2");
-      const p = sectionRef.current!.querySelector("p");
-      const btn = sectionRef.current!.querySelector(".btn");
-      const pills = sectionRef.current!.querySelectorAll(".contact-pill");
-
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 80%",
-          once: true,
-        },
-      });
-
-      tl.from(card, { opacity: 0, y: 50, scale: 0.97, duration: 0.9, ease: "power3.out" });
-
-      if (eyebrow) {
-        tl.from(eyebrow, { opacity: 0, y: 20, duration: 0.6, ease: "power3.out" }, "-=0.6");
-      }
-      if (h2) {
-        tl.from(h2, { opacity: 0, y: 25, duration: 0.7, ease: "power3.out" }, "-=0.45");
-      }
-      if (p) {
-        tl.from(p, { opacity: 0, y: 20, duration: 0.6, ease: "power3.out" }, "-=0.4");
-      }
-      if (btn) {
-        tl.from(btn, { opacity: 0, y: 20, duration: 0.6, ease: "power3.out" }, "-=0.3");
-      }
-      if (pills.length) {
-        tl.from(pills, { opacity: 0, y: 15, duration: 0.5, stagger: 0.06, ease: "power3.out" }, "-=0.3");
-      }
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <section ref={sectionRef} className="block contact-section" id="contacto" data-screen-label="Contacto">
+    <section className="block contact-section" id="contacto" data-screen-label="Contacto">
       <div className="container">
-        <div className="contact-card">
-          <div className="sec-eyebrow" style={{ color: "var(--red)" }}>¿Listo para empezar?</div>
-          <h2>
-            <span style={{ color: "var(--orange)" }}>Hablemos</span>{" "}
-            <span style={{ color: "var(--pink)" }}>por</span>{" "}
-            <span style={{ color: "var(--green)" }}>WhatsApp</span>
+        <div className="contact-head">
+          <h2 className="contact-title" aria-label="Hablemos">
+            <span aria-hidden="true" style={{ color: "var(--orange)" }}>H</span>
+            <span aria-hidden="true" style={{ color: "var(--pink)" }}>a</span>
+            <span aria-hidden="true" style={{ color: "var(--green)" }}>b</span>
+            <span aria-hidden="true" style={{ color: "var(--blue)" }}>l</span>
+            <span aria-hidden="true" style={{ color: "var(--red)" }}>e</span>
+            <span aria-hidden="true" style={{ color: "var(--orange)" }}>m</span>
+            <span aria-hidden="true" style={{ color: "var(--pink)" }}>o</span>
+            <span aria-hidden="true" style={{ color: "var(--green)" }}>s</span>
           </h2>
-          <p style={{ color: "var(--ink-soft)", fontSize: "1.1rem", marginTop: 12 }}>
-            Te respondemos rápido. Te contamos sobre clases, horarios y inscripciones.
-          </p>
-          <div style={{ marginTop: 28 }}>
-            <a className="btn btn-wa" href={WA_URL} target="_blank" rel="noopener" style={{ fontSize: "1.15rem", padding: "18px 32px" }}>
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M20.52 3.48A11.94 11.94 0 0 0 12.04 0C5.48 0 .15 5.33.15 11.89c0 2.1.55 4.14 1.6 5.94L.05 24l6.34-1.66a11.86 11.86 0 0 0 5.65 1.43h.01c6.56 0 11.89-5.33 11.89-11.89 0-3.18-1.24-6.17-3.42-8.4Z"/>
-              </svg>
-              Escríbenos al 322 8725396
-            </a>
-          </div>
+          <p><span>Te respondemos rápido.</span> Te contamos sobre clases, horarios e inscripciones.</p>
+        </div>
 
-          <div className="contact-row">
-            <a className="contact-pill" href="https://instagram.com/amediotonomusic" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
-              @amediotonomusic
+        <div className="contact-options">
+          <article className="contact-option contact-option-wa">
+            <div className="contact-option-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.52 3.48A11.94 11.94 0 0 0 12.04 0C5.48 0 .15 5.33.15 11.89c0 2.1.55 4.14 1.6 5.94L.05 24l6.34-1.66a11.86 11.86 0 0 0 5.65 1.43h.01c6.56 0 11.89-5.33 11.89-11.89 0-3.18-1.24-6.17-3.42-8.4ZM12.05 21.4h-.01a9.5 9.5 0 0 1-4.84-1.32l-.35-.21-3.76.99 1-3.66-.23-.38a9.49 9.49 0 0 1-1.45-5.04c0-5.25 4.27-9.51 9.52-9.51 2.54 0 4.93.99 6.73 2.79a9.46 9.46 0 0 1 2.78 6.73c0 5.25-4.27 9.51-9.5 9.51Zm5.5-7.13c-.3-.15-1.78-.88-2.06-.98-.28-.1-.48-.15-.68.15-.2.3-.78.98-.96 1.18-.18.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.5-1.79-1.68-2.09-.18-.3-.02-.46.13-.61.13-.13.3-.34.45-.51.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.68-1.63-.93-2.23-.24-.59-.49-.51-.68-.52l-.58-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.49 0 1.47 1.07 2.89 1.22 3.09.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.78-.73 2.03-1.43.25-.7.25-1.3.18-1.43-.07-.13-.27-.2-.57-.35Z" />
+              </svg>
+            </div>
+            <h3>WhatsApp</h3>
+            <strong>+57 322 8725396</strong>
+            <a className="contact-action contact-action-wa" href={WA_URL} target="_blank" rel="noopener">
+              Abrir WhatsApp
+              <ArrowRight aria-hidden="true" size={18} strokeWidth={2.6} />
             </a>
-            <a className="contact-pill" href="https://facebook.com/amediotonomusic" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V7.5C13 6.5 13.5 6 14.5 6H17V2h-3.5C11 2 9 4 9 6.5V10H6v4h3v8h4Z"/></svg>
-              Facebook
+          </article>
+
+          <article className="contact-option contact-option-ig">
+            <div className="contact-option-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.1" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+              </svg>
+            </div>
+            <h3>Instagram</h3>
+            <strong>@amediotonomusic</strong>
+            <a className="contact-action contact-action-ig" href={IG_URL} target="_blank" rel="noopener">
+              Ver Instagram
+              <ArrowRight aria-hidden="true" size={18} strokeWidth={2.6} />
             </a>
-            <a className="contact-pill" href="mailto:amediotono1@gmail.com">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>
-              amediotono1@gmail.com
+          </article>
+
+          <article className="contact-option contact-option-email">
+            <div className="contact-option-icon" aria-hidden="true">
+              <Mail strokeWidth={2.1} />
+            </div>
+            <h3>Email</h3>
+            <strong>{EMAIL}</strong>
+            <a className="contact-action contact-action-email" href={`mailto:${EMAIL}`}>
+              Enviar email
+              <ArrowRight aria-hidden="true" size={18} strokeWidth={2.6} />
             </a>
-          </div>
+          </article>
         </div>
       </div>
     </section>

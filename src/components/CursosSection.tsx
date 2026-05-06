@@ -1,8 +1,3 @@
-"use client";
-
-import { useEffect, useRef } from "react";
-import { gsap } from "@/lib/gsap";
-
 function SectionHeader({ eyebrow, title, sub, titleColors }: { eyebrow?: string; title: string; sub?: string; titleColors?: string[] }) {
   const words = title.split(" ");
   return (
@@ -34,46 +29,8 @@ const WA_MSG = encodeURIComponent("¡Hola! Quiero más información sobre los cu
 const WA_URL = `https://wa.me/${WA_NUMBER}?text=${WA_MSG}`;
 
 export function CursosSection() {
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      const headerEl = sectionRef.current!.querySelector(".sec-head");
-      const cards = sectionRef.current!.querySelectorAll(".course-card");
-      const cta = sectionRef.current!.querySelector(".btn");
-
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 80%",
-          once: true,
-        },
-      });
-
-      if (headerEl) {
-        const parts = [headerEl.querySelector(".sec-eyebrow"), headerEl.querySelector("h2"), headerEl.querySelector(".sec-sub")].filter(Boolean);
-        tl.from(parts, { opacity: 0, y: 30, duration: 0.7, stagger: 0.1, ease: "power3.out" });
-      }
-
-      tl.from(cards, {
-        opacity: 0,
-        y: 45,
-        scale: 0.95,
-        duration: 0.7,
-        stagger: 0.06,
-        ease: "power3.out",
-      }, "-=0.4");
-
-      if (cta) {
-        tl.from(cta, { opacity: 0, y: 20, duration: 0.6, ease: "power3.out" }, "-=0.3");
-      }
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <section ref={sectionRef} className="block alt" id="cursos" data-screen-label="Cursos">
+    <section className="block alt" id="cursos" data-screen-label="Cursos">
       <div className="container">
         <SectionHeader
           eyebrow="¿Qué te gustaría aprender?"
