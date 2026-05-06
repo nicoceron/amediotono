@@ -257,6 +257,20 @@ p { margin: 0 0 1em 0; }
   object-fit: cover;
   object-position: center;
 }
+.hero-logo-stage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 150px);
+  min-height: calc(100svh - 150px);
+  padding: 20px;
+}
+.hero-logo-main {
+  width: min(76vw, 500px);
+  height: auto;
+  max-height: 42svh;
+  object-fit: contain;
+}
 .hero-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -266,6 +280,10 @@ p { margin: 0 0 1em 0; }
 @media (max-width: 880px) {
   .hero-grid { grid-template-columns: 1fr; gap: 24px; }
   .hero { padding: 32px 0 60px; }
+  .hero-with-bg {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
 }
 @media (max-width: 700px) {
   .hero-with-bg {
@@ -274,12 +292,20 @@ p { margin: 0 0 1em 0; }
       url("/hero-bg-mobile.webp") type("image/webp"),
       url("/hero-bg-mobile.png") type("image/png")
     );
-    background-position: center;
+    background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
   }
   .hero-bg-image { display: none; }
-  .hero-with-bg::after { opacity: 0.12; }
+  .hero-with-bg::after { opacity: 0.06; }
+  .hero-logo-stage {
+    min-height: 100svh;
+    padding: 76px 16px 38px;
+  }
+  .hero-logo-main {
+    width: min(76vw, 340px);
+    max-height: 36svh;
+  }
 }
 .hero-eyebrow {
   font-family: var(--font-hand);
@@ -913,6 +939,114 @@ grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   .contact-action { min-height: 40px; }
 }
 
+@media (max-width: 700px) {
+  body { padding-top: 56px; }
+
+  .container { padding: 0 16px; }
+
+  .topnav {
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    padding: 10px 12px;
+  }
+  .topnav-inner { gap: 10px; }
+  .nav-logo { width: clamp(82px, 26vw, 104px); }
+  .nav-right { gap: 10px; }
+  .nav-links {
+    gap: 10px;
+    font-size: 0.84rem;
+  }
+  .theme-toggle {
+    width: 34px;
+    height: 34px;
+    box-shadow: 2px 2px 0 var(--line);
+  }
+
+  .hero-with-bg { margin-top: -56px; }
+
+  section.block { padding: 52px 0; }
+  .sec-head {
+    margin-bottom: 32px;
+    max-width: 100%;
+  }
+  .sec-eyebrow { font-size: 1.12rem; }
+  .sec-sub { font-size: 0.98rem; }
+
+  .courses-grid { grid-template-columns: 1fr; }
+  .course-card,
+  .course-card:nth-child(n),
+  .mvo-card,
+  .mvo-card:nth-child(n),
+  .teacher-card,
+  .teacher-card:nth-child(n) {
+    transform: none;
+  }
+
+  .founders-grid { grid-template-columns: 1fr; }
+
+  .profes-left {
+    padding-top: 0;
+    text-align: center;
+  }
+  .profes-title {
+    font-size: clamp(2rem, 12vw, 3rem);
+    text-align: center;
+  }
+  .profes-desc { margin: 0 auto; }
+  .profes-grid { gap: 32px; }
+  .profes-grid-bio { max-width: min(100%, 320px); }
+
+  .testimonials-marquee { padding: 2px 0 8px; }
+  .testi-marquee-card {
+    width: min(86vw, 360px);
+    min-height: 0;
+    align-items: flex-start;
+  }
+  .testi-marquee-photo {
+    width: 64px;
+    border-radius: 14px;
+  }
+  .testi-marquee-copy p {
+    font-size: 0.84rem;
+    line-height: 1.32;
+  }
+
+  .contact-options {
+    grid-template-columns: 1fr;
+    max-width: 380px;
+  }
+  .contact-head p { font-size: 0.98rem; }
+
+  .wa-float {
+    right: 16px;
+    bottom: 16px;
+    padding: 12px;
+  }
+  footer.foot { padding-bottom: 92px; }
+}
+
+@media (max-width: 380px) {
+  .container { padding: 0 14px; }
+  .topnav { padding: 9px 10px; }
+  .nav-logo { width: 74px; }
+  .nav-links {
+    gap: 8px;
+    font-size: 0.78rem;
+  }
+  .theme-toggle {
+    width: 32px;
+    height: 32px;
+  }
+  .hero-logo-main { width: min(72vw, 300px); }
+  .testi-marquee-card {
+    width: 88vw;
+    gap: 10px;
+    padding: 12px;
+  }
+  .testi-marquee-photo { width: 54px; }
+}
+
 /* Footer */
 footer.foot {
   padding: 36px 0 110px;
@@ -1036,4 +1170,19 @@ footer .foot-logo { font-family: var(--font-display); font-size: 1.4rem; margin-
   .voces-strip { height: 50px; }
   .voces-badge { padding: 0 8px; gap: 10px; }
   .voces-icon { width: 38px; height: 38px; }
+}
+
+@media (max-width: 600px) {
+  .wa-float { padding: 12px; }
+}
+
+@media (max-width: 380px) {
+  .voces-badge {
+    gap: 8px;
+    font-size: 1.06rem;
+  }
+  .voces-icon {
+    width: 34px;
+    height: 34px;
+  }
 }

@@ -2,21 +2,15 @@ import Image from "next/image";
 
 export function HeroEntrance() {
   return (
-    <div style={{
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      minHeight: "calc(100vh - 150px)",
-      padding: "20px"
-    }}>
+    <div className="hero-logo-stage">
       <Image
+        className="hero-logo-main"
         src="/logo.svg"
         alt="A ½ tono — Escuela de artes"
         width={1448}
         height={1086}
         priority
-        sizes="(max-width: 768px) 85vw, 500px"
-        style={{ maxWidth: "500px", width: "100%", height: "auto" }}
+        sizes="(max-width: 700px) 76vw, (max-width: 1100px) 46vw, 500px"
       />
     </div>
   );
