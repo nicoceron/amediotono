@@ -13,6 +13,7 @@ export function VocesStrip() {
     <section className="voces-strip" aria-hidden="true">
       <Marquee
         autoFill
+        direction="right"
         speed={45}
         gradient={false}
         pauseOnHover={false}
