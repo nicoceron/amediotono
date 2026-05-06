@@ -1,6 +1,35 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+import { gsap } from "@/lib/gsap";
+
 export function Footer() {
+  const ref = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ref.current,
+          start: "top 95%",
+          once: true,
+        },
+      });
+
+      tl.from(ref.current!.querySelectorAll(".foot-logo, .hand, p"), {
+        opacity: 0,
+        y: 20,
+        duration: 0.7,
+        stagger: 0.1,
+        ease: "power3.out",
+      });
+    }, ref);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <footer className="foot">
+    <footer ref={ref} className="foot">
       <div className="foot-logo">
         <span style={{ color: "var(--orange)" }}>A</span>
         <span style={{ color: "var(--green)" }}>½</span>

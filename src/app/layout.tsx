@@ -4,6 +4,7 @@ import { Caprasimo, Caveat, Nunito, Patrick_Hand } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
+import { SmoothScrollProvider } from "@/components/SmoothScrollProvider";
 
 const caprasimo = Caprasimo({ weight: "400", subsets: ["latin"], display: "block", variable: "--font-caprasimo" });
 const caveat = Caveat({ subsets: ["latin"], display: "swap", variable: "--font-caveat" });
@@ -25,11 +26,13 @@ export default function RootLayout({
       <head />
       <body>
         <Script src="/theme-init.js" strategy="beforeInteractive" />
-        <Navbar />
-        <main id="top">
-          {children}
-        </main>
-        <WhatsAppFloat />
+        <SmoothScrollProvider>
+          <Navbar />
+          <main id="top">
+            {children}
+          </main>
+          <WhatsAppFloat />
+        </SmoothScrollProvider>
       </body>
     </html>
   );

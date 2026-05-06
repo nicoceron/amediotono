@@ -1,10 +1,56 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+import { gsap } from "@/lib/gsap";
+
 const WA_NUMBER = "573228725396";
 const WA_MSG = encodeURIComponent("¡Hola! Quiero más información sobre los cursos.");
 const WA_URL = `https://wa.me/${WA_NUMBER}?text=${WA_MSG}`;
 
 export function ContactoSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const card = sectionRef.current!.querySelector(".contact-card");
+      const eyebrow = sectionRef.current!.querySelector(".sec-eyebrow");
+      const h2 = sectionRef.current!.querySelector("h2");
+      const p = sectionRef.current!.querySelector("p");
+      const btn = sectionRef.current!.querySelector(".btn");
+      const pills = sectionRef.current!.querySelectorAll(".contact-pill");
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+          once: true,
+        },
+      });
+
+      tl.from(card, { opacity: 0, y: 50, scale: 0.97, duration: 0.9, ease: "power3.out" });
+
+      if (eyebrow) {
+        tl.from(eyebrow, { opacity: 0, y: 20, duration: 0.6, ease: "power3.out" }, "-=0.6");
+      }
+      if (h2) {
+        tl.from(h2, { opacity: 0, y: 25, duration: 0.7, ease: "power3.out" }, "-=0.45");
+      }
+      if (p) {
+        tl.from(p, { opacity: 0, y: 20, duration: 0.6, ease: "power3.out" }, "-=0.4");
+      }
+      if (btn) {
+        tl.from(btn, { opacity: 0, y: 20, duration: 0.6, ease: "power3.out" }, "-=0.3");
+      }
+      if (pills.length) {
+        tl.from(pills, { opacity: 0, y: 15, duration: 0.5, stagger: 0.06, ease: "power3.out" }, "-=0.3");
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="block contact-section" id="contacto" data-screen-label="Contacto">
+    <section ref={sectionRef} className="block contact-section" id="contacto" data-screen-label="Contacto">
       <div className="container">
         <div className="contact-card">
           <div className="sec-eyebrow" style={{ color: "var(--red)" }}>¿Listo para empezar?</div>
