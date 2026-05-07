@@ -51,7 +51,6 @@ body {
   overflow-x: hidden;
   max-width: 100%;
   transition: background 0.3s ease, color 0.3s ease;
-  padding-top: 64px;
 }
 
 body::before {
@@ -251,7 +250,6 @@ p { margin: 0 0 1em 0; }
   overflow: hidden;
 }
 .hero-with-bg {
-  margin-top: -64px;
   min-height: 100vh;
   min-height: 100svh;
   display: flex;
@@ -281,7 +279,7 @@ p { margin: 0 0 1em 0; }
 }
 .hero-bg-image {
   object-fit: cover;
-  object-position: center;
+  object-position: center top;
 }
 .hero-logo-stage {
   display: flex;
@@ -463,7 +461,11 @@ p { margin: 0 0 1em 0; }
 /* Section base */
 section.block { padding: 90px 0; position: relative; }
 section.alt { background: var(--bg); }
-@media (max-width: 700px) { section.block { padding: 60px 0; } }
+main > section.block:first-child { padding-top: 120px; }
+@media (max-width: 700px) {
+  section.block { padding: 60px 0; }
+  main > section.block:first-child { padding-top: 88px; }
+}
 
 .sec-head {
   text-align: center;
@@ -1062,8 +1064,6 @@ grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
 }
 
 @media (max-width: 700px) {
-  body { padding-top: 56px; }
-
   .container { padding: 0 16px; }
 
   .topnav {
@@ -1094,7 +1094,6 @@ grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
     box-shadow: 2px 2px 0 var(--line);
   }
 
-  .hero-with-bg { margin-top: -56px; }
 
   section.block { padding: 52px 0; }
   .sec-head {
