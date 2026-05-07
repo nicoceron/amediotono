@@ -22,7 +22,7 @@ const TEACHERS = [
   },
   {
     name: "Valentina Fernández",
-    role: "Violín y Cuerdas",
+    role: "Violín",
     color: "var(--blue)",
     bio: "Soy Valentina, la violinista del color y con nuestros violines pintaremos de sonido nuestro corazón. Una sonrisa dibujada es lo más bello de la educación.",
     photo: "/profes/valentina-fernandez.svg",

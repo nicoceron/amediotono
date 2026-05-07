@@ -30,6 +30,27 @@ function SectionHeader({ eyebrow, title, sub, titleColors }: { eyebrow?: string;
   );
 }
 
+function ColoredEscuela() {
+  const letters = [
+    { char: "e", color: "var(--orange)" },
+    { char: "s", color: "var(--green)" },
+    { char: "c", color: "var(--red)" },
+    { char: "u", color: "var(--blue)" },
+    { char: "e", color: "var(--pink)" },
+    { char: "l", color: "var(--purple)" },
+    { char: "a", color: "var(--yellow)" },
+  ];
+  return (
+    <span>
+      {letters.map((l, i) => (
+        <span key={i} style={{ color: l.color }}>
+          {l.char}
+        </span>
+      ))}
+    </span>
+  );
+}
+
 const TESTIMONIALS = [
   {
     quote: "Mi hijo de 7 años llega feliz a cada clase de piano. Los profes son una ternura y de verdad le enseñan.",
@@ -65,11 +86,15 @@ export function TestimoniosSection() {
   return (
     <section className="block" id="testimonios" data-screen-label="Testimonios">
       <div className="container">
-        <SectionHeader
-          eyebrow="Lo que dicen las familias"
-          title="Voces de la escuela"
-          titleColors={["var(--green)", "var(--blue)"]}
-        />
+        <div className="sec-head">
+          <div className="sec-eyebrow">Lo que dicen las familias</div>
+          <h2>
+            <span style={{ color: "var(--green)", marginRight: 12, display: "inline-block" }}>Voces</span>
+            <span style={{ color: "var(--blue)", marginRight: 12, display: "inline-block" }}>de</span>
+            <span style={{ color: "var(--purple)", marginRight: 12, display: "inline-block" }}>la</span>
+            <ColoredEscuela />
+          </h2>
+        </div>
       </div>
 
       <div className="testimonials-marquee">
