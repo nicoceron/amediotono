@@ -1,34 +1,9 @@
 "use client";
 
-import Image from "next/image";
+import Link from "next/link";
 import Marquee from "react-fast-marquee";
 import type { CSSProperties } from "react";
-
-function SectionHeader({ eyebrow, title, sub, titleColors }: { eyebrow?: string; title: string; sub?: string; titleColors?: string[] }) {
-  const words = title.split(" ");
-  return (
-    <div className="sec-head">
-      {eyebrow && <div className="sec-eyebrow">{eyebrow}</div>}
-      <h2>
-        {titleColors
-          ? words.map((w, i) => (
-            <span
-              key={i}
-              style={{
-                color: titleColors[i] || "inherit",
-                marginRight: i === words.length - 1 ? 0 : 12,
-                display: "inline-block",
-              }}
-            >
-              {w}{i === words.length - 1 ? "" : " "}
-            </span>
-          ))
-          : title}
-      </h2>
-      {sub && <div className="sec-sub">{sub}</div>}
-    </div>
-  );
-}
+import { FEATURED_QUOTES } from "@/lib/teachers";
 
 function ColoredEscuela() {
   const letters = [
@@ -51,36 +26,12 @@ function ColoredEscuela() {
   );
 }
 
-const TESTIMONIALS = [
-  {
-    quote: "Mi hijo de 7 años llega feliz a cada clase de piano. Los profes son una ternura y de verdad le enseñan.",
-    name: "Laura M.",
-    meta: "mamá de un estudiante",
-    image: "/voces-icon-1.png",
-    color: "var(--orange)",
-  },
-  {
-    quote: "Llevaba años queriendo aprender guitarra y aquí por fin lo logré. Adultos: vengan sin miedo.",
-    name: "Carlos R.",
-    meta: "estudiante de guitarra",
-    image: "/voces-icon-2.png",
-    color: "var(--green)",
-  },
-  {
-    quote: "El ambiente es súper creativo. Mi hija no quiere que termine el semestre.",
-    name: "Andrea P.",
-    meta: "mamá de una artista de 9",
-    image: "/voces-icon-3.png",
-    color: "var(--pink)",
-  },
-  {
-    quote: "Los grupos pequeños hacen toda la diferencia. Sentí progreso desde la segunda clase.",
-    name: "Daniela S.",
-    meta: "estudiante de canto",
-    image: "/voces-icon-4.png",
-    color: "var(--blue)",
-  },
-];
+function trimQuote(text: string, maxChars = 220): string {
+  if (text.length <= maxChars) return text;
+  const slice = text.slice(0, maxChars);
+  const lastSpace = slice.lastIndexOf(" ");
+  return `${slice.slice(0, lastSpace > 0 ? lastSpace : maxChars).trim()}…`;
+}
 
 export function TestimoniosSection() {
   return (
@@ -95,40 +46,40 @@ export function TestimoniosSection() {
             <ColoredEscuela />
           </h2>
         </div>
-      </div>
 
-      <div className="testimonials-marquee">
-        <Marquee
-          autoFill
-          direction="right"
-          speed={34}
-          gradient={false}
-          pauseOnHover
-          className="testimonials-marquee-wrap"
-        >
-          {TESTIMONIALS.map((t, i) => (
-            <article
-              className="testi-marquee-card"
-              key={`${t.name}-${i}`}
-              style={{ "--voice-color": t.color } as CSSProperties & Record<"--voice-color", string>}
-            >
-              <div className="testi-marquee-photo">
-                <Image
-                  src={t.image}
-                  alt=""
-                  width={1254}
-                  height={1254}
-                  sizes="72px"
-                />
-              </div>
-              <div className="testi-marquee-copy">
-                <p>{t.quote}</p>
-                <strong>{t.name}</strong>
-                <span>{t.meta}</span>
-              </div>
-            </article>
-          ))}
-        </Marquee>
+        <div className="testimonials-marquee testimonials-marquee--contained">
+          <Marquee
+            autoFill
+            direction="right"
+            speed={34}
+            gradient={false}
+            pauseOnHover
+            className="testimonials-marquee-wrap"
+          >
+            {FEATURED_QUOTES.map((q) => (
+              <Link
+                href={`/profes/${q.teacherSlug}`}
+                key={q.id}
+                className="testi-marquee-card-link"
+                aria-label={`Ver perfil de ${q.teacherName}`}
+              >
+                <article
+                  className="testi-marquee-card"
+                  style={{ "--voice-color": q.color } as CSSProperties & Record<"--voice-color", string>}
+                >
+                  <div className="testi-marquee-copy">
+                    <p>“{trimQuote(q.quote)}”</p>
+                    <strong>{q.author}</strong>
+                    <span>
+                      Estudiante de {q.teacherShortName}
+                      {q.instrument ? ` · ${q.instrument}` : ""}
+                    </span>
+                  </div>
+                </article>
+              </Link>
+            ))}
+          </Marquee>
+        </div>
       </div>
     </section>
   );
