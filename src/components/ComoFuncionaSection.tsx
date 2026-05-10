@@ -5,21 +5,21 @@ import { Reveal } from "@/components/Reveal";
 const STEPS = [
   {
     number: "1",
-    chip: "var(--green)",
+    chip: "var(--pink)",
     title: "Encuentra tu profe.",
-    body: "Conoce a las profes de A ½ tono y elige con quién quieres empezar — desde la primera clase vas a sentirte en confianza.",
+    body: "Conoce a los profes de A ½ tono y elige con quién quieres empezar — desde la primera clase vas a sentirte en confianza.",
     accent: "var(--green)",
   },
   {
     number: "2",
-    chip: "var(--yellow)",
+    chip: "var(--pink)",
     title: "Comienza a aprender.",
     body: "Tu profe adapta cada clase a tus objetivos — sin importar si llegas con miedo, sin saber leer una nota o queriendo perfeccionar tu técnica.",
     accent: "var(--orange)",
   },
   {
     number: "3",
-    chip: "var(--blue)",
+    chip: "var(--pink)",
     title: "Avanza cada semana.",
     body: "Clases presenciales o virtuales, en grupos pequeños y con seguimiento real — para que cada semana suene un poquito mejor que la anterior.",
     accent: "var(--blue)",
@@ -44,7 +44,12 @@ export function ComoFuncionaSection() {
             <span style={{ color: "var(--ink)", marginRight: 12 }}>
               funciona
             </span>
-            <span style={{ color: "var(--pink)" }}>A ½ tono</span>
+            <span style={{ color: "var(--orange)" }}>A</span>
+            <span style={{ color: "var(--red)", marginRight: 6 }}>½</span>
+            <span style={{ color: "var(--blue)" }}>t</span>
+            <span style={{ color: "var(--orange)" }}>o</span>
+            <span style={{ color: "var(--pink)" }}>n</span>
+            <span style={{ color: "var(--green)" }}>o</span>
           </h2>
         </div>
 

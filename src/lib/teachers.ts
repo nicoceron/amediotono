@@ -5,6 +5,8 @@ export type Review = {
   quote: string;
 };
 
+export type ClassFormat = "Presencial" | "Virtual" | "A domicilio";
+
 export type Teacher = {
   slug: string;
   name: string;
@@ -16,6 +18,15 @@ export type Teacher = {
   photo: string;
   gallery: { src: string; alt: string }[];
   reviews: Review[];
+  /** ISO country (default Colombia) */
+  country?: string;
+  countryFlag?: string;
+  /** Years actively teaching */
+  yearsTeaching: number;
+  /** Short trait pills shown on cards / detail page */
+  highlights: string[];
+  /** How classes are delivered */
+  classFormats: ClassFormat[];
 };
 
 export const TEACHERS: Teacher[] = [
@@ -28,6 +39,11 @@ export const TEACHERS: Teacher[] = [
     bio: "Tu profe de flauta que no omite lo gracioso que es equivocarse en clases. Soy Gisselle, ¡si no te ríes pierdes!",
     longBio:
       "Soy Gisselle, flautista y profesora apasionada por enseñar desde lo más básico hasta lo más avanzado. Mi metodología es cercana, paciente y enfocada en construir fundamentos sólidos para que cada estudiante avance a su propio ritmo. Creo que aprender música es también aprender a equivocarse con humor y a celebrar cada pequeño logro.",
+    country: "Colombia",
+    countryFlag: "🇨🇴",
+    yearsTeaching: 5,
+    highlights: ["Paciente", "Apasionada", "Pedagógica"],
+    classFormats: ["Presencial", "Virtual", "A domicilio"],
     photo: "/profes/gisselle-torres.svg",
     gallery: [
       {
@@ -99,11 +115,16 @@ export const TEACHERS: Teacher[] = [
     slug: "daniela-cardenas",
     name: "Daniela Cárdenas",
     shortName: "Dani",
-    role: "Violín · Iniciación Musical",
+    role: "Violín",
     color: "var(--purple)",
     bio: "Soy la profe de los mil recursos: convierto colores, burbujas, pañuelos y cuentos en experiencias donde la música se vive antes de aprenderse.",
     longBio:
       "Soy Daniela, violinista y profe de iniciación musical. Mi clase es un espacio donde colores, burbujas, pañuelos y cuentos se vuelven herramientas para que la música se sienta antes de leerse. Trabajo con disciplina y cariño en partes iguales, porque creo que aprender un instrumento es también aprender a confiar en uno mismo.",
+    country: "Colombia",
+    countryFlag: "🇨🇴",
+    yearsTeaching: 6,
+    highlights: ["Creativa", "Cariñosa", "Estructurada"],
+    classFormats: ["Presencial", "Virtual", "A domicilio"],
     photo: "/profes/daniela-cardenas.svg",
     gallery: [
       {
@@ -150,6 +171,11 @@ export const TEACHERS: Teacher[] = [
     bio: "Soy Sara, pianista que no tiene tan buenos chistes, pero aprendemos divirtiéndonos. \"Music is medicine\".",
     longBio:
       "Soy Sara, pianista enamorada de la pedagogía musical. Mis clases son dinámicas, claras y de fácil asimilación, pensadas para que avances con confianza desde el primer día — sea de manera presencial o virtual. Creo que la música es medicina, y que cada estudiante merece un espacio cálido y honesto para encontrar su sonido.",
+    country: "Colombia",
+    countryFlag: "🇨🇴",
+    yearsTeaching: 4,
+    highlights: ["Clara", "Dinámica", "Cercana"],
+    classFormats: ["Presencial", "Virtual"],
     photo: "/profes/sara-alfonso.svg",
     gallery: [
       {
@@ -184,6 +210,11 @@ export const TEACHERS: Teacher[] = [
     bio: "Soy Valentina, la violinista del color y con nuestros violines pintaremos de sonido nuestro corazón. Una sonrisa dibujada es lo más bello de la educación.",
     longBio:
       "Soy Valentina, violinista convencida de que enseñar es pintar el mundo con sonido. Trabajo con niñas, niños y adultos para que descubran la postura, la afinación y la sensibilidad musical desde un lugar amable, paciente y muy creativo. Mi mayor recompensa es ver a un estudiante sonreír cuando suena algo que antes parecía imposible.",
+    country: "Colombia",
+    countryFlag: "🇨🇴",
+    yearsTeaching: 5,
+    highlights: ["Sensible", "Carismática", "Paciente"],
+    classFormats: ["Presencial", "Virtual", "A domicilio"],
     photo: "/profes/valentina-fernandez.svg",
     gallery: [
       {
@@ -215,6 +246,15 @@ export function getTeacherBySlug(slug: string): Teacher | undefined {
   return TEACHERS.find((t) => t.slug === slug);
 }
 
+/** "Gisselle Torres" → "Gisselle T." */
+export function shortDisplayName(fullName: string): string {
+  const parts = fullName.trim().split(/\s+/);
+  if (parts.length === 1) return parts[0];
+  const first = parts[0];
+  const last = parts[parts.length - 1];
+  return `${first} ${last[0].toUpperCase()}.`;
+}
+
 export type FeaturedQuote = Review & {
   teacherSlug: string;
   teacherName: string;
@@ -223,7 +263,7 @@ export type FeaturedQuote = Review & {
 };
 
 export const FEATURED_QUOTES: FeaturedQuote[] = TEACHERS.flatMap((t) =>
-  t.reviews.slice(0, 2).map((r) => ({
+  t.reviews.slice(0, 3).map((r) => ({
     ...r,
     teacherSlug: t.slug,
     teacherName: t.name,

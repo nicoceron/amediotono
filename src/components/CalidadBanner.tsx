@@ -9,14 +9,13 @@ export function CalidadBanner() {
     >
       <Reveal className="calidad-banner-inner">
         <h2 className="calidad-banner-title">
-          Profes elegidas a mano.
-          <br />
-          Y con oído.
+          Profes elegido{""}s a{" "}
+          <span className="calidad-banner-accent">mano</span>,{" "}
+          <span style={{ color: "white" }}>y</span>{" "}
+          <span className="calidad-banner-accent">oído</span>.
         </h2>
         <p className="calidad-banner-sub">
-          Evaluamos su técnica, su pedagogía y su calidez humana antes de su
-          primera clase contigo — porque tu tiempo y tu emoción merecen un
-          buen profe.
+          Evaluamos a los profes antes de su primera clase.
         </p>
       </Reveal>
     </section>

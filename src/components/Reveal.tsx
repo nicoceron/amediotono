@@ -1,67 +1,46 @@
 "use client";
 
-import {
-  createElement,
-  useEffect,
-  useRef,
-  useState,
-  type CSSProperties,
-  type ElementType,
-  type ReactNode,
-} from "react";
+import { motion, useReducedMotion } from "motion/react";
+import type { CSSProperties, ReactNode } from "react";
+
+type RevealAs = "div" | "article" | "section" | "li" | "ul" | "header" | "p";
 
 type RevealProps = {
   children: ReactNode;
-  as?: ElementType;
+  as?: RevealAs;
   className?: string;
   delay?: number;
-  threshold?: number;
+  amount?: number;
+  y?: number;
   style?: CSSProperties;
 };
 
 export function Reveal({
   children,
   as = "div",
-  className = "",
+  className,
   delay = 0,
-  threshold = 0.18,
+  amount = 0.18,
+  y = 28,
   style,
 }: RevealProps) {
-  const ref = useRef<HTMLElement | null>(null);
-  const [shown, setShown] = useState(false);
+  const reduce = useReducedMotion();
+  const Component = motion[as];
 
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    if (
-      typeof window !== "undefined" &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    ) {
-      setShown(true);
-      return;
-    }
-    const io = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            setShown(true);
-            io.unobserve(entry.target);
-          }
-        }
-      },
-      { threshold, rootMargin: "0px 0px -40px 0px" },
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, [threshold]);
-
-  return createElement(
-    as,
-    {
-      ref,
-      className: `reveal${shown ? " reveal--in" : ""}${className ? ` ${className}` : ""}`,
-      style: { ...style, transitionDelay: `${delay}ms` },
-    },
-    children,
+  return (
+    <Component
+      className={className}
+      style={style}
+      initial={reduce ? false : { opacity: 0, y }}
+      whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+      viewport={{ once: true, amount }}
+      transition={{
+        duration: 0.7,
+        ease: [0.22, 1, 0.36, 1],
+        delay: delay / 1000,
+      }}
+    >
+      {children}
+    </Component>
   );
 }
