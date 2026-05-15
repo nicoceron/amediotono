@@ -9,9 +9,8 @@ export function CalidadBanner() {
     >
       <Reveal className="calidad-banner-inner">
         <h2 className="calidad-banner-title">
-          Profes elegido{""}s a{" "}
-          <span className="calidad-banner-accent">mano</span>,{" "}
-          <span style={{ color: "white" }}>y</span>{" "}
+          Profes elegidos a{" "}
+          <span className="calidad-banner-accent">mano</span>, y{" "}
           <span className="calidad-banner-accent">oído</span>.
         </h2>
         <p className="calidad-banner-sub">

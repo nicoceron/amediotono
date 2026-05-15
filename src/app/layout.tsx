@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Chewy, Caveat, Nunito, Patrick_Hand } from "next/font/google";
+import { Manrope } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { SmoothScrollProvider } from "@/components/SmoothScrollProvider";
 
-const chewy = Chewy({ weight: "400", subsets: ["latin"], display: "swap", variable: "--font-caprasimo" });
-const caveat = Caveat({ subsets: ["latin"], display: "swap", variable: "--font-caveat" });
-const nunito = Nunito({ subsets: ["latin"], display: "swap", variable: "--font-nunito" });
-const patrick = Patrick_Hand({ weight: "400", subsets: ["latin"], display: "swap", variable: "--font-patrick" });
+const manrope = Manrope({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-manrope",
+});
 
 export const metadata: Metadata = {
   title: "A ½ tono — Escuela de Artes",
@@ -22,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-      <html lang="es" className={`antialiased ${chewy.variable} ${caveat.variable} ${nunito.variable} ${patrick.variable}`} suppressHydrationWarning>
+      <html lang="es" className={`antialiased ${manrope.variable}`} suppressHydrationWarning>
       <head />
       <body suppressHydrationWarning>
         <Script src="/theme-init.js" strategy="beforeInteractive" />

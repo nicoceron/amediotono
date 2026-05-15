@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { TEACHERS } from "@/lib/teachers";
 import { Reveal } from "@/components/Reveal";
@@ -35,21 +36,19 @@ export function ComoFuncionaSection() {
       id="como-funciona"
       data-screen-label="Cómo funciona"
     >
-      <div className="container">
+      <div className="container cf-container">
         <div className="cf-head">
           <h2 className="cf-title">
-            <span style={{ color: "var(--orange)", marginRight: 12 }}>
-              Cómo
-            </span>
-            <span style={{ color: "var(--ink)", marginRight: 12 }}>
-              funciona
-            </span>
-            <span style={{ color: "var(--orange)" }}>A</span>
-            <span style={{ color: "var(--red)", marginRight: 6 }}>½</span>
-            <span style={{ color: "var(--blue)" }}>t</span>
-            <span style={{ color: "var(--orange)" }}>o</span>
-            <span style={{ color: "var(--pink)" }}>n</span>
-            <span style={{ color: "var(--green)" }}>o</span>
+            <span style={{ color: "var(--orange)" }}>Cómo</span>{" "}
+            <span style={{ color: "var(--ink)" }}>funciona</span>{" "}
+            <Image
+              className="cf-title-logo"
+              src="/logo-nav.svg"
+              alt="A ½ tono"
+              width={1205}
+              height={300}
+              priority
+            />
           </h2>
         </div>
 
@@ -104,23 +103,19 @@ export function ComoFuncionaSection() {
 
               {i === 1 && (
                 <div className="cf-card-visual cf-visual-class">
-                  <div className="cf-class-images">
-                    <div className="cf-class-img-wrap" style={{ borderColor: "var(--orange)" }}>
-                      <img src="/profes/gisselle-torres.svg" alt="Giselle - Profe de Flauta" />
-                      <span style={{ color: "var(--orange)" }}>Giselle</span>
-                    </div>
-                    <div className="cf-class-img-wrap" style={{ borderColor: "var(--blue)" }}>
-                      <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=300&h=300&fit=crop&crop=face" alt="Estudiante" />
-                      <span style={{ color: "var(--blue)" }}>Tú</span>
-                    </div>
+                  <div className="cf-lesson-strip">
+                    <div className="cf-photo-tile"><img src="/comienza-a-aprender.gif" alt="" /></div>
+                    <div className="cf-photo-tile"><img src="/comienza-a-aprender.gif" alt="" /></div>
+                    <div className="cf-photo-tile"><img src="/comienza-a-aprender.gif" alt="" /></div>
+                    <div className="cf-photo-tile"><img src="/comienza-a-aprender.gif" alt="" /></div>
                   </div>
                 </div>
               )}
 
               {i === 2 && (
                 <div className="cf-card-visual cf-visual-progress">
-                  <div className="cf-progress-img-wrap">
-                    <img src="https://images.unsplash.com/photo-1552422535-c45813c61732?w=600&h=300&fit=crop" alt="Estudiante progressando" />
+                  <div className="cf-video-wrap">
+                    <img className="cf-video-main" src="/avanza-cada-semana.gif" alt="Avanza cada semana" />
                   </div>
                 </div>
               )}
