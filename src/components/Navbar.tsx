@@ -57,8 +57,12 @@ export function Navbar() {
 
         <div className="nav-right">
           <nav className="nav-links" id="navLinks">
+            <Link href="/profes">Profes</Link>
             <Link href="/nosotros">Nosotros</Link>
           </nav>
+          <Link className="nav-cta" href="/#contacto">
+            Contacto
+          </Link>
           <button
             className="theme-toggle"
             onClick={toggleTheme}
