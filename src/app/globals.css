@@ -2078,7 +2078,8 @@ footer.foot-rich {
 
 /* Voces strip */
 .voces-strip {
-  --voces-divider-height: clamp(56px, 6vw, 92px);
+  --voces-divider-height: clamp(34px, 3.8vw, 54px);
+  --voces-divider-opacity: 0.82;
   --voces-marquee-height: clamp(112px, 8vw, 148px);
   position: relative;
   z-index: 8;
@@ -2105,6 +2106,7 @@ footer.foot-rich {
   z-index: 0;
   height: var(--voces-divider-height);
   background: url("/voces-strip-divider.svg") center / 100% 100% no-repeat;
+  opacity: var(--voces-divider-opacity);
   pointer-events: none;
 }
 
@@ -2185,7 +2187,7 @@ footer.foot-rich {
 
 @media (max-width: 768px) {
   .voces-strip {
-    --voces-divider-height: 58px;
+    --voces-divider-height: 36px;
     --voces-marquee-height: 112px;
   }
   .voces-badge {
