@@ -4173,11 +4173,27 @@ footer.foot-rich {
 }
 @media (max-width: 980px) {
   .cf-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
+    display: flex;
+    gap: 12px;
     width: auto;
-    max-width: 680px;
-    margin: 0 auto;
+    max-width: none;
+    margin-left: -20px;
+    margin-right: -20px;
+    padding: 0 20px 8px;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scroll-padding-inline: 20px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .cf-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .cf-card {
+    flex: 0 0 min(390px, calc(100vw - 64px));
+    scroll-snap-align: start;
   }
 }
 .cf-card {
