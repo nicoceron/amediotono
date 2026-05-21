@@ -3422,7 +3422,7 @@ footer.foot-rich {
   height: 28px;
   padding: 0;
   border-radius: 6px;
-  background: color-mix(in srgb, var(--profe-color) 13%, white 87%);
+  background: transparent;
   color: color-mix(in srgb, var(--profe-color) 76%, var(--ink));
   font-weight: 850;
 }
@@ -3547,15 +3547,15 @@ footer.foot-rich {
   align-content: space-evenly;
   margin: 0;
   padding: 12px 12px;
-  border: 1.5px solid color-mix(in srgb, var(--profe-color) 34%, var(--ink) 12%);
+  border: 0;
   border-radius: 8px;
-  background: var(--paper);
+  background: transparent;
   color: var(--ink-soft);
   font-size: 14px;
   font-weight: 800;
   line-height: 1.24;
   min-height: 0;
-  box-shadow: 2px 2px 0 color-mix(in srgb, var(--ink) 12%, transparent);
+  box-shadow: none;
 }
 .profe-card-action-details li {
   display: flex;
