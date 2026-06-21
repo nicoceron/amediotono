@@ -1153,7 +1153,9 @@ section.voces-block {
   position: relative;
   width: 100%;
   overflow: hidden;
-  padding: 0 0 8px;
+  padding: 0 0 12px;
+  cursor: grab;
+  touch-action: pan-y;
   -webkit-mask-image: linear-gradient(
     to right,
     transparent 0,
@@ -1168,6 +1170,14 @@ section.voces-block {
     #000 calc(100% - 80px),
     transparent 100%
   );
+}
+.voces-marquee:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--pink) 70%, white);
+  outline-offset: 8px;
+}
+.voces-marquee--dragging {
+  cursor: grabbing;
+  user-select: none;
 }
 
 /* Soft floating color halos behind the cards */
@@ -1207,6 +1217,7 @@ section.voces-block {
   display: flex;
   gap: 20px;
   width: max-content;
+  padding: 0 8px 4px;
   will-change: transform;
 }
 
@@ -4806,14 +4817,12 @@ footer.foot-rich {
   }
 
   .voces-marquee {
-    padding-bottom: 0;
+    margin-left: -16px;
+    margin-right: -16px;
+    padding: 0 16px 8px;
     overflow: hidden;
     -webkit-mask-image: none;
     mask-image: none;
-  }
-
-  .voces-marquee::-webkit-scrollbar {
-    display: none;
   }
 
   .voces-marquee-track {
