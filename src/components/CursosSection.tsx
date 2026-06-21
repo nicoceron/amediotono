@@ -19,21 +19,6 @@ function courseCountLabel(course: Course) {
   return `${count} ${count === 1 ? "profe disponible" : "profes disponibles"}`;
 }
 
-function SectionHeader({ eyebrow, title, sub, titleColors }: { eyebrow?: string; title: string; sub?: string; titleColors?: string[] }) {
-  const words = title.split(" ");
-  return (
-    <div className="sec-head">
-      {eyebrow && <div className="sec-eyebrow">{eyebrow}</div>}
-      <h2>
-        {titleColors
-          ? words.map((w, i) => <span key={i} style={{ color: titleColors[i] || "inherit", marginRight: 12, display: "inline-block" }}>{w}</span>)
-          : title}
-      </h2>
-      {sub && <div className="sec-sub">{sub}</div>}
-    </div>
-  );
-}
-
 function CourseCard({ course }: { course: Course }) {
   return (
     <Link
@@ -56,10 +41,15 @@ function CourseCard({ course }: { course: Course }) {
 export function CursosSection() {
   return (
     <section className="block courses-section" id="cursos" data-screen-label="Cursos">
+      <div className="hero-cloud-separator" aria-hidden="true">
+        <Image
+          src="/hero-cloud-separator.png"
+          alt=""
+          fill
+          sizes="100vw"
+        />
+      </div>
       <div className="container">
-        <div className="courses-head-strip">
-          <SectionHeader title="No aprendas solo. Toca mejor acompañado." />
-        </div>
         <div className="courses-grid">
           {MAIN_COURSES.map((course) => (
             <CourseCard course={course} key={course.id} />
