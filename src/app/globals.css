@@ -13,10 +13,12 @@
   --purple: #8B5CF6;
   --deep-purple: #1a0e2c;
 
-  --bg: #FFF8EE;
-  --bg-1: var(--bg);
-  --bg-2: #FBEFE0;
-  --paper: #FFFDF7;
+  --bg: #fff;
+  --bg-1: #fff;
+  --bg-2: #fff;
+  --paper: #fff;
+  --hero-overlay-bg: var(--bg);
+  --hero-overlay-opacity: 0.07;
   --ink: #2A1B3D;
   --ink-soft: #5C4A6E;
   --line: #2A1B3D;
@@ -78,6 +80,8 @@
   --ink: #FFF8EE;
   --ink-soft: #C8B8DC;
   --line: #FFF8EE;
+  --hero-overlay-bg: var(--bg);
+  --hero-overlay-opacity: 0.2;
   --course-icon-filter: invert(1) brightness(1.5);
 }
 
@@ -394,8 +398,8 @@ body:has(.hero-with-bg) .topnav {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: var(--bg);
-  opacity: 0.2;
+  background: var(--hero-overlay-bg);
+  opacity: var(--hero-overlay-opacity);
   animation: hero-overlay-fade 1.5s 0.3s both;
 }
 .hero-bg-layer {
@@ -483,7 +487,7 @@ body:has(.hero-with-bg) .topnav {
 
 @keyframes hero-overlay-fade {
   from { opacity: 0; }
-  to { opacity: 0.2; }
+  to { opacity: var(--hero-overlay-opacity); }
 }
 
 @keyframes hero-logo-reveal {
@@ -663,37 +667,32 @@ main > section.block:first-child { padding-top: 64px; }
 
 /* Cursos */
 section.block.courses-section {
+  --cloud-height: calc(100vw * 1026 / 6400);
   background: var(--bg-1);
+  background: linear-gradient(
+    to bottom,
+    transparent 0 calc(var(--cloud-height) * 0.5),
+    var(--bg-1) calc(var(--cloud-height) * 0.5) 100%
+  );
   padding-top: 0;
+}
+
+.hero-cloud-separator {
+  position: relative;
+  width: 100%;
+  height: var(--cloud-height);
+  margin-bottom: 40px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero-cloud-separator img {
+  object-fit: contain;
+  object-position: center top;
 }
 
 .courses-section .container {
   max-width: 1280px;
-}
-
-.courses-section .sec-head {
-  margin-bottom: 0;
-}
-
-.courses-head-strip {
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-  margin-bottom: 40px;
-  padding: 44px 20px;
-  background: var(--pink);
-  color: var(--deep-purple);
-  text-align: center;
-}
-
-.courses-head-strip h2 {
-  max-width: 980px;
-  margin: 0 auto;
-  color: var(--deep-purple);
-}
-
-.courses-head-strip .sec-head {
-  max-width: none;
 }
 
 .courses-grid {
@@ -4508,14 +4507,8 @@ footer.foot-rich {
     line-height: 1;
   }
 
-  .courses-head-strip {
+  .hero-cloud-separator {
     margin-bottom: 12px;
-    padding: 20px 16px;
-  }
-
-  .courses-head-strip h2 {
-    font-size: clamp(1.55rem, 6.5vw, 1.85rem);
-    line-height: 1.02;
   }
 
   .courses-grid {
