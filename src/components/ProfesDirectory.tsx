@@ -584,41 +584,38 @@ export function ProfesDirectory({ teachers }: { teachers: Teacher[] }) {
               onSelect={(value) => updateFilters({ languageFilter: value })}
             />
           </div>
+
+          <div className="profes-desktop-keyword">
+            <label className="profes-keyword-field">
+              <Search size={18} strokeWidth={2.4} aria-hidden="true" />
+              <input
+                type="search"
+                value={keywordQuery}
+                onChange={(event) => updateFilters({ keywordQuery: event.target.value })}
+                placeholder="Buscar profe"
+                aria-label="Buscar por nombre o palabra clave"
+              />
+              {keywordQuery && (
+                <button
+                  type="button"
+                  className="profes-filter-clear"
+                  onClick={() => updateFilters({ keywordQuery: "" })}
+                  aria-label="Limpiar búsqueda"
+                >
+                  <CircleX size={18} strokeWidth={2.4} aria-hidden="true" />
+                </button>
+              )}
+            </label>
+          </div>
         </div>
 
-        <div
-          className={
-            hasActiveFilters
-              ? "profes-filter-row profes-filter-row-secondary has-clear"
-              : "profes-filter-row profes-filter-row-secondary"
-          }
-        >
-          <label className="profes-keyword-field">
-            <Search size={18} strokeWidth={2.4} aria-hidden="true" />
-            <input
-              type="search"
-              value={keywordQuery}
-              onChange={(event) => updateFilters({ keywordQuery: event.target.value })}
-              placeholder="Buscar profe"
-              aria-label="Buscar por nombre o palabra clave"
-            />
-            {keywordQuery && (
-              <button
-                type="button"
-                className="profes-filter-clear"
-                onClick={() => updateFilters({ keywordQuery: "" })}
-                aria-label="Limpiar búsqueda"
-              >
-                <CircleX size={18} strokeWidth={2.4} aria-hidden="true" />
-              </button>
-            )}
-          </label>
-          {hasActiveFilters && (
+        {hasActiveFilters && (
+          <div className="profes-filter-row profes-filter-row-secondary has-clear">
             <button type="button" className="profes-clear-filters" onClick={clearFilters}>
               Limpiar filtros
             </button>
-          )}
-        </div>
+          </div>
+        )}
 
       </form>
 
