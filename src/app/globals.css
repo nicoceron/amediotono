@@ -2383,11 +2383,12 @@ footer.foot-rich {
 
 /* ===== Profes index — Preply-style large cards ===== */
 .sec-head.profes-page-head {
-  max-width: 850px;
-  margin-bottom: 32px;
+  width: 100%;
+  max-width: 1280px;
+  margin-bottom: 16px;
   margin-left: auto;
   margin-right: auto;
-  text-align: left;
+  text-align: center;
 }
 
 .sec-head.profes-page-head h1 {
@@ -2401,7 +2402,7 @@ footer.foot-rich {
 }
 
 .profes-directory {
-  max-width: 850px;
+  max-width: 1280px;
   margin: 0 auto;
 }
 
@@ -2413,14 +2414,14 @@ footer.foot-rich {
   flex-direction: column;
   gap: 8px;
   width: 100%;
-  max-width: 850px;
+  max-width: 1280px;
   box-sizing: border-box;
-  margin: -20px auto 24px;
-  padding: 10px;
-  background: color-mix(in srgb, var(--bg-1) 88%, white 12%);
-  border: 1px solid color-mix(in srgb, var(--ink) 12%, transparent);
-  border-radius: 8px;
-  box-shadow: 0 16px 28px color-mix(in srgb, black 7%, transparent);
+  margin: 0 auto 16px;
+  padding: 16px 0;
+  background: var(--paper);
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .profes-filter-row {
@@ -2429,36 +2430,38 @@ footer.foot-rich {
 }
 
 .profes-filter-row-main {
-  grid-template-columns: minmax(220px, 1.45fr) repeat(3, minmax(150px, 1fr));
+  grid-template-columns:
+    minmax(190px, 1.45fr)
+    repeat(3, minmax(118px, 0.9fr))
+    minmax(190px, 269px);
 }
 
 .profes-filter-row-secondary {
   display: flex;
   flex-wrap: wrap;
   align-items: start;
+  justify-content: flex-end;
   overflow: visible;
-}
-
-.profes-filter-row-secondary .profes-keyword-field {
-  flex: 1 1 300px;
 }
 
 .profes-filter-row-secondary > * {
   min-width: 0;
 }
 
-.profes-desktop-filter {
+.profes-desktop-filter,
+.profes-desktop-keyword {
   min-width: 0;
 }
 
-.profes-desktop-filter > .profes-filter-card {
+.profes-desktop-filter > .profes-filter-card,
+.profes-desktop-keyword > .profes-keyword-field {
   height: 100%;
 }
 
 .profes-filter-card,
 .profes-keyword-field,
 .profes-sort-field {
-  min-height: 56px;
+  min-height: 48px;
   position: relative;
   display: flex;
   align-items: center;
@@ -2481,7 +2484,7 @@ footer.foot-rich {
   align-items: stretch;
   justify-content: center;
   gap: 3px;
-  padding: 9px 12px;
+  padding: 7px 16px;
   cursor: text;
 }
 
@@ -2490,7 +2493,7 @@ footer.foot-rich {
   min-width: 0;
   overflow: hidden;
   color: var(--ink-soft);
-  font-size: 0.76rem;
+  font-size: 0.78rem;
   font-weight: 750;
   line-height: 1;
   text-overflow: ellipsis;
@@ -2515,7 +2518,7 @@ footer.foot-rich {
   background: transparent;
   color: var(--ink);
   font: inherit;
-  font-size: 0.98rem;
+  font-size: 1rem;
   font-weight: 800;
   letter-spacing: 0;
 }
@@ -2624,12 +2627,12 @@ footer.foot-rich {
 }
 
 .profes-menu-summary {
-  min-height: 56px;
+  min-height: 48px;
   display: grid;
   grid-template-columns: minmax(0, 1fr) 24px;
   align-items: center;
   gap: 8px;
-  padding: 9px 12px;
+  padding: 7px 16px;
   list-style: none;
   cursor: pointer;
 }
@@ -2643,7 +2646,7 @@ footer.foot-rich {
   min-width: 0;
   overflow: hidden;
   color: var(--ink);
-  font-size: 0.98rem;
+  font-size: 1rem;
   font-weight: 850;
   line-height: 1.15;
   text-overflow: ellipsis;
@@ -2760,7 +2763,7 @@ footer.foot-rich {
 }
 
 .profes-clear-filters {
-  min-height: 56px;
+  min-height: 48px;
   padding: 0 14px;
   border: 1px solid color-mix(in srgb, var(--ink) 18%, transparent);
   border-radius: 8px;
@@ -2914,9 +2917,9 @@ footer.foot-rich {
 }
 
 .profes-search-fallback {
-  height: 148px;
-  max-width: 850px;
-  margin: -20px auto 24px;
+  height: 128px;
+  max-width: 1280px;
+  margin: 0 auto 16px;
 }
 
 .profes-empty {
@@ -2974,8 +2977,8 @@ footer.foot-rich {
   }
 
   .sec-head.profes-page-head h1 {
-    font-size: 48px;
-    line-height: 52px;
+    font-size: clamp(38px, 10.4vw, 48px);
+    line-height: 1.08;
   }
 
   .profes-search-panel {
@@ -2995,6 +2998,10 @@ footer.foot-rich {
   }
 
   .profes-desktop-filter {
+    display: none;
+  }
+
+  .profes-desktop-keyword {
     display: none;
   }
 
@@ -3709,6 +3716,19 @@ footer.foot-rich {
   .profe-card-action-details {
     gap: 4px 6px;
     font-size: 12.5px;
+    overflow: hidden;
+  }
+
+  .profe-card-action-details li {
+    min-width: 0;
+    white-space: normal;
+  }
+
+  .profe-card-action-details span {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 }
 
@@ -4906,5 +4926,40 @@ footer.foot-rich {
     justify-self: stretch;
     width: 100%;
     margin-top: 8px;
+  }
+}
+
+@media (max-width: 560px) {
+  #profes-page .sec-head.profes-page-head h1 {
+    max-width: 280px;
+    font-size: 34px;
+    line-height: 1.1;
+  }
+
+  #profes-page .profes-search-panel {
+    overflow: hidden;
+  }
+
+  #profes-page .profes-filter-row-main {
+    grid-template-columns: minmax(0, 1fr) 48px 48px;
+  }
+
+  #profes-page .profes-filter-row-main.has-mobile-filter-count {
+    grid-template-columns: minmax(0, 1fr) 78px 48px;
+  }
+
+  #profes-page .profes-mobile-filter-summary,
+  #profes-page .profes-mobile-keyword-summary {
+    width: 48px;
+  }
+
+  #profes-page .profes-filter-row-main.has-mobile-filter-count .profes-mobile-filter-summary {
+    width: 78px;
+  }
+
+  #profes-page .profe-card-actions,
+  #profes-page .profe-card-action-details,
+  #profes-page .profe-card-action-details li {
+    min-width: 0;
   }
 }
