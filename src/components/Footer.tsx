@@ -16,11 +16,19 @@ export function Footer() {
       <div className="container foot-grid">
         <div className="foot-brand">
           <Image
-            src="/logo-hero-4c023bde.svg"
-            alt="A ½ tono — Escuela de artes"
-            width={160}
-            height={120}
-            className="foot-logo-img"
+            src="/logo-nav-947b682d.svg"
+            alt="A medio tono"
+            width={1205}
+            height={300}
+            className="foot-logo-img logo-desktop-wordmark"
+            unoptimized
+          />
+          <Image
+            src="/logo-mark-transparent.png"
+            alt="A medio tono"
+            width={48}
+            height={42}
+            className="foot-logo-img logo-mobile-mark"
           />
           <p className="foot-tagline">
             Una escuela donde el arte se vive,
