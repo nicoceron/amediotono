@@ -1225,7 +1225,9 @@ section.voces-block {
   position: relative;
   width: 100%;
   overflow: hidden;
-  padding: 0 0 8px;
+  padding: 0 0 12px;
+  cursor: grab;
+  touch-action: pan-y;
   -webkit-mask-image: linear-gradient(
     to right,
     transparent 0,
@@ -1240,6 +1242,14 @@ section.voces-block {
     #000 calc(100% - 80px),
     transparent 100%
   );
+}
+.voces-marquee:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--pink) 70%, white);
+  outline-offset: 8px;
+}
+.voces-marquee--dragging {
+  cursor: grabbing;
+  user-select: none;
 }
 
 /* Soft floating color halos behind the cards */
@@ -1279,6 +1289,7 @@ section.voces-block {
   display: flex;
   gap: 20px;
   width: max-content;
+  padding: 0 8px 4px;
   will-change: transform;
 }
 
@@ -1360,9 +1371,10 @@ section.jobs-cta-section {
 .jobs-cta-card {
   --jobs-card-accent: var(--pink);
   display: grid;
-  grid-template-columns: minmax(280px, 0.92fr) minmax(0, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   width: calc(100% + 40px);
-  min-height: clamp(520px, 48vw, 650px);
+  max-width: 1280px;
+  min-height: 658px;
   margin-left: -20px;
   margin-right: -20px;
   overflow: hidden;
@@ -4921,14 +4933,12 @@ footer.foot-rich {
   }
 
   .voces-marquee {
-    padding-bottom: 0;
+    margin-left: -16px;
+    margin-right: -16px;
+    padding: 0 16px 8px;
     overflow: hidden;
     -webkit-mask-image: none;
     mask-image: none;
-  }
-
-  .voces-marquee::-webkit-scrollbar {
-    display: none;
   }
 
   .voces-marquee-track {

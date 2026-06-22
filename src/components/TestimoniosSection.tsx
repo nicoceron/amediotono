@@ -8,7 +8,16 @@ import {
   useMotionValue,
   useReducedMotion,
 } from "motion/react";
-import { useRef, useState, type CSSProperties } from "react";
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type CSSProperties,
+  type KeyboardEvent,
+  type MouseEvent,
+  type PointerEvent,
+} from "react";
 import { FEATURED_QUOTES } from "@/lib/teachers";
 
 function trimQuote(text: string, maxChars = 130): string {
@@ -18,25 +27,221 @@ function trimQuote(text: string, maxChars = 130): string {
   return `${slice.slice(0, lastSpace > 0 ? lastSpace : maxChars).trim()}…`;
 }
 
-const SPEED = 38; // px/sec
+const DRAG_THRESHOLD = 4;
+const AUTO_SPEED = 38; // px/sec
+const KEYBOARD_STEP = 320;
+const MOMENTUM_DECAY = 0.0042;
+const MIN_MOMENTUM_VELOCITY = 0.025;
+const MAX_MOMENTUM_VELOCITY = 2.4;
+
+type DragState = {
+  pointerId: number | null;
+  startClientX: number;
+  startOffset: number;
+  lastClientX: number;
+  lastTime: number;
+  velocity: number;
+  moved: boolean;
+};
+
+function wrapOffset(value: number, width: number) {
+  if (width <= 0) return value;
+  const wrapped = ((value % width) + width) % width;
+  return wrapped === 0 ? 0 : wrapped - width;
+}
+
+function clampVelocity(velocity: number) {
+  return Math.max(
+    -MAX_MOMENTUM_VELOCITY,
+    Math.min(MAX_MOMENTUM_VELOCITY, velocity),
+  );
+}
 
 export function TestimoniosSection() {
   const reduce = useReducedMotion();
   const trackRef = useRef<HTMLDivElement>(null);
+  const suppressClickResetRef = useRef<number | null>(null);
+  const momentumFrameRef = useRef<number | null>(null);
+  const dragRef = useRef<DragState>({
+    pointerId: null,
+    startClientX: 0,
+    startOffset: 0,
+    lastClientX: 0,
+    lastTime: 0,
+    velocity: 0,
+    moved: false,
+  });
+  const suppressClickRef = useRef(false);
   const x = useMotionValue(0);
-  const [paused, setPaused] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
 
   const items = [...FEATURED_QUOTES, ...FEATURED_QUOTES];
 
-  useAnimationFrame((_, delta) => {
-    if (reduce || paused) return;
+  const getLoopWidth = useCallback(() => {
     const track = trackRef.current;
-    if (!track) return;
-    const halfWidth = track.scrollWidth / 2;
-    if (halfWidth === 0) return;
-    let next = x.get() - (SPEED * delta) / 1000;
-    if (-next >= halfWidth) next += halfWidth;
-    x.set(next);
+    return track ? track.scrollWidth / 2 : 0;
+  }, []);
+
+  const setWrappedOffset = useCallback(
+    (next: number) => {
+      x.set(wrapOffset(next, getLoopWidth()));
+    },
+    [getLoopWidth, x],
+  );
+
+  const stopMomentum = useCallback(() => {
+    if (momentumFrameRef.current) {
+      window.cancelAnimationFrame(momentumFrameRef.current);
+      momentumFrameRef.current = null;
+    }
+  }, []);
+
+  const startMomentum = useCallback(
+    (initialVelocity: number) => {
+      stopMomentum();
+
+      if (reduce || Math.abs(initialVelocity) < MIN_MOMENTUM_VELOCITY) return;
+
+      let velocity = clampVelocity(initialVelocity);
+      let previous = performance.now();
+
+      const tick = (now: number) => {
+        const delta = Math.min(now - previous, 32);
+        previous = now;
+
+        setWrappedOffset(x.get() + velocity * delta);
+        velocity *= Math.exp(-MOMENTUM_DECAY * delta);
+
+        if (Math.abs(velocity) >= MIN_MOMENTUM_VELOCITY) {
+          momentumFrameRef.current = window.requestAnimationFrame(tick);
+          return;
+        }
+
+        momentumFrameRef.current = null;
+      };
+
+      momentumFrameRef.current = window.requestAnimationFrame(tick);
+    },
+    [reduce, setWrappedOffset, stopMomentum, x],
+  );
+
+  const handlePointerDown = useCallback(
+    (event: PointerEvent<HTMLDivElement>) => {
+      if (!event.isPrimary) return;
+      if (event.pointerType === "mouse" && event.button !== 0) return;
+
+      stopMomentum();
+
+      dragRef.current = {
+        pointerId: event.pointerId,
+        startClientX: event.clientX,
+        startOffset: x.get(),
+        lastClientX: event.clientX,
+        lastTime: performance.now(),
+        velocity: 0,
+        moved: false,
+      };
+      setIsDragging(true);
+      event.currentTarget.setPointerCapture(event.pointerId);
+    },
+    [stopMomentum, x],
+  );
+
+  const handlePointerMove = useCallback(
+    (event: PointerEvent<HTMLDivElement>) => {
+      const drag = dragRef.current;
+      if (drag.pointerId !== event.pointerId) return;
+
+      const delta = event.clientX - drag.startClientX;
+      if (Math.abs(delta) <= DRAG_THRESHOLD && !drag.moved) return;
+
+      const now = performance.now();
+      const elapsed = Math.max(now - drag.lastTime, 1);
+      drag.velocity = (event.clientX - drag.lastClientX) / elapsed;
+      drag.lastClientX = event.clientX;
+      drag.lastTime = now;
+      drag.moved = true;
+      event.preventDefault();
+      setWrappedOffset(drag.startOffset + delta);
+    },
+    [setWrappedOffset],
+  );
+
+  const finishDrag = useCallback(
+    (event: PointerEvent<HTMLDivElement>) => {
+      const drag = dragRef.current;
+      if (drag.pointerId !== event.pointerId) return;
+
+      const didMove = drag.moved;
+      const velocity = drag.velocity;
+      suppressClickRef.current = didMove;
+      if (suppressClickResetRef.current) {
+        window.clearTimeout(suppressClickResetRef.current);
+      }
+      suppressClickResetRef.current = window.setTimeout(() => {
+        suppressClickRef.current = false;
+        suppressClickResetRef.current = null;
+      }, 350);
+      dragRef.current = {
+        pointerId: null,
+        startClientX: 0,
+        startOffset: 0,
+        lastClientX: 0,
+        lastTime: 0,
+        velocity: 0,
+        moved: false,
+      };
+      setIsDragging(false);
+
+      if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+        event.currentTarget.releasePointerCapture(event.pointerId);
+      }
+
+      if (didMove) {
+        startMomentum(velocity);
+      }
+    },
+    [startMomentum],
+  );
+
+  const handleClickCapture = useCallback((event: MouseEvent<HTMLDivElement>) => {
+    if (!suppressClickRef.current) return;
+
+    suppressClickRef.current = false;
+    if (suppressClickResetRef.current) {
+      window.clearTimeout(suppressClickResetRef.current);
+      suppressClickResetRef.current = null;
+    }
+    event.preventDefault();
+    event.stopPropagation();
+  }, []);
+
+  const handleKeyDown = useCallback(
+    (event: KeyboardEvent<HTMLDivElement>) => {
+      if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+
+      event.preventDefault();
+      stopMomentum();
+      setWrappedOffset(
+        x.get() + (event.key === "ArrowLeft" ? KEYBOARD_STEP : -KEYBOARD_STEP),
+      );
+    },
+    [setWrappedOffset, stopMomentum, x],
+  );
+
+  useEffect(() => {
+    return () => {
+      stopMomentum();
+      if (suppressClickResetRef.current) {
+        window.clearTimeout(suppressClickResetRef.current);
+      }
+    };
+  }, [stopMomentum]);
+
+  useAnimationFrame((_, delta) => {
+    if (reduce || isDragging || momentumFrameRef.current) return;
+
+    setWrappedOffset(x.get() - (AUTO_SPEED * delta) / 1000);
   });
 
   return (
@@ -51,9 +256,18 @@ export function TestimoniosSection() {
         </div>
 
         <div
-          className="voces-marquee"
-          onPointerEnter={() => setPaused(true)}
-          onPointerLeave={() => setPaused(false)}
+          className={`voces-marquee${isDragging ? " voces-marquee--dragging" : ""}`}
+          data-lenis-prevent="true"
+          tabIndex={0}
+          aria-label="Reseñas de familias"
+          onPointerDown={handlePointerDown}
+          onPointerMove={handlePointerMove}
+          onPointerUp={finishDrag}
+          onPointerCancel={finishDrag}
+          onLostPointerCapture={finishDrag}
+          onClickCapture={handleClickCapture}
+          onDragStart={(event) => event.preventDefault()}
+          onKeyDown={handleKeyDown}
         >
           <span className="voces-halo voces-halo-1" aria-hidden="true" />
           <span className="voces-halo voces-halo-2" aria-hidden="true" />
@@ -69,6 +283,7 @@ export function TestimoniosSection() {
                 key={`${q.id}-${i}`}
                 className="voces-card-link"
                 aria-label={`Ver perfil de ${q.teacherName}`}
+                draggable={false}
               >
                 <article
                   className="voces-card"
