@@ -57,13 +57,21 @@ export function Navbar() {
         <div className="nav-top">
           <Link href="/" className="nav-logo" aria-label="A medio tono — inicio" onClick={() => setMenuOpen(false)}>
             <Image
-              className="nav-logo-img"
+              className="nav-logo-img logo-desktop-wordmark"
               src="/logo-nav-947b682d.svg"
-              alt="A ½ tono"
+              alt="A medio tono"
               width={1205}
               height={300}
-              priority
-              style={{ width: "100%", height: "auto" }}
+              loading="eager"
+              unoptimized
+            />
+            <Image
+              className="nav-logo-img logo-mobile-mark"
+              src="/logo-mark-transparent.png"
+              alt="A medio tono"
+              width={48}
+              height={42}
+              loading="eager"
             />
           </Link>
 

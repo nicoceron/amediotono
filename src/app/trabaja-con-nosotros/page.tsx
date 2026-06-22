@@ -45,8 +45,17 @@ export default function TrabajaConNosotrosPage() {
               alt="A medio tono"
               width={1205}
               height={300}
-              priority
-              className="job-logo"
+              loading="eager"
+              className="job-logo logo-desktop-wordmark"
+              unoptimized
+            />
+            <Image
+              src="/logo-mark-transparent.png"
+              alt="A medio tono"
+              width={48}
+              height={42}
+              loading="eager"
+              className="job-logo logo-mobile-mark"
             />
           </header>
 
