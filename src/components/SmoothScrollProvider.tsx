@@ -4,6 +4,8 @@ import { useEffect, useRef } from "react";
 import Lenis from "lenis";
 import { usePathname } from "next/navigation";
 
+const SMOOTH_SCROLL_DISABLED_PATHS = new Set(["/trabaja-con-nosotros"]);
+
 function getElementByHash(hash: string) {
   const id = hash.startsWith("#") ? hash.slice(1) : hash;
   if (!id) return null;
@@ -38,11 +40,18 @@ function scrollToTop(lenis: Lenis | null) {
 
 export function SmoothScrollProvider({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+  const smoothScrollDisabled = SMOOTH_SCROLL_DISABLED_PATHS.has(pathname);
   const isInitialPath = useRef(true);
   const isHistoryNavigation = useRef(false);
   const lenisRef = useRef<Lenis | null>(null);
 
   useEffect(() => {
+    if (smoothScrollDisabled) {
+      lenisRef.current?.destroy();
+      lenisRef.current = null;
+      return;
+    }
+
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const lenis = prefersReducedMotion
       ? null
@@ -112,7 +121,7 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
       lenis?.destroy();
       lenisRef.current = null;
     };
-  }, []);
+  }, [smoothScrollDisabled]);
 
   useEffect(() => {
     if (isInitialPath.current) {
@@ -121,6 +130,11 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
     }
 
     if (isHistoryNavigation.current) {
+      isHistoryNavigation.current = false;
+      return;
+    }
+
+    if (smoothScrollDisabled) {
       isHistoryNavigation.current = false;
       return;
     }
@@ -138,7 +152,7 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
     });
 
     return () => window.cancelAnimationFrame(frame);
-  }, [pathname]);
+  }, [pathname, smoothScrollDisabled]);
 
   return <>{children}</>;
 }
