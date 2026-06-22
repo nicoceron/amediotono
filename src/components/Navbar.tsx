@@ -23,13 +23,24 @@ function useTheme() {
 }
 
 export function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const theme = useTheme();
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 80);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMenuOpen(false);
+    };
+
+    const handleResize = () => {
+      if (window.innerWidth >= 810) setMenuOpen(false);
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   const toggleTheme = () => {
@@ -38,33 +49,48 @@ export function Navbar() {
     localStorage.setItem("tono-theme", next);
   };
 
-  const navClasses = ["topnav", scrolled ? "topnav--scrolled" : ""].join(" ");
+  const navClasses = ["topnav", menuOpen ? "topnav--open" : ""].join(" ");
 
   return (
     <header className={navClasses}>
-      <div className="container topnav-inner">
-        <Link href="/" className="nav-logo" aria-label="A medio tono — inicio">
-          <Image
-            className="nav-logo-img"
-            src="/logo-nav-947b682d.svg"
-            alt="A ½ tono"
-            width={1205}
-            height={300}
-            priority
-            style={{ width: "100%", height: "auto" }}
-          />
-        </Link>
+      <div className="topnav-inner">
+        <div className="nav-top">
+          <Link href="/" className="nav-logo" aria-label="A medio tono — inicio" onClick={() => setMenuOpen(false)}>
+            <Image
+              className="nav-logo-img"
+              src="/logo-nav-947b682d.svg"
+              alt="A ½ tono"
+              width={1205}
+              height={300}
+              priority
+              style={{ width: "100%", height: "auto" }}
+            />
+          </Link>
 
-        <div className="nav-right">
+          <button
+            type="button"
+            className="nav-menu-toggle"
+            aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
+            aria-controls="navMenu"
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen((open) => !open)}
+          >
+            <span aria-hidden="true" />
+            <span aria-hidden="true" />
+          </button>
+        </div>
+
+        <div className="nav-right" id="navMenu">
           <nav className="nav-links" id="navLinks">
-            <Link href="/profes">Profes</Link>
-            <Link href="/nosotros">Nosotros</Link>
+            <Link href="/profes" onClick={() => setMenuOpen(false)}>Profes</Link>
+            <Link href="/nosotros" onClick={() => setMenuOpen(false)}>Nosotros</Link>
           </nav>
-          <Link className="nav-cta" href="/#contacto">
+          <Link className="nav-cta" href="/#contacto" onClick={() => setMenuOpen(false)}>
             Contacto
           </Link>
           <button
             className="theme-toggle"
+            type="button"
             onClick={toggleTheme}
             aria-label={
               theme === "dark"
