@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import { Manrope } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
@@ -18,6 +17,32 @@ export const metadata: Metadata = {
   description: "Descubre tu pasión por el arte. Música, canto, piano, violín, guitarra, batería, arte y más. Para todas las edades.",
 };
 
+const themeInitScript = `
+  (function() {
+    try {
+      var root = document.documentElement;
+      var media = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+      var stored = localStorage.getItem('tono-theme');
+      var theme = stored || (media && media.matches ? 'dark' : 'light');
+      var applyTheme = function(next) {
+        root.setAttribute('data-theme', next);
+      };
+      applyTheme(theme);
+      requestAnimationFrame(function() {
+        root.setAttribute('data-theme-ready', 'true');
+      });
+      if (media && media.addEventListener) {
+        media.addEventListener('change', function(event) {
+          if (!localStorage.getItem('tono-theme')) applyTheme(event.matches ? 'dark' : 'light');
+        });
+      }
+    } catch (error) {
+      document.documentElement.setAttribute('data-theme', 'light');
+      document.documentElement.setAttribute('data-theme-ready', 'true');
+    }
+  })();
+`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -25,9 +50,10 @@ export default function RootLayout({
 }>) {
   return (
       <html lang="es" className={`antialiased ${manrope.variable}`} suppressHydrationWarning>
-      <head />
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
       <body suppressHydrationWarning>
-        <Script src="/theme-init.js" strategy="beforeInteractive" />
         <SmoothScrollProvider>
           <Navbar />
           <main id="top">
