@@ -257,7 +257,6 @@ export function TestimoniosSection() {
 
         <div
           className={`voces-marquee${isDragging ? " voces-marquee--dragging" : ""}`}
-          data-lenis-prevent="true"
           tabIndex={0}
           aria-label="Reseñas de familias"
           onPointerDown={handlePointerDown}
