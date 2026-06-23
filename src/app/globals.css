@@ -49,7 +49,7 @@
   --font-hand-2:  var(--font-manrope), Manrope, "Noto Sans", system-ui, sans-serif;
   --font-mono:    ui-monospace, "SF Mono", Menlo, monospace;
 
-  /* Preply uses 14px root */
+  /* Coursify reference keeps a 14px root in the Framer export */
   --base-size: 14px;
 
   /* Preply spacing scale (px) */
@@ -69,20 +69,38 @@
   --space-96: 96px;
   --space-160: 160px;
 
-  /* Preply font-size scale (px) */
+  /* Coursify font-size scale (px) */
+  --fs-10: 10px;
   --fs-12: 12px;
   --fs-14: 14px;
   --fs-16: 16px;
   --fs-18: 18px;
   --fs-20: 20px;
+  --fs-22: 22px;
   --fs-24: 24px;
+  --fs-26: 26px;
   --fs-28: 28px;
   --fs-32: 32px;
+  --fs-36: 36px;
   --fs-40: 40px;
+  --fs-46: 46px;
   --fs-48: 48px;
   --fs-56: 56px;
+  --fs-58: 58px;
   --fs-64: 64px;
+  --fs-72: 72px;
   --fs-96: 96px;
+
+  --type-hero: var(--fs-72);
+  --type-section: var(--fs-58);
+  --type-card-title: var(--fs-28);
+  --type-large-body: var(--fs-24);
+  --type-subtitle: var(--fs-20);
+  --type-signature: var(--fs-32);
+  --type-body-lg: var(--fs-18);
+  --type-body: var(--fs-16);
+  --type-meta: var(--fs-14);
+  --type-tiny: var(--fs-10);
 
   /* Card radii */
   --radius-sm: 4px;
@@ -101,6 +119,27 @@
     color 0.4s cubic-bezier(0.44, 0, 0.56, 1),
     border-color 0.4s cubic-bezier(0.44, 0, 0.56, 1),
     opacity 0.4s cubic-bezier(0.44, 0, 0.56, 1);
+}
+
+@media (max-width: 1199.98px) and (min-width: 810px) {
+  :root {
+    --type-hero: var(--fs-58);
+    --type-section: var(--fs-46);
+    --type-card-title: var(--fs-22);
+    --type-large-body: var(--fs-20);
+    --type-signature: var(--fs-26);
+  }
+}
+
+@media (max-width: 809.98px) {
+  :root {
+    --type-hero: var(--fs-36);
+    --type-section: var(--fs-32);
+    --type-card-title: var(--fs-22);
+    --type-large-body: var(--fs-18);
+    --type-signature: var(--fs-20);
+    --type-body-lg: var(--fs-16);
+  }
 }
 
 [data-theme="dark"] {
@@ -196,7 +235,7 @@ section[id] {
 a { color: inherit; }
 img { max-width: 100%; display: block; }
 
-/* Typography — Preply scale (heavier weights since Figtree reads lighter than Platform) */
+/* Typography — Coursify-sized scale, keeping our font family and weights */
 .display { font-family: var(--font-display); font-weight: 800; letter-spacing: -0.03em; }
 .hand    { font-family: var(--font-display); font-weight: 700; }
 
@@ -208,11 +247,11 @@ h1, h2, h3, h4 {
   letter-spacing: -0.02em;
   color: var(--ink);
 }
-h1 { font-size: clamp(56px, 7.2vw, 96px); line-height: 1.0;  letter-spacing: -0.03em;  }
-h2 { font-size: clamp(40px, 5vw,   64px); line-height: 1.05; letter-spacing: -0.025em; }
-h3 { font-size: clamp(28px, 3vw,   36px); line-height: 1.1;  letter-spacing: -0.02em;  }
-h4 { font-size: 20px;                     line-height: 1.25; letter-spacing: -0.01em;  }
-p  { font-size: 16px; line-height: 1.5; margin: 0 0 1em 0; }
+h1 { font-size: var(--type-hero); line-height: 1.0;  letter-spacing: -0.03em;  }
+h2 { font-size: var(--type-section); line-height: 1.0; letter-spacing: -0.025em; }
+h3 { font-size: var(--type-card-title); line-height: 1.3;  letter-spacing: -0.02em;  }
+h4 { font-size: var(--type-subtitle); line-height: 1.5; letter-spacing: -0.01em;  }
+p  { font-size: var(--type-body); line-height: 1.5; margin: 0 0 1em 0; }
 
 .container {
   width: 100%;
@@ -329,7 +368,7 @@ body:has(#profes-page .profes-mobile-filters[open]) .wa-float {
   align-items: center;
   font-family: var(--font-body);
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: var(--type-body);
   line-height: 1.2;
 }
 .nav-links a {
@@ -372,7 +411,7 @@ body:has(#profes-page .profes-mobile-filters[open]) .wa-float {
   box-shadow: none;
   color: var(--nav-cta-text);
   font-family: var(--font-body);
-  font-size: 0.88rem;
+  font-size: var(--type-body-lg);
   font-weight: 800;
   line-height: 1;
   text-decoration: none;
@@ -569,7 +608,7 @@ body:has(#profes-page .profes-mobile-filters[open]) .wa-float {
     flex-direction: column;
     gap: 20px;
     width: 100%;
-    font-size: 0.9rem;
+    font-size: var(--type-body);
     text-align: center;
   }
 
@@ -597,7 +636,7 @@ body:has(#profes-page .profes-mobile-filters[open]) .wa-float {
   border-radius: var(--radius-control);
   font-family: var(--font-body);
   font-weight: 700;
-  font-size: 16px;
+  font-size: var(--type-body-lg);
   line-height: 1.25;
   text-decoration: none;
   border: 1px solid var(--button-border-color);
@@ -779,7 +818,7 @@ body:has(#profes-page .profes-mobile-filters[open]) .wa-float {
 }
 .hero-eyebrow {
   font-family: var(--font-display);
-  font-size: 14px;
+  font-size: var(--type-meta);
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -795,7 +834,7 @@ body:has(#profes-page .profes-mobile-filters[open]) .wa-float {
 .hero h1 .c-red { color: var(--red); }
 
 .hero-sub {
-  font-size: 1.2rem;
+  font-size: var(--type-body-lg);
   line-height: 1.5;
   color: var(--ink-soft);
   max-width: 480px;
@@ -816,7 +855,7 @@ body:has(#profes-page .profes-mobile-filters[open]) .wa-float {
 .hero-stat { display: flex; flex-direction: column; }
 .hero-stat .num {
   font-family: var(--font-display);
-  font-size: 2.4rem;
+  font-size: var(--type-signature);
   line-height: 1;
 }
 .hero-stat:nth-child(1) .num { color: var(--orange); }
@@ -824,7 +863,7 @@ body:has(#profes-page .profes-mobile-filters[open]) .wa-float {
 .hero-stat:nth-child(3) .num { color: var(--blue); }
 .hero-stat .lbl {
   font-family: var(--font-hand);
-  font-size: 1.05rem;
+  font-size: var(--type-body);
   color: var(--ink-soft);
 }
 
@@ -851,7 +890,7 @@ body:has(#profes-page .profes-mobile-filters[open]) .wa-float {
   box-shadow: none;
   padding: 10px 16px;
   font-family: var(--font-hand);
-  font-size: 1.1rem;
+  font-size: var(--type-body-lg);
   border-radius: 14px;
   white-space: nowrap;
 }
@@ -887,7 +926,7 @@ body:has(#profes-page .profes-mobile-filters[open]) .wa-float {
   align-items: center;
   justify-content: center;
   font-family: ui-monospace, "SF Mono", Menlo, monospace;
-  font-size: 0.78rem;
+  font-size: var(--type-tiny);
   font-weight: 600;
   color: var(--ink);
   text-align: center;
@@ -917,7 +956,7 @@ main > section.block:first-child { padding-top: 64px; }
   margin-right: auto;
 }
 .sec-sub {
-  font-size: 16px;
+  font-size: var(--type-body);
   line-height: 1.5;
   color: var(--ink-soft);
   margin-top: 10px;
@@ -1016,7 +1055,7 @@ section.block.courses-section {
 
 .course-name {
   font-family: var(--font-display);
-  font-size: 2rem;
+  font-size: var(--type-card-title);
   font-weight: 900;
   line-height: 1.08;
   letter-spacing: 0;
@@ -1027,7 +1066,7 @@ section.block.courses-section {
 .course-count {
   display: block;
   color: var(--ink-soft);
-  font-size: 1.15rem;
+  font-size: var(--type-body-lg);
   font-weight: 400;
   line-height: 1.2;
 }
@@ -1057,7 +1096,7 @@ section.block.courses-section {
   border-radius: var(--radius-control);
   background-color: var(--button-base-bg);
   color: var(--button-base-text);
-  font-size: 1rem;
+  font-size: var(--type-body-lg);
   font-weight: 850;
   line-height: 1.1;
   text-decoration: none;
@@ -1154,7 +1193,7 @@ section.block.courses-section {
   padding: 4px 14px;
   border-radius: var(--radius-pill);
   font-family: var(--font-display);
-  font-size: 14px;
+  font-size: var(--type-meta);
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -1162,7 +1201,7 @@ section.block.courses-section {
 .mvo-card:nth-child(1) .label { background: var(--orange); color: white; }
 .mvo-card:nth-child(2) .label { background: var(--pink); color: white; }
 .mvo-card:nth-child(3) .label { background: var(--blue); color: white; }
-.mvo-card p { margin: 8px 0 0; color: var(--ink-soft); font-size: 1.05rem; }
+.mvo-card p { margin: 8px 0 0; color: var(--ink-soft); font-size: var(--type-body); }
 
 /* Founders */
 .founders-grid {
@@ -1190,14 +1229,14 @@ section.block.courses-section {
   padding-top: 12px;
 }
 .profes-title {
-  font-size: clamp(48px, 6.4vw, 80px);
+  font-size: var(--type-section);
   font-weight: 800;
   line-height: 1.0;
   letter-spacing: -0.03em;
   margin-bottom: 18px;
 }
 .profes-desc {
-  font-size: 1.05rem;
+  font-size: var(--type-body);
   line-height: 1.6;
   color: var(--ink-soft);
   max-width: 320px;
@@ -1264,16 +1303,16 @@ section.block.courses-section {
 }
 .profes-grid-name {
   font-family: var(--font-display);
-  font-size: 1.25rem;
+  font-size: var(--type-subtitle);
   line-height: 1.1;
 }
 .profes-grid-role {
   font-family: var(--font-hand);
-  font-size: 1.05rem;
+  font-size: var(--type-body);
   color: var(--ink-soft);
 }
 .profes-grid-bio {
-  font-size: 0.9rem;
+  font-size: var(--type-meta);
   line-height: 1.55;
   color: var(--ink-soft);
   margin-top: 6px;
@@ -1284,14 +1323,14 @@ section.block.courses-section {
 /* Clean MVO (mision/vision/objetivo) */
 .mvo-clean { max-width: 1000px; margin: 0 auto; text-align: center; }
 .mvo-clean-title {
-  font-size: clamp(48px, 6.4vw, 80px);
+  font-size: var(--type-section);
   font-weight: 800;
   line-height: 1.0;
   letter-spacing: -0.03em;
   margin-bottom: 14px;
 }
 .mvo-clean-sub {
-  font-size: 1.08rem;
+  font-size: var(--type-body-lg);
   line-height: 1.55;
   color: var(--ink-soft);
   max-width: 520px;
@@ -1317,7 +1356,7 @@ section.block.courses-section {
   border: 1px solid currentColor;
   border-radius: var(--radius-pill);
   font-family: var(--font-body);
-  font-size: 0.88rem;
+  font-size: var(--type-meta);
   font-weight: 800;
   line-height: 1;
   letter-spacing: 0;
@@ -1330,12 +1369,12 @@ section.block.courses-section {
   background: currentColor;
   flex: 0 0 auto;
 }
-.mvo-item p { color: var(--ink-soft); font-size: 1rem; line-height: 1.6; margin: 0; }
+.mvo-item p { color: var(--ink-soft); font-size: var(--type-body); line-height: 1.6; margin: 0; }
 
 /* Clean founders */
 .founders-clean { text-align: center; }
 .founders-clean-title {
-  font-size: clamp(48px, 6.4vw, 80px);
+  font-size: var(--type-section);
   font-weight: 800;
   line-height: 1.0;
   letter-spacing: -0.03em;
@@ -1367,15 +1406,15 @@ section.block.courses-section {
   position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: inherit; z-index: 1;
 }
 .founder-body { text-align: center; }
-.founder-body h3 { font-size: 22px; font-weight: 800; letter-spacing: -0.015em; line-height: 1.2; margin-bottom: 2px; }
+.founder-body h3 { font-size: var(--type-card-title); font-weight: 800; letter-spacing: -0.015em; line-height: 1.2; margin-bottom: 2px; }
 .founder-role {
   font-family: var(--font-hand);
-  font-size: 1.1rem;
+  font-size: var(--type-body-lg);
   color: var(--accent);
   display: block;
 }
 .founder-bio {
-  font-size: 0.95rem;
+  font-size: var(--type-body);
   color: var(--ink-soft);
   margin: 10px auto 0;
   max-width: 300px;
@@ -1406,14 +1445,14 @@ section.block.courses-section {
   margin-bottom: 14px;
 }
 .teacher-photo .bg { position: absolute; inset: 0; }
-.teacher-card h3 { font-size: 1.35rem; margin-bottom: 2px; }
+.teacher-card h3 { font-size: var(--type-card-title); margin-bottom: 2px; }
 .teacher-card .role {
   font-family: var(--font-hand);
-  font-size: 1.1rem;
+  font-size: var(--type-body-lg);
   color: var(--accent);
 }
 .teacher-card .bio {
-  font-size: 0.92rem;
+  font-size: var(--type-body);
   color: var(--ink-soft);
   margin: 8px 0 0;
 }
@@ -1426,7 +1465,7 @@ section.voces-block {
 .voces-head { margin-bottom: 64px; }
 .voces-title {
   color: var(--pink);
-  font-size: clamp(44px, 6vw, 76px);
+  font-size: var(--type-section);
   font-style: italic;
   line-height: 0.98;
   letter-spacing: 0;
@@ -1548,7 +1587,7 @@ section.voces-block {
 .voces-card-quote {
   margin: 0;
   font-family: var(--font-body);
-  font-size: 0.96rem;
+  font-size: var(--type-large-body);
   line-height: 1.55;
   color: color-mix(in srgb, var(--ink) 88%, transparent);
   font-weight: 500;
@@ -1562,13 +1601,13 @@ section.voces-block {
 }
 .voces-card-foot strong {
   font-family: var(--font-display);
-  font-size: 1.18rem;
+  font-size: var(--type-subtitle);
   color: var(--ink);
   line-height: 1.1;
   letter-spacing: 0.005em;
 }
 .voces-card-foot span {
-  font-size: 0.78rem;
+  font-size: var(--type-meta);
   color: var(--ink-soft);
   font-weight: 700;
   letter-spacing: 0.01em;
@@ -1631,14 +1670,14 @@ section.jobs-cta-section {
 .jobs-cta-copy h2 {
   max-width: 680px;
   color: var(--ink);
-  font-size: clamp(2.55rem, 7vw, 5.5rem);
+  font-size: var(--type-section);
   line-height: 0.96;
 }
 .jobs-cta-text {
   max-width: 560px;
   margin: 22px 0 26px;
   color: color-mix(in srgb, var(--ink) 78%, var(--ink-soft));
-  font-size: clamp(1rem, 1.35vw, 1.18rem);
+  font-size: var(--type-body-lg);
   font-weight: 800;
   line-height: 1.45;
 }
@@ -1654,7 +1693,7 @@ section.jobs-cta-section {
   align-items: center;
   gap: 12px;
   color: var(--ink);
-  font-size: clamp(1rem, 1.4vw, 1.18rem);
+  font-size: var(--type-body-lg);
   font-weight: 900;
   line-height: 1.22;
 }
@@ -1676,7 +1715,7 @@ section.jobs-cta-section {
   box-shadow: none;
   color: var(--button-base-text);
   font-family: var(--font-body);
-  font-size: clamp(0.98rem, 1.25vw, 1.08rem);
+  font-size: var(--type-body-lg);
   font-weight: 950;
   line-height: 1.1;
   text-decoration: none;
@@ -1718,9 +1757,7 @@ section.jobs-cta-section {
   .jobs-cta-copy {
     padding: 28px 22px 30px;
   }
-  .jobs-cta-copy h2 {
-    font-size: clamp(2.35rem, 15vw, 3.85rem);
-  }
+  .jobs-cta-copy h2 { font-size: var(--type-section); }
   .jobs-cta-photo {
     min-height: 270px;
   }
@@ -1757,7 +1794,7 @@ grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   border-top: 2px solid var(--line);
   padding: 6px 8px;
   font-family: ui-monospace, monospace;
-  font-size: 0.7rem;
+  font-size: var(--type-tiny);
   font-weight: 600;
   text-align: center;
 }
@@ -1797,7 +1834,7 @@ grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
 .contact-head h2 {
   position: relative;
   display: inline-block;
-  font-size: clamp(48px, 6.4vw, 80px);
+  font-size: var(--type-section);
   font-weight: 800;
   line-height: 1.0;
   letter-spacing: -0.03em;
@@ -1806,7 +1843,7 @@ grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
 .contact-head p {
   margin: 10px auto 0;
   color: var(--ink-soft);
-  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  font-size: var(--type-body-lg);
   font-weight: 700;
   letter-spacing: 0.01em;
   max-width: 680px;
@@ -1856,7 +1893,7 @@ grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   margin: 0 0 8px;
   color: var(--ink);
   font-family: var(--font-display);
-  font-size: clamp(1.42rem, 2vw, 1.8rem);
+  font-size: var(--type-card-title);
   font-weight: 400;
   line-height: 1;
 }
@@ -1867,7 +1904,7 @@ grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   margin-bottom: 18px;
   color: color-mix(in srgb, var(--contact-accent) 62%, var(--ink));
   font-family: var(--font-body);
-  font-size: clamp(0.94rem, 1.2vw, 1.04rem);
+  font-size: var(--type-body);
   font-weight: 800;
   line-height: 1.2;
   overflow-wrap: anywhere;
@@ -1887,7 +1924,7 @@ grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   color: var(--button-base-text);
   box-shadow: none;
   font-family: var(--font-body);
-  font-size: 0.88rem;
+  font-size: var(--type-body-lg);
   font-weight: 800;
   line-height: 1.1;
   text-decoration: none;
@@ -1901,7 +1938,7 @@ grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
 }
 @media (max-width: 560px) {
   .contact-head { margin-bottom: 40px; }
-  .contact-head h2 { font-size: clamp(2.55rem, 15vw, 3.9rem); }
+  .contact-head h2 { font-size: var(--type-section); }
   .contact-option {
     min-height: 0;
     padding: 24px 22px;
@@ -2706,7 +2743,7 @@ body:has(.job-application-page) {
     margin-bottom: 40px;
     max-width: 100%;
   }
-  .sec-sub { font-size: 14px; }
+  .sec-sub { font-size: var(--type-body); }
 
   .courses-grid { grid-template-columns: 1fr; }
   .course-card,
@@ -2728,7 +2765,7 @@ body:has(.job-application-page) {
     text-align: center;
   }
   .profes-title {
-    font-size: clamp(2rem, 12vw, 3rem);
+    font-size: var(--type-section);
     text-align: center;
   }
   .profes-desc { margin: 0 auto; }
@@ -2739,7 +2776,7 @@ body:has(.job-application-page) {
     grid-template-columns: 1fr;
     max-width: 380px;
   }
-  .contact-head p { font-size: 0.98rem; }
+  .contact-head p { font-size: var(--type-body); }
 
   footer.foot { padding-bottom: 64px; }
 }
@@ -2754,10 +2791,10 @@ footer.foot {
   padding: 36px 0 110px;
   text-align: center;
   color: var(--ink-soft);
-  font-size: 0.92rem;
+  font-size: var(--type-meta);
   border-top: 2px dashed color-mix(in srgb, var(--ink) 25%, transparent);
 }
-footer .foot-logo { font-family: var(--font-display); font-size: 1.4rem; margin-bottom: 8px; }
+footer .foot-logo { font-family: var(--font-display); font-size: var(--type-subtitle); margin-bottom: 8px; }
 
 /* Footer — rich layout */
 footer.foot-rich {
@@ -2796,13 +2833,13 @@ footer.foot-rich {
 .foot-tagline {
   margin: 0;
   font-family: var(--font-hand);
-  font-size: 1.18rem;
+  font-size: var(--type-body-lg);
   color: var(--ink);
   line-height: 1.35;
 }
 .foot-col-title {
   font-family: var(--font-display);
-  font-size: 0.95rem;
+  font-size: var(--type-meta);
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--ink);
@@ -2820,7 +2857,7 @@ footer.foot-rich {
   text-decoration: none;
   color: var(--ink-soft);
   font-weight: 700;
-  font-size: 0.96rem;
+  font-size: var(--type-body);
   position: relative;
   padding: 2px 0;
   transition: color 0.18s ease;
@@ -2864,7 +2901,7 @@ footer.foot-rich {
   box-shadow: none;
 }
 .foot-email {
-  font-size: 0.9rem;
+  font-size: var(--type-meta);
   color: var(--ink-soft);
   text-decoration: none;
   border-bottom: 1px dotted color-mix(in srgb, var(--ink) 35%, transparent);
@@ -2879,7 +2916,7 @@ footer.foot-rich {
   gap: 10px;
   padding-top: 24px;
   border-top: 1px dotted color-mix(in srgb, var(--ink) 18%, transparent);
-  font-size: 0.86rem;
+  font-size: var(--type-meta);
   color: var(--ink-soft);
 }
 .foot-bottom-sep { color: color-mix(in srgb, var(--ink) 30%, transparent); }
@@ -2919,7 +2956,7 @@ footer.foot-rich {
   text-decoration: none;
   font-family: var(--font-body);
   font-weight: 800;
-  font-size: 1rem;
+  font-size: var(--type-body);
   transition: var(--button-hover-transition);
   border-color: var(--line);
 }
@@ -3054,14 +3091,14 @@ footer.foot-rich {
 }
 .voces-offer-title {
   font-family: var(--font-display);
-  font-size: clamp(1.35rem, 1.8vw, 1.95rem);
+  font-size: var(--type-card-title);
   font-style: italic;
   font-weight: 950;
   letter-spacing: 0;
 }
 .voces-offer-sub {
   font-family: var(--font-body);
-  font-size: clamp(1.12rem, 1.45vw, 1.42rem);
+  font-size: var(--type-body-lg);
   font-weight: 800;
   letter-spacing: 0;
   color: color-mix(in srgb, var(--ink) 78%, var(--ink-soft));
@@ -3081,8 +3118,8 @@ footer.foot-rich {
   .voces-badge-asset { padding: 0 22px; }
   .voces-strip-icon { width: 54px; }
   .voces-offer { gap: 5px; }
-  .voces-offer-title { font-size: 1.14rem; }
-  .voces-offer-sub { font-size: 0.96rem; }
+  .voces-offer-title { font-size: var(--type-card-title); }
+  .voces-offer-sub { font-size: var(--type-body); }
 }
 
 @media (max-width: 380px) {
@@ -3105,9 +3142,9 @@ footer.foot-rich {
   margin: 0;
   color: var(--ink);
   font-family: var(--font-display);
-  font-size: 48px;
+  font-size: var(--type-section);
   font-weight: 700;
-  line-height: 52px;
+  line-height: 1;
   letter-spacing: 0;
 }
 
@@ -3207,7 +3244,7 @@ footer.foot-rich {
   min-width: 0;
   overflow: hidden;
   color: var(--ink-soft);
-  font-size: 0.78rem;
+  font-size: var(--type-meta);
   font-weight: 750;
   line-height: 1;
   text-overflow: ellipsis;
@@ -3232,7 +3269,7 @@ footer.foot-rich {
   background: transparent;
   color: var(--control-text);
   font: inherit;
-  font-size: 1rem;
+  font-size: var(--type-body);
   font-weight: 800;
   letter-spacing: 0;
 }
@@ -3306,7 +3343,7 @@ footer.foot-rich {
   background: transparent;
   color: var(--control-text);
   font: inherit;
-  font-size: 0.92rem;
+  font-size: var(--type-body);
   font-weight: 800;
   text-align: left;
   cursor: pointer;
@@ -3327,7 +3364,7 @@ footer.foot-rich {
 .profes-course-empty {
   padding: 10px;
   color: var(--ink-soft);
-  font-size: 0.9rem;
+  font-size: var(--type-meta);
   font-weight: 750;
 }
 
@@ -3361,7 +3398,7 @@ footer.foot-rich {
   min-width: 0;
   overflow: hidden;
   color: var(--control-text);
-  font-size: 1rem;
+  font-size: var(--type-body);
   font-weight: 850;
   line-height: 1.15;
   text-overflow: ellipsis;
@@ -3404,7 +3441,7 @@ footer.foot-rich {
   background: transparent;
   color: var(--control-text);
   font: inherit;
-  font-size: 0.92rem;
+  font-size: var(--type-body);
   font-weight: 800;
   text-align: left;
   cursor: pointer;
@@ -3474,7 +3511,7 @@ footer.foot-rich {
 
 .profes-sort-field span {
   color: var(--ink-soft);
-  font-size: 0.78rem;
+  font-size: var(--type-meta);
   font-weight: 750;
 }
 
@@ -3486,7 +3523,7 @@ footer.foot-rich {
   background-color: var(--button-base-bg);
   color: var(--button-base-text);
   font: inherit;
-  font-size: 0.9rem;
+  font-size: var(--type-body);
   font-weight: 850;
   text-decoration: underline;
   text-decoration-thickness: 2px;
@@ -3553,7 +3590,7 @@ footer.foot-rich {
   border-radius: 50%;
   background-color: var(--button-hover-bg);
   color: var(--button-hover-text);
-  font-size: 0.9rem;
+  font-size: var(--type-meta);
   font-weight: 850;
   line-height: 1;
 }
@@ -3627,7 +3664,7 @@ footer.foot-rich {
   border-radius: var(--radius-control);
   background-color: var(--button-base-bg);
   color: var(--button-base-text);
-  font-size: 1rem;
+  font-size: var(--type-body-lg);
   font-weight: 900;
   box-shadow: none;
   transition: var(--button-hover-transition);
@@ -3660,7 +3697,7 @@ footer.foot-rich {
 
 .profes-empty strong {
   font-family: var(--font-display);
-  font-size: 1.35rem;
+  font-size: var(--type-card-title);
   color: var(--ink);
 }
 
@@ -3668,7 +3705,7 @@ footer.foot-rich {
   max-width: 620px;
   margin: 0;
   color: var(--ink-soft);
-  font-size: 1rem;
+  font-size: var(--type-body);
   line-height: 1.55;
   font-weight: 650;
 }
@@ -3704,8 +3741,8 @@ footer.foot-rich {
   }
 
   .sec-head.profes-page-head h1 {
-    font-size: clamp(38px, 10.4vw, 48px);
-    line-height: 1.08;
+    font-size: var(--type-section);
+    line-height: 1.1;
   }
 
   .profes-search-panel {
@@ -3816,7 +3853,7 @@ footer.foot-rich {
     width: 22px;
     min-width: 22px;
     height: 22px;
-    font-size: 0.9rem;
+    font-size: var(--type-meta);
     box-shadow: 0 0 0 2px var(--button-base-bg);
   }
 
@@ -3855,7 +3892,7 @@ footer.foot-rich {
 
   .profes-mobile-filter-sheet-title {
     font-family: var(--font-display);
-    font-size: 1.48rem;
+    font-size: var(--type-card-title);
     font-weight: 900;
     line-height: 1;
     letter-spacing: 0;
@@ -3882,7 +3919,7 @@ footer.foot-rich {
   }
 
   .profes-mobile-filter-sheet-body .profes-menu-value {
-    font-size: 1.04rem;
+    font-size: var(--type-body);
   }
 
   .profes-mobile-filter-sheet-foot {
@@ -3904,7 +3941,7 @@ footer.foot-rich {
   }
 
   .profes-keyword-field input {
-    font-size: 0.9rem;
+    font-size: var(--type-body);
   }
 
   .profes-menu-options {
@@ -3957,7 +3994,7 @@ footer.foot-rich {
     width: 21px;
     min-width: 21px;
     height: 21px;
-    font-size: 0.78rem;
+    font-size: var(--type-tiny);
   }
 }
 
@@ -4110,7 +4147,7 @@ footer.foot-rich {
 }
 .profe-card-name {
   font-family: var(--font-display);
-  font-size: 32px;
+  font-size: var(--type-card-title);
   font-weight: 800;
   letter-spacing: 0;
   line-height: 1.1;
@@ -4134,7 +4171,7 @@ footer.foot-rich {
   font-weight: 850;
 }
 .profe-card-flag {
-  font-size: 1.2rem;
+  font-size: var(--type-body-lg);
   line-height: 1;
 }
 
@@ -4150,7 +4187,7 @@ footer.foot-rich {
   display: flex;
   align-items: flex-start;
   gap: 8px;
-  font-size: 16px;
+  font-size: var(--type-body);
   line-height: 1.32;
   color: var(--ink-soft);
   font-weight: 500;
@@ -4165,7 +4202,7 @@ footer.foot-rich {
   margin-top: 2px;
 }
 .profe-card-meta li.profe-card-meta-primary {
-  font-size: 18px;
+  font-size: var(--type-body-lg);
   line-height: 1.25;
 }
 .profe-card-meta-primary svg {
@@ -4187,7 +4224,7 @@ footer.foot-rich {
 
 .profe-card-bio {
   margin: 0;
-  font-size: 17px;
+  font-size: var(--type-body);
   line-height: 1.48;
   color: var(--ink-soft);
   display: -webkit-box;
@@ -4258,7 +4295,7 @@ footer.foot-rich {
   border-radius: 8px;
   background: transparent;
   color: var(--ink-soft);
-  font-size: 14px;
+  font-size: var(--type-meta);
   font-weight: 800;
   line-height: 1.24;
   min-height: 0;
@@ -4290,19 +4327,19 @@ footer.foot-rich {
   }
 
   .profe-card-name {
-    font-size: 28px;
+    font-size: var(--type-card-title);
   }
 
   .profe-card-meta li {
-    font-size: 15px;
+    font-size: var(--type-body);
   }
 
   .profe-card-meta li.profe-card-meta-primary {
-    font-size: 16px;
+    font-size: var(--type-body-lg);
   }
 
   .profe-card-bio {
-    font-size: 16px;
+    font-size: var(--type-body);
     -webkit-line-clamp: 3;
     line-clamp: 3;
   }
@@ -4338,7 +4375,7 @@ footer.foot-rich {
     gap: 4px 6px;
     min-height: 48px;
     padding: 7px 8px;
-    font-size: 13px;
+    font-size: var(--type-meta);
     align-self: stretch;
   }
 
@@ -4380,7 +4417,7 @@ footer.foot-rich {
   }
 
   .profe-card-name {
-    font-size: 24px;
+    font-size: var(--type-card-title);
   }
 
   .profe-card-badge {
@@ -4394,16 +4431,16 @@ footer.foot-rich {
 
   .profe-card-meta li {
     gap: 6px;
-    font-size: 13px;
+    font-size: var(--type-meta);
     line-height: 1.28;
   }
 
   .profe-card-meta li.profe-card-meta-primary {
-    font-size: 15px;
+    font-size: var(--type-body);
   }
 
   .profe-card-bio {
-    font-size: 14px;
+    font-size: var(--type-meta);
     line-height: 1.48;
     -webkit-line-clamp: 3;
     line-clamp: 3;
@@ -4411,12 +4448,12 @@ footer.foot-rich {
 
   .profe-card-chat {
     min-height: 44px;
-    font-size: 0.86rem;
+    font-size: var(--type-meta);
   }
 
   .profe-card-action-details {
     gap: 4px 6px;
-    font-size: 12.5px;
+    font-size: var(--type-meta);
     overflow: hidden;
   }
 
@@ -4466,7 +4503,7 @@ footer.foot-rich {
     min-height: 46px;
     gap: 3px 4px;
     padding: 6px 5px;
-    font-size: 11.5px;
+    font-size: var(--type-tiny);
   }
 
   .profe-card-action-details li {
@@ -4491,7 +4528,7 @@ footer.foot-rich {
   gap: 8px;
   font-family: var(--font-body);
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: var(--type-body);
   background-color: var(--profe-color);
   color: white;
   text-decoration: none;
@@ -4560,7 +4597,7 @@ footer.foot-rich {
   gap: 12px;
   flex-wrap: wrap;
   font-family: var(--font-display);
-  font-size: clamp(40px, 5vw, 56px);
+  font-size: var(--type-section);
   font-weight: 800;
   letter-spacing: -0.025em;
   line-height: 1.05;
@@ -4580,7 +4617,7 @@ footer.foot-rich {
   align-items: center;
   flex-wrap: wrap;
   gap: 10px;
-  font-size: 1.05rem;
+  font-size: var(--type-meta);
   color: var(--ink-soft);
   font-weight: 800;
 }
@@ -4596,7 +4633,7 @@ footer.foot-rich {
 .pd-hero-dot { color: color-mix(in srgb, var(--ink) 30%, transparent); }
 .pd-hero-bio {
   margin: 0;
-  font-size: 1rem;
+  font-size: var(--type-body);
   line-height: 1.6;
   color: color-mix(in srgb, var(--ink) 90%, transparent);
 }
@@ -4611,14 +4648,14 @@ footer.foot-rich {
 .pd-section-head h2,
 .pd-about-title {
   font-family: var(--font-display);
-  font-size: clamp(1.4rem, 2.2vw, 1.6rem);
+  font-size: var(--type-card-title);
   line-height: 1.1;
   margin: 0;
   color: var(--ink);
 }
 .pd-section-sub {
   margin: 0;
-  font-size: 0.9rem;
+  font-size: var(--type-meta);
   color: var(--ink-soft);
   font-weight: 600;
 }
@@ -4634,7 +4671,7 @@ footer.foot-rich {
 .pd-highlight-pill {
   font-family: var(--font-body);
   font-weight: 700;
-  font-size: 0.85rem;
+  font-size: var(--type-meta);
   padding: 5px 20px;
   border-radius: var(--radius-pill);
   color: var(--ink);
@@ -4660,7 +4697,7 @@ footer.foot-rich {
   gap: 8px;
   font-family: var(--font-body);
   font-weight: 700;
-  font-size: 0.92rem;
+  font-size: var(--type-meta);
   color: var(--ink);
 }
 .pd-imparte-dot {
@@ -4683,7 +4720,7 @@ footer.foot-rich {
 
 .pd-about-body {
   margin: 0;
-  font-size: 1rem;
+  font-size: var(--type-body);
   line-height: 1.65;
   color: color-mix(in srgb, var(--ink) 88%, transparent);
 }
@@ -4701,7 +4738,7 @@ footer.foot-rich {
   align-items: center;
   gap: 8px;
   font-family: var(--font-display);
-  font-size: 1.4rem;
+  font-size: var(--type-subtitle);
   color: var(--ink);
 }
 .pd-reviews-stars { display: inline-flex; gap: 2px; line-height: 0; }
@@ -4733,26 +4770,26 @@ footer.foot-rich {
   justify-content: center;
   font-family: var(--font-display);
   color: white;
-  font-size: 1rem;
+  font-size: var(--type-body);
   flex-shrink: 0;
 }
 .pd-review-meta { display: flex; flex-direction: column; gap: 0; }
 .pd-review-meta strong {
   font-family: var(--font-body);
   font-weight: 800;
-  font-size: 0.95rem;
+  font-size: var(--type-body);
   color: var(--ink);
   line-height: 1.1;
 }
 .pd-review-meta span {
-  font-size: 0.78rem;
+  font-size: var(--type-meta);
   color: var(--ink-soft);
   font-weight: 600;
 }
 .pd-review-stars { display: inline-flex; gap: 2px; line-height: 0; }
 .pd-review-quote {
   margin: 0;
-  font-size: 0.95rem;
+  font-size: var(--type-body);
   line-height: 1.55;
   color: color-mix(in srgb, var(--ink) 86%, transparent);
 }
@@ -4788,12 +4825,12 @@ footer.foot-rich {
   align-items: center;
   gap: 4px;
   font-family: var(--font-display);
-  font-size: 1.4rem;
+  font-size: var(--type-subtitle);
   color: var(--ink);
   line-height: 1;
 }
 .pd-cta-stat span {
-  font-size: 0.78rem;
+  font-size: var(--type-meta);
   color: var(--ink-soft);
   font-weight: 700;
 }
@@ -4808,7 +4845,7 @@ footer.foot-rich {
   border: 1px solid var(--profe-color);
   font-family: var(--font-body);
   font-weight: 800;
-  font-size: 0.98rem;
+  font-size: var(--type-body-lg);
   color: white;
   text-decoration: none;
   box-shadow: none;
@@ -4834,7 +4871,7 @@ footer.foot-rich {
   border: 1px solid var(--profe-color);
   font-family: var(--font-body);
   font-weight: 800;
-  font-size: 0.94rem;
+  font-size: var(--type-body-lg);
   color: white;
   background-color: var(--profe-color);
   text-decoration: none;
@@ -4856,10 +4893,10 @@ footer.foot-rich {
 }
 .pd-cta-callout > svg { flex-shrink: 0; margin-top: 1px; color: var(--green); }
 .pd-cta-callout > div { display: flex; flex-direction: column; gap: 2px; }
-.pd-cta-callout strong { font-size: 0.92rem; font-weight: 800; }
-.pd-cta-callout span { font-size: 0.86rem; color: var(--ink-soft); font-weight: 600; }
+.pd-cta-callout strong { font-size: var(--type-body); font-weight: 800; }
+.pd-cta-callout span { font-size: var(--type-meta); color: var(--ink-soft); font-weight: 600; }
 .pd-cta-callout-link {
-  font-size: 0.86rem;
+  font-size: var(--type-meta);
   font-weight: 800;
   color: var(--ink);
   text-decoration: none;
@@ -4886,7 +4923,7 @@ footer.foot-rich {
   max-width: 1280px;
 }
 .cf-title {
-  font-size: clamp(36px, 4.8vw, 64px);
+  font-size: var(--type-section);
   font-weight: 800;
   line-height: 1.0;
   letter-spacing: -0.03em;
@@ -4984,7 +5021,7 @@ footer.foot-rich {
   height: 48px;
   border-radius: 16px;
   font-family: var(--font-display);
-  font-size: 1.6rem;
+  font-size: var(--type-subtitle);
   font-weight: 800;
   color: white;
   box-shadow: none;
@@ -4992,7 +5029,7 @@ footer.foot-rich {
 }
 .cf-card-title {
   font-family: var(--font-display);
-  font-size: clamp(32px, 3.6vw, 44px);
+  font-size: var(--type-card-title);
   font-weight: 800;
   line-height: 1.05;
   letter-spacing: -0.025em;
@@ -5001,7 +5038,7 @@ footer.foot-rich {
 }
 .cf-card-body {
   margin: 0;
-  font-size: 1rem;
+  font-size: var(--type-body);
   line-height: 1.5;
   color: var(--ink-soft);
   max-width: 38ch;
@@ -5078,7 +5115,7 @@ footer.foot-rich {
 }
 .cf-mini-profe-body strong {
   font-family: var(--font-display);
-  font-size: 1.28rem;
+  font-size: var(--type-subtitle);
   line-height: 1.1;
   color: var(--ink);
   min-width: 0;
@@ -5088,7 +5125,7 @@ footer.foot-rich {
 }
 .cf-mini-profe-flag {
   flex-shrink: 0;
-  font-size: 1rem;
+  font-size: var(--type-body);
   line-height: 1;
 }
 .cf-mini-profe-line {
@@ -5096,7 +5133,7 @@ footer.foot-rich {
   align-items: flex-start;
   gap: 7px;
   min-width: 0;
-  font-size: 0.86rem;
+  font-size: var(--type-meta);
   line-height: 1.25;
   color: var(--ink-soft);
   font-weight: 700;
@@ -5188,7 +5225,7 @@ footer.foot-rich {
 }
 .calidad-banner-title {
   font-family: var(--font-display);
-  font-size: clamp(48px, 7.2vw, 96px);
+  font-size: var(--type-hero);
   font-weight: 800;
   line-height: 1.0;
   letter-spacing: -0.03em;
@@ -5200,7 +5237,7 @@ footer.foot-rich {
   max-width: 640px;
   font-family: var(--font-body);
   font-weight: 500;
-  font-size: clamp(16px, 1.4vw, 18px);
+  font-size: var(--type-body-lg);
   line-height: 1.5;
   color: color-mix(in srgb, var(--deep-purple) 80%, transparent);
 }
@@ -5250,7 +5287,7 @@ footer.foot-rich {
   }
 
   .sec-head h2 {
-    font-size: clamp(2.35rem, 10.5vw, 3.25rem);
+    font-size: var(--type-section);
     line-height: 1;
   }
 
@@ -5309,7 +5346,7 @@ footer.foot-rich {
 
   .course-name {
     font-family: var(--font-body);
-    font-size: 1.5rem;
+    font-size: var(--type-card-title);
     font-weight: 900;
     letter-spacing: 0;
     line-height: 1.08;
@@ -5318,7 +5355,7 @@ footer.foot-rich {
   .course-count {
     display: block;
     color: var(--ink-soft);
-    font-size: 1.1rem;
+    font-size: var(--type-body);
     font-weight: 400;
     line-height: 1.2;
   }
@@ -5341,7 +5378,7 @@ footer.foot-rich {
 
   .courses-more summary {
     gap: 8px;
-    font-size: 0.92rem;
+    font-size: var(--type-body);
   }
 
   .courses-grid-extra {
@@ -5377,11 +5414,11 @@ footer.foot-rich {
   }
 
   .voces-offer-title {
-    font-size: 1.12rem;
+    font-size: var(--type-card-title);
   }
 
   .voces-offer-sub {
-    font-size: 0.94rem;
+    font-size: var(--type-body);
   }
 
   .cf-head {
@@ -5389,7 +5426,7 @@ footer.foot-rich {
   }
 
   .cf-title {
-    font-size: clamp(2.4rem, 10vw, 3.3rem);
+    font-size: var(--type-section);
     line-height: 1;
     flex-direction: column;
     align-items: flex-start;
@@ -5441,18 +5478,18 @@ footer.foot-rich {
     width: 36px;
     height: 36px;
     border-radius: 8px;
-    font-size: 1.15rem;
+    font-size: var(--type-body);
   }
 
   .cf-card-title {
-    font-size: clamp(1.6rem, 7.4vw, 2rem);
+    font-size: var(--type-card-title);
     line-height: 1.03;
   }
 
   .cf-card-body {
     min-height: 0;
     max-width: none;
-    font-size: 0.86rem;
+    font-size: var(--type-body);
     line-height: 1.35;
   }
 
@@ -5496,7 +5533,7 @@ footer.foot-rich {
   }
 
   .cf-mini-profe-body strong {
-    font-size: 1rem;
+    font-size: var(--type-body);
   }
 
   .cf-mini-profe-head {
@@ -5505,7 +5542,7 @@ footer.foot-rich {
 
   .cf-mini-profe-line {
     gap: 5px;
-    font-size: 0.68rem;
+    font-size: var(--type-tiny);
     line-height: 1.15;
   }
 
@@ -5525,7 +5562,7 @@ footer.foot-rich {
   }
 
   .calidad-banner-title {
-    font-size: clamp(2.55rem, 12.5vw, 4rem);
+    font-size: var(--type-hero);
   }
 
   .calidad-banner-sub {
@@ -5591,7 +5628,7 @@ footer.foot-rich {
   }
 
   .jobs-cta-copy h2 {
-    font-size: clamp(2.8rem, 13vw, 4.15rem);
+    font-size: var(--type-section);
     text-wrap: balance;
   }
 
@@ -5641,13 +5678,13 @@ footer.foot-rich {
 
   .contact-option h3 {
     margin: 0;
-    font-size: 1.35rem;
+    font-size: var(--type-card-title);
     line-height: 1.05;
   }
 
   .contact-option strong {
     margin: 0;
-    font-size: 0.94rem;
+    font-size: var(--type-body);
   }
 
   .contact-action {
@@ -5661,7 +5698,7 @@ footer.foot-rich {
 @media (max-width: 560px) {
   #profes-page .sec-head.profes-page-head h1 {
     max-width: 280px;
-    font-size: 34px;
+    font-size: var(--type-section);
     line-height: 1.1;
   }
 
