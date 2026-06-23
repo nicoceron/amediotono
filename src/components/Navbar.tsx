@@ -76,22 +76,38 @@ export function Navbar() {
             />
           </Link>
 
-          <button
-            type="button"
-            className="nav-menu-toggle"
-            aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
-            aria-controls="navMenu"
-            aria-expanded={menuOpen}
-            onClick={() => setMenuOpen((open) => !open)}
-          >
-            <span aria-hidden="true" />
-            <span aria-hidden="true" />
-          </button>
+          <div className="nav-mobile-actions">
+            <Link
+              href="/profes"
+              className="nav-mobile-profes"
+              onClick={() => setMenuOpen(false)}
+            >
+              Profes
+            </Link>
+
+            <button
+              type="button"
+              className="nav-menu-toggle"
+              aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
+              aria-controls="navMenu"
+              aria-expanded={menuOpen}
+              onClick={() => setMenuOpen((open) => !open)}
+            >
+              <span aria-hidden="true" />
+              <span aria-hidden="true" />
+            </button>
+          </div>
         </div>
 
         <div className="nav-right" id="navMenu">
           <nav className="nav-links" id="navLinks">
-            <Link href="/profes" onClick={() => setMenuOpen(false)}>Profes</Link>
+            <Link
+              href="/profes"
+              className="nav-link-profes"
+              onClick={() => setMenuOpen(false)}
+            >
+              Profes
+            </Link>
             <Link href="/nosotros" onClick={() => setMenuOpen(false)}>Nosotros</Link>
           </nav>
           <Link className="nav-cta" href="/#contacto" onClick={() => setMenuOpen(false)}>

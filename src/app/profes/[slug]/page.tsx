@@ -110,37 +110,14 @@ export default async function ProfeDetailPage({
                       aria-label="Profe verificado"
                     />
                   </h1>
-                  <div className="pd-hero-meta">
-                    <span className="pd-hero-role">
-                      Profe de {instruments.join(" · ")}
-                    </span>
-                    {teacher.location && (
-                      <>
-                        <span className="pd-hero-dot" aria-hidden="true">
-                          ·
-                        </span>
-                        <span className="pd-hero-location">
-                          <MapPin size={15} strokeWidth={2.4} aria-hidden="true" />
-                          {teacher.location}
-                        </span>
-                      </>
-                    )}
-                    {teacher.country && (
-                      <>
-                        <span className="pd-hero-dot" aria-hidden="true">
-                          ·
-                        </span>
-                        <span className="pd-hero-country">
-                          De {teacher.country}{" "}
-                          {teacher.countryFlag && (
-                            <span aria-hidden="true">
-                              {teacher.countryFlag}
-                            </span>
-                          )}
-                        </span>
-                      </>
-                    )}
-                  </div>
+                  {teacher.location && (
+                    <div className="pd-hero-meta">
+                      <span className="pd-hero-location">
+                        <MapPin size={15} strokeWidth={2.4} aria-hidden="true" />
+                        {teacher.location}
+                      </span>
+                    </div>
+                  )}
                   <p className="pd-hero-bio">{teacher.bio}</p>
                 </div>
               </header>
@@ -151,42 +128,49 @@ export default async function ProfeDetailPage({
                   <GraduationCap size={20} strokeWidth={2.4} style={{ color: teacher.color }} />
                   <h2>Imparte</h2>
                 </header>
-                <ul className="pd-imparte">
-                  {instruments.map((inst) => (
-                    <li key={inst} className="pd-imparte-item">
-                      <span
-                        className="pd-imparte-dot"
-                        style={{ background: teacher.color }}
-                        aria-hidden="true"
-                      />
-                      Clases de {inst.toLowerCase()}
-                    </li>
-                  ))}
-                  {classFormats.map((fmt) => {
-                    const FormatIcon = classFormatIcon(fmt);
-
-                    return (
-                      <li key={fmt} className="pd-imparte-item pd-imparte-item-soft">
-                        <FormatIcon
-                          size={14}
-                          strokeWidth={2.4}
-                          style={{ color: teacher.color }}
+                <div className="pd-imparte-groups">
+                  <ul className="pd-imparte">
+                    {instruments.map((inst) => (
+                      <li key={inst} className="pd-imparte-item">
+                        <span
+                          className="pd-imparte-dot"
+                          style={{ background: teacher.color }}
+                          aria-hidden="true"
                         />
-                        {fmt}
+                        {inst}
                       </li>
-                    );
-                  })}
-                  {classLanguages.map((language) => (
-                    <li key={language} className="pd-imparte-item pd-imparte-item-soft">
-                      <Languages
-                        size={14}
-                        strokeWidth={2.4}
-                        style={{ color: teacher.color }}
-                      />
-                      Clases en {language}
-                    </li>
-                  ))}
-                </ul>
+                    ))}
+                  </ul>
+
+                  {(classFormats.length > 0 || classLanguages.length > 0) && (
+                    <ul className="pd-imparte pd-imparte-details">
+                      {classFormats.map((fmt) => {
+                        const FormatIcon = classFormatIcon(fmt);
+
+                        return (
+                          <li key={fmt} className="pd-imparte-item pd-imparte-item-soft">
+                            <FormatIcon
+                              size={14}
+                              strokeWidth={2.4}
+                              style={{ color: teacher.color }}
+                            />
+                            {fmt}
+                          </li>
+                        );
+                      })}
+                      {classLanguages.map((language) => (
+                        <li key={language} className="pd-imparte-item pd-imparte-item-soft">
+                          <Languages
+                            size={14}
+                            strokeWidth={2.4}
+                            style={{ color: teacher.color }}
+                          />
+                          {language}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
               </section>
 
               {/* Sobre mí */}
@@ -328,19 +312,11 @@ export default async function ProfeDetailPage({
                   <div>
                     <strong>¿No te convence?</strong>
                     <span>
-                      Conoce al resto del equipo y elige otra profe.
+                      Conoce al resto del equipo y elige otro profe.
                     </span>
                     <Link href="/profes" className="pd-cta-callout-link">
-                      Ver todas las profes →
+                      Ver todos los profes →
                     </Link>
-                  </div>
-                </div>
-
-                <div className="pd-cta-popular">
-                  <Sparkles size={16} strokeWidth={2.4} style={{ color: teacher.color }} />
-                  <div>
-                    <strong>Acepta nuevos estudiantes</strong>
-                    <span>Cupos limitados este mes.</span>
                   </div>
                 </div>
               </div>
