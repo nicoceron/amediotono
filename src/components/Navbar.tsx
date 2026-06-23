@@ -58,7 +58,7 @@ export function Navbar() {
           <Link href="/" className="nav-logo" aria-label="A medio tono — inicio" onClick={() => setMenuOpen(false)}>
             <Image
               className="nav-logo-img logo-desktop-wordmark"
-              src="/logo-nav-947b682d.svg"
+              src="/logo-nav.png"
               alt="A medio tono"
               width={1205}
               height={300}
@@ -72,6 +72,7 @@ export function Navbar() {
               width={48}
               height={42}
               loading="eager"
+              unoptimized
             />
           </Link>
 

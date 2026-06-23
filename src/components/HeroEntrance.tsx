@@ -5,13 +5,14 @@ export function HeroEntrance() {
     <div className="hero-logo-stage">
       <Image
         className="hero-logo-main"
-        src="/logo-hero-4c023bde.svg"
+        src="/logo-hero.png"
         alt="A ½ tono — Escuela de artes"
         width={1448}
         height={1086}
         loading="eager"
         fetchPriority="high"
         sizes="(max-width: 700px) 76vw, (max-width: 1100px) 46vw, 500px"
+        unoptimized
       />
     </div>
   );

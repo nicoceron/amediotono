@@ -16,7 +16,7 @@ export function Footer() {
       <div className="container foot-grid">
         <div className="foot-brand">
           <Image
-            src="/logo-nav-947b682d.svg"
+            src="/logo-nav.png"
             alt="A medio tono"
             width={1205}
             height={300}
@@ -29,6 +29,7 @@ export function Footer() {
             width={48}
             height={42}
             className="foot-logo-img logo-mobile-mark"
+            unoptimized
           />
           <p className="foot-tagline">
             Una escuela donde el arte se vive,

@@ -41,7 +41,7 @@ export default function TrabajaConNosotrosPage() {
               <ArrowLeft aria-hidden="true" size={22} strokeWidth={2.6} />
             </Link>
             <Image
-              src="/logo-nav-947b682d.svg"
+              src="/logo-nav.png"
               alt="A medio tono"
               width={1205}
               height={300}
@@ -56,6 +56,7 @@ export default function TrabajaConNosotrosPage() {
               height={42}
               loading="eager"
               className="job-logo logo-mobile-mark"
+              unoptimized
             />
           </header>
 
