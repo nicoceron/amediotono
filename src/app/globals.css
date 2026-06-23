@@ -644,21 +644,16 @@ body:not(:has(.hero-with-bg)):not(:has(.job-application-page)) main {
     padding-top: 0;
     padding-bottom: 0;
   }
-}
-@media (max-width: 700px) {
-  .hero-with-bg {
-    min-height: clamp(480px, 70svh, 620px);
-    background: var(--bg);
-  }
+
   .hero-bg-image { display: none; }
   .hero-with-bg::before {
     display: block;
-    background-image: url("/hero-bg-mobile.png");
+    background-image: url("/hero-bg-mobile-art.png");
     background-image: image-set(
-      url("/hero-bg-mobile.webp") type("image/webp"),
-      url("/hero-bg-mobile.png") type("image/png")
+      url("/hero-bg-mobile-art.webp") type("image/webp"),
+      url("/hero-bg-mobile-art.png") type("image/png")
     );
-    background-position: center top;
+    background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
     opacity: 1;
@@ -668,6 +663,13 @@ body:not(:has(.hero-with-bg)):not(:has(.job-application-page)) main {
     opacity: 0;
     animation: none;
   }
+}
+@media (max-width: 700px) {
+  .hero-with-bg {
+    min-height: clamp(480px, 70svh, 620px);
+    background: var(--bg);
+  }
+
   .hero-logo-stage {
     min-height: clamp(480px, 70svh, 620px);
     padding: 82px 16px 30px;
@@ -2671,7 +2673,6 @@ body:has(.job-application-page) {
   }
   .contact-head p { font-size: 0.98rem; }
 
-  .wa-float { display: none; }
   footer.foot { padding-bottom: 64px; }
 }
 
@@ -2872,7 +2873,20 @@ footer.foot-rich {
   100% { transform: scale(1.4); opacity: 0; }
 }
 @media (max-width: 600px) {
-  .wa-float { display: none; }
+  .wa-float {
+    right: max(16px, env(safe-area-inset-right));
+    bottom: max(16px, env(safe-area-inset-bottom));
+    width: 52px;
+    height: 52px;
+    justify-content: center;
+    gap: 0;
+    padding: 0;
+    border-radius: 999px;
+  }
+
+  .wa-float .label-txt {
+    display: none;
+  }
 }
 
 /* Squiggle dividers */
@@ -3001,10 +3015,6 @@ footer.foot-rich {
   .voces-offer { gap: 5px; }
   .voces-offer-title { font-size: 1.14rem; }
   .voces-offer-sub { font-size: 0.96rem; }
-}
-
-@media (max-width: 600px) {
-  .wa-float { padding: 12px; }
 }
 
 @media (max-width: 380px) {
@@ -5293,6 +5303,7 @@ footer.foot-rich {
   }
 
   section.block.courses-section {
+    margin-top: calc(var(--cloud-height) * -0.35);
     padding-bottom: 36px;
   }
 
