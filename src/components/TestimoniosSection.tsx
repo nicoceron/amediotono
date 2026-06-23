@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { Star } from "lucide-react";
 import {
   motion,
@@ -15,7 +14,6 @@ import {
   useState,
   type CSSProperties,
   type KeyboardEvent,
-  type MouseEvent,
   type PointerEvent,
 } from "react";
 import { FEATURED_QUOTES } from "@/lib/teachers";
@@ -60,7 +58,6 @@ function clampVelocity(velocity: number) {
 export function TestimoniosSection() {
   const reduce = useReducedMotion();
   const trackRef = useRef<HTMLDivElement>(null);
-  const suppressClickResetRef = useRef<number | null>(null);
   const momentumFrameRef = useRef<number | null>(null);
   const dragRef = useRef<DragState>({
     pointerId: null,
@@ -71,7 +68,6 @@ export function TestimoniosSection() {
     velocity: 0,
     moved: false,
   });
-  const suppressClickRef = useRef(false);
   const x = useMotionValue(0);
   const [isDragging, setIsDragging] = useState(false);
 
@@ -174,14 +170,6 @@ export function TestimoniosSection() {
 
       const didMove = drag.moved;
       const velocity = drag.velocity;
-      suppressClickRef.current = didMove;
-      if (suppressClickResetRef.current) {
-        window.clearTimeout(suppressClickResetRef.current);
-      }
-      suppressClickResetRef.current = window.setTimeout(() => {
-        suppressClickRef.current = false;
-        suppressClickResetRef.current = null;
-      }, 350);
       dragRef.current = {
         pointerId: null,
         startClientX: 0,
@@ -204,18 +192,6 @@ export function TestimoniosSection() {
     [startMomentum],
   );
 
-  const handleClickCapture = useCallback((event: MouseEvent<HTMLDivElement>) => {
-    if (!suppressClickRef.current) return;
-
-    suppressClickRef.current = false;
-    if (suppressClickResetRef.current) {
-      window.clearTimeout(suppressClickResetRef.current);
-      suppressClickResetRef.current = null;
-    }
-    event.preventDefault();
-    event.stopPropagation();
-  }, []);
-
   const handleKeyDown = useCallback(
     (event: KeyboardEvent<HTMLDivElement>) => {
       if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
@@ -232,9 +208,6 @@ export function TestimoniosSection() {
   useEffect(() => {
     return () => {
       stopMomentum();
-      if (suppressClickResetRef.current) {
-        window.clearTimeout(suppressClickResetRef.current);
-      }
     };
   }, [stopMomentum]);
 
@@ -264,24 +237,18 @@ export function TestimoniosSection() {
           onPointerUp={finishDrag}
           onPointerCancel={finishDrag}
           onLostPointerCapture={finishDrag}
-          onClickCapture={handleClickCapture}
           onDragStart={(event) => event.preventDefault()}
           onKeyDown={handleKeyDown}
         >
-          <span className="voces-halo voces-halo-1" aria-hidden="true" />
-          <span className="voces-halo voces-halo-2" aria-hidden="true" />
-          <span className="voces-halo voces-halo-3" aria-hidden="true" />
           <motion.div
             ref={trackRef}
             className="voces-marquee-track"
             style={{ x }}
           >
             {items.map((q, i) => (
-              <Link
-                href={`/profes/${q.teacherSlug}`}
+              <div
                 key={`${q.id}-${i}`}
-                className="voces-card-link"
-                aria-label={`Ver perfil de ${q.teacherName}`}
+                className="voces-card-item"
                 draggable={false}
               >
                 <article
@@ -307,7 +274,7 @@ export function TestimoniosSection() {
                     </span>
                   </footer>
                 </article>
-              </Link>
+              </div>
             ))}
           </motion.div>
         </div>

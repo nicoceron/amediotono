@@ -1463,37 +1463,6 @@ section.voces-block {
   user-select: none;
 }
 
-/* Soft floating color halos behind the cards */
-.voces-halo {
-  position: absolute;
-  pointer-events: none;
-  border-radius: 50%;
-  filter: blur(60px);
-  z-index: 0;
-}
-.voces-halo-1 {
-  width: 320px; height: 320px;
-  top: 50%; left: 22%;
-  background: radial-gradient(circle, color-mix(in srgb, var(--pink) 60%, transparent), transparent 70%);
-  transform: translate(-50%, -50%);
-  opacity: 0.5;
-}
-.voces-halo-2 {
-  width: 280px; height: 280px;
-  top: 40%; left: 62%;
-  background: radial-gradient(circle, color-mix(in srgb, var(--green) 50%, transparent), transparent 70%);
-  transform: translate(-50%, -50%);
-  opacity: 0.38;
-}
-.voces-halo-3 {
-  width: 260px; height: 260px;
-  top: 60%; left: 86%;
-  background: radial-gradient(circle, color-mix(in srgb, var(--blue) 45%, transparent), transparent 70%);
-  transform: translate(-50%, -50%);
-  opacity: 0.38;
-}
-[data-theme="dark"] .voces-halo { opacity: 0.3; }
-
 .voces-marquee-track {
   position: relative;
   z-index: 1;
@@ -1504,10 +1473,9 @@ section.voces-block {
   will-change: transform;
 }
 
-.voces-card-link {
+.voces-card-item {
   display: block;
   flex-shrink: 0;
-  text-decoration: none;
   color: inherit;
 }
 .voces-card {
@@ -1525,19 +1493,7 @@ section.voces-block {
   flex-direction: column;
   gap: 22px;
   box-shadow: none;
-  transition:
-    transform 0.32s cubic-bezier(0.22, 1, 0.36, 1),
-    box-shadow 0.32s cubic-bezier(0.22, 1, 0.36, 1),
-    background 0.25s ease,
-    border-color 0.25s ease;
   height: 100%;
-}
-.voces-card-link:hover .voces-card,
-.voces-card-link:focus-visible .voces-card {
-  transform: translateY(-3px);
-  background: color-mix(in srgb, var(--paper) 78%, transparent);
-  border-color: color-mix(in srgb, var(--ink) 14%, transparent);
-  box-shadow: var(--shadow-surface-hover);
 }
 .voces-stars {
   display: inline-flex;
@@ -5537,6 +5493,7 @@ footer.foot-rich {
   }
 
   .voces-marquee {
+    width: calc(100% + 32px);
     margin-left: -16px;
     margin-right: -16px;
     padding: 0 16px 8px;
@@ -5550,7 +5507,7 @@ footer.foot-rich {
     padding: 0 0 4px;
   }
 
-  .voces-card-link {
+  .voces-card-item {
     flex: 0 0 calc(100vw - 32px);
     width: calc(100vw - 32px);
     max-width: 100%;
