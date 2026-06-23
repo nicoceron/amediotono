@@ -371,12 +371,6 @@ body:not(:has(.hero-with-bg)):not(:has(.job-application-page)) main {
   color: var(--button-base-text);
   padding: 0;
   line-height: 1;
-  transition: var(--button-hover-transition);
-}
-.theme-toggle:hover {
-  background-color: var(--button-hover-bg);
-  border-color: var(--button-hover-border);
-  color: var(--button-hover-text);
 }
 .theme-toggle:active { opacity: 0.82; }
 
