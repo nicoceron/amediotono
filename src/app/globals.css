@@ -261,6 +261,12 @@ body:has(#profes-page .profes-mobile-filters[open]) .topnav {
   pointer-events: none;
 }
 
+body:has(#profes-page .profes-mobile-filters[open]) .wa-float {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
 .topnav-inner {
   display: flex;
   align-items: center;
@@ -331,9 +337,20 @@ body:has(#profes-page .profes-mobile-filters[open]) .topnav {
   color: var(--nav-ink);
   position: relative;
   padding: 0;
-  transition: opacity 0.2s ease;
 }
-.nav-links a:hover { opacity: 0.72; }
+.nav-links a:hover,
+.nav-links a:focus,
+.nav-links a:focus-visible,
+.nav-links a:active,
+.nav-links a:visited {
+  color: var(--nav-ink);
+  opacity: 1;
+  text-decoration: none;
+}
+
+.nav-links a:focus-visible {
+  outline: none;
+}
 
 .nav-right {
   display: flex;
@@ -365,6 +382,11 @@ body:has(#profes-page .profes-mobile-filters[open]) .topnav {
   background-color: var(--nav-cta-hover-bg);
   border-color: var(--nav-cta-hover-border);
   color: var(--nav-cta-hover-text);
+}
+
+.nav-mobile-actions,
+.nav-mobile-profes {
+  display: none;
 }
 
 .theme-toggle {
@@ -493,6 +515,42 @@ body:has(#profes-page .profes-mobile-filters[open]) .topnav {
     display: block;
   }
 
+  .nav-mobile-actions {
+    display: inline-flex;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .nav-mobile-profes {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--nav-ink);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 800;
+    line-height: 1.2;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .nav-mobile-profes:hover,
+  .nav-mobile-profes:focus,
+  .nav-mobile-profes:focus-visible,
+  .nav-mobile-profes:active,
+  .nav-mobile-profes:visited {
+    color: var(--nav-ink);
+    background: transparent;
+    text-decoration: none;
+  }
+
+  .nav-mobile-profes:focus-visible {
+    outline: none;
+  }
+
   .nav-right {
     display: none;
     flex-direction: column;
@@ -513,6 +571,10 @@ body:has(#profes-page .profes-mobile-filters[open]) .topnav {
     width: 100%;
     font-size: 0.9rem;
     text-align: center;
+  }
+
+  .nav-link-profes {
+    display: none;
   }
 
   .nav-cta {
@@ -3448,7 +3510,6 @@ footer.foot-rich {
   min-width: 0;
 }
 
-.profes-mobile-keyword,
 .profes-mobile-clear-filters {
   display: none;
 }
@@ -3650,17 +3711,18 @@ footer.foot-rich {
   .profes-search-panel {
     margin-top: 0;
     margin-bottom: 20px;
-    padding: 8px;
-    gap: 8px;
+    padding: 10px 8px;
+    gap: 10px;
   }
 
   .profes-filter-row-main {
-    grid-template-columns: minmax(0, 1fr) 56px 56px;
+    grid-template-columns: minmax(0, 1fr) 58px;
     align-items: start;
+    gap: 12px;
   }
 
   .profes-filter-row-main.has-mobile-filter-count {
-    grid-template-columns: minmax(0, 1fr) 88px 56px;
+    grid-template-columns: minmax(0, 1fr) 58px;
   }
 
   .profes-desktop-filter {
@@ -3677,13 +3739,6 @@ footer.foot-rich {
     z-index: 31;
   }
 
-  .profes-mobile-keyword {
-    display: block;
-    position: relative;
-    z-index: 30;
-    min-width: 0;
-  }
-
   .profes-filter-row-secondary {
     display: none;
   }
@@ -3695,25 +3750,42 @@ footer.foot-rich {
   }
 
   .profes-filter-row-main > .profes-filter-card,
-  .profes-mobile-filter-summary,
-  .profes-mobile-keyword-summary {
+  .profes-mobile-filter-summary {
     box-sizing: border-box;
-    height: 56px;
-    min-height: 56px;
+    height: 60px;
+    min-height: 60px;
   }
 
   .profes-filter-row-main > .profes-course-field {
-    padding: 7px 12px;
+    padding: 8px 18px;
+  }
+
+  .profes-course-control {
+    padding-right: 0;
+  }
+
+  .profes-course-control:has(.profes-filter-clear) {
+    padding-right: 44px;
+  }
+
+  .profes-course-control .profes-filter-clear {
+    right: 14px;
+  }
+
+  .profes-course-chevron {
+    display: none;
   }
 
   .profes-mobile-filter-summary {
-    width: 56px;
+    position: relative;
+    width: 58px;
     justify-content: center;
     padding: 0;
+    border-radius: 999px;
   }
 
   .profes-filter-row-main.has-mobile-filter-count .profes-mobile-filter-summary {
-    width: 88px;
+    width: 58px;
   }
 
   .profes-mobile-filter-summary > span {
@@ -3724,24 +3796,28 @@ footer.foot-rich {
   }
 
   .profes-filter-row-main.has-mobile-filter-count .profes-mobile-filter-summary > span {
-    gap: 10px;
+    gap: 0;
   }
 
   .profes-mobile-filter-summary > span > svg {
-    width: 24px;
-    height: 24px;
+    width: 25px;
+    height: 25px;
   }
 
   .profes-filter-row-main.has-mobile-filter-count .profes-mobile-filter-summary > span > svg {
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
   }
 
   .profes-mobile-filter-count {
-    width: 28px;
-    min-width: 28px;
-    height: 28px;
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    width: 22px;
+    min-width: 22px;
+    height: 22px;
     font-size: 0.9rem;
+    box-shadow: 0 0 0 2px var(--button-base-bg);
   }
 
   .profes-mobile-filter-chevron {
@@ -3796,6 +3872,7 @@ footer.foot-rich {
   }
 
   .profes-mobile-filter-sheet-body .profes-filter-card,
+  .profes-mobile-filter-sheet-body .profes-keyword-field,
   .profes-mobile-filter-sheet-body .profes-menu-summary {
     min-height: 64px;
   }
@@ -3821,59 +3898,6 @@ footer.foot-rich {
     }
   }
 
-  .profes-mobile-keyword-summary {
-    width: 56px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid var(--button-base-border);
-    border-radius: var(--radius-control);
-    background-color: var(--button-base-bg);
-    color: var(--button-base-text);
-    list-style: none;
-    cursor: pointer;
-    transition: var(--button-hover-transition);
-  }
-
-  .profes-mobile-keyword-summary::-webkit-details-marker {
-    display: none;
-  }
-
-  .profes-mobile-keyword-summary svg {
-    color: var(--button-base-text);
-  }
-
-  .profes-mobile-keyword-summary:hover,
-  .profes-mobile-keyword-summary:focus-visible {
-    background-color: var(--button-hover-bg);
-    border-color: var(--button-hover-border);
-    color: var(--button-hover-text);
-    outline: none;
-  }
-
-  .profes-mobile-keyword-summary:hover svg,
-  .profes-mobile-keyword-summary:focus-visible svg {
-    color: var(--button-hover-text);
-  }
-
-  .profes-mobile-keyword-panel {
-    position: absolute;
-    top: calc(100% + 8px);
-    right: -9px;
-    z-index: 41;
-    width: calc(100vw - 32px);
-    max-width: 360px;
-    padding: 8px;
-    background: color-mix(in srgb, var(--bg-1) 92%, white 8%);
-    border: 1px solid color-mix(in srgb, var(--control-text) 16%, transparent);
-    border-radius: var(--radius-card);
-    box-shadow: 0 16px 28px color-mix(in srgb, black 12%, transparent);
-  }
-
-  .profes-mobile-keyword-panel .profes-keyword-field {
-    min-height: 50px;
-  }
-
   .profes-keyword-field {
     grid-template-columns: 20px minmax(0, 1fr) 32px;
     padding: 0 9px 0 12px;
@@ -3890,11 +3914,8 @@ footer.foot-rich {
     box-shadow: none;
   }
 
-  .profes-course-options {
-    left: 0;
-    right: auto;
-    width: min(360px, calc(100vw - 50px));
-    max-height: 220px;
+  .profes-course-field:focus-within .profes-course-options {
+    display: none;
   }
 
   .profes-menu-field[open] {
@@ -3921,22 +3942,22 @@ footer.foot-rich {
 
 @media (max-width: 340px) {
   .profes-filter-row-main.has-mobile-filter-count {
-    grid-template-columns: minmax(0, 1fr) 80px 56px;
+    grid-template-columns: minmax(0, 1fr) 54px;
   }
 
   .profes-filter-row-main.has-mobile-filter-count .profes-mobile-filter-summary {
-    width: 80px;
+    width: 54px;
   }
 
   .profes-filter-row-main.has-mobile-filter-count .profes-mobile-filter-summary > span {
-    gap: 8px;
+    gap: 0;
   }
 
   .profes-filter-row-main.has-mobile-filter-count .profes-mobile-filter-count {
-    width: 26px;
-    min-width: 26px;
-    height: 26px;
-    font-size: 0.84rem;
+    width: 21px;
+    min-width: 21px;
+    height: 21px;
+    font-size: 0.78rem;
   }
 }
 
@@ -4548,20 +4569,29 @@ footer.foot-rich {
 }
 @media (max-width: 720px) {
   .pd-hero-name { justify-content: center; }
+
+  .pd-hero-meta {
+    width: 100%;
+    justify-content: center;
+  }
 }
 .pd-hero-meta {
   display: inline-flex;
   align-items: center;
   flex-wrap: wrap;
   gap: 10px;
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   color: var(--ink-soft);
-  font-weight: 700;
+  font-weight: 800;
 }
 .pd-hero-location {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
+}
+.pd-hero-location svg {
+  width: 18px;
+  height: 18px;
 }
 .pd-hero-dot { color: color-mix(in srgb, var(--ink) 30%, transparent); }
 .pd-hero-bio {
@@ -4610,6 +4640,12 @@ footer.foot-rich {
   color: var(--ink);
 }
 
+.pd-imparte-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 .pd-imparte {
   list-style: none;
   margin: 0;
@@ -4633,6 +4669,16 @@ footer.foot-rich {
 .pd-imparte-item-soft {
   color: var(--ink-soft);
   font-weight: 600;
+}
+
+@media (max-width: 720px) {
+  .pd-imparte-groups {
+    gap: 10px;
+  }
+
+  .pd-imparte-details {
+    gap: 10px 16px;
+  }
 }
 
 .pd-about-body {
@@ -4827,17 +4873,6 @@ footer.foot-rich {
   color: var(--profe-color);
   border-color: var(--profe-color);
 }
-.pd-cta-popular {
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  padding-top: 12px;
-  border-top: 1px dotted color-mix(in srgb, var(--ink) 14%, transparent);
-}
-.pd-cta-popular > svg { margin-top: 2px; flex-shrink: 0; }
-.pd-cta-popular > div { display: flex; flex-direction: column; gap: 2px; }
-.pd-cta-popular strong { font-size: 0.9rem; color: var(--ink); font-weight: 800; }
-.pd-cta-popular span { font-size: 0.82rem; color: var(--ink-soft); font-weight: 600; }
 
 /* ===== Cómo funciona — landing 3-step section ===== */
 #como-funciona {
@@ -5635,20 +5670,19 @@ footer.foot-rich {
   }
 
   #profes-page .profes-filter-row-main {
-    grid-template-columns: minmax(0, 1fr) 48px 48px;
+    grid-template-columns: minmax(0, 1fr) 58px;
   }
 
   #profes-page .profes-filter-row-main.has-mobile-filter-count {
-    grid-template-columns: minmax(0, 1fr) 78px 48px;
+    grid-template-columns: minmax(0, 1fr) 58px;
   }
 
-  #profes-page .profes-mobile-filter-summary,
-  #profes-page .profes-mobile-keyword-summary {
-    width: 48px;
+  #profes-page .profes-mobile-filter-summary {
+    width: 58px;
   }
 
   #profes-page .profes-filter-row-main.has-mobile-filter-count .profes-mobile-filter-summary {
-    width: 78px;
+    width: 58px;
   }
 
   #profes-page .profe-card-actions,

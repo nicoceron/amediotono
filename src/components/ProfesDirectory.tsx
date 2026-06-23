@@ -372,7 +372,12 @@ export function ProfesDirectory({ teachers }: { teachers: Teacher[] }) {
     Boolean(formatFilter) ||
     Boolean(languageFilter) ||
     Boolean(locationFilter);
-  const mobileFilterCount = [formatFilter, locationFilter, languageFilter].filter(Boolean).length;
+  const mobileFilterCount = [
+    keywordQuery.trim(),
+    formatFilter,
+    locationFilter,
+    languageFilter,
+  ].filter(Boolean).length;
 
   const updateFilters = (updates: Partial<FilterState>) => {
     const currentParams = new URLSearchParams(
@@ -419,6 +424,7 @@ export function ProfesDirectory({ teachers }: { teachers: Teacher[] }) {
   };
   const clearMobileSheetFilters = () => {
     updateFilters({
+      keywordQuery: "",
       formatFilter: "",
       languageFilter: "",
       locationFilter: "",
@@ -484,6 +490,27 @@ export function ProfesDirectory({ teachers }: { teachers: Teacher[] }) {
               </div>
 
               <div className="profes-mobile-filter-sheet-body" data-lenis-prevent="true">
+                <label className="profes-keyword-field profes-mobile-sheet-keyword">
+                  <Search size={18} strokeWidth={2.4} aria-hidden="true" />
+                  <input
+                    type="search"
+                    value={keywordQuery}
+                    onChange={(event) => updateFilters({ keywordQuery: event.target.value })}
+                    placeholder="Buscar profe"
+                    aria-label="Buscar por nombre o palabra clave"
+                  />
+                  {keywordQuery && (
+                    <button
+                      type="button"
+                      className="profes-filter-clear"
+                      onClick={() => updateFilters({ keywordQuery: "" })}
+                      aria-label="Limpiar búsqueda"
+                    >
+                      <CircleX size={18} strokeWidth={2.4} aria-hidden="true" />
+                    </button>
+                  )}
+                </label>
+
                 <FilterMenu
                   label="Formato"
                   value={formatFilter}
@@ -521,34 +548,6 @@ export function ProfesDirectory({ teachers }: { teachers: Teacher[] }) {
                   Ver {filteredTeachers.length} profes
                 </button>
               </div>
-            </div>
-          </details>
-
-          <details className="profes-mobile-keyword">
-            <summary className="profes-mobile-keyword-summary" aria-label="Buscar por nombre o palabra clave">
-              <Search size={20} strokeWidth={2.4} aria-hidden="true" />
-            </summary>
-            <div className="profes-mobile-keyword-panel">
-              <label className="profes-keyword-field">
-                <Search size={18} strokeWidth={2.4} aria-hidden="true" />
-                <input
-                  type="search"
-                  value={keywordQuery}
-                  onChange={(event) => updateFilters({ keywordQuery: event.target.value })}
-                  placeholder="Buscar profe"
-                  aria-label="Buscar por nombre o palabra clave"
-                />
-                {keywordQuery && (
-                  <button
-                    type="button"
-                    className="profes-filter-clear"
-                    onClick={() => updateFilters({ keywordQuery: "" })}
-                    aria-label="Limpiar búsqueda"
-                  >
-                    <CircleX size={18} strokeWidth={2.4} aria-hidden="true" />
-                  </button>
-                )}
-              </label>
             </div>
           </details>
 
@@ -752,7 +751,7 @@ export function ProfesDirectory({ teachers }: { teachers: Teacher[] }) {
             buscamos un profesor que pueda ayudarte.
           </p>
           <a href={emptyContactHref} target="_blank" rel="noopener">
-            Contactarnos
+            Contáctanos
             <ArrowRight size={18} strokeWidth={2.4} aria-hidden="true" />
           </a>
         </div>
