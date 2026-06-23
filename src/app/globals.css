@@ -28,8 +28,8 @@
   --control-text: var(--button-dark);
   --hero-overlay-bg: var(--bg);
   --hero-overlay-opacity: 0.07;
-  --nav-surface: color-mix(in srgb, var(--paper) 82%, transparent);
-  --nav-mobile-surface: var(--paper);
+  --nav-surface: rgba(255, 255, 255, 0.2);
+  --nav-mobile-surface: #fff;
   --nav-ink: var(--ink);
   --nav-cta-bg: var(--button-base-bg);
   --nav-cta-text: var(--button-base-text);
@@ -106,8 +106,8 @@
 [data-theme="dark"] {
   --bg: var(--app-dark);
   --bg-1: var(--bg);
-  --bg-2: #1F162E;
-  --paper: #362449;
+  --bg-2: var(--bg);
+  --paper: var(--bg);
   --button-base-bg: #fff;
   --button-base-text: var(--button-dark);
   --button-base-border: #fff;
@@ -120,6 +120,8 @@
   --line: #FFF8EE;
   --hero-overlay-bg: var(--bg);
   --hero-overlay-opacity: 0.2;
+  --nav-surface: color-mix(in srgb, var(--bg) 20%, transparent);
+  --nav-mobile-surface: var(--paper);
   --course-icon-filter: invert(1) brightness(1.5);
 }
 
@@ -236,9 +238,9 @@ p  { font-size: 16px; line-height: 1.5; margin: 0 0 1em 0; }
   border: 0;
   border-radius: 70px;
   background: var(--nav-surface);
-  box-shadow: 0 18px 42px color-mix(in srgb, var(--line) 8%, transparent);
-  -webkit-backdrop-filter: blur(18px) saturate(140%);
-  backdrop-filter: blur(18px) saturate(140%);
+  box-shadow: none;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
   color: var(--nav-ink);
   transition:
     background-color 0.3s ease,
@@ -248,6 +250,15 @@ p  { font-size: 16px; line-height: 1.5; margin: 0 0 1em 0; }
 
 body:not(:has(.hero-with-bg)):not(:has(.job-application-page)) main {
   padding-top: 104px;
+}
+
+body:has(#profes-page) .topnav {
+  position: absolute;
+}
+
+body:has(#profes-page .profes-mobile-filters[open]) .topnav {
+  z-index: 0;
+  pointer-events: none;
 }
 
 .topnav-inner {
@@ -431,6 +442,7 @@ body:not(:has(.hero-with-bg)):not(:has(.job-application-page)) main {
     width: auto;
     max-width: none;
     transform: translateX(var(--nav-x));
+    background: var(--nav-mobile-surface);
   }
 }
 
@@ -3060,6 +3072,10 @@ footer.foot-rich {
   box-shadow: none;
 }
 
+.profes-search-panel:has(.profes-mobile-filters[open]) {
+  z-index: 130;
+}
+
 .profes-filter-row {
   display: grid;
   gap: 8px;
@@ -3242,6 +3258,7 @@ footer.foot-rich {
 
 .profes-course-option.is-selected {
   background: color-mix(in srgb, var(--pink) 22%, white 78%);
+  color: var(--button-dark);
   box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--button-dark) 42%, transparent);
 }
 
@@ -3339,6 +3356,7 @@ footer.foot-rich {
 
 .profes-menu-option.is-selected {
   background: color-mix(in srgb, var(--pink) 22%, white 78%);
+  color: var(--button-dark);
   box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--button-dark) 42%, transparent);
 }
 

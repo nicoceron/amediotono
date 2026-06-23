@@ -134,11 +134,6 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
       return;
     }
 
-    if (smoothScrollDisabled) {
-      isHistoryNavigation.current = false;
-      return;
-    }
-
     const frame = window.requestAnimationFrame(() => {
       const hash = window.location.hash;
       const hashTarget = hash ? getElementByHash(hash) : null;
