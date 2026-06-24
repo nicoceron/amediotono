@@ -11,7 +11,6 @@ import {
   Languages,
   MapPin,
   MessageCircle,
-  Sparkles,
   Star,
   Video,
 } from "lucide-react";
@@ -252,37 +251,25 @@ export default async function ProfeDetailPage({
               <div className="pd-cta-card">
                 <div className="pd-cta-stats">
                   <div className="pd-cta-stat">
-                    {hasReviews ? (
-                      <>
-                        <strong>
+                    <strong className="pd-cta-stars" aria-label="5 estrellas">
+                      {[0, 1, 2, 3, 4].map((s) => (
                           <Star
+                            key={s}
                             size={18}
                             fill="currentColor"
                             strokeWidth={0}
                             style={{ color: teacher.color }}
                             aria-hidden="true"
                           />
-                          5,0
-                        </strong>
-                        <span>
-                          {teacher.reviews.length}{" "}
-                          {teacher.reviews.length === 1 ? "reseña" : "reseñas"}
-                        </span>
-                      </>
-                    ) : (
-                      <>
-                        <strong>
-                          <Sparkles
-                            size={18}
-                            strokeWidth={2.4}
-                            style={{ color: teacher.color }}
-                            aria-hidden="true"
-                          />
-                          Nuevo
-                        </strong>
-                        <span>perfil de profe</span>
-                      </>
-                    )}
+                      ))}
+                    </strong>
+                    <span>
+                      {hasReviews
+                        ? `${teacher.reviews.length} ${
+                            teacher.reviews.length === 1 ? "reseña" : "reseñas"
+                          }`
+                        : "5 estrellas"}
+                    </span>
                   </div>
                 </div>
 

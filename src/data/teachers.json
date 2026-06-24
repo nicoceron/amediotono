@@ -3,7 +3,7 @@
     "slug": "gisselle-torres",
     "name": "Gisselle Torres",
     "shortName": "Gisselle",
-    "color": "var(--green)",
+    "color": "var(--pink)",
     "bio": "Tu profe de flauta que no omite lo gracioso que es equivocarse en clases. Soy Gisselle, ¡si no te ríes pierdes!",
     "longBio": "Soy Gisselle, flautista y profesora apasionada por enseñar desde lo más básico hasta lo más avanzado. Mi metodología es cercana, paciente y enfocada en construir fundamentos sólidos para que cada estudiante avance a su propio ritmo. Creo que aprender música es también aprender a equivocarse con humor y a celebrar cada pequeño logro.",
     "country": "Colombia",
@@ -200,86 +200,6 @@
     ]
   },
   {
-    "slug": "valentina-fernandez",
-    "name": "Valentina Fernández",
-    "shortName": "Valentina",
-    "color": "var(--blue)",
-    "bio": "Soy Valentina, la violinista del color y con nuestros violines pintaremos de sonido nuestro corazón. Una sonrisa dibujada es lo más bello de la educación.",
-    "longBio": "Soy Valentina, violinista convencida de que enseñar es pintar el mundo con sonido. Trabajo con niñas, niños y adultos para que descubran la postura, la afinación y la sensibilidad musical desde un lugar amable, paciente y muy creativo. Mi mayor recompensa es ver a un estudiante sonreír cuando suena algo que antes parecía imposible.",
-    "country": "Colombia",
-    "countryFlag": "🇨🇴",
-    "highlights": [
-      "Sensible",
-      "Carismática",
-      "Paciente"
-    ],
-    "classFormats": [
-      "Virtual",
-      "A domicilio"
-    ],
-    "photo": "/profes/valentina-fernandez.svg",
-    "gallery": [
-      {
-        "src": "https://images.unsplash.com/photo-1465821185615-20b3c2fbf41b?auto=format&fit=crop&w=900&q=80",
-        "alt": "Detalle de un violín en clase"
-      },
-      {
-        "src": "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=900&q=80",
-        "alt": "Violinista interpretando una obra"
-      },
-      {
-        "src": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=900&q=80",
-        "alt": "Estudiante recibiendo clase de violín"
-      }
-    ],
-    "reviews": [
-      {
-        "id": "v1",
-        "author": "Familia",
-        "instrument": "Violín",
-        "quote": "Quiero extender mi agradecimiento y felicitación a la escuela A Medio Tono Music, donde actualmente mi hija Michelle está aprendiendo violín. Iniciamos clases en febrero y ha sido una experiencia muy bonita. No se trata solo del instrumento, también trabajan la postura y el aprendizaje a través de dinámicas que hacen las clases más amenas. Además, ofrecen un excelente servicio a domicilio. Los profesores tienen mucha experiencia y destacan por su carisma, amabilidad y paciencia en cada clase. Poco a poco se van notando los progresos, lo cual es muy gratificante."
-      }
-    ],
-    "skillIds": [
-      "violin"
-    ],
-    "location": "Bogotá",
-    "classLanguages": [
-      "Español"
-    ]
-  },
-  {
-    "slug": "matthew",
-    "name": "Matthew Romero",
-    "shortName": "Matthew",
-    "color": "var(--orange)",
-    "bio": "Soy Matthew, el profe que transforma cuerdas y notas en sonrisas. En mis clases de voz y guitarra, ¡la música es felicidad!",
-    "longBio": "Soy Matthew, el profe que transforma cuerdas y notas en sonrisas. En mis clases de voz y guitarra, ¡la música es felicidad!",
-    "country": "Colombia",
-    "countryFlag": "🇨🇴",
-    "highlights": [
-      "Feliz",
-      "Cercano",
-      "Expresivo"
-    ],
-    "photo": "/profes/matthew.webp",
-    "photoPosition": "50% 34%",
-    "gallery": [],
-    "reviews": [],
-    "skillIds": [
-      "guitarra-electrica"
-    ],
-    "classFormats": [
-      "Virtual",
-      "A domicilio"
-    ],
-    "location": "Bogotá",
-    "classLanguages": [
-      "Español",
-      "Inglés"
-    ]
-  },
-  {
     "slug": "niko",
     "name": "Niko Ferro",
     "shortName": "Niko",
@@ -421,37 +341,8 @@
     "gallery": [],
     "reviews": [],
     "skillIds": [
-      "guitarra-electrica"
-    ],
-    "classFormats": [
-      "Virtual",
-      "A domicilio"
-    ],
-    "location": "Bogotá",
-    "classLanguages": [
-      "Español"
-    ]
-  },
-  {
-    "slug": "julian",
-    "name": "Julián Pérez",
-    "shortName": "Julián",
-    "color": "var(--blue)",
-    "bio": "Soy Julián 🎹🌙 De esos profes que pueden pasar varios minutos explicando una sola idea con ejemplos rarísimos hasta que todo tenga sentido 😄✨",
-    "longBio": "Soy Julián 🎹🌙 De esos profes que pueden pasar varios minutos explicando una sola idea con ejemplos rarísimos hasta que todo tenga sentido 😄✨",
-    "country": "Colombia",
-    "countryFlag": "🇨🇴",
-    "highlights": [
-      "Paciente",
-      "Claro",
-      "Curioso"
-    ],
-    "photo": "/profes/julian.webp",
-    "photoPosition": "45% 24%",
-    "gallery": [],
-    "reviews": [],
-    "skillIds": [
-      "piano"
+      "guitarra-electrica",
+      "guitarra-acustica"
     ],
     "classFormats": [
       "Virtual",
@@ -585,36 +476,6 @@
     ]
   },
   {
-    "slug": "cami",
-    "name": "Camila",
-    "shortName": "Camila",
-    "color": "var(--blue)",
-    "bio": "Soy Cami 🎹✨ Pianista, profe de piano y especialista en decir “una vez más” unas 37 veces por clase 😅🎶 Aprendemos música entre risas, paciencia y mucho amor por el piano 💛",
-    "longBio": "Soy Cami 🎹✨ Pianista, profe de piano y especialista en decir “una vez más” unas 37 veces por clase 😅🎶 Aprendemos música entre risas, paciencia y mucho amor por el piano 💛",
-    "country": "Colombia",
-    "countryFlag": "🇨🇴",
-    "highlights": [
-      "Piano",
-      "Paciente",
-      "Amorosa"
-    ],
-    "photo": "/profes/cami.webp",
-    "photoPosition": "54% 36%",
-    "gallery": [],
-    "reviews": [],
-    "skillIds": [
-      "piano"
-    ],
-    "classFormats": [
-      "Virtual",
-      "A domicilio"
-    ],
-    "location": "Bogotá",
-    "classLanguages": [
-      "Español"
-    ]
-  },
-  {
     "slug": "fabian",
     "name": "Fabián Garzón",
     "shortName": "Fabián",
@@ -649,21 +510,264 @@
     "name": "José García",
     "shortName": "José",
     "color": "var(--purple)",
-    "bio": "Hola soy José, el profe de clari con el que aprenderemos de los errores y si te chilla el clari ¡tranquilo! Es culpa de la caña.😅🤭",
-    "longBio": "Hola soy José, el profe de clari con el que aprenderemos de los errores y si te chilla el clari ¡tranquilo! Es culpa de la caña.😅🤭",
+    "bio": "Hola soy José, el profe de clari con el que aprenderemos de los errores y si te chilla el clari ¡Tranquilo! Es culpa de la caña.😅🤭",
+    "longBio": "Hola soy José, el profe de clari con el que aprenderemos de los errores y si te chilla el clari ¡Tranquilo! Es culpa de la caña.😅🤭",
     "country": "Colombia",
     "countryFlag": "🇨🇴",
     "highlights": [
       "Clarinete",
-      "Paciente",
-      "Divertido"
+      "Errores",
+      "Caña"
     ],
     "photo": "/profes/jose.webp",
-    "photoPosition": "48% 34%",
+    "photoPosition": "50% 45%",
     "gallery": [],
     "reviews": [],
     "skillIds": [
       "clarinete"
+    ],
+    "classFormats": [
+      "Virtual",
+      "A domicilio"
+    ],
+    "location": "Bogotá",
+    "classLanguages": [
+      "Español"
+    ]
+  },
+  {
+    "slug": "alejandro",
+    "name": "Alejandro Guzman",
+    "shortName": "Alejandro",
+    "color": "var(--orange)",
+    "bio": "Hola, mi nombre es Alejandro, mi mayor alegria es verte cumplir tus sueños. Mi pasión, que te conozcas un poco más a traves de la música y para ello hay mil y una formas de lograrlo. ¡vamos a por ello!",
+    "longBio": "Hola, mi nombre es Alejandro, mi mayor alegria es verte cumplir tus sueños. Mi pasión, que te conozcas un poco más a traves de la música y para ello hay mil y una formas de lograrlo. ¡vamos a por ello!",
+    "country": "Colombia",
+    "countryFlag": "🇨🇴",
+    "highlights": [
+      "Violín",
+      "Sueños",
+      "Música"
+    ],
+    "photo": "/profes/alejandro.webp",
+    "photoPosition": "50% 32%",
+    "gallery": [],
+    "reviews": [],
+    "skillIds": [
+      "violin"
+    ],
+    "classFormats": [
+      "Virtual",
+      "A domicilio"
+    ],
+    "location": "Bogotá",
+    "classLanguages": [
+      "Español"
+    ]
+  },
+  {
+    "slug": "erika-nayive-torres-murillo",
+    "name": "Erika Nayive Torres Murillo",
+    "shortName": "Erika",
+    "color": "var(--blue)",
+    "bio": "Soy Erika Nayive Torres Murillo, maestra de música apasionada por enseñar con alegría, paciencia y amor. Creo en la sabiduría de los niños y disfruto guiarlos a través de la música y la creatividad.",
+    "longBio": "Soy Erika Nayive Torres Murillo, maestra de música apasionada por enseñar con alegría, paciencia y amor. Creo en la sabiduría de los niños y disfruto guiarlos a través de la música y la creatividad.",
+    "country": "Colombia",
+    "countryFlag": "🇨🇴",
+    "highlights": [
+      "Alegría",
+      "Paciencia",
+      "Amor"
+    ],
+    "photo": "/profes/erika-nayive-torres-murillo.webp",
+    "photoPosition": "50% 45%",
+    "gallery": [],
+    "reviews": [],
+    "skillIds": [
+      "oboe",
+      "flauta-dulce"
+    ],
+    "classFormats": [
+      "Virtual",
+      "A domicilio"
+    ],
+    "location": "Bogotá",
+    "classLanguages": [
+      "Español"
+    ]
+  },
+  {
+    "slug": "carlos",
+    "name": "Carlos Santamaria",
+    "shortName": "Carlos",
+    "color": "var(--green)",
+    "bio": "Soy Carlos. Paso buena parte del tiempo rodeado de cuerdas, partituras y preguntas inesperadas. Me gusta enseñar con creatividad, humor y mucha música, porque las mejores experiencias suelen empezar con un simple “¿y qué pasa si probamos esto?”. 🎶✨😄",
+    "longBio": "Soy Carlos. Paso buena parte del tiempo rodeado de cuerdas, partituras y preguntas inesperadas. Me gusta enseñar con creatividad, humor y mucha música, porque las mejores experiencias suelen empezar con un simple “¿y qué pasa si probamos esto?”. 🎶✨😄",
+    "country": "Colombia",
+    "countryFlag": "🇨🇴",
+    "highlights": [
+      "Cuerdas",
+      "Creatividad",
+      "Humor"
+    ],
+    "photo": "/profes/carlos.webp",
+    "photoPosition": "50% 34%",
+    "gallery": [],
+    "reviews": [],
+    "skillIds": [
+      "bandola-andina"
+    ],
+    "classFormats": [
+      "Virtual",
+      "A domicilio"
+    ],
+    "location": "Bogotá",
+    "classLanguages": [
+      "Español"
+    ]
+  },
+  {
+    "slug": "madeline",
+    "name": "Madeline Castiblanco",
+    "shortName": "Madeline",
+    "color": "var(--pink)",
+    "bio": "Hola! Soy Madeline, violinista, voy a escuchar todas tus preguntas y a dar varias herramientas para que aprendas de la mejor forma. La música es un mundo por explorar! 🌼✨",
+    "longBio": "Hola! Soy Madeline, violinista, voy a escuchar todas tus preguntas y a dar varias herramientas para que aprendas de la mejor forma. La música es un mundo por explorar! 🌼✨",
+    "country": "Colombia",
+    "countryFlag": "🇨🇴",
+    "highlights": [
+      "Violín",
+      "Preguntas",
+      "Herramientas"
+    ],
+    "photo": "/profes/madeline.webp",
+    "photoPosition": "50% 36%",
+    "gallery": [],
+    "reviews": [],
+    "skillIds": [
+      "violin"
+    ],
+    "classFormats": [
+      "Virtual",
+      "A domicilio"
+    ],
+    "location": "Bogotá",
+    "classLanguages": [
+      "Español"
+    ]
+  },
+  {
+    "slug": "laura-prias",
+    "name": "Laura Prias",
+    "shortName": "Laura",
+    "color": "var(--red)",
+    "bio": "Soy Laura, tu profe de violín que busca que la música sea un lugar para aprender y disfrutar 🎶 Aquí encontrarás un espacio seguro para aprender, sentir, explorar y disfrutar del proceso 🌱🫀",
+    "longBio": "Soy Laura, tu profe de violín que busca que la música sea un lugar para aprender y disfrutar 🎶 Aquí encontrarás un espacio seguro para aprender, sentir, explorar y disfrutar del proceso 🌱🫀",
+    "country": "Colombia",
+    "countryFlag": "🇨🇴",
+    "highlights": [
+      "Violín",
+      "Espacio seguro",
+      "Explorar"
+    ],
+    "photo": "/profes/laura-prias.webp",
+    "photoPosition": "50% 38%",
+    "gallery": [],
+    "reviews": [],
+    "skillIds": [
+      "violin"
+    ],
+    "classFormats": [
+      "Virtual",
+      "A domicilio"
+    ],
+    "location": "Bogotá",
+    "classLanguages": [
+      "Español"
+    ]
+  },
+  {
+    "slug": "juank",
+    "name": "JuanK Chavez",
+    "shortName": "JuanK",
+    "color": "var(--orange)",
+    "bio": "Soy JuanK el cucharero, aquel que escucha desarma, te ayuda  entiende y traduce tu mundo musical.",
+    "longBio": "Soy JuanK el cucharero, aquel que escucha desarma, te ayuda  entiende y traduce tu mundo musical.",
+    "country": "Colombia",
+    "countryFlag": "🇨🇴",
+    "highlights": [
+      "Cucharero",
+      "Escucha",
+      "Traduce"
+    ],
+    "photo": "/profes/juank.webp",
+    "photoPosition": "50% 34%",
+    "gallery": [],
+    "reviews": [],
+    "skillIds": [
+      "percusion"
+    ],
+    "classFormats": [
+      "Virtual",
+      "A domicilio"
+    ],
+    "location": "Bogotá",
+    "classLanguages": [
+      "Español"
+    ]
+  },
+  {
+    "slug": "dara",
+    "name": "Dara Cifuentes",
+    "shortName": "Dara",
+    "color": "var(--purple)",
+    "bio": "Soy Dara, saxofonista que te crea el amor por interpretar. Ven y exploramos este mundo lleno de magia.",
+    "longBio": "Soy Dara, saxofonista que te crea el amor por interpretar. Ven y exploramos este mundo lleno de magia.",
+    "country": "Colombia",
+    "countryFlag": "🇨🇴",
+    "highlights": [
+      "Saxofón",
+      "Interpretar",
+      "Magia"
+    ],
+    "photo": "/profes/dara.webp",
+    "photoPosition": "50% 34%",
+    "gallery": [],
+    "reviews": [],
+    "skillIds": [
+      "saxofon"
+    ],
+    "classFormats": [
+      "Virtual",
+      "A domicilio"
+    ],
+    "location": "Bogotá",
+    "classLanguages": [
+      "Español"
+    ]
+  },
+  {
+    "slug": "camila-cotrino",
+    "name": "Camila Cotrino",
+    "shortName": "Camila",
+    "color": "var(--red)",
+    "bio": "¡Soy tu profe de trompeta! 🎶✨ En mis clases aprendemos música jugando, cantando, creando ritmos y haciendo de cada encuentro un pequeño concierto lleno de diversión y creatividad.",
+    "longBio": "¡Soy tu profe de trompeta! 🎶✨ En mis clases aprendemos música jugando, cantando, creando ritmos y haciendo de cada encuentro un pequeño concierto lleno de diversión y creatividad.",
+    "country": "Colombia",
+    "countryFlag": "🇨🇴",
+    "highlights": [
+      "Iniciación musical",
+      "Canto",
+      "Trompeta"
+    ],
+    "photo": "/profes/camila-cotrino.webp",
+    "photoPosition": "42% 50%",
+    "gallery": [],
+    "reviews": [],
+    "skillIds": [
+      "iniciacion-musical",
+      "canto",
+      "trompeta"
     ],
     "classFormats": [
       "Virtual",
@@ -816,7 +920,8 @@
     "reviews": [],
     "skillIds": [
       "teoria-musical",
-      "bajo-electrico"
+      "bajo-electrico",
+      "piano"
     ],
     "classFormats": [
       "Virtual",
