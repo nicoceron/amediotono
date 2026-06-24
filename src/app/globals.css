@@ -113,6 +113,7 @@
   --nav-cta-hover-border: var(--button-hover-border);
   --ink: #2A1B3D;
   --ink-soft: #5C4A6E;
+  --teacher-description-color: var(--ink-soft);
   --line: #2A1B3D;
   --accent: var(--pink);
   --course-icon-filter: none;
@@ -1375,7 +1376,7 @@ section.block.courses-section {
 .profes-grid-bio {
   font-size: 14px;
   line-height: 1.2;
-  color: var(--ink-soft);
+  color: var(--teacher-description-color);
   margin-top: 6px;
   margin-bottom: 0;
   max-width: 260px;
@@ -1516,7 +1517,7 @@ section.block.courses-section {
 }
 .teacher-card .bio {
   font-size: 14px;
-  color: var(--ink-soft);
+  color: var(--teacher-description-color);
   margin: 8px 0 0;
 }
 
@@ -4338,7 +4339,7 @@ footer.foot-rich {
   margin: 0;
   font-size: 18px;
   line-height: 1.5;
-  color: var(--ink-soft);
+  color: var(--teacher-description-color);
   display: -webkit-box;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
@@ -4347,11 +4348,11 @@ footer.foot-rich {
   text-overflow: ellipsis;
 }
 .profe-card-bio strong {
-  color: var(--ink);
+  color: inherit;
   font-weight: 500;
 }
 .profe-card-bio span {
-  color: var(--ink-soft);
+  color: inherit;
   font-weight: 500;
 }
 
@@ -4750,7 +4751,7 @@ footer.foot-rich {
   margin: 0;
   font-size: 16px;
   line-height: 1.4;
-  color: color-mix(in srgb, var(--ink) 90%, transparent);
+  color: var(--teacher-description-color);
 }
 
 /* Section */
@@ -4837,7 +4838,7 @@ footer.foot-rich {
   margin: 0;
   font-size: 16px;
   line-height: 1.4;
-  color: color-mix(in srgb, var(--ink) 88%, transparent);
+  color: var(--teacher-description-color);
 }
 
 /* Reviews */
@@ -4944,6 +4945,9 @@ footer.foot-rich {
   font-size: 22px;
   color: var(--ink);
   line-height: 1.3;
+}
+.pd-cta-stars {
+  gap: 2px;
 }
 .pd-cta-stat span {
   font-size: 14px;
