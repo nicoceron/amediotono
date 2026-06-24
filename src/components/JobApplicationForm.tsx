@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useId, useMemo, useRef, useState } from "react";
-import type { HTMLAttributes, ReactNode, RefObject } from "react";
+import type { FormEvent, HTMLAttributes, ReactNode, RefObject } from "react";
 import { ArrowRight, ChevronDown, Upload } from "lucide-react";
 import { COUNTRY_DIAL_CODES } from "@/data/countryDialCodes";
 
@@ -436,8 +436,42 @@ function LanguageChecklist() {
 }
 
 export function JobApplicationForm() {
+  const [submissionStatus, setSubmissionStatus] = useState<
+    "idle" | "submitting" | "success" | "error"
+  >("idle");
+  const [submissionMessage, setSubmissionMessage] = useState("");
+  const isSubmitting = submissionStatus === "submitting";
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setSubmissionStatus("submitting");
+    setSubmissionMessage("");
+
+    try {
+      const response = await fetch("/api/job-applications", {
+        method: "POST",
+        body: new FormData(event.currentTarget),
+      });
+      const payload = (await response.json().catch(() => null)) as { message?: string } | null;
+
+      if (!response.ok) {
+        throw new Error(payload?.message || "No pudimos enviar la aplicación.");
+      }
+
+      setSubmissionStatus("success");
+      setSubmissionMessage("Aplicación enviada. Revisaremos tu perfil pronto.");
+    } catch (error) {
+      setSubmissionStatus("error");
+      setSubmissionMessage(
+        error instanceof Error
+          ? error.message
+          : "No pudimos enviar la aplicación. Inténtalo de nuevo.",
+      );
+    }
+  }
+
   return (
-    <form className="job-form" encType="multipart/form-data">
+    <form className="job-form" encType="multipart/form-data" onSubmit={handleSubmit}>
       <section className="job-form-section" aria-labelledby="general-info-title">
         <h2 className="visually-hidden" id="general-info-title">
           Información general
@@ -516,14 +550,24 @@ export function JobApplicationForm() {
         <label className="job-upload" id="cv-upload">
           <Upload aria-hidden="true" size={30} strokeWidth={2.4} />
           <span>Subir CV</span>
-          <small>PDF, DOC o DOCX</small>
+          <small>PDF, DOC o DOCX · máx. 4 MB</small>
           <input name="cv" type="file" accept=".pdf,.doc,.docx" required />
         </label>
       </section>
 
-      <button className="job-submit" type="submit">
-        Enviar aplicación
-        <ArrowRight aria-hidden="true" size={22} strokeWidth={2.7} />
+      {submissionMessage && (
+        <p
+          className={`job-form-status job-form-status-${submissionStatus}`}
+          role={submissionStatus === "error" ? "alert" : "status"}
+          aria-live="polite"
+        >
+          {submissionMessage}
+        </p>
+      )}
+
+      <button className="job-submit" type="submit" disabled={isSubmitting}>
+        {isSubmitting ? "Enviando..." : "Enviar aplicación"}
+        {!isSubmitting && <ArrowRight aria-hidden="true" size={22} strokeWidth={2.7} />}
       </button>
     </form>
   );
