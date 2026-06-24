@@ -1,30 +1,18 @@
 "use client";
 
-import { useEffect, useState, useCallback, useSyncExternalStore } from "react";
+import { useEffect, useState } from "react";
+import type { MouseEvent } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Sun, Moon } from "lucide-react";
+import { usePathname, useRouter } from "next/navigation";
 
-function useTheme() {
-  const getSnapshot = useCallback(() => {
-    if (typeof window === "undefined") return "light";
-    return document.documentElement.getAttribute("data-theme") as "light" | "dark" || "light";
-  }, []);
-
-  const getServerSnapshot = useCallback(() => "light", []);
-
-  const subscribe = useCallback((callback: () => void) => {
-    const observer = new MutationObserver(callback);
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
-    return () => observer.disconnect();
-  }, []);
-
-  return useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
-}
+const SMOOTH_SCROLL_TO_EVENT = "mediotono:smooth-scroll-to";
+const PENDING_SCROLL_TARGET_KEY = "mediotono:pending-scroll-target";
 
 export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const theme = useTheme();
+  const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -43,10 +31,25 @@ export function Navbar() {
     };
   }, []);
 
-  const toggleTheme = () => {
-    const next = theme === "dark" ? "light" : "dark";
-    document.documentElement.setAttribute("data-theme", next);
-    localStorage.setItem("tono-theme", next);
+  const handleContactClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    setMenuOpen(false);
+
+    if (typeof window === "undefined") return;
+
+    event.preventDefault();
+
+    if (pathname !== "/") {
+      window.sessionStorage.setItem(PENDING_SCROLL_TARGET_KEY, "#contacto");
+      router.push("/#contacto", { scroll: false });
+      return;
+    }
+
+    window.history.pushState(null, "", "/#contacto");
+    window.dispatchEvent(
+      new CustomEvent(SMOOTH_SCROLL_TO_EVENT, {
+        detail: { hash: "#contacto" },
+      }),
+    );
   };
 
   const navClasses = ["topnav", menuOpen ? "topnav--open" : ""].join(" ");
@@ -110,21 +113,9 @@ export function Navbar() {
             </Link>
             <Link href="/nosotros" onClick={() => setMenuOpen(false)}>Nosotros</Link>
           </nav>
-          <Link className="nav-cta" href="/#contacto" onClick={() => setMenuOpen(false)}>
+          <Link className="nav-cta" href="/#contacto" scroll={false} onClick={handleContactClick}>
             Contacto
           </Link>
-          <button
-            className="theme-toggle"
-            type="button"
-            onClick={toggleTheme}
-            aria-label={
-              theme === "dark"
-                ? "Cambiar a modo claro"
-                : "Cambiar a modo oscuro"
-            }
-          >
-            {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
-          </button>
         </div>
       </div>
     </header>
