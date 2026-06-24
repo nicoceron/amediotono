@@ -2605,6 +2605,22 @@ body:has(.job-application-page) {
   opacity: 0;
   cursor: pointer;
 }
+.job-form-status {
+  margin: -4px 0 0;
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+.job-form-status-success {
+  background: #edf8f1;
+  color: #21603c;
+}
+.job-form-status-error {
+  background: #fff1f0;
+  color: #9e2b25;
+}
 .job-submit {
   display: inline-flex;
   align-items: center;
@@ -2629,6 +2645,10 @@ body:has(.job-application-page) {
   background-color: #524ca2;
   border-color: transparent;
   color: #ffffff;
+}
+.job-submit:disabled {
+  background-color: #8e89c8;
+  cursor: wait;
 }
 @media (max-width: 880px) {
   .job-application-page {
