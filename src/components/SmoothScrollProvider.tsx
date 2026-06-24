@@ -5,6 +5,8 @@ import Lenis from "lenis";
 import { usePathname } from "next/navigation";
 
 const SMOOTH_SCROLL_DISABLED_PATHS = new Set(["/trabaja-con-nosotros"]);
+const SMOOTH_SCROLL_TO_EVENT = "mediotono:smooth-scroll-to";
+const PENDING_SCROLL_TARGET_KEY = "mediotono:pending-scroll-target";
 
 function getElementByHash(hash: string) {
   const id = hash.startsWith("#") ? hash.slice(1) : hash;
@@ -21,12 +23,16 @@ function scrollToElement(element: HTMLElement, lenis: Lenis | null) {
   const scrollMargin = parseInt(getComputedStyle(element).scrollMarginTop, 10) || 0;
 
   if (lenis) {
-    lenis.scrollTo(element, { offset: -scrollMargin });
+    lenis.resize();
+    lenis.scrollTo(element, { offset: -scrollMargin, duration: 1.18 });
     return;
   }
 
   const top = element.getBoundingClientRect().top + window.scrollY - scrollMargin;
-  window.scrollTo({ top, left: 0 });
+  const behavior = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ? "auto"
+    : "smooth";
+  window.scrollTo({ top, left: 0, behavior });
 }
 
 function scrollToTop(lenis: Lenis | null) {
@@ -36,6 +42,21 @@ function scrollToTop(lenis: Lenis | null) {
   }
 
   window.scrollTo({ top: 0, left: 0 });
+}
+
+function scrollToHashTarget(hash: string, lenis: Lenis | null, attempt = 0) {
+  const target = getElementByHash(hash);
+
+  if (target) {
+    scrollToElement(target, lenis);
+    return;
+  }
+
+  if (attempt >= 12) return;
+
+  window.requestAnimationFrame(() => {
+    scrollToHashTarget(hash, lenis, attempt + 1);
+  });
 }
 
 export function SmoothScrollProvider({ children }: { children: React.ReactNode }) {
@@ -113,11 +134,23 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
       isHistoryNavigation.current = true;
     };
 
+    const handleSmoothScrollTo = (event: Event) => {
+      const target = (event as CustomEvent<{ hash?: string }>).detail?.hash;
+      if (!target) return;
+
+      const el = getElementByHash(target);
+      if (!el) return;
+
+      scrollToElement(el, lenisRef.current);
+    };
+
     document.addEventListener("click", handleAnchorClick);
     window.addEventListener("popstate", handlePopState);
+    window.addEventListener(SMOOTH_SCROLL_TO_EVENT, handleSmoothScrollTo);
     return () => {
       document.removeEventListener("click", handleAnchorClick);
       window.removeEventListener("popstate", handlePopState);
+      window.removeEventListener(SMOOTH_SCROLL_TO_EVENT, handleSmoothScrollTo);
       lenis?.destroy();
       lenisRef.current = null;
     };
@@ -135,11 +168,15 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
     }
 
     const frame = window.requestAnimationFrame(() => {
-      const hash = window.location.hash;
-      const hashTarget = hash ? getElementByHash(hash) : null;
+      const pendingHash = window.sessionStorage.getItem(PENDING_SCROLL_TARGET_KEY);
+      const hash = pendingHash || window.location.hash;
 
-      if (hashTarget) {
-        scrollToElement(hashTarget, lenisRef.current);
+      if (pendingHash) {
+        window.sessionStorage.removeItem(PENDING_SCROLL_TARGET_KEY);
+      }
+
+      if (hash) {
+        scrollToHashTarget(hash, lenisRef.current);
         return;
       }
 

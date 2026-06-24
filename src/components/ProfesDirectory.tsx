@@ -453,10 +453,16 @@ export function ProfesDirectory({ teachers }: { teachers: Teacher[] }) {
           />
 
           <details className="profes-mobile-filters">
-            <summary className="profes-mobile-filter-summary">
+            <summary
+              className="profes-mobile-filter-summary"
+              aria-label={
+                mobileFilterCount > 0
+                  ? `Abrir filtros, ${mobileFilterCount} activos`
+                  : "Abrir filtros"
+              }
+            >
               <span>
                 <SlidersHorizontal size={18} strokeWidth={2.4} aria-hidden="true" />
-                Filtros
                 {mobileFilterCount > 0 && (
                   <span className="profes-mobile-filter-count">{mobileFilterCount}</span>
                 )}
