@@ -11,7 +11,6 @@ const PANEL_FOLDED = { opacity: 1, scale: 0.5, rotateX: 90 };
 const PANEL_OPEN = { opacity: 1, scale: 1, rotateX: 0 };
 const PANEL_OPEN_SPRING = { damping: 60, mass: 1, stiffness: 360 };
 const PANEL_CLOSE_SPRING = { damping: 60, mass: 1, stiffness: 240 };
-const WORD_SPRING = { damping: 50, mass: 1, stiffness: 300 };
 const BUTTON_SPRING = { damping: 80, mass: 1, stiffness: 200 };
 
 const FLOATING_ASSETS = [
@@ -103,7 +102,6 @@ export function ContactoSection() {
   const lastScrollYRef = useRef(0);
   const [panelOpen, setPanelOpen] = useState(false);
   const animateContainer = hasMounted && !reduce && breakpoint === "desktop";
-  const animateTitle = hasMounted && !reduce && breakpoint !== "tablet";
 
   useEffect(() => {
     if (!animateContainer) {
@@ -171,39 +169,16 @@ export function ContactoSection() {
         />
 
         <div className="contact-cta-content">
-          <motion.h2
+          <h2
             className="contact-cta-title"
             aria-label="Únete a nuestra comunidad musical"
-            initial={animateTitle ? "hidden" : false}
-            whileInView={animateTitle ? "show" : undefined}
-            viewport={{ once: true, amount: 0.5 }}
           >
-            {HEADLINE_WORDS.map((word, index) => (
-              <motion.span
-                aria-hidden="true"
-                key={word}
-                variants={{
-                  hidden: {
-                    opacity: reduce ? 1 : 0.001,
-                    y: reduce ? 0 : 10,
-                    filter: reduce ? "blur(0px)" : "blur(10px)",
-                  },
-                  show: {
-                    opacity: 1,
-                    y: 0,
-                    filter: "blur(0px)",
-                    transition: {
-                      ...WORD_SPRING,
-                      delay: 0.4 + index * 0.05,
-                      type: "spring",
-                    },
-                  },
-                }}
-              >
+            {HEADLINE_WORDS.map((word) => (
+              <span aria-hidden="true" key={word}>
                 {word}
-              </motion.span>
+              </span>
             ))}
-          </motion.h2>
+          </h2>
 
           <p className="contact-cta-copy">
             Acompañamos el crecimiento artístico con clases cercanas, creativas y llenas de confianza.
