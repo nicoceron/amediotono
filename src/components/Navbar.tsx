@@ -31,6 +31,10 @@ export function Navbar() {
     };
   }, []);
 
+  useEffect(() => {
+    router.prefetch("/profes");
+  }, [router]);
+
   const handleContactClick = (event: MouseEvent<HTMLAnchorElement>) => {
     setMenuOpen(false);
 
@@ -83,6 +87,7 @@ export function Navbar() {
             <Link
               href="/profes"
               className="nav-mobile-profes"
+              prefetch={true}
               onClick={() => setMenuOpen(false)}
             >
               Profes
@@ -107,6 +112,7 @@ export function Navbar() {
             <Link
               href="/profes"
               className="nav-link-profes"
+              prefetch={true}
               onClick={() => setMenuOpen(false)}
             >
               Profes

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import { Footer } from "@/components/Footer";
 import { ProfesDirectory } from "@/components/ProfesDirectory";
+import { ProfesDirectorySkeleton } from "@/components/ProfesDirectorySkeleton";
 import { TEACHERS } from "@/lib/teachers";
 
 export const metadata: Metadata = {
@@ -23,7 +24,7 @@ export default function ProfesPage() {
             <h1>Profes y tutores de música</h1>
           </div>
 
-          <Suspense fallback={<div className="profes-search-fallback" />}>
+          <Suspense fallback={<ProfesDirectorySkeleton />}>
             <ProfesDirectory teachers={TEACHERS} />
           </Suspense>
         </div>

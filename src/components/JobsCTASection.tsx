@@ -16,7 +16,7 @@ export function JobsCTASection() {
           <div className="jobs-cta-photo" aria-hidden="true">
             <Image
               className="jobs-cta-portrait"
-              src="/jobs/profesora-estudiante.jpeg"
+              src="/jobs/profesora-estudiante.webp"
               alt=""
               fill
               sizes="(max-width: 900px) 100vw, 46vw"
