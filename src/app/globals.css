@@ -1942,7 +1942,6 @@ grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
 
 .contact-cta-title span {
   display: inline-block;
-  will-change: transform, filter, opacity;
 }
 
 .contact-cta-copy {
