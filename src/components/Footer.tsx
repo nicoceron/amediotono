@@ -1,118 +1,250 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import { Mail } from "lucide-react";
-import { CONTACT_EMAIL, INSTAGRAM_URL, whatsappHref } from "@/lib/contact";
+import { ArrowRight, Mail } from "lucide-react";
+import { motion, useReducedMotion } from "motion/react";
+import { FormEvent, useState } from "react";
+import {
+  CONTACT_EMAIL,
+  INSTAGRAM_URL,
+  WHATSAPP_DISPLAY,
+  whatsappHref,
+} from "@/lib/contact";
 
-const NAV_LINKS = [
-  { href: "/profes", label: "Profes" },
-  { href: "/nosotros", label: "Nosotros" },
-  { href: "/#testimonios", label: "Voces" },
-  { href: "/#contacto", label: "Contacto" },
+const FOOTER_COLUMNS = [
+  [
+    { href: "/", label: "Inicio" },
+    { href: "/#cursos", label: "Cursos" },
+    { href: "/profes", label: "Profes" },
+    { href: "/nosotros", label: "Nosotros" },
+    { href: "/#testimonios", label: "Voces" },
+  ],
+  [
+    { href: "/#contacto", label: "Contacto" },
+    { href: "/#como-funciona", label: "Cómo funciona" },
+    { href: "/trabaja-con-nosotros", label: "Trabaja con nosotros" },
+    { href: whatsappHref(), label: "WhatsApp", external: true },
+    { href: INSTAGRAM_URL, label: "Instagram", external: true },
+  ],
 ];
 
+const SOCIAL_LINKS = [
+  {
+    href: whatsappHref(),
+    label: "WhatsApp",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true">
+        <path d="M20.52 3.48A11.94 11.94 0 0 0 12.04 0C5.48 0 .15 5.33.15 11.89c0 2.1.55 4.14 1.6 5.94L.05 24l6.34-1.66a11.86 11.86 0 0 0 5.65 1.43h.01c6.56 0 11.89-5.33 11.89-11.89 0-3.18-1.24-6.17-3.42-8.4ZM12.05 21.4h-.01a9.5 9.5 0 0 1-4.84-1.32l-.35-.21-3.76.99 1-3.66-.23-.38a9.49 9.49 0 0 1-1.45-5.04c0-5.25 4.27-9.51 9.52-9.51 2.54 0 4.93.99 6.73 2.79a9.46 9.46 0 0 1 2.78 6.73c0 5.25-4.27 9.51-9.5 9.51Zm5.5-7.13c-.3-.15-1.78-.88-2.06-.98-.28-.1-.48-.15-.68.15-.2.3-.78.98-.96 1.18-.18.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.5-1.79-1.68-2.09-.18-.3-.02-.46.13-.61.13-.13.3-.34.45-.51.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.68-1.63-.93-2.23-.24-.59-.49-.51-.68-.52l-.58-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.49 0 1.47 1.07 2.89 1.22 3.09.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.78-.73 2.03-1.43.25-.7.25-1.3.18-1.43-.07-.13-.27-.2-.57-.35Z" />
+      </svg>
+    ),
+  },
+  {
+    href: INSTAGRAM_URL,
+    label: "Instagram",
+    icon: (
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2.1"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        width="20"
+        height="20"
+        aria-hidden="true"
+      >
+        <rect x="3" y="3" width="18" height="18" rx="5" />
+        <circle cx="12" cy="12" r="4" />
+        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+      </svg>
+    ),
+  },
+  {
+    href: `mailto:${CONTACT_EMAIL}`,
+    label: "Email",
+    icon: <Mail size={20} strokeWidth={2.2} aria-hidden="true" />,
+  },
+];
+
+const FOOTER_REVEAL_INITIAL = { opacity: 0, y: 60 };
+const FOOTER_BUTTON_INITIAL = { opacity: 0, y: 24, scale: 0.8 };
+const footerRevealTransition = (delay: number) => ({
+  damping: 60,
+  delay,
+  mass: 1,
+  stiffness: 320,
+  type: "spring" as const,
+});
+const FOOTER_BUTTON_TRANSITION = {
+  damping: 80,
+  delay: 0.2,
+  mass: 1,
+  stiffness: 200,
+  type: "spring" as const,
+};
+
 export function Footer() {
+  const [email, setEmail] = useState("");
+  const reduce = useReducedMotion();
+  const year = new Date().getFullYear();
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const normalizedEmail = email.trim();
+    const body = normalizedEmail
+      ? `Hola, quiero recibir información sobre A medio tono.\n\nMi correo: ${normalizedEmail}`
+      : "Hola, quiero recibir información sobre A medio tono.";
+
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
+      "Quiero información sobre A medio tono",
+    )}&body=${encodeURIComponent(body)}`;
+  };
+
   return (
-    <footer className="foot foot-rich">
-      <div className="container foot-grid">
-        <div className="foot-brand">
-          <Image
-            src="/logo-nav.png"
-            alt="A medio tono"
-            width={1205}
-            height={300}
-            className="foot-logo-img logo-desktop-wordmark"
-            unoptimized
-          />
-          <Image
-            src="/logo-mark-transparent.png"
-            alt="A medio tono"
-            width={48}
-            height={42}
-            className="foot-logo-img logo-mobile-mark"
-            unoptimized
-          />
-          <p className="foot-tagline">
-            Una escuela donde el arte se vive,
-            <br />
-            se siente y se comparte.
-          </p>
-        </div>
-
-        <nav className="foot-links" aria-label="Enlaces del pie de página">
-          <span className="foot-col-title">Explora</span>
-          {NAV_LINKS.map((l) => (
-            <Link key={l.href} href={l.href} className="foot-link">
-              {l.label}
-            </Link>
-          ))}
-        </nav>
-
-        <div className="foot-social">
-          <span className="foot-col-title">Hablemos</span>
-          <div className="foot-social-row">
-            <a
-              className="foot-social-btn"
-              href={whatsappHref()}
-              target="_blank"
-              rel="noopener"
-              aria-label="WhatsApp"
-              title="WhatsApp"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                width="20"
-                height="20"
-                aria-hidden="true"
+    <footer className="site-footer" data-screen-label="Footer">
+      <div className="footer-shell">
+        <div className="footer-content">
+          <div className="footer-main">
+            <div className="footer-brand-social">
+              <motion.div
+                className="footer-brand-form"
+                initial={reduce ? false : FOOTER_REVEAL_INITIAL}
+                whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0 }}
+                transition={footerRevealTransition(0.2)}
               >
-                <path d="M20.52 3.48A11.94 11.94 0 0 0 12.04 0C5.48 0 .15 5.33.15 11.89c0 2.1.55 4.14 1.6 5.94L.05 24l6.34-1.66a11.86 11.86 0 0 0 5.65 1.43h.01c6.56 0 11.89-5.33 11.89-11.89 0-3.18-1.24-6.17-3.42-8.4ZM12.05 21.4h-.01a9.5 9.5 0 0 1-4.84-1.32l-.35-.21-3.76.99 1-3.66-.23-.38a9.49 9.49 0 0 1-1.45-5.04c0-5.25 4.27-9.51 9.52-9.51 2.54 0 4.93.99 6.73 2.79a9.46 9.46 0 0 1 2.78 6.73c0 5.25-4.27 9.51-9.5 9.51Zm5.5-7.13c-.3-.15-1.78-.88-2.06-.98-.28-.1-.48-.15-.68.15-.2.3-.78.98-.96 1.18-.18.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.5-1.79-1.68-2.09-.18-.3-.02-.46.13-.61.13-.13.3-.34.45-.51.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.68-1.63-.93-2.23-.24-.59-.49-.51-.68-.52l-.58-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.49 0 1.47 1.07 2.89 1.22 3.09.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.78-.73 2.03-1.43.25-.7.25-1.3.18-1.43-.07-.13-.27-.2-.57-.35Z" />
-              </svg>
-            </a>
-            <a
-              className="foot-social-btn"
-              href={INSTAGRAM_URL}
-              target="_blank"
-              rel="noopener"
-              aria-label="Instagram"
-              title="Instagram"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.1"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                width="20"
-                height="20"
-                aria-hidden="true"
+                <Link href="/" className="footer-logo-link" aria-label="A medio tono — inicio">
+                  <Image
+                    src="/logo-nav.png"
+                    alt="A medio tono"
+                    width={1205}
+                    height={300}
+                    className="footer-logo-img logo-desktop-wordmark"
+                    unoptimized
+                  />
+                  <Image
+                    src="/logo-mark-transparent.png"
+                    alt="A medio tono"
+                    width={48}
+                    height={42}
+                    className="footer-logo-img logo-mobile-mark"
+                    unoptimized
+                  />
+                </Link>
+
+                <p className="footer-tagline">
+                  Una escuela donde el arte se vive, se siente y se comparte todos los días.
+                </p>
+
+                <form className="footer-email-form" onSubmit={handleSubmit}>
+                  <label className="visually-hidden" htmlFor="footer-email">
+                    Correo electrónico
+                  </label>
+                  <input
+                    id="footer-email"
+                    name="email"
+                    type="email"
+                    inputMode="email"
+                    autoComplete="email"
+                    placeholder="Tu correo"
+                    value={email}
+                    onChange={(event) => setEmail(event.target.value)}
+                  />
+                  <motion.button
+                    className="kidora-pill footer-submit"
+                    type="submit"
+                    initial={reduce ? false : FOOTER_BUTTON_INITIAL}
+                    whileInView={reduce ? undefined : { opacity: 1, y: 0, scale: 1 }}
+                    viewport={{ once: true, amount: 0 }}
+                    transition={FOOTER_BUTTON_TRANSITION}
+                  >
+                    <span className="kidora-pill-text" aria-hidden="true">
+                      <span>Enviar</span>
+                      <span>Enviar</span>
+                    </span>
+                    <span className="kidora-pill-icon" aria-hidden="true">
+                      <span>
+                        <ArrowRight size={20} strokeWidth={2.6} />
+                      </span>
+                      <span>
+                        <ArrowRight size={20} strokeWidth={2.6} />
+                      </span>
+                    </span>
+                    <span className="visually-hidden">Enviar correo</span>
+                  </motion.button>
+                </form>
+              </motion.div>
+
+              <motion.div
+                className="footer-social-block"
+                initial={reduce ? false : FOOTER_REVEAL_INITIAL}
+                whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0 }}
+                transition={footerRevealTransition(0.4)}
               >
-                <rect x="3" y="3" width="18" height="18" rx="5" />
-                <circle cx="12" cy="12" r="4" />
-                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
-              </svg>
-            </a>
-            <a
-              className="foot-social-btn"
-              href={`mailto:${CONTACT_EMAIL}`}
-              aria-label="Email"
-              title="Email"
+                <div className="footer-social-row">
+                  {SOCIAL_LINKS.map((link) => (
+                    <a
+                      className="footer-social-btn"
+                      href={link.href}
+                      target={link.href.startsWith("http") ? "_blank" : undefined}
+                      rel={link.href.startsWith("http") ? "noopener" : undefined}
+                      aria-label={link.label}
+                      title={link.label}
+                      key={link.label}
+                    >
+                      {link.icon}
+                    </a>
+                  ))}
+                </div>
+                <a className="footer-direct-link" href={whatsappHref()} target="_blank" rel="noopener">
+                  {WHATSAPP_DISPLAY}
+                </a>
+                <a className="footer-direct-link" href={`mailto:${CONTACT_EMAIL}`}>
+                  {CONTACT_EMAIL}
+                </a>
+              </motion.div>
+            </div>
+
+            <motion.nav
+              className="footer-menu"
+              aria-label="Enlaces del pie de página"
+              initial={reduce ? false : FOOTER_REVEAL_INITIAL}
+              whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0 }}
+              transition={footerRevealTransition(0.6)}
             >
-              <Mail size={20} strokeWidth={2.2} />
-            </a>
+              {FOOTER_COLUMNS.map((column, columnIndex) => (
+                <div className="footer-menu-column" key={columnIndex}>
+                  {column.map((link) =>
+                    link.external ? (
+                      <a
+                        className="footer-menu-link"
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener"
+                        key={link.label}
+                      >
+                        <span>{link.label}</span>
+                      </a>
+                    ) : (
+                      <Link className="footer-menu-link" href={link.href} key={link.label}>
+                        <span>{link.label}</span>
+                      </Link>
+                    ),
+                  )}
+                </div>
+              ))}
+            </motion.nav>
           </div>
-          <a className="foot-email" href={`mailto:${CONTACT_EMAIL}`}>
-            {CONTACT_EMAIL}
-          </a>
-        </div>
-      </div>
 
-      <div className="container foot-bottom">
-        <span>© {new Date().getFullYear()} A medio tono</span>
-        <span className="foot-bottom-sep" aria-hidden="true">
-          ·
-        </span>
-        <span>Hecho con cariño 🎶</span>
+          <div className="footer-bottom">
+            <span>© {year} A medio tono</span>
+          </div>
+        </div>
+
       </div>
     </footer>
   );
