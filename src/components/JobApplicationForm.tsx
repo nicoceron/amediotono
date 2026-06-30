@@ -440,6 +440,7 @@ export function JobApplicationForm() {
     "idle" | "submitting" | "success" | "error"
   >("idle");
   const [submissionMessage, setSubmissionMessage] = useState("");
+  const [cvFileName, setCvFileName] = useState("");
   const isSubmitting = submissionStatus === "submitting";
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -549,9 +550,19 @@ export function JobApplicationForm() {
         </h2>
         <label className="job-upload" id="cv-upload">
           <Upload aria-hidden="true" size={30} strokeWidth={2.4} />
-          <span>Subir CV</span>
-          <small>PDF, DOC o DOCX · máx. 4 MB</small>
-          <input name="cv" type="file" accept=".pdf,.doc,.docx" required />
+          <span>{cvFileName ? "Cambiar CV" : "Subir CV"}</span>
+          <small className={cvFileName ? "job-upload-file" : undefined} aria-live="polite">
+            {cvFileName || "PDF, DOC o DOCX · máx. 4 MB"}
+          </small>
+          <input
+            name="cv"
+            type="file"
+            accept=".pdf,.doc,.docx"
+            required
+            onChange={(event) => {
+              setCvFileName(event.currentTarget.files?.[0]?.name ?? "");
+            }}
+          />
         </label>
       </section>
 

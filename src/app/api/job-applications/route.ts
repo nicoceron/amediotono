@@ -83,16 +83,21 @@ async function readFormData(request: Request) {
 
 function getSmtpConfig() {
   const user = process.env.SMTP_USER?.trim();
-  const password = process.env.SMTP_PASSWORD?.trim();
+  const rawPassword = process.env.SMTP_PASSWORD?.trim();
+  const host = process.env.SMTP_HOST?.trim() || "smtp.gmail.com";
 
-  if (!user || !password) {
+  if (!user || !rawPassword) {
     throw new Error("Email delivery is not configured.");
   }
 
   const port = Number(process.env.SMTP_PORT ?? 465);
+  const password =
+    host.toLowerCase() === "smtp.gmail.com"
+      ? rawPassword.replace(/\s+/g, "")
+      : rawPassword;
 
   return {
-    host: process.env.SMTP_HOST?.trim() || "smtp.gmail.com",
+    host,
     port: Number.isFinite(port) ? port : 465,
     secure: (process.env.SMTP_SECURE ?? "true").toLowerCase() !== "false",
     auth: {

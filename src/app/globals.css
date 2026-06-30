@@ -2492,6 +2492,18 @@ body:has(.job-application-page) {
   line-height: 1.4;
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
+.job-form .job-gh-field > input:not([type="hidden"]):autofill,
+.job-form .job-combobox-control input:autofill,
+.job-form .job-gh-field > input:not([type="hidden"]):-webkit-autofill,
+.job-form .job-combobox-control input:-webkit-autofill,
+.job-form .job-gh-field > input:not([type="hidden"]):-webkit-autofill:hover,
+.job-form .job-combobox-control input:-webkit-autofill:hover,
+.job-form .job-gh-field > input:not([type="hidden"]):-webkit-autofill:focus,
+.job-form .job-combobox-control input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #373e4d !important;
+  caret-color: #373e4d;
+  box-shadow: 0 0 0 1000px #ffffff inset;
+}
 .job-gh-field > input:not([type="hidden"]):focus,
 .job-combobox-control input:focus {
   border-color: #6059b2;
@@ -2822,6 +2834,12 @@ body:has(.job-application-page) {
   color: #66636d;
   font-size: 14px;
   font-weight: 500;
+}
+.job-upload small.job-upload-file {
+  max-width: 100%;
+  color: #373e4d;
+  font-size: 15px;
+  overflow-wrap: anywhere;
 }
 .job-upload input {
   position: absolute;
