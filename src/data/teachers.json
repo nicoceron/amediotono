@@ -76,6 +76,12 @@
         "author": "Marcelo",
         "instrument": "Flauta traversa",
         "quote": "Hola, soy Marcelo. Mi profesora de flauta Gisselle es admirable. No solo me enseña, sino que me tiene paciencia. Mis clases de flauta me enseñan a tener más flexibilidad en mis manos y a centrarme en la correlación entre mis manos, mi cerebro y las notas musicales. He vuelto a sentir la música en mi interior y a valorarla. No es fácil el instrumento, pero con dedicación y esfuerzo se puede mejorar. Tocar un instrumento es un arte y la vida sin música no es nada."
+      },
+      {
+        "id": "g8",
+        "author": "Estudiante",
+        "instrument": "Flauta traversa",
+        "quote": "Después de varios años sin practicar música —tras comprar una flauta traversa y abandonar el instrumento después de tres clases porque no me gustó la metodología de la profesora de entonces—, en 2026 me propuse retomarlo. Buscando en internet encontré a la profesora Gisselle; con miedo y expectación la contacté, y puedo decir que fue la mejor decisión que tomé este año. Aprender a tocar la flauta con ella ha sido una experiencia maravillosa: su metodología, paciencia y alegría hacen que cada clase sea muy edificante, no solo desde lo musical, sino también porque me motiva a aprender, avanzar y mejorar. Ahora espero con alegría el fin de semana para vernos nuevamente en clase. 💕🪈"
       }
     ],
     "skillIds": [
@@ -643,7 +649,14 @@
     "photo": "/profes/madeline.webp",
     "photoPosition": "50% 36%",
     "gallery": [],
-    "reviews": [],
+    "reviews": [
+      {
+        "id": "m1",
+        "author": "Familia",
+        "instrument": "Violín",
+        "quote": "Estoy muy contenta de haberlos encontrado, de ver la dedicación, compromiso y puntualidad de la profesora, y por supuesto el avance que tiene mi hija en cada clase. Mil, mil gracias; esperamos estar mucho, mucho tiempo. 💚"
+      }
+    ],
     "skillIds": [
       "violin"
     ],
@@ -673,7 +686,14 @@
     "photo": "/profes/laura-prias.webp",
     "photoPosition": "50% 38%",
     "gallery": [],
-    "reviews": [],
+    "reviews": [
+      {
+        "id": "lp1",
+        "author": "Estudiante",
+        "instrument": "Violín",
+        "quote": "He estado muy contenta con la escuela A ½ tono porque siempre han estado pendientes del proceso, son muy organizadas y atentas. Con la profe Laura he aprendido bastante y corregido muchas cosas que son importantes. Estoy supremamente agradecida y feliz de hacer parte de esta escuela, y sé que seguiré aprendiendo mucho. 🫶🏻"
+      }
+    ],
     "skillIds": [
       "violin"
     ],
