@@ -25,10 +25,10 @@ export const SITE_KEYWORDS = [
 ];
 
 export const DEFAULT_OG_IMAGE = {
-  url: "/logo-new.png",
-  width: 1448,
-  height: 1086,
-  alt: "A medio tono, escuela de artes y música",
+  url: "/icon.png",
+  width: 512,
+  height: 512,
+  alt: "A medio tono, icono de la escuela de artes y música",
 };
 export const INDEXNOW_ENDPOINT = "https://api.indexnow.org/indexnow";
 export const INDEXNOW_KEY_PATH = "/indexnow-key.txt";

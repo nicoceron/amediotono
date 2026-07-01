@@ -651,17 +651,19 @@ export function ProfesDirectory({ teachers }: { teachers: Teacher[] }) {
             </label>
           </div>
 
-          {hasActiveFilters && (
-            <button
-              type="button"
-              className="profes-clear-filters-icon"
-              onClick={clearFilters}
-              aria-label="Limpiar filtros"
-              title="Limpiar filtros"
-            >
-              <X size={22} strokeWidth={2.6} aria-hidden="true" />
-            </button>
-          )}
+          <div className="profes-clear-filters-slot">
+            {hasActiveFilters && (
+              <button
+                type="button"
+                className="profes-clear-filters-icon"
+                onClick={clearFilters}
+                aria-label="Limpiar filtros"
+                title="Limpiar filtros"
+              >
+                <X size={22} strokeWidth={2.6} aria-hidden="true" />
+              </button>
+            )}
+          </div>
         </div>
       </form>
 

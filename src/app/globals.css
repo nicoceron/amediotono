@@ -802,6 +802,8 @@ body:has(#profes-page .profes-mobile-filters[open]) .float-actions {
   object-position: center top;
   transform-origin: center;
   animation: hero-bg-zoom 2s cubic-bezier(0.6, -0.01, 0.3, 0.99) both;
+  backface-visibility: hidden;
+  contain: paint;
   will-change: transform;
 }
 .hero-logo-stage {
@@ -872,8 +874,8 @@ body:has(#profes-page .profes-mobile-filters[open]) .float-actions {
 }
 
 @keyframes hero-bg-zoom {
-  from { transform: scale(1.1); }
-  to { transform: scale(1); }
+  from { transform: translateZ(0) scale(1.1); }
+  to { transform: translateZ(0) scale(1); }
 }
 
 @keyframes hero-overlay-fade {
@@ -3821,18 +3823,11 @@ body:has(.job-application-page) {
 }
 
 .profes-filter-row-main {
+  position: relative;
   grid-template-columns:
     minmax(190px, 1.45fr)
     repeat(3, minmax(118px, 0.9fr))
     minmax(190px, 269px);
-}
-
-.profes-filter-row-main:has(.profes-clear-filters-icon) {
-  grid-template-columns:
-    minmax(190px, 1.35fr)
-    repeat(3, minmax(120px, 0.86fr))
-    minmax(180px, 1fr)
-    48px;
 }
 
 .profes-desktop-filter,
@@ -4155,6 +4150,18 @@ body:has(.job-application-page) {
   line-height: 1.2;
 }
 
+.profes-clear-filters-slot {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  pointer-events: none;
+  transform: translate(calc(100% + 8px), -50%);
+  z-index: 4;
+}
+
 .profes-clear-filters-icon {
   width: 48px;
   min-width: 48px;
@@ -4163,20 +4170,32 @@ body:has(.job-application-page) {
   align-items: center;
   justify-content: center;
   padding: 0;
-  border: 1px solid color-mix(in srgb, var(--control-text) 18%, transparent);
+  border: 1px solid var(--button-base-border);
   border-radius: var(--radius-card);
-  background: var(--paper);
-  color: var(--control-text);
+  background-color: var(--button-base-bg);
+  color: var(--button-base-text);
+  line-height: 0;
   cursor: pointer;
-  transition: border-color 0.18s ease, background 0.18s ease, color 0.18s ease;
+  pointer-events: auto;
 }
 
-.profes-clear-filters-icon:hover,
+.profes-clear-filters-icon svg {
+  display: block;
+}
+
 .profes-clear-filters-icon:focus-visible {
-  border-color: var(--pink);
-  background: color-mix(in srgb, var(--pink) 12%, transparent);
-  color: var(--pink);
-  outline: none;
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+@media (max-width: 1360px) and (min-width: 1101px) {
+  .profes-filter-row-main {
+    padding-right: 56px;
+  }
+
+  .profes-clear-filters-slot {
+    transform: translateY(-50%);
+  }
 }
 
 .profes-mobile-filters {
@@ -4473,7 +4492,7 @@ body:has(.job-application-page) {
   color: var(--button-hover-text);
 }
 
-@media (max-width: 780px) {
+@media (max-width: 1100px) {
   .sec-head.profes-page-head {
     margin-bottom: 18px;
     text-align: left;
@@ -4495,10 +4514,6 @@ body:has(.job-application-page) {
     grid-template-columns: minmax(0, 1fr) 58px;
     align-items: start;
     gap: 12px;
-  }
-
-  .profes-filter-row-main:has(.profes-clear-filters-icon) {
-    grid-template-columns: minmax(0, 1fr) 58px;
   }
 
   .profes-skeleton-filter-row .profes-skeleton-field:first-child,
@@ -4524,6 +4539,10 @@ body:has(.job-application-page) {
   }
 
   .profes-desktop-keyword {
+    display: none;
+  }
+
+  .profes-clear-filters-slot {
     display: none;
   }
 
@@ -4716,9 +4735,16 @@ body:has(.job-application-page) {
     background: color-mix(in srgb, var(--pink) 22%, white 78%);
     box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--button-dark) 38%, transparent);
   }
+}
 
-  .profes-clear-filters-icon {
-    display: none;
+@media (min-width: 781px) and (max-width: 1100px) {
+  .sec-head.profes-page-head {
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .sec-head.profes-page-head h1 {
+    font-size: 46px;
   }
 }
 
