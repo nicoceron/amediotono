@@ -41,22 +41,20 @@ export default function TrabajaConNosotrosPage() {
               <ArrowLeft aria-hidden="true" size={22} strokeWidth={2.6} />
             </Link>
             <Image
-              src="/logo-nav.png"
+              src="/logo-nav.webp"
               alt="A medio tono"
               width={1205}
               height={300}
-              loading="eager"
               className="job-logo logo-desktop-wordmark"
-              unoptimized
+              sizes="290px"
             />
             <Image
-              src="/logo-mark-transparent.png"
+              src="/logo-mark-transparent.webp"
               alt="A medio tono"
               width={48}
               height={42}
-              loading="eager"
               className="job-logo logo-mobile-mark"
-              unoptimized
+              sizes="48px"
             />
           </header>
 

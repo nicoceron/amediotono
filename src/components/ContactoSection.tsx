@@ -15,7 +15,7 @@ const BUTTON_SPRING = { damping: 80, mass: 1, stiffness: 200 };
 
 const FLOATING_ASSETS = [
   {
-    src: "/voces-icon-1.png",
+    src: "/voces-icon-1.webp",
     alt: "",
     className: "contact-float contact-float-1",
     width: 1254,
@@ -23,7 +23,7 @@ const FLOATING_ASSETS = [
     loopScale: 1.1,
   },
   {
-    src: "/voces-icon-2.png",
+    src: "/voces-icon-2.webp",
     alt: "",
     className: "contact-float contact-float-2",
     width: 1254,
@@ -31,7 +31,7 @@ const FLOATING_ASSETS = [
     loopScale: 1.2,
   },
   {
-    src: "/voces-icon-3.png",
+    src: "/voces-icon-3.webp",
     alt: "",
     className: "contact-float contact-float-3",
     width: 1254,
@@ -39,7 +39,7 @@ const FLOATING_ASSETS = [
     loopScale: 0.9,
   },
   {
-    src: "/voces-icon-4.png",
+    src: "/voces-icon-4.webp",
     alt: "",
     className: "contact-float contact-float-4",
     width: 1254,
@@ -146,6 +146,8 @@ export function ContactoSection() {
       ref={sectionRef}
       className="contact-cta-section"
       id="contacto"
+      data-scroll-align="center"
+      data-scroll-target=".contact-cta-panel"
       data-screen-label="Contacto"
     >
       <motion.article
@@ -165,7 +167,6 @@ export function ContactoSection() {
           alt=""
           fill
           sizes="(max-width: 809px) calc(100vw - 40px), min(calc(100vw - 60px), 1300px)"
-          priority={false}
         />
 
         <div className="contact-cta-content">

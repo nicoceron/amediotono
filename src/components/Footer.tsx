@@ -2,9 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
-import { FormEvent, useState } from "react";
 import {
   CONTACT_EMAIL,
   INSTAGRAM_URL,
@@ -67,40 +66,18 @@ const SOCIAL_LINKS = [
   },
 ];
 
-const FOOTER_REVEAL_INITIAL = { opacity: 0, y: 60 };
-const FOOTER_BUTTON_INITIAL = { opacity: 0, y: 24, scale: 0.8 };
+const FOOTER_REVEAL_INITIAL = { opacity: 0, y: 42 };
 const footerRevealTransition = (delay: number) => ({
-  damping: 60,
+  damping: 48,
   delay,
   mass: 1,
-  stiffness: 320,
+  stiffness: 420,
   type: "spring" as const,
 });
-const FOOTER_BUTTON_TRANSITION = {
-  damping: 80,
-  delay: 0.2,
-  mass: 1,
-  stiffness: 200,
-  type: "spring" as const,
-};
 
 export function Footer() {
-  const [email, setEmail] = useState("");
   const reduce = useReducedMotion();
   const year = new Date().getFullYear();
-
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
-    const normalizedEmail = email.trim();
-    const body = normalizedEmail
-      ? `Hola, quiero recibir información sobre A medio tono.\n\nMi correo: ${normalizedEmail}`
-      : "Hola, quiero recibir información sobre A medio tono.";
-
-    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
-      "Quiero información sobre A medio tono",
-    )}&body=${encodeURIComponent(body)}`;
-  };
 
   return (
     <footer className="site-footer" data-screen-label="Footer">
@@ -113,68 +90,30 @@ export function Footer() {
                 initial={reduce ? false : FOOTER_REVEAL_INITIAL}
                 whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0 }}
-                transition={footerRevealTransition(0.2)}
+                transition={footerRevealTransition(0.1)}
               >
                 <Link href="/" className="footer-logo-link" aria-label="A medio tono — inicio">
                   <Image
-                    src="/logo-nav.png"
+                    src="/logo-nav.webp"
                     alt="A medio tono"
                     width={1205}
                     height={300}
                     className="footer-logo-img logo-desktop-wordmark"
-                    unoptimized
+                    sizes="172px"
                   />
                   <Image
-                    src="/logo-mark-transparent.png"
+                    src="/logo-mark-transparent.webp"
                     alt="A medio tono"
                     width={48}
                     height={42}
                     className="footer-logo-img logo-mobile-mark"
-                    unoptimized
+                    sizes="48px"
                   />
                 </Link>
 
                 <p className="footer-tagline">
                   Una escuela donde el arte se vive, se siente y se comparte todos los días.
                 </p>
-
-                <form className="footer-email-form" onSubmit={handleSubmit}>
-                  <label className="visually-hidden" htmlFor="footer-email">
-                    Correo electrónico
-                  </label>
-                  <input
-                    id="footer-email"
-                    name="email"
-                    type="email"
-                    inputMode="email"
-                    autoComplete="email"
-                    placeholder="Tu correo"
-                    value={email}
-                    onChange={(event) => setEmail(event.target.value)}
-                  />
-                  <motion.button
-                    className="kidora-pill footer-submit"
-                    type="submit"
-                    initial={reduce ? false : FOOTER_BUTTON_INITIAL}
-                    whileInView={reduce ? undefined : { opacity: 1, y: 0, scale: 1 }}
-                    viewport={{ once: true, amount: 0 }}
-                    transition={FOOTER_BUTTON_TRANSITION}
-                  >
-                    <span className="kidora-pill-text" aria-hidden="true">
-                      <span>Enviar</span>
-                      <span>Enviar</span>
-                    </span>
-                    <span className="kidora-pill-icon" aria-hidden="true">
-                      <span>
-                        <ArrowRight size={20} strokeWidth={2.6} />
-                      </span>
-                      <span>
-                        <ArrowRight size={20} strokeWidth={2.6} />
-                      </span>
-                    </span>
-                    <span className="visually-hidden">Enviar correo</span>
-                  </motion.button>
-                </form>
               </motion.div>
 
               <motion.div
@@ -182,7 +121,7 @@ export function Footer() {
                 initial={reduce ? false : FOOTER_REVEAL_INITIAL}
                 whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0 }}
-                transition={footerRevealTransition(0.4)}
+                transition={footerRevealTransition(0.2)}
               >
                 <div className="footer-social-row">
                   {SOCIAL_LINKS.map((link) => (
@@ -214,7 +153,7 @@ export function Footer() {
               initial={reduce ? false : FOOTER_REVEAL_INITIAL}
               whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0 }}
-              transition={footerRevealTransition(0.6)}
+              transition={footerRevealTransition(0.3)}
             >
               {FOOTER_COLUMNS.map((column, columnIndex) => (
                 <div className="footer-menu-column" key={columnIndex}>

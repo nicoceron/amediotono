@@ -5,6 +5,7 @@ import {
   Languages,
 } from "lucide-react";
 import { TEACHERS } from "@/lib/teachers";
+import { LazyVideo } from "@/components/LazyVideo";
 import { Reveal } from "@/components/Reveal";
 
 const STEPS = [
@@ -45,12 +46,11 @@ export function ComoFuncionaSection() {
               <span style={{ color: "var(--ink)" }}>funciona</span>
               <Image
                 className="cf-title-logo"
-                src="/logo-nav.png"
+                src="/logo-nav.webp"
                 alt="A medio tono"
                 width={1205}
                 height={300}
-                loading="eager"
-                unoptimized
+                sizes="(max-width: 700px) 150px, 230px"
               />
             </span>
           </h2>
@@ -137,13 +137,13 @@ export function ComoFuncionaSection() {
               {i === 1 && (
                 <div className="cf-card-visual cf-visual-class">
                   <div className="cf-lesson-frame">
-                    <video
+                    <LazyVideo
                       className="cf-lesson-video"
                       src="/comienza-a-aprender-guitarra.mp4"
-                      autoPlay
                       loop
                       muted
                       playsInline
+                      poster="/comienza-a-aprender-guitarra-poster.jpg"
                       aria-label="Estudiante tocando guitarra en clase"
                     />
                   </div>
@@ -153,11 +153,10 @@ export function ComoFuncionaSection() {
               {i === 2 && (
                 <div className="cf-card-visual cf-visual-progress">
                   <div className="cf-progress-frame">
-                    <video
+                    <LazyVideo
                       className="cf-progress-video"
                       src="/avanza-cada-semana.mp4"
                       poster="/avanza-cada-semana-poster.jpg"
-                      autoPlay
                       loop
                       muted
                       playsInline

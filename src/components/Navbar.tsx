@@ -65,21 +65,19 @@ export function Navbar() {
           <Link href="/" className="nav-logo" aria-label="A medio tono — inicio" onClick={() => setMenuOpen(false)}>
             <Image
               className="nav-logo-img logo-desktop-wordmark"
-              src="/logo-nav.png"
+              src="/logo-nav.webp"
               alt="A medio tono"
               width={1205}
               height={300}
-              loading="eager"
-              unoptimized
+              sizes="136px"
             />
             <Image
               className="nav-logo-img logo-mobile-mark"
-              src="/logo-mark-transparent.png"
+              src="/logo-mark-transparent.webp"
               alt="A medio tono"
               width={48}
               height={42}
-              loading="eager"
-              unoptimized
+              sizes="48px"
             />
           </Link>
 
