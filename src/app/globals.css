@@ -821,9 +821,9 @@ body:has(#profes-page .profes-mobile-filters[open]) .float-actions {
   will-change: transform, opacity;
 }
 .hero-logo-main {
-  width: min(92vw, 620px);
+  width: min(127vw, 853px);
   height: auto;
-  max-height: 62svh;
+  max-height: 86svh;
   object-fit: contain;
 }
 .hero-grid {
@@ -872,8 +872,8 @@ body:has(#profes-page .profes-mobile-filters[open]) .float-actions {
     padding: 82px 16px 30px;
   }
   .hero-logo-main {
-    width: min(90vw, 480px);
-    max-height: 52svh;
+    width: min(124vw, 660px);
+    max-height: 72svh;
   }
 }
 
@@ -3064,7 +3064,7 @@ body:has(.job-application-page) {
 
 @media (max-width: 380px) {
   .container { padding: 0 14px; }
-  .hero-logo-main { width: min(72vw, 300px); }
+  .hero-logo-main { width: min(99vw, 413px); }
 }
 
 /* Kidora-style footer */
