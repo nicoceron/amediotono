@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
@@ -277,6 +277,7 @@ function matchesTeacher(teacher: Teacher, filters: FilterState) {
 export function ProfesDirectory({ teachers }: { teachers: Teacher[] }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
   const courseQuery = searchParams.get("curso") ?? "";
   const keywordQuery = searchParams.get("q") ?? "";
   const rawFormatFilter = searchParams.get("formato") ?? "";
@@ -295,6 +296,39 @@ export function ProfesDirectory({ teachers }: { teachers: Teacher[] }) {
     const nextUrl = params.toString() ? `${pathname}?${params.toString()}` : pathname;
     window.history.replaceState(null, "", nextUrl);
   }, [formatFilter, pathname, rawFormatFilter, searchParams]);
+
+  useEffect(() => {
+    if (!isMobileFilterOpen) return;
+
+    const scrollY = window.scrollY;
+    const { body, documentElement } = document;
+    const previousBodyPosition = body.style.position;
+    const previousBodyTop = body.style.top;
+    const previousBodyLeft = body.style.left;
+    const previousBodyRight = body.style.right;
+    const previousBodyWidth = body.style.width;
+    const previousBodyOverflow = body.style.overflow;
+    const previousRootOverflow = documentElement.style.overflow;
+
+    documentElement.style.overflow = "hidden";
+    body.style.overflow = "hidden";
+    body.style.position = "fixed";
+    body.style.top = `-${scrollY}px`;
+    body.style.left = "0";
+    body.style.right = "0";
+    body.style.width = "100%";
+
+    return () => {
+      documentElement.style.overflow = previousRootOverflow;
+      body.style.overflow = previousBodyOverflow;
+      body.style.position = previousBodyPosition;
+      body.style.top = previousBodyTop;
+      body.style.left = previousBodyLeft;
+      body.style.right = previousBodyRight;
+      body.style.width = previousBodyWidth;
+      window.scrollTo(0, scrollY);
+    };
+  }, [isMobileFilterOpen]);
 
   const formatOptions = useMemo(
     () =>
@@ -432,6 +466,7 @@ export function ProfesDirectory({ teachers }: { teachers: Teacher[] }) {
   };
   const closeMobileFilterSheet = (element: HTMLElement) => {
     element.closest(".profes-mobile-filters")?.removeAttribute("open");
+    setIsMobileFilterOpen(false);
   };
 
   return (
@@ -452,7 +487,10 @@ export function ProfesDirectory({ teachers }: { teachers: Teacher[] }) {
             onClear={() => updateFilters({ courseQuery: "" })}
           />
 
-          <details className="profes-mobile-filters">
+          <details
+            className="profes-mobile-filters"
+            onToggle={(event) => setIsMobileFilterOpen(event.currentTarget.open)}
+          >
             <summary
               className="profes-mobile-filter-summary"
               aria-label={
