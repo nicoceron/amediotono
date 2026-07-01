@@ -24,12 +24,28 @@ export const SITE_KEYWORDS = [
   "escuela de artes",
 ];
 
-export const DEFAULT_OG_IMAGE = {
-  url: "/icon.png",
-  width: 512,
-  height: 512,
-  alt: "A medio tono, icono de la escuela de artes y música",
+type SocialImage = {
+  url: string;
+  width: number;
+  height: number;
+  alt: string;
+  type?: string;
 };
+
+export const SITE_LOGO_IMAGE = {
+  url: "/logo-mark-transparent.png",
+  width: 635,
+  height: 548,
+  alt: "A medio tono",
+};
+
+export const DEFAULT_OG_IMAGE = {
+  url: "/og-image.png",
+  width: 1200,
+  height: 630,
+  alt: "A medio tono, escuela de artes y música",
+  type: "image/png",
+} satisfies SocialImage;
 export const INDEXNOW_ENDPOINT = "https://api.indexnow.org/indexnow";
 export const INDEXNOW_KEY_PATH = "/indexnow-key.txt";
 export const INDEXNOW_KEY_PATTERN = /^[A-Za-z0-9-]{8,128}$/;
@@ -81,7 +97,7 @@ export function createPageMetadata({
   title: string;
   description: string;
   path: string;
-  image?: typeof DEFAULT_OG_IMAGE;
+  image?: SocialImage;
 }): Metadata {
   const safeDescription = truncateMetaDescription(description);
 
@@ -104,7 +120,7 @@ export function createPageMetadata({
       card: "summary_large_image",
       title,
       description: safeDescription,
-      images: [image.url],
+      images: [image],
     },
   };
 }
@@ -129,7 +145,7 @@ export function organizationJsonLd(): JsonLdNode {
     name: SITE_NAME,
     alternateName: SITE_BRAND,
     url: absoluteUrl("/"),
-    logo: absoluteUrl(DEFAULT_OG_IMAGE.url),
+    logo: absoluteUrl(SITE_LOGO_IMAGE.url),
     image: absoluteUrl(DEFAULT_OG_IMAGE.url),
     description: SITE_DESCRIPTION,
     email: CONTACT_EMAIL,
