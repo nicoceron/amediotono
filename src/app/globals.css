@@ -3827,16 +3827,12 @@ body:has(.job-application-page) {
     minmax(190px, 269px);
 }
 
-.profes-filter-row-secondary {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: start;
-  justify-content: flex-end;
-  overflow: visible;
-}
-
-.profes-filter-row-secondary > * {
-  min-width: 0;
+.profes-filter-row-main:has(.profes-clear-filters-icon) {
+  grid-template-columns:
+    minmax(190px, 1.35fr)
+    repeat(3, minmax(120px, 0.86fr))
+    minmax(180px, 1fr)
+    48px;
 }
 
 .profes-desktop-filter,
@@ -4159,41 +4155,33 @@ body:has(.job-application-page) {
   line-height: 1.2;
 }
 
-.profes-clear-filters {
+.profes-clear-filters-icon {
+  width: 48px;
+  min-width: 48px;
   min-height: 48px;
-  padding: 10px 20px;
-  border: 1px solid var(--button-base-border);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid color-mix(in srgb, var(--control-text) 18%, transparent);
   border-radius: var(--radius-card);
-  background-color: var(--button-base-bg);
-  color: var(--button-base-text);
-  font: inherit;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1.2;
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 3px;
-  white-space: nowrap;
+  background: var(--paper);
+  color: var(--control-text);
   cursor: pointer;
-  transition: var(--button-hover-transition);
+  transition: border-color 0.18s ease, background 0.18s ease, color 0.18s ease;
 }
 
-.profes-clear-filters:hover,
-.profes-clear-filters:focus-visible {
-  background-color: var(--button-hover-bg);
-  border-color: var(--button-hover-border);
-  color: var(--button-hover-text);
-  box-shadow: none;
+.profes-clear-filters-icon:hover,
+.profes-clear-filters-icon:focus-visible {
+  border-color: var(--pink);
+  background: color-mix(in srgb, var(--pink) 12%, transparent);
+  color: var(--pink);
   outline: none;
 }
 
 .profes-mobile-filters {
   display: none;
   min-width: 0;
-}
-
-.profes-mobile-clear-filters {
-  display: none;
 }
 
 .profes-mobile-filter-summary {
@@ -4509,6 +4497,10 @@ body:has(.job-application-page) {
     gap: 12px;
   }
 
+  .profes-filter-row-main:has(.profes-clear-filters-icon) {
+    grid-template-columns: minmax(0, 1fr) 58px;
+  }
+
   .profes-skeleton-filter-row .profes-skeleton-field:first-child,
   .profes-skeleton-filter-row .profes-skeleton-field:nth-child(2) {
     min-height: 60px;
@@ -4539,10 +4531,6 @@ body:has(.job-application-page) {
     display: block;
     position: relative;
     z-index: 31;
-  }
-
-  .profes-filter-row-secondary {
-    display: none;
   }
 
   .profes-filter-card,
@@ -4715,8 +4703,8 @@ body:has(.job-application-page) {
     box-shadow: none;
   }
 
-  .profes-course-field:focus-within .profes-course-options {
-    display: none;
+  .profes-course-options {
+    max-height: min(42dvh, 320px);
   }
 
   .profes-menu-field[open] {
@@ -4729,8 +4717,8 @@ body:has(.job-application-page) {
     box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--button-dark) 38%, transparent);
   }
 
-  .profes-clear-filters {
-    min-height: 46px;
+  .profes-clear-filters-icon {
+    display: none;
   }
 }
 
@@ -6490,7 +6478,7 @@ body:has(.job-application-page) {
   }
 
   #profes-page .profes-search-panel {
-    overflow: hidden;
+    overflow: visible;
   }
 
   #profes-page .profes-filter-row-main {
