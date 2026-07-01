@@ -4,6 +4,7 @@ import { Navbar } from "@/components/Navbar";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { SmoothScrollProvider } from "@/components/SmoothScrollProvider";
 import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export const metadata: Metadata = {
   title: "A ½ tono — Escuela de Artes",
@@ -55,6 +56,7 @@ export default function RootLayout({
           <WhatsAppFloat />
         </SmoothScrollProvider>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
