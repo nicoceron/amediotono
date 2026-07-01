@@ -1516,6 +1516,91 @@ section.block.courses-section {
   line-height: 1.4;
 }
 
+/* Nosotros FAQ */
+.nosotros-faq-section {
+  background: var(--bg);
+}
+
+.nosotros-faq-head {
+  margin-bottom: 36px;
+}
+
+.nosotros-faq-list {
+  width: min(100%, 920px);
+  margin: 0 auto;
+  display: grid;
+  gap: 12px;
+}
+
+.nosotros-faq-item {
+  background: var(--paper);
+  border: 1px solid color-mix(in srgb, var(--ink) 16%, transparent);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+}
+
+.nosotros-faq-item summary {
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px 24px;
+  cursor: pointer;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  list-style: none;
+}
+
+.nosotros-faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.nosotros-faq-item summary::after {
+  content: "+";
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  display: inline-grid;
+  place-items: center;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  color: var(--pink);
+  font-family: var(--font-body);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.nosotros-faq-item[open] summary::after {
+  content: "-";
+}
+
+.nosotros-faq-item p {
+  max-width: 760px;
+  margin: 0;
+  padding: 0 24px 24px;
+  color: var(--ink-soft);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+@media (max-width: 700px) {
+  .nosotros-faq-item summary {
+    min-height: 64px;
+    padding: 18px 18px;
+    font-size: 19px;
+  }
+
+  .nosotros-faq-item p {
+    padding: 0 18px 20px;
+  }
+}
+
 /* Old nosotros cards (keep for any legacy use but hidden) */
 .founders-grid {
   display: grid;
