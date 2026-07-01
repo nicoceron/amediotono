@@ -4,7 +4,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
   ArrowLeft,
-  ArrowRight,
   BadgeCheck,
   GraduationCap,
   House,
@@ -15,16 +14,21 @@ import {
   Video,
 } from "lucide-react";
 import { Footer } from "@/components/Footer";
+import { ShareTeacherButton } from "@/components/ShareTeacherButton";
 import {
   TEACHERS,
   getTeacherBySlug,
+  shortDisplayName,
 } from "@/lib/teachers";
 import { whatsappHref } from "@/lib/contact";
 import {
+  absoluteUrl,
   createPageMetadata,
   jsonLd,
   teacherJsonLd,
 } from "@/lib/seo";
+
+export const dynamicParams = false;
 
 function classFormatIcon(format: string) {
   return format === "A domicilio" ? House : Video;
@@ -79,6 +83,10 @@ export default async function ProfeDetailPage({
   const classLanguages = teacher.classLanguages ?? [];
   const hasReviews = teacher.reviews.length > 0;
   const profeJsonLd = jsonLd(teacherJsonLd(teacher));
+  const profileUrl = absoluteUrl(`/profes/${teacher.slug}`);
+  const shareTitle = `${teacher.name}, profe de ${primaryTeacherRole(teacher)} — A ½ tono`;
+  const shareText = `Mira el perfil de ${teacher.name}, profe de ${teacher.role} en A medio tono.`;
+  const mobileTeacherName = shortDisplayName(teacher.name);
 
   return (
     <>
@@ -113,7 +121,8 @@ export default async function ProfeDetailPage({
                     src={teacher.photo}
                     alt={teacher.name}
                     fill
-                    sizes="200px"
+                    sizes="(max-width: 360px) 172px, (max-width: 720px) 200px, 280px"
+                    unoptimized={teacher.photo.endsWith("-hd.webp")}
                     style={
                       teacher.photoPosition
                         ? { objectPosition: teacher.photoPosition }
@@ -123,7 +132,8 @@ export default async function ProfeDetailPage({
                 </div>
                 <div className="pd-hero-copy">
                   <h1 className="pd-hero-name">
-                    {teacher.name}
+                    <span className="pd-hero-name-full">{teacher.name}</span>
+                    <span className="pd-hero-name-mobile">{mobileTeacherName}</span>
                     <BadgeCheck
                       size={28}
                       strokeWidth={2.4}
@@ -139,7 +149,24 @@ export default async function ProfeDetailPage({
                       </span>
                     </div>
                   )}
-                  <p className="pd-hero-bio">{teacher.bio}</p>
+                </div>
+                <div className="pd-hero-actions-mobile">
+                  <a
+                    className="pd-hero-message-button"
+                    href={waUrl}
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <MessageCircle size={20} strokeWidth={2.4} />
+                    Quiero clases con {teacher.shortName}
+                  </a>
+                  <ShareTeacherButton
+                    className="pd-share-button-mobile"
+                    title={shareTitle}
+                    text={shareText}
+                    url={profileUrl}
+                    showLabel={false}
+                  />
                 </div>
               </header>
 
@@ -295,26 +322,24 @@ export default async function ProfeDetailPage({
                   </div>
                 )}
 
-                <a
-                  className="pd-cta-primary"
-                  href={waUrl}
-                  target="_blank"
-                  rel="noopener"
-                  style={{ background: teacher.color }}
-                >
-                  Quiero clases con {teacher.shortName}
-                  <ArrowRight size={18} strokeWidth={2.4} />
-                </a>
-
-                <a
-                  className="pd-cta-secondary"
-                  href={waUrl}
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <MessageCircle size={18} strokeWidth={2.2} />
-                  Pregunta lo que quieras
-                </a>
+                <div className="pd-cta-actions-desktop">
+                  <a
+                    className="pd-hero-message-button pd-cta-message-button"
+                    href={waUrl}
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <MessageCircle size={20} strokeWidth={2.4} />
+                    Quiero clases con {teacher.shortName}
+                  </a>
+                  <ShareTeacherButton
+                    className="pd-share-button-desktop"
+                    title={shareTitle}
+                    text={shareText}
+                    url={profileUrl}
+                    showLabel={false}
+                  />
+                </div>
 
                 <div className="pd-cta-callout">
                   <BadgeCheck size={18} strokeWidth={2.4} />

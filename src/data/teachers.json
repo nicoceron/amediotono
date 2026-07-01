@@ -19,7 +19,7 @@
       "Virtual",
       "A domicilio"
     ],
-    "photo": "/profes/gisselle-torres.webp",
+    "photo": "/profes/gisselle-torres-hd.webp",
     "gallery": [
       {
         "src": "https://images.unsplash.com/photo-1532464142-9c0d6cce9b25?auto=format&fit=crop&w=900&q=80",
@@ -114,7 +114,7 @@
       "Virtual",
       "A domicilio"
     ],
-    "photo": "/profes/daniela-cardenas.webp",
+    "photo": "/profes/daniela-cardenas-hd.webp",
     "gallery": [
       {
         "src": "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=900&q=80",
@@ -174,7 +174,7 @@
       "Virtual",
       "A domicilio"
     ],
-    "photo": "/profes/sara-alfonso.webp",
+    "photo": "/profes/sara-alfonso-hd.webp",
     "gallery": [
       {
         "src": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=900&q=80",
@@ -206,7 +206,7 @@
     ]
   },
   {
-    "slug": "niko",
+    "slug": "niko-ferro",
     "name": "Niko Ferro",
     "shortName": "Niko",
     "color": "var(--blue)",
@@ -219,7 +219,7 @@
       "Armónico",
       "Divertido"
     ],
-    "photo": "/profes/niko.webp",
+    "photo": "/profes/niko-hd.webp",
     "photoPosition": "70% 42%",
     "gallery": [],
     "reviews": [],
@@ -237,7 +237,7 @@
     ]
   },
   {
-    "slug": "luna",
+    "slug": "luna-chavela",
     "name": "Luna Chavela",
     "shortName": "Luna",
     "color": "var(--red)",
@@ -250,7 +250,7 @@
       "Canto",
       "Divertida"
     ],
-    "photo": "/profes/luna.webp",
+    "photo": "/profes/luna-hd.webp",
     "photoPosition": "50% 35%",
     "gallery": [],
     "reviews": [],
@@ -267,7 +267,7 @@
     ]
   },
   {
-    "slug": "mariana",
+    "slug": "mariana-castro",
     "name": "Mariana Castro",
     "shortName": "Mariana",
     "color": "var(--pink)",
@@ -280,7 +280,7 @@
       "Narrativa",
       "Canto"
     ],
-    "photo": "/profes/mariana.webp",
+    "photo": "/profes/mariana-hd.webp",
     "photoPosition": "43% 48%",
     "gallery": [],
     "reviews": [],
@@ -297,7 +297,7 @@
     ]
   },
   {
-    "slug": "sergio",
+    "slug": "sergio-ramirez",
     "name": "Sergio Ramírez",
     "shortName": "Sergio",
     "color": "var(--green)",
@@ -310,7 +310,7 @@
       "Didáctico",
       "Sorprendente"
     ],
-    "photo": "/profes/sergio.webp",
+    "photo": "/profes/sergio-hd.webp",
     "photoPosition": "54% 30%",
     "gallery": [],
     "reviews": [],
@@ -329,7 +329,7 @@
     ]
   },
   {
-    "slug": "david",
+    "slug": "david-ardila",
     "name": "David Ardila",
     "shortName": "David",
     "color": "var(--purple)",
@@ -342,7 +342,7 @@
       "Musical",
       "Motivador"
     ],
-    "photo": "/profes/david.webp",
+    "photo": "/profes/david-hd.webp",
     "photoPosition": "50% 30%",
     "gallery": [],
     "reviews": [],
@@ -360,7 +360,7 @@
     ]
   },
   {
-    "slug": "jaider",
+    "slug": "jaider-bohorquez",
     "name": "Jaider Bohórquez",
     "shortName": "Jaider",
     "color": "var(--green)",
@@ -373,7 +373,7 @@
       "Paciente",
       "Disciplinado"
     ],
-    "photo": "/profes/jaider.webp",
+    "photo": "/profes/jaider-hd.webp",
     "photoPosition": "56% 40%",
     "gallery": [],
     "reviews": [],
@@ -390,7 +390,7 @@
     ]
   },
   {
-    "slug": "julian-divertido",
+    "slug": "julian-chacon",
     "name": "Julián Chacón",
     "shortName": "Julián",
     "color": "var(--purple)",
@@ -403,7 +403,7 @@
       "Paciente",
       "Piano"
     ],
-    "photo": "/profes/julian-divertido.webp",
+    "photo": "/profes/julian-divertido-hd.webp",
     "photoPosition": "34% 34%",
     "gallery": [],
     "reviews": [],
@@ -420,7 +420,7 @@
     ]
   },
   {
-    "slug": "voz-serena",
+    "slug": "laura-castellanos",
     "name": "Laura Castellanos",
     "shortName": "Laura",
     "color": "var(--red)",
@@ -433,7 +433,7 @@
       "Iniciación musical",
       "Serena"
     ],
-    "photo": "/profes/voz-serena.webp",
+    "photo": "/profes/voz-serena-hd.webp",
     "photoPosition": "40% 34%",
     "gallery": [],
     "reviews": [],
@@ -451,7 +451,7 @@
     ]
   },
   {
-    "slug": "cesar",
+    "slug": "cesar-avila",
     "name": "César Ávila",
     "shortName": "César",
     "color": "var(--orange)",
@@ -464,7 +464,7 @@
       "Cercano",
       "Motivador"
     ],
-    "photo": "/profes/cesar.webp",
+    "photo": "/profes/cesar-hd.webp",
     "photoPosition": "50% 45%",
     "gallery": [],
     "reviews": [],
@@ -482,7 +482,7 @@
     ]
   },
   {
-    "slug": "fabian",
+    "slug": "fabian-garzon",
     "name": "Fabián Garzón",
     "shortName": "Fabián",
     "color": "var(--green)",
@@ -495,7 +495,7 @@
       "Guitarra",
       "Alegre"
     ],
-    "photo": "/profes/fabian.webp",
+    "photo": "/profes/fabian-hd.webp",
     "photoPosition": "50% 42%",
     "gallery": [],
     "reviews": [],
@@ -512,7 +512,7 @@
     ]
   },
   {
-    "slug": "jose",
+    "slug": "jose-garcia",
     "name": "José García",
     "shortName": "José",
     "color": "var(--purple)",
@@ -525,7 +525,7 @@
       "Errores",
       "Caña"
     ],
-    "photo": "/profes/jose.webp",
+    "photo": "/profes/jose-hd.webp",
     "photoPosition": "50% 45%",
     "gallery": [],
     "reviews": [],
@@ -542,7 +542,7 @@
     ]
   },
   {
-    "slug": "alejandro",
+    "slug": "alejandro-guzman",
     "name": "Alejandro Guzman",
     "shortName": "Alejandro",
     "color": "var(--orange)",
@@ -555,7 +555,7 @@
       "Sueños",
       "Música"
     ],
-    "photo": "/profes/alejandro.webp",
+    "photo": "/profes/alejandro-hd.webp",
     "photoPosition": "50% 32%",
     "gallery": [],
     "reviews": [],
@@ -585,7 +585,7 @@
       "Paciencia",
       "Amor"
     ],
-    "photo": "/profes/erika-nayive-torres-murillo.webp",
+    "photo": "/profes/erika-nayive-torres-murillo-hd.webp",
     "photoPosition": "50% 45%",
     "gallery": [],
     "reviews": [],
@@ -603,7 +603,7 @@
     ]
   },
   {
-    "slug": "carlos",
+    "slug": "carlos-santamaria",
     "name": "Carlos Santamaria",
     "shortName": "Carlos",
     "color": "var(--green)",
@@ -616,7 +616,7 @@
       "Creatividad",
       "Humor"
     ],
-    "photo": "/profes/carlos.webp",
+    "photo": "/profes/carlos-hd.webp",
     "photoPosition": "50% 34%",
     "gallery": [],
     "reviews": [],
@@ -634,7 +634,7 @@
     ]
   },
   {
-    "slug": "madeline",
+    "slug": "madeline-castiblanco",
     "name": "Madeline Castiblanco",
     "shortName": "Madeline",
     "color": "var(--pink)",
@@ -647,7 +647,7 @@
       "Preguntas",
       "Herramientas"
     ],
-    "photo": "/profes/madeline.webp",
+    "photo": "/profes/madeline-hd.webp",
     "photoPosition": "50% 36%",
     "gallery": [],
     "reviews": [
@@ -684,7 +684,7 @@
       "Espacio seguro",
       "Explorar"
     ],
-    "photo": "/profes/laura-prias.webp",
+    "photo": "/profes/laura-prias-hd.webp",
     "photoPosition": "50% 38%",
     "gallery": [],
     "reviews": [
@@ -708,7 +708,7 @@
     ]
   },
   {
-    "slug": "juank",
+    "slug": "juank-chavez",
     "name": "JuanK Chavez",
     "shortName": "JuanK",
     "color": "var(--orange)",
@@ -721,7 +721,7 @@
       "Escucha",
       "Traduce"
     ],
-    "photo": "/profes/juank.webp",
+    "photo": "/profes/juank-hd.webp",
     "photoPosition": "50% 34%",
     "gallery": [],
     "reviews": [],
@@ -738,7 +738,7 @@
     ]
   },
   {
-    "slug": "dara",
+    "slug": "dara-cifuentes",
     "name": "Dara Cifuentes",
     "shortName": "Dara",
     "color": "var(--purple)",
@@ -751,7 +751,7 @@
       "Interpretar",
       "Magia"
     ],
-    "photo": "/profes/dara.webp",
+    "photo": "/profes/dara-hd.webp",
     "photoPosition": "50% 34%",
     "gallery": [],
     "reviews": [],
@@ -781,7 +781,7 @@
       "Canto",
       "Trompeta"
     ],
-    "photo": "/profes/camila-cotrino.webp",
+    "photo": "/profes/camila-cotrino-hd.webp",
     "photoPosition": "42% 50%",
     "gallery": [],
     "reviews": [],
@@ -800,7 +800,7 @@
     ]
   },
   {
-    "slug": "canto-autentico",
+    "slug": "natalia-bernal",
     "name": "Natalia Bernal",
     "shortName": "Natalia",
     "color": "var(--pink)",
@@ -813,7 +813,7 @@
       "Canto",
       "Amorosa"
     ],
-    "photo": "/profes/canto-autentico.webp",
+    "photo": "/profes/canto-autentico-hd.webp",
     "photoPosition": "50% 38%",
     "gallery": [],
     "reviews": [],
@@ -830,7 +830,7 @@
     ]
   },
   {
-    "slug": "miguel-angel",
+    "slug": "miguel-angel-paredes",
     "name": "Miguel Ángel Paredes",
     "shortName": "Miguel",
     "color": "var(--blue)",
@@ -843,7 +843,7 @@
       "Creativo",
       "Paciente"
     ],
-    "photo": "/profes/miguel-angel.webp",
+    "photo": "/profes/miguel-angel-hd.webp",
     "photoPosition": "50% 32%",
     "gallery": [],
     "reviews": [],
@@ -861,7 +861,7 @@
     ]
   },
   {
-    "slug": "laura",
+    "slug": "laura-bonilla",
     "name": "Laura Bonilla",
     "shortName": "Laura",
     "color": "var(--pink)",
@@ -874,7 +874,7 @@
       "Divertida",
       "Paciente"
     ],
-    "photo": "/profes/laura.webp",
+    "photo": "/profes/laura-hd.webp",
     "photoPosition": "50% 30%",
     "gallery": [],
     "reviews": [],
@@ -891,7 +891,7 @@
     ]
   },
   {
-    "slug": "jhony",
+    "slug": "jhony-baez",
     "name": "Jhony Báez",
     "shortName": "Jhony",
     "color": "var(--green)",
@@ -904,7 +904,7 @@
       "Sereno",
       "Cercano"
     ],
-    "photo": "/profes/jhony.webp",
+    "photo": "/profes/jhony-hd.webp",
     "photoPosition": "50% 35%",
     "gallery": [],
     "reviews": [],
@@ -935,7 +935,7 @@
       "Piano",
       "Creativo"
     ],
-    "photo": "/profes/yordy-calderon.webp",
+    "photo": "/profes/yordy-calderon-hd.webp",
     "photoPosition": "48% 32%",
     "gallery": [],
     "reviews": [],
@@ -954,7 +954,7 @@
     ]
   },
   {
-    "slug": "contrabajo-teoria",
+    "slug": "mateo-mancipe",
     "name": "Mateo Mancipe",
     "shortName": "Mateo",
     "color": "var(--purple)",
@@ -967,7 +967,7 @@
       "Teoría musical",
       "Armonía"
     ],
-    "photo": "/profes/contrabajo-teoria.webp",
+    "photo": "/profes/contrabajo-teoria-hd.webp",
     "photoPosition": "48% 28%",
     "gallery": [],
     "reviews": [],
@@ -986,7 +986,7 @@
     ]
   },
   {
-    "slug": "leila",
+    "slug": "leila-fernandez",
     "name": "Leila Fernández",
     "shortName": "Leila",
     "color": "var(--red)",
@@ -999,7 +999,7 @@
       "Dinámica",
       "Motivadora"
     ],
-    "photo": "/profes/leila.webp",
+    "photo": "/profes/leila-hd.webp",
     "photoPosition": "54% 34%",
     "gallery": [],
     "reviews": [],
@@ -1018,7 +1018,7 @@
     ]
   },
   {
-    "slug": "diego",
+    "slug": "diego-quiroga",
     "name": "Diego Quiroga",
     "shortName": "Diego",
     "color": "var(--blue)",
@@ -1031,7 +1031,7 @@
       "Creativo",
       "Divertido"
     ],
-    "photo": "/profes/diego.webp",
+    "photo": "/profes/diego-hd.webp",
     "photoPosition": "54% 32%",
     "gallery": [],
     "reviews": [],
@@ -1051,7 +1051,7 @@
     ]
   },
   {
-    "slug": "julian-guitarra-electrica",
+    "slug": "julian-cortes",
     "name": "Julián Cortés",
     "shortName": "Julián",
     "color": "var(--green)",
@@ -1064,7 +1064,7 @@
       "Práctico",
       "Energético"
     ],
-    "photo": "/profes/julian-guitarra-electrica.webp",
+    "photo": "/profes/julian-guitarra-electrica-hd.webp",
     "photoPosition": "50% 34%",
     "gallery": [],
     "reviews": [],
@@ -1081,7 +1081,7 @@
     ]
   },
   {
-    "slug": "moises",
+    "slug": "moises-clavijo",
     "name": "Moisés Clavijo",
     "shortName": "Moisés",
     "color": "var(--orange)",
@@ -1094,7 +1094,7 @@
       "Tranquilo",
       "Paciente"
     ],
-    "photo": "/profes/moises.webp",
+    "photo": "/profes/moises-hd.webp",
     "photoPosition": "55% 34%",
     "gallery": [],
     "reviews": [],
@@ -1111,7 +1111,7 @@
     ]
   },
   {
-    "slug": "juan-david",
+    "slug": "juan-david-ardila",
     "name": "Juan David Ardila",
     "shortName": "Juan David",
     "color": "var(--purple)",
@@ -1124,7 +1124,7 @@
       "Piano",
       "Paciente"
     ],
-    "photo": "/profes/juan-david.webp",
+    "photo": "/profes/juan-david-hd.webp",
     "photoPosition": "48% 34%",
     "gallery": [],
     "reviews": [],
@@ -1154,7 +1154,7 @@
       "Buena energía",
       "Paciente"
     ],
-    "photo": "/profes/felipe-mesa.webp",
+    "photo": "/profes/felipe-mesa-hd.webp",
     "photoPosition": "43% 28%",
     "gallery": [],
     "reviews": [],
@@ -1184,7 +1184,7 @@
       "Corporal",
       "Vocal"
     ],
-    "photo": "/profes/juan-martinez.webp",
+    "photo": "/profes/juan-martinez-hd.webp",
     "photoPosition": "50% 24%",
     "gallery": [],
     "reviews": [],
