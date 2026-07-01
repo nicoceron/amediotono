@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${SITE_BRAND} — Clases de música en Bogotá`,
     description: SITE_DESCRIPTION,
-    images: [DEFAULT_OG_IMAGE.url],
+    images: [DEFAULT_OG_IMAGE],
   },
   robots: {
     index: true,
