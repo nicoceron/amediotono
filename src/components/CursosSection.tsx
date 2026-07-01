@@ -43,7 +43,7 @@ export function CursosSection() {
     <section className="block courses-section" id="cursos" data-screen-label="Cursos">
       <div className="hero-cloud-separator" aria-hidden="true">
         <Image
-          src="/hero-cloud-separator.png"
+          src="/hero-cloud-separator.webp"
           alt=""
           fill
           sizes="100vw"

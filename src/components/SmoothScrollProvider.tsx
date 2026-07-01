@@ -19,16 +19,52 @@ function getElementByHash(hash: string) {
   }
 }
 
+function getScrollTarget(element: HTMLElement) {
+  const selector = element.dataset.scrollTarget;
+  const target = selector ? element.querySelector(selector) : null;
+
+  if (target instanceof HTMLElement) {
+    return {
+      align: target.dataset.scrollAlign || element.dataset.scrollAlign,
+      element: target,
+    };
+  }
+
+  return {
+    align: element.dataset.scrollAlign,
+    element,
+  };
+}
+
+function getDocumentOffsetTop(element: HTMLElement) {
+  let top = 0;
+  let node: HTMLElement | null = element;
+
+  while (node) {
+    top += node.offsetTop;
+    node = node.offsetParent as HTMLElement | null;
+  }
+
+  return top;
+}
+
 function scrollToElement(element: HTMLElement, lenis: Lenis | null) {
-  const scrollMargin = parseInt(getComputedStyle(element).scrollMarginTop, 10) || 0;
+  const scrollTarget = getScrollTarget(element);
+  const target = scrollTarget.element;
+  const scrollMargin = parseInt(getComputedStyle(target).scrollMarginTop, 10) || 0;
+  const targetHeight = target.offsetHeight || target.getBoundingClientRect().height;
+  const centerOffset =
+    scrollTarget.align === "center"
+      ? -Math.max((window.innerHeight - targetHeight) / 2, 0)
+      : -scrollMargin;
+  const top = Math.max(getDocumentOffsetTop(target) + centerOffset, 0);
 
   if (lenis) {
     lenis.resize();
-    lenis.scrollTo(element, { offset: -scrollMargin, duration: 1.18 });
+    lenis.scrollTo(top, { duration: 1.18 });
     return;
   }
 
-  const top = element.getBoundingClientRect().top + window.scrollY - scrollMargin;
   const behavior = window.matchMedia("(prefers-reduced-motion: reduce)").matches
     ? "auto"
     : "smooth";

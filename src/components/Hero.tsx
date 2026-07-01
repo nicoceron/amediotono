@@ -11,7 +11,8 @@ export function Hero() {
           alt=""
           fill
           sizes="100vw"
-          priority
+          loading="eager"
+          unoptimized
         />
       </div>
       <div className="container hero-grid">

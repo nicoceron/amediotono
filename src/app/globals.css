@@ -115,9 +115,6 @@
   --footer-theme-fg: #FFF8EE;
   --footer-theme-muted: #C8B8DC;
   --footer-theme-soft: color-mix(in srgb, #FFF8EE 22%, transparent);
-  --footer-theme-field-bg: var(--app-dark);
-  --footer-theme-field-border: color-mix(in srgb, #FFF8EE 34%, transparent);
-  --footer-theme-field-placeholder: color-mix(in srgb, #FFF8EE 58%, transparent);
   --footer-theme-control-bg: var(--app-dark);
   --footer-theme-control-fg: #FFF8EE;
   --footer-theme-control-hover-bg: #FFF8EE;
@@ -221,9 +218,6 @@
   --footer-theme-fg: var(--button-dark);
   --footer-theme-muted: #5C4A6E;
   --footer-theme-soft: color-mix(in srgb, var(--button-dark) 18%, transparent);
-  --footer-theme-field-bg: #fff;
-  --footer-theme-field-border: color-mix(in srgb, var(--button-dark) 34%, transparent);
-  --footer-theme-field-placeholder: color-mix(in srgb, var(--button-dark) 52%, transparent);
   --footer-theme-control-bg: #fff;
   --footer-theme-control-fg: var(--button-dark);
   --footer-theme-control-hover-bg: var(--button-dark);
@@ -817,7 +811,7 @@ body:has(#profes-page .profes-mobile-filters[open]) .float-actions {
   min-height: calc(100vh - 150px);
   min-height: calc(100svh - 150px);
   padding: 20px;
-  animation: hero-logo-reveal 1.45s cubic-bezier(0.22, 1, 0.36, 1) 0.65s both;
+  animation: hero-logo-reveal 0.95s cubic-bezier(0.22, 1, 0.36, 1) 0.65s both;
   will-change: transform, opacity;
 }
 .hero-logo-main {
@@ -845,7 +839,7 @@ body:has(#profes-page .profes-mobile-filters[open]) .float-actions {
   .hero-bg-image { display: none; }
   .hero-with-bg::before {
     display: block;
-    background-image: url("/hero-bg-mobile-art.png");
+    background-image: url("/hero-bg-mobile-art.webp");
     background-image: image-set(
       url("/hero-bg-mobile-art.webp") type("image/webp"),
       url("/hero-bg-mobile-art.png") type("image/png")
@@ -3074,9 +3068,6 @@ body:has(.job-application-page) {
   --footer-muted: var(--footer-theme-muted);
   --footer-soft: var(--footer-theme-soft);
   --footer-accent: var(--green);
-  --footer-field-bg: var(--footer-theme-field-bg);
-  --footer-field-border: var(--footer-theme-field-border);
-  --footer-field-placeholder: var(--footer-theme-field-placeholder);
   --footer-control-bg: var(--footer-theme-control-bg);
   --footer-control-fg: var(--footer-theme-control-fg);
   --footer-control-hover-bg: var(--footer-theme-control-hover-bg);
@@ -3168,54 +3159,6 @@ body:has(.job-application-page) {
   line-height: 1.5;
   letter-spacing: 0;
   text-wrap: balance;
-}
-
-.footer-email-form {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 100%;
-  gap: 20px;
-  overflow: hidden;
-}
-
-.footer-email-form input {
-  width: 100%;
-  min-height: 51px;
-  padding: 12px 16px;
-  border: 1px solid var(--footer-field-border);
-  border-radius: 42px;
-  background: var(--footer-field-bg);
-  color: var(--footer-fg);
-  font-family: var(--font-body);
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.5;
-  letter-spacing: 0;
-  outline: none;
-}
-
-.footer-email-form input::placeholder {
-  color: var(--footer-field-placeholder);
-}
-
-.footer-email-form input:focus {
-  border-color: var(--footer-accent);
-}
-
-.footer-submit {
-  --pill-bg: var(--footer-pill-bg);
-  --pill-fg: var(--footer-pill-fg);
-  --pill-icon-bg: var(--footer-pill-icon-bg);
-  --pill-icon-fg: var(--footer-pill-icon-fg);
-}
-
-.footer-submit .kidora-pill-text > span {
-  transition-duration: 0.35s;
-}
-
-.footer-submit .kidora-pill-icon > span {
-  transition-duration: 0.35s, 0.35s;
 }
 
 .footer-social-block {
@@ -3427,7 +3370,6 @@ body:has(.job-application-page) {
     margin-top: 0;
   }
 
-  .footer-email-form,
   .footer-social-row {
     gap: 12px;
   }
