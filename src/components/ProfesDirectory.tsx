@@ -655,7 +655,7 @@ export function ProfesDirectory({ teachers }: { teachers: Teacher[] }) {
             {hasActiveFilters && (
               <button
                 type="button"
-                className="profes-clear-filters"
+                className="profes-clear-filters-icon"
                 onClick={clearFilters}
                 aria-label="Limpiar filtros"
                 title="Limpiar filtros"
@@ -665,7 +665,6 @@ export function ProfesDirectory({ teachers }: { teachers: Teacher[] }) {
             )}
           </div>
         </div>
-
       </form>
 
       {filteredTeachers.length > 0 ? (
