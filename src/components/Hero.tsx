@@ -12,6 +12,8 @@ export function Hero() {
           fill
           sizes="100vw"
           loading="eager"
+          fetchPriority="high"
+          decoding="sync"
           unoptimized
         />
       </div>
