@@ -4170,26 +4170,22 @@ body:has(.job-application-page) {
   align-items: center;
   justify-content: center;
   padding: 0;
-  border: 1px solid color-mix(in srgb, var(--control-text) 18%, transparent);
+  border: 1px solid var(--button-base-border);
   border-radius: var(--radius-card);
-  background: var(--paper);
-  color: var(--control-text);
+  background-color: var(--button-base-bg);
+  color: var(--button-base-text);
   line-height: 0;
   cursor: pointer;
   pointer-events: auto;
-  transition: border-color 0.18s ease, background 0.18s ease, color 0.18s ease;
 }
 
 .profes-clear-filters-icon svg {
   display: block;
 }
 
-.profes-clear-filters-icon:hover,
 .profes-clear-filters-icon:focus-visible {
-  border-color: var(--pink);
-  background: color-mix(in srgb, var(--pink) 12%, transparent);
-  color: var(--pink);
-  outline: none;
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
 }
 
 @media (max-width: 1360px) and (min-width: 1101px) {
