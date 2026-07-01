@@ -1,7 +1,9 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, BriefcaseBusiness, GraduationCap, MapPin, Music2 } from "lucide-react";
 import { JobApplicationTabs } from "@/components/JobApplicationTabs";
+import { breadcrumbJsonLd, createPageMetadata, jsonLd } from "@/lib/seo";
 
 const JOB_DETAILS = [
   {
@@ -26,14 +28,27 @@ const JOB_DETAILS = [
   },
 ];
 
-export const metadata = {
-  title: "Profesor/a de música",
-  description: "Formulario de aplicación para profesores de música en A medio tono.",
-};
+export const metadata: Metadata = createPageMetadata({
+  title: "Trabaja como profesor/a de música — A ½ tono",
+  description:
+    "Aplica para trabajar como profesor o profesora de música en A medio tono. Buscamos profes para clases virtuales y a domicilio en Bogotá y alrededores.",
+  path: "/trabaja-con-nosotros",
+});
 
 export default function TrabajaConNosotrosPage() {
+  const jobsJsonLd = jsonLd(
+    breadcrumbJsonLd([
+      { name: "Inicio", path: "/" },
+      { name: "Trabaja con nosotros", path: "/trabaja-con-nosotros" },
+    ]),
+  );
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jobsJsonLd }}
+      />
       <section className="job-application-page" data-screen-label="Aplicación profesor">
         <div className="job-application-shell">
           <header className="job-application-top">

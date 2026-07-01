@@ -50,6 +50,13 @@ export function CursosSection() {
         />
       </div>
       <div className="container">
+        <div className="visually-hidden">
+          <h2>Cursos de música disponibles</h2>
+          <p>
+            Encuentra clases de piano, canto, guitarra, violín, flauta, percusión,
+            teoría musical e iniciación musical con profes de A medio tono.
+          </p>
+        </div>
         <div className="courses-grid">
           {MAIN_COURSES.map((course) => (
             <CourseCard course={course} key={course.id} />

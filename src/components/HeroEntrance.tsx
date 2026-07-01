@@ -3,6 +3,9 @@ import Image from "next/image";
 export function HeroEntrance() {
   return (
     <div className="hero-logo-stage">
+      <h1 className="visually-hidden">
+        Clases de música en Bogotá y virtuales para todas las edades
+      </h1>
       <Image
         className="hero-logo-main"
         src="/logo-hero-hd.webp"

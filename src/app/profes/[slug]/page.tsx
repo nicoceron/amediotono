@@ -18,12 +18,27 @@ import { Footer } from "@/components/Footer";
 import {
   TEACHERS,
   getTeacherBySlug,
-  shortDisplayName,
 } from "@/lib/teachers";
 import { whatsappHref } from "@/lib/contact";
+import {
+  createPageMetadata,
+  jsonLd,
+  teacherJsonLd,
+} from "@/lib/seo";
 
 function classFormatIcon(format: string) {
   return format === "A domicilio" ? House : Video;
+}
+
+function primaryTeacherRole(teacher: NonNullable<ReturnType<typeof getTeacherBySlug>>) {
+  return teacher.skills[0]?.label ?? teacher.role;
+}
+
+function teacherMetaDescription(teacher: NonNullable<ReturnType<typeof getTeacherBySlug>>) {
+  const formats = teacher.classFormats?.join(" y ") || "virtuales y a domicilio";
+  const languages = teacher.classLanguages?.join(" y ") || "Español";
+
+  return `Clases de ${teacher.role} con ${teacher.name} en ${teacher.location}. Modalidad ${formats}, en ${languages}. ${teacher.bio}`;
 }
 
 export function generateStaticParams() {
@@ -38,10 +53,12 @@ export async function generateMetadata({
   const { slug } = await params;
   const teacher = getTeacherBySlug(slug);
   if (!teacher) return { title: "Profe — A ½ tono" };
-  return {
-    title: `${teacher.name} — Profe de ${teacher.role} · A ½ tono`,
-    description: teacher.bio,
-  };
+
+  return createPageMetadata({
+    title: `${teacher.name}, profe de ${primaryTeacherRole(teacher)} — A ½ tono`,
+    description: teacherMetaDescription(teacher),
+    path: `/profes/${teacher.slug}`,
+  });
 }
 
 export default async function ProfeDetailPage({
@@ -61,9 +78,14 @@ export default async function ProfeDetailPage({
   const classFormats = teacher.classFormats ?? [];
   const classLanguages = teacher.classLanguages ?? [];
   const hasReviews = teacher.reviews.length > 0;
+  const profeJsonLd = jsonLd(teacherJsonLd(teacher));
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: profeJsonLd }}
+      />
       <section
         className="block profe-detail"
         data-screen-label={teacher.name}
@@ -101,7 +123,7 @@ export default async function ProfeDetailPage({
                 </div>
                 <div className="pd-hero-copy">
                   <h1 className="pd-hero-name">
-                    {shortDisplayName(teacher.name)}
+                    {teacher.name}
                     <BadgeCheck
                       size={28}
                       strokeWidth={2.4}
