@@ -621,7 +621,8 @@
     "gallery": [],
     "reviews": [],
     "skillIds": [
-      "bandola-andina"
+      "bandola-andina",
+      "teoria-musical"
     ],
     "classFormats": [
       "Virtual",
@@ -1129,6 +1130,66 @@
     "reviews": [],
     "skillIds": [
       "guitarra-electrica"
+    ],
+    "classFormats": [
+      "Virtual",
+      "A domicilio"
+    ],
+    "location": "Bogotá",
+    "classLanguages": [
+      "Español"
+    ]
+  },
+  {
+    "slug": "felipe-mesa",
+    "name": "Felipe Mesa",
+    "shortName": "Felipe",
+    "color": "var(--orange)",
+    "bio": "Soy Felipe, profe que insiste en respirar bien antes de tocar… y también antes de entrar en pánico por una nota difícil. 😅 En mis clases hay técnica, buena energía y la certeza de que equivocarse también hace parte de hacer música. 🎶✨",
+    "longBio": "Soy Felipe, profe que insiste en respirar bien antes de tocar… y también antes de entrar en pánico por una nota difícil. 😅 En mis clases hay técnica, buena energía y la certeza de que equivocarse también hace parte de hacer música. 🎶✨",
+    "country": "Colombia",
+    "countryFlag": "🇨🇴",
+    "highlights": [
+      "Técnico",
+      "Buena energía",
+      "Paciente"
+    ],
+    "photo": "/profes/felipe-mesa.webp",
+    "photoPosition": "43% 28%",
+    "gallery": [],
+    "reviews": [],
+    "skillIds": [
+      "trompeta"
+    ],
+    "classFormats": [
+      "Virtual",
+      "A domicilio"
+    ],
+    "location": "Bogotá",
+    "classLanguages": [
+      "Español"
+    ]
+  },
+  {
+    "slug": "juan-martinez",
+    "name": "Juan Martínez",
+    "shortName": "Juan",
+    "color": "var(--green)",
+    "bio": "Conmigo vamos a ver cómo movimiento y expresión son las mejores bases para un buen cantante. Soy Juan, ¡tu profe de técnica vocal!",
+    "longBio": "Conmigo vamos a ver cómo movimiento y expresión son las mejores bases para un buen cantante. Soy Juan, ¡tu profe de técnica vocal!",
+    "country": "Colombia",
+    "countryFlag": "🇨🇴",
+    "highlights": [
+      "Expresivo",
+      "Corporal",
+      "Vocal"
+    ],
+    "photo": "/profes/juan-martinez.webp",
+    "photoPosition": "50% 24%",
+    "gallery": [],
+    "reviews": [],
+    "skillIds": [
+      "canto"
     ],
     "classFormats": [
       "Virtual",
