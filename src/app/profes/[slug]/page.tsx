@@ -54,7 +54,7 @@ export default async function ProfeDetailPage({
   if (!teacher) notFound();
 
   const waUrl = whatsappHref(
-    `¡Hola! Quiero más información sobre las clases con ${teacher.shortName}.`,
+    `¡Hola! Quiero más información sobre las clases con ${teacher.name}.`,
   );
 
   const instruments = teacher.skills.map((skill) => skill.label);
