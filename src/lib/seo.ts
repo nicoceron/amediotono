@@ -40,9 +40,9 @@ export const SITE_LOGO_IMAGE = {
 };
 
 export const DEFAULT_OG_IMAGE = {
-  url: "/og-image.png",
-  width: 4096,
-  height: 4096,
+  url: "/og-logo-clean.png",
+  width: 2575,
+  height: 2534,
   alt: "A medio tono, escuela de artes y música",
   type: "image/png",
 } satisfies SocialImage;
