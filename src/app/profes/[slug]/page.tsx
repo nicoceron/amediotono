@@ -18,6 +18,7 @@ import { ShareTeacherButton } from "@/components/ShareTeacherButton";
 import {
   TEACHERS,
   getTeacherBySlug,
+  primaryTeacherRole,
   shortDisplayName,
 } from "@/lib/teachers";
 import { whatsappHref } from "@/lib/contact";
@@ -32,10 +33,6 @@ export const dynamicParams = false;
 
 function classFormatIcon(format: string) {
   return format === "A domicilio" ? House : Video;
-}
-
-function primaryTeacherRole(teacher: NonNullable<ReturnType<typeof getTeacherBySlug>>) {
-  return teacher.skills[0]?.label ?? teacher.role;
 }
 
 function teacherMetaDescription(teacher: NonNullable<ReturnType<typeof getTeacherBySlug>>) {
@@ -62,6 +59,13 @@ export async function generateMetadata({
     title: `${teacher.name}, profe de ${primaryTeacherRole(teacher)} — A ½ tono`,
     description: teacherMetaDescription(teacher),
     path: `/profes/${teacher.slug}`,
+    image: {
+      url: `/profes/${teacher.slug}/opengraph-image`,
+      width: 1200,
+      height: 630,
+      alt: `${teacher.name}, profe de ${primaryTeacherRole(teacher)} en A medio tono`,
+      type: "image/png",
+    },
   });
 }
 

@@ -59,6 +59,10 @@ export function getTeacherBySlug(slug: string): Teacher | undefined {
   return TEACHERS.find((t) => t.slug === slug);
 }
 
+export function primaryTeacherRole(teacher: Teacher): string {
+  return teacher.skills[0]?.label ?? teacher.role;
+}
+
 /** "Gisselle Torres" → "Gisselle T." */
 export function shortDisplayName(fullName: string): string {
   const parts = fullName.trim().split(/\s+/);
