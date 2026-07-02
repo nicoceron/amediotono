@@ -30,6 +30,10 @@ export const metadata: Metadata = {
   authors: [{ name: SITE_NAME, url: SITE_URL }],
   creator: SITE_NAME,
   publisher: SITE_NAME,
+  icons: {
+    icon: [{ url: "/icon.png", sizes: "512x512", type: "image/png" }],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+  },
   alternates: {
     canonical: "/",
   },
