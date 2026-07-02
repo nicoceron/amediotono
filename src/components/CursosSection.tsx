@@ -40,7 +40,13 @@ function CourseCard({ course }: { course: Course }) {
 
 export function CursosSection() {
   return (
-    <section className="block courses-section" id="cursos" data-screen-label="Cursos">
+    <section
+      className="block courses-section"
+      id="cursos"
+      data-screen-label="Cursos"
+      data-scroll-align="center"
+      data-scroll-target=".courses-grid"
+    >
       <div className="hero-cloud-separator" aria-hidden="true">
         <Image
           src="/hero-cloud-separator.webp"
