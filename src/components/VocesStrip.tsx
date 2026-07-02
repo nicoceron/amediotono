@@ -8,11 +8,11 @@ type StripItem =
   | { type: "offer"; title: string; subtitle: string };
 
 const ITEMS: StripItem[] = [
-  { type: "asset", icon: "/instruments/blue-note.svg" },
+  { type: "asset", icon: "/instruments/blue-note.webp" },
   { type: "offer", title: "Clases a domicilio", subtitle: "En tu espacio" },
-  { type: "asset", icon: "/instruments/orange-note.svg" },
+  { type: "asset", icon: "/instruments/orange-note.webp" },
   { type: "offer", title: "Clases virtuales", subtitle: "Desde casa" },
-  { type: "asset", icon: "/instruments/pink-treble.svg" },
+  { type: "asset", icon: "/instruments/pink-treble.webp" },
   { type: "offer", title: "Todas las edades", subtitle: "Música y arte" },
 ];
 

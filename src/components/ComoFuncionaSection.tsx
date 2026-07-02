@@ -143,7 +143,7 @@ export function ComoFuncionaSection() {
                       loop
                       muted
                       playsInline
-                      poster="/comienza-a-aprender-guitarra-poster.jpg"
+                      poster="/comienza-a-aprender-guitarra-poster.webp"
                       aria-label="Estudiante tocando guitarra en clase"
                     />
                   </div>
@@ -156,7 +156,7 @@ export function ComoFuncionaSection() {
                     <LazyVideo
                       className="cf-progress-video"
                       src="/avanza-cada-semana.mp4"
-                      poster="/avanza-cada-semana-poster.jpg"
+                      poster="/avanza-cada-semana-poster.webp"
                       loop
                       muted
                       playsInline
