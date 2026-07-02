@@ -5150,6 +5150,11 @@ body:has(.job-application-page) {
   gap: 44px;
   min-width: 0;
 }
+@media (max-width: 980px) {
+  .pd-hero + .pd-section {
+    margin-top: -22px;
+  }
+}
 
 /* Hero */
 .pd-hero {
