@@ -39,8 +39,14 @@ type FilterMenuOption = {
 
 const CLASS_FORMAT_VALUES = new Set(["Virtual", "A domicilio"]);
 
-function getFirstSuggestedCourseValue(value: string, suggestions: FilterMenuOption[]) {
-  return normalizeSearchText(value) ? suggestions[0]?.value ?? "" : "";
+function getExactSuggestedCourseValue(value: string, suggestions: FilterMenuOption[]) {
+  const normalizedValue = normalizeSearchText(value);
+  if (!normalizedValue) return "";
+
+  return (
+    suggestions.find((suggestion) => normalizeSearchText(suggestion.value) === normalizedValue)
+      ?.value ?? ""
+  );
 }
 
 function splitBioLead(text: string) {
@@ -128,7 +134,7 @@ function CourseAutocomplete({
   onSelect: (value: string) => void;
   onClear: () => void;
 }) {
-  const firstSuggestedValue = getFirstSuggestedCourseValue(value, suggestions);
+  const exactSuggestedValue = getExactSuggestedCourseValue(value, suggestions);
 
   return (
     <div className="profes-filter-card profes-course-field">
@@ -144,8 +150,8 @@ function CourseAutocomplete({
           onKeyDown={(event) => {
             if (event.key === "Enter") {
               event.preventDefault();
-              if (firstSuggestedValue) {
-                onSelect(firstSuggestedValue);
+              if (exactSuggestedValue) {
+                onSelect(exactSuggestedValue);
               }
               event.currentTarget.blur();
             }
@@ -205,13 +211,13 @@ function CourseAutocomplete({
           <button
             type="button"
             className={
-              firstSuggestedValue === course.value
+              exactSuggestedValue === course.value
                 ? "profes-course-option is-selected"
                 : "profes-course-option"
             }
             key={course.value}
             role="option"
-            aria-selected={firstSuggestedValue === course.value}
+            aria-selected={exactSuggestedValue === course.value}
             onMouseDown={(event) => event.preventDefault()}
             onClick={(event) => {
               onSelect(course.value);
