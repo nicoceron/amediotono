@@ -116,31 +116,22 @@ export async function generateTeacherShareImage(slug: string) {
             borderTop: `18px solid ${accent}`,
           }}
         />
-        <div
+        <img
+          src={photoSrc}
+          alt=""
+          width={450}
+          height={450}
           style={{
             width: 450,
             height: 450,
+            objectFit: "cover",
+            objectPosition: teacher.photoPosition || "50% 38%",
             border: `14px solid ${accent}`,
             borderRadius: "50%",
-            overflow: "hidden",
-            display: "flex",
             background: accent,
             marginTop: 32,
           }}
-        >
-          <img
-            src={photoSrc}
-            alt=""
-            width={450}
-            height={450}
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-              objectPosition: teacher.photoPosition || "50% 38%",
-            }}
-          />
-        </div>
+        />
 
         <div
           style={{
