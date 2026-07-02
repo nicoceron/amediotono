@@ -5348,6 +5348,9 @@ body:has(.job-application-page) {
 .profe-detail {
   --profe-color: var(--accent);
 }
+.block.profe-detail {
+  padding-top: 12px;
+}
 .profe-back {
   display: inline-flex;
   align-items: center;
@@ -5374,8 +5377,8 @@ body:has(.job-application-page) {
 
 .profe-detail-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 340px;
-  gap: 48px;
+  grid-template-columns: minmax(0, 1fr) 420px;
+  gap: 56px;
   align-items: start;
 }
 @media (max-width: 980px) {
@@ -5392,24 +5395,32 @@ body:has(.job-application-page) {
 /* Hero */
 .pd-hero {
   display: grid;
-  grid-template-columns: 200px minmax(0, 1fr);
-  gap: 28px;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 32px;
   align-items: center;
 }
 @media (max-width: 720px) {
   .pd-hero {
-    grid-template-columns: 1fr;
-    gap: 18px;
-    text-align: center;
-    justify-items: center;
+    grid-template-columns: 200px minmax(0, 1fr);
+    gap: 10px;
+    align-items: center;
+    text-align: left;
+    justify-items: stretch;
   }
 }
 .pd-hero-photo {
   position: relative;
-  width: 200px; height: 200px;
+  width: 280px; height: 280px;
   border-radius: 50%;
   border: 3px solid;
   overflow: hidden;
+}
+@media (max-width: 720px) {
+  .pd-hero-photo {
+    width: 200px;
+    height: 200px;
+    border-width: 2px;
+  }
 }
 .pd-hero-photo-bg { position: absolute; inset: 0; opacity: 0.5; z-index: 0; }
 .pd-hero-photo img {
@@ -5431,12 +5442,53 @@ body:has(.job-application-page) {
   margin: 0;
   color: var(--ink);
 }
+.pd-hero-name-mobile {
+  display: none;
+}
 @media (max-width: 720px) {
-  .pd-hero-name { justify-content: center; }
+  .pd-hero-copy {
+    width: 100%;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .pd-hero-name {
+    justify-content: flex-start;
+    gap: 8px;
+    font-size: clamp(28px, 7vw, 32px);
+  }
+
+  .pd-hero-name svg {
+    width: 22px;
+    height: 22px;
+  }
 
   .pd-hero-meta {
     width: 100%;
-    justify-content: center;
+    justify-content: flex-start;
+  }
+
+  .pd-hero-name-full {
+    display: none;
+  }
+
+  .pd-hero-name-mobile {
+    display: inline;
+  }
+}
+@media (max-width: 360px) {
+  .pd-hero {
+    grid-template-columns: 172px minmax(0, 1fr);
+    gap: 8px;
+  }
+
+  .pd-hero-photo {
+    width: 172px;
+    height: 172px;
+  }
+
+  .pd-hero-name {
+    font-size: 26px;
   }
 }
 .pd-hero-meta {
@@ -5456,6 +5508,163 @@ body:has(.job-application-page) {
 .pd-hero-location svg {
   width: 18px;
   height: 18px;
+}
+.pd-share-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 10px 20px;
+  border: 1px solid var(--profe-color);
+  border-radius: var(--radius-card);
+  appearance: none;
+  background: var(--paper);
+  color: var(--profe-color);
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+  transition: var(--button-hover-transition);
+}
+.pd-share-button:hover {
+  background: var(--paper);
+  border-color: var(--profe-color);
+  color: var(--profe-color);
+}
+.pd-share-button:active {
+  opacity: 0.82;
+}
+.pd-share-button-mobile {
+  display: none;
+}
+.pd-share-button-desktop {
+  width: 100%;
+}
+.pd-cta-actions-desktop {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 48px;
+  gap: 10px;
+  width: 100%;
+}
+.pd-cta-actions-desktop .pd-share-button-desktop {
+  width: 48px;
+  min-height: 48px;
+  padding: 0;
+  border-color: var(--profe-color);
+  background: var(--paper);
+  color: var(--ink);
+}
+.pd-cta-actions-desktop .pd-share-button-desktop:hover {
+  border-color: var(--profe-color);
+  background: var(--paper);
+  color: var(--ink);
+}
+.pd-hero-actions-mobile {
+  display: none;
+}
+.pd-hero-message-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 0;
+  min-height: 48px;
+  padding: 10px 12px;
+  border: 1px solid color-mix(in srgb, var(--ink) 16%, transparent);
+  border-radius: var(--radius-card);
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.25;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: var(--button-hover-transition);
+}
+.pd-hero-message-button:hover {
+  border-color: var(--profe-color);
+  color: var(--profe-color);
+}
+.pd-hero-message-button svg {
+  flex: 0 0 auto;
+}
+.pd-cta-message-button {
+  width: 100%;
+  border-color: var(--profe-color);
+  background: var(--profe-color);
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+.pd-cta-message-button:hover {
+  background-color: #fff !important;
+  border-color: var(--profe-color);
+  color: var(--profe-color);
+}
+.pd-cta-message-button:active {
+  opacity: 0.82;
+}
+@media (max-width: 980px) {
+  .pd-hero-actions-mobile {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: minmax(0, 1fr) 54px;
+    gap: 10px;
+    width: 100%;
+    margin-top: 3px;
+  }
+
+  .pd-hero-actions-mobile .pd-hero-message-button {
+    min-height: 54px;
+    padding: 11px 14px;
+    border-color: var(--profe-color);
+    gap: 9px;
+    font-size: 17px;
+    line-height: 1.25;
+  }
+
+  .pd-hero-actions-mobile .pd-hero-message-button svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .pd-hero-actions-mobile .pd-hero-message-button:hover {
+    border-color: var(--profe-color);
+    background: var(--paper);
+    color: var(--ink);
+  }
+
+  .pd-share-button-mobile {
+    display: inline-flex;
+    width: 54px;
+    min-height: 54px;
+    padding: 0;
+    border-color: var(--profe-color);
+    color: var(--ink);
+    background: var(--paper);
+  }
+
+  .pd-share-button-mobile svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .pd-share-button-mobile:hover {
+    border-color: var(--profe-color);
+    background: var(--paper);
+    color: var(--ink);
+  }
+
+  .pd-share-button-desktop {
+    display: none;
+  }
 }
 .pd-hero-dot { color: color-mix(in srgb, var(--ink) 30%, transparent); }
 .pd-hero-bio {
@@ -5630,6 +5839,20 @@ body:has(.job-application-page) {
 }
 @media (max-width: 980px) {
   .profe-detail-side { position: static; }
+
+  .profe-detail-side .pd-cta-card {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .profe-detail-side .pd-cta-stats,
+  .profe-detail-side .pd-cta-primary,
+  .profe-detail-side .pd-share-button-desktop,
+  .profe-detail-side .pd-cta-actions-desktop {
+    display: none;
+  }
 }
 .pd-cta-card {
   display: flex;
