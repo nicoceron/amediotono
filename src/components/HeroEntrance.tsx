@@ -14,7 +14,7 @@ export function HeroEntrance() {
         height={1707}
         loading="eager"
         fetchPriority="high"
-        sizes="(max-width: 700px) 105vw, (max-width: 1100px) 64vw, 688px"
+        sizes="(max-width: 380px) 99vw, (max-width: 700px) 124vw, (max-width: 1100px) 64vw, 688px"
       />
     </div>
   );

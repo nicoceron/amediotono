@@ -3429,7 +3429,7 @@ body:has(.job-application-page) {
   position: relative;
   z-index: 1;
   padding: 0;
-  flex: 0 0 auto;
+  flex: 1 1 auto;
   height: var(--voces-marquee-height);
   width: 100%;
   display: flex;
@@ -3438,10 +3438,20 @@ body:has(.job-application-page) {
   max-width: 100%;
 }
 
-.rfm-marquee-container.voces-marquee-wrap,
-.voces-marquee-wrap .rfm-marquee-container {
-  overflow: hidden !important;
-  max-width: 100%;
+.voces-marquee-row {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  min-width: 200%;
+  height: 100%;
+  animation: voces-strip-scroll 28s linear infinite;
+}
+
+.voces-marquee-group {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  min-width: 50%;
 }
 
 .voces-badge {
@@ -3494,6 +3504,18 @@ body:has(.job-application-page) {
 
 [data-theme="dark"] .voces-strip-icon {
   filter: none;
+}
+
+@keyframes voces-strip-scroll {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .voces-marquee-row {
+    animation: none;
+    transform: translate3d(0, 0, 0);
+  }
 }
 
 @media (max-width: 768px) {

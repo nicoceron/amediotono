@@ -8,6 +8,7 @@ type LazyVideoProps = Omit<VideoHTMLAttributes<HTMLVideoElement>, "preload" | "s
 };
 
 export function LazyVideo({
+  poster,
   rootMargin = "500px",
   src,
   ...props
@@ -50,6 +51,7 @@ export function LazyVideo({
     <video
       ref={videoRef}
       src={shouldLoad ? src : undefined}
+      poster={shouldLoad ? poster : undefined}
       preload={shouldLoad ? "metadata" : "none"}
       autoPlay={shouldLoad}
       {...props}
