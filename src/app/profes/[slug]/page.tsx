@@ -49,10 +49,10 @@ function teacherClassFormatsSummary(
   teacher: NonNullable<ReturnType<typeof getTeacherBySlug>>,
 ) {
   const formats = teacher.classFormats ?? [];
-  if (formats.length === 0) return "virtuales y a domicilio";
+  if (formats.length === 0) return "virtual y a domicilio";
 
   const labels = formats.map((format) =>
-    format === "Virtual" ? "virtuales" : format.toLowerCase(),
+    format === "Virtual" ? "virtual" : format.toLowerCase(),
   );
 
   if (labels.length === 1) return labels[0];
@@ -62,7 +62,18 @@ function teacherClassFormatsSummary(
 function teacherSocialDescription(
   teacher: NonNullable<ReturnType<typeof getTeacherBySlug>>,
 ) {
-  return `Clases ${teacherClassFormatsSummary(teacher)} en ${teacher.location} para todas las edades.`;
+  return `Clases de arte y música en ${teacher.location}. Modalidad ${teacherClassFormatsSummary(teacher)}, para todas las edades.`;
+}
+
+function teacherShareCourseList(
+  teacher: NonNullable<ReturnType<typeof getTeacherBySlug>>,
+) {
+  const courses = teacher.skills.map((skill) => skill.label);
+
+  if (courses.length === 0) return teacher.role;
+  if (courses.length === 1) return courses[0];
+
+  return `${courses.slice(0, -1).join(", ")} y ${courses[courses.length - 1]}`;
 }
 
 export function generateStaticParams() {
@@ -116,7 +127,7 @@ export default async function ProfeDetailPage({
   const profeJsonLd = jsonLd(teacherJsonLd(teacher));
   const profileUrl = absoluteUrl(`/profes/${teacher.slug}`);
   const shareTitle = teacherProfileTitle(teacher);
-  const shareText = `Mira el perfil de ${teacher.name} en A medio tono. Clases de ${teacher.role}.`;
+  const shareText = `Mira el perfil de ${teacher.name} en A medio tono. Da clases de ${teacherShareCourseList(teacher)}.`;
   const mobileTeacherName = shortDisplayName(teacher.name);
 
   return (
