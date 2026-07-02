@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { preload } from "react-dom";
 import { Hero } from "@/components/Hero";
 import { VocesStrip } from "@/components/VocesStrip";
 import { CursosSection } from "@/components/CursosSection";
@@ -25,6 +26,13 @@ export const metadata: Metadata = createPageMetadata({
 
 export default function Home() {
   const homeJsonLd = jsonLd(coursesItemListJsonLd(COURSES));
+
+  preload("/hero-bg-mobile-art-hd.webp", {
+    as: "image",
+    fetchPriority: "high",
+    media: "(max-width: 880px)",
+    type: "image/webp",
+  });
 
   return (
     <>

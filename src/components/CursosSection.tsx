@@ -24,6 +24,7 @@ function CourseCard({ course }: { course: Course }) {
     <Link
       className="course-card"
       href={courseHref(course)}
+      prefetch={false}
       aria-label={`Ver profes de ${course.label}`}
     >
       <span className="course-icon" aria-hidden="true">
@@ -52,6 +53,8 @@ export function CursosSection() {
           src="/hero-cloud-separator.webp"
           alt=""
           fill
+          fetchPriority="low"
+          loading="lazy"
           sizes="100vw"
         />
       </div>

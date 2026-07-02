@@ -166,6 +166,8 @@ export function ContactoSection() {
           src="/hero-bg.webp"
           alt=""
           fill
+          fetchPriority="low"
+          loading="lazy"
           sizes="(max-width: 809px) calc(100vw - 40px), min(calc(100vw - 60px), 1300px)"
         />
 

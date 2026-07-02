@@ -19,6 +19,8 @@ export function JobsCTASection() {
               src="/jobs/profesora-estudiante.webp"
               alt=""
               fill
+              fetchPriority="low"
+              loading="lazy"
               sizes="(max-width: 900px) 100vw, 46vw"
             />
           </div>
@@ -38,7 +40,7 @@ export function JobsCTASection() {
               ))}
             </ul>
 
-            <Link className="jobs-cta-button" href="/trabaja-con-nosotros">
+            <Link className="jobs-cta-button" href="/trabaja-con-nosotros" prefetch={false}>
               Aplicar como profe
               <ArrowRight aria-hidden="true" size={22} strokeWidth={2.7} />
             </Link>

@@ -111,7 +111,7 @@ export function Navbar() {
             >
               Profes
             </Link>
-            <Link href="/nosotros" onClick={() => setMenuOpen(false)}>Nosotros</Link>
+            <Link href="/nosotros" prefetch={false} onClick={() => setMenuOpen(false)}>Nosotros</Link>
           </nav>
           <Link className="nav-cta" href="/#contacto" scroll={false} onClick={handleContactClick}>
             Contacto

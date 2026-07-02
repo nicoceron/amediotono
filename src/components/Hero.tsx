@@ -1,26 +1,6 @@
-import { getImageProps } from "next/image";
 import { HeroEntrance } from "./HeroEntrance";
 
-const HERO_BACKGROUND_QUALITY = 100;
-
 function HeroBackground() {
-  const common = {
-    alt: "",
-    decoding: "async" as const,
-    fetchPriority: "low" as const,
-    loading: "eager" as const,
-    sizes: "100vw",
-  };
-  const {
-    props: { srcSet: mobileSrcSet, ...imageProps },
-  } = getImageProps({
-    ...common,
-    src: "/hero-bg-mobile-art-hd.webp",
-    width: 1024,
-    height: 1536,
-    quality: HERO_BACKGROUND_QUALITY,
-  });
-
   return (
     <picture className="hero-bg-layer">
       <source
@@ -31,8 +11,11 @@ function HeroBackground() {
       />
       <source media="(min-width: 881px)" srcSet="/hero-bg.svg" type="image/svg+xml" />
       <img
-        {...imageProps}
-        srcSet={mobileSrcSet}
+        src="/hero-bg-mobile-art-hd.webp"
+        width={1024}
+        height={1536}
+        decoding="async"
+        loading="eager"
         alt=""
         className="hero-bg-image"
         draggable={false}

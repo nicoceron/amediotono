@@ -92,7 +92,7 @@ export function Footer() {
                 viewport={{ once: true, amount: 0 }}
                 transition={footerRevealTransition(0.1)}
               >
-                <Link href="/" className="footer-logo-link" aria-label="A medio tono — inicio">
+                <Link href="/" className="footer-logo-link" aria-label="A medio tono — inicio" prefetch={false}>
                   <Image
                     src="/logo-nav.webp"
                     alt="A medio tono"
@@ -169,7 +169,7 @@ export function Footer() {
                         <span>{link.label}</span>
                       </a>
                     ) : (
-                      <Link className="footer-menu-link" href={link.href} key={link.label}>
+                      <Link className="footer-menu-link" href={link.href} prefetch={false} key={link.label}>
                         <span>{link.label}</span>
                       </Link>
                     ),

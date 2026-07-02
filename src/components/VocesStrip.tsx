@@ -1,7 +1,4 @@
-"use client";
-
 import Image from "next/image";
-import Marquee from "react-fast-marquee";
 
 type StripItem =
   | { type: "asset"; icon: string }
@@ -16,36 +13,40 @@ const ITEMS: StripItem[] = [
   { type: "offer", title: "Todas las edades", subtitle: "Música y arte" },
 ];
 
+function VocesItems() {
+  return ITEMS.map((item, i) => (
+    <span className={`voces-badge ${item.type === "asset" ? "voces-badge-asset" : ""}`} key={i}>
+      {item.type === "asset" ? (
+        <Image
+          src={item.icon}
+          alt=""
+          width={96}
+          height={96}
+          className="voces-strip-icon"
+        />
+      ) : (
+        <span className="voces-offer">
+          <span className="voces-offer-title">{item.title}</span>
+          <span className="voces-offer-sub">{item.subtitle}</span>
+        </span>
+      )}
+    </span>
+  ));
+}
+
 export function VocesStrip() {
   return (
     <section className="voces-strip" aria-hidden="true">
-      <Marquee
-        autoFill
-        direction="left"
-        speed={28}
-        gradient={false}
-        pauseOnHover={false}
-        className="voces-marquee-wrap"
-      >
-        {ITEMS.map((item, i) => (
-          <span className={`voces-badge ${item.type === "asset" ? "voces-badge-asset" : ""}`} key={i}>
-            {item.type === "asset" ? (
-              <Image
-                src={item.icon}
-                alt=""
-                width={96}
-                height={96}
-                className="voces-strip-icon"
-              />
-            ) : (
-              <span className="voces-offer">
-                <span className="voces-offer-title">{item.title}</span>
-                <span className="voces-offer-sub">{item.subtitle}</span>
-              </span>
-            )}
-          </span>
-        ))}
-      </Marquee>
+      <div className="voces-marquee-wrap">
+        <div className="voces-marquee-row">
+          <div className="voces-marquee-group">
+            <VocesItems />
+          </div>
+          <div className="voces-marquee-group" aria-hidden="true">
+            <VocesItems />
+          </div>
+        </div>
+      </div>
     </section>
   );
 }
