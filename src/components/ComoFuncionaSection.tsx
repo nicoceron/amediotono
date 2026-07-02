@@ -139,6 +139,7 @@ export function ComoFuncionaSection() {
                   <div className="cf-lesson-frame">
                     <LazyVideo
                       className="cf-lesson-video"
+                      loadGroup="como-funciona-videos"
                       src="/comienza-a-aprender-guitarra.mp4"
                       loop
                       muted
@@ -155,6 +156,7 @@ export function ComoFuncionaSection() {
                   <div className="cf-progress-frame">
                     <LazyVideo
                       className="cf-progress-video"
+                      loadGroup="como-funciona-videos"
                       src="/avanza-cada-semana.mp4"
                       poster="/avanza-cada-semana-poster.webp"
                       loop
