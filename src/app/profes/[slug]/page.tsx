@@ -49,10 +49,10 @@ function teacherClassFormatsSummary(
   teacher: NonNullable<ReturnType<typeof getTeacherBySlug>>,
 ) {
   const formats = teacher.classFormats ?? [];
-  if (formats.length === 0) return "virtuales y a domicilio";
+  if (formats.length === 0) return "virtual y a domicilio";
 
   const labels = formats.map((format) =>
-    format === "Virtual" ? "virtuales" : format.toLowerCase(),
+    format === "Virtual" ? "virtual" : format.toLowerCase(),
   );
 
   if (labels.length === 1) return labels[0];
@@ -62,7 +62,7 @@ function teacherClassFormatsSummary(
 function teacherSocialDescription(
   teacher: NonNullable<ReturnType<typeof getTeacherBySlug>>,
 ) {
-  return `Clases ${teacherClassFormatsSummary(teacher)} en ${teacher.location} para todas las edades.`;
+  return `Clases de arte y música en ${teacher.location}. Modalidad ${teacherClassFormatsSummary(teacher)}, para todas las edades.`;
 }
 
 function teacherShareCourseList(
