@@ -2,11 +2,7 @@
 import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
-import {
-  getTeacherBySlug,
-  primaryTeacherRole,
-  type Teacher,
-} from "@/lib/teachers";
+import { getTeacherBySlug, type Teacher } from "@/lib/teachers";
 
 export const TEACHER_SHARE_IMAGE_SIZE = {
   width: 1200,
@@ -90,8 +86,14 @@ export async function generateTeacherShareImage(slug: string) {
 
   const accent = teacherColor(teacher);
   const photoSrc = await imageDataUrl(`/profes-share/${teacher.slug}.jpg`);
-  const role = primaryTeacherRole(teacher);
-  const roleLabel = `Profe de ${compact(role, 44)}`;
+  const roleCourses =
+    teacher.skills.length > 0 ? teacher.skills.map((skill) => skill.label) : [teacher.role];
+  const roleRows: string[][] = [];
+  for (let i = 0; i < roleCourses.length; i += 2) {
+    roleRows.push(roleCourses.slice(i, i + 2));
+  }
+  const longestRoleLine = Math.max(...roleRows.map((row) => row.join(" ").length));
+  const rolePillSize = longestRoleLine > 36 ? 19 : 21;
   const formats = teacher.classFormats?.join(" y ") || "virtuales y a domicilio";
   const nameSize = teacher.name.length > 24 ? 50 : 58;
 
@@ -149,16 +151,35 @@ export async function generateTeacherShareImage(slug: string) {
             style={{
               alignSelf: "flex-start",
               marginTop: 24,
-              padding: "9px 16px",
-              borderRadius: 999,
-              color: accent,
-              background: "#F8F4FB",
               display: "flex",
-              fontSize: 22,
+              flexDirection: "column",
+              alignItems: "flex-start",
+              maxWidth: 540,
               fontWeight: 700,
             }}
           >
-            {roleLabel}
+            <div style={{ display: "flex", fontSize: 22, lineHeight: 1 }}>Profe de</div>
+            {roleRows.map((row) => (
+              <div key={row.join("-")} style={{ display: "flex", marginTop: 7 }}>
+                {row.map((course, index) => (
+                  <div
+                    key={course}
+                    style={{
+                      display: "flex",
+                      marginRight: index === row.length - 1 ? 0 : 8,
+                      padding: "7px 12px",
+                      borderRadius: 999,
+                      color: accent,
+                      background: "#F8F4FB",
+                      fontSize: rolePillSize,
+                      lineHeight: 1,
+                    }}
+                  >
+                    {course}
+                  </div>
+                ))}
+              </div>
+            ))}
           </div>
           <div
             style={{
