@@ -4,7 +4,7 @@ import type { Course } from "@/lib/courses";
 import { courseHref } from "@/lib/courses";
 import type { Teacher } from "@/lib/teachers";
 
-const DEFAULT_SITE_URL = "https://amediotonomusic.com";
+const DEFAULT_SITE_URL = "https://www.amediotonomusic.com";
 
 export const SITE_NAME = "A medio tono";
 export const SITE_BRAND = "A ½ tono";
@@ -52,7 +52,11 @@ export const INDEXNOW_KEY_PATTERN = /^[A-Za-z0-9-]{8,128}$/;
 
 function normalizeSiteUrl(value: string | undefined) {
   try {
-    return new URL(value || DEFAULT_SITE_URL).toString().replace(/\/$/, "");
+    const url = new URL(value || DEFAULT_SITE_URL);
+    if (url.hostname === "amediotonomusic.com") {
+      url.hostname = "www.amediotonomusic.com";
+    }
+    return url.toString().replace(/\/$/, "");
   } catch {
     return DEFAULT_SITE_URL;
   }
