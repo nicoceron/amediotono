@@ -65,6 +65,17 @@ function teacherSocialDescription(
   return `Clases ${teacherClassFormatsSummary(teacher)} en ${teacher.location} para todas las edades.`;
 }
 
+function teacherShareCourseList(
+  teacher: NonNullable<ReturnType<typeof getTeacherBySlug>>,
+) {
+  const courses = teacher.skills.map((skill) => skill.label);
+
+  if (courses.length === 0) return teacher.role;
+  if (courses.length === 1) return courses[0];
+
+  return `${courses.slice(0, -1).join(", ")} y ${courses[courses.length - 1]}`;
+}
+
 export function generateStaticParams() {
   return TEACHERS.map((t) => ({ slug: t.slug }));
 }
@@ -116,7 +127,7 @@ export default async function ProfeDetailPage({
   const profeJsonLd = jsonLd(teacherJsonLd(teacher));
   const profileUrl = absoluteUrl(`/profes/${teacher.slug}`);
   const shareTitle = teacherProfileTitle(teacher);
-  const shareText = `Mira el perfil de ${teacher.name} en A medio tono. Clases de ${teacher.role}.`;
+  const shareText = `Mira el perfil de ${teacher.name} en A medio tono. Da clases de ${teacherShareCourseList(teacher)}.`;
   const mobileTeacherName = shortDisplayName(teacher.name);
 
   return (
