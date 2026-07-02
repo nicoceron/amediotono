@@ -31,6 +31,7 @@ export const metadata: Metadata = {
   creator: SITE_NAME,
   publisher: SITE_NAME,
   icons: {
+    shortcut: [{ url: "/favicon.ico", sizes: "256x256", type: "image/x-icon" }],
     icon: [{ url: "/icon.png", sizes: "512x512", type: "image/png" }],
     apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
   },

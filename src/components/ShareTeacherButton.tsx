@@ -5,6 +5,8 @@ import { Share } from "lucide-react";
 
 type ShareTeacherButtonProps = {
   className?: string;
+  imageFileName?: string;
+  imageUrl?: string;
   title: string;
   text: string;
   url: string;
@@ -28,14 +30,31 @@ async function copyToClipboard(value: string) {
   document.body.removeChild(textarea);
 }
 
+async function createShareFile(url: string, fileName: string) {
+  const response = await fetch(url, { cache: "force-cache" });
+  if (!response.ok) throw new Error("Unable to load share image");
+
+  const blob = await response.blob();
+  if (!blob.type.startsWith("image/")) throw new Error("Invalid share image");
+
+  return new File([blob], fileName, { type: blob.type || "image/png" });
+}
+
+function canShareFiles(file: File) {
+  return navigator.canShare?.({ files: [file] }) ?? false;
+}
+
 export function ShareTeacherButton({
   className,
+  imageFileName = "a-medio-tono-profe.png",
+  imageUrl,
   title,
   text,
   url,
   showLabel = true,
 }: ShareTeacherButtonProps) {
   const [copied, setCopied] = useState(false);
+  const [shareFile, setShareFile] = useState<File | null>(null);
   const label = copied ? "Enlace copiado" : "Compartir perfil";
 
   useEffect(() => {
@@ -45,11 +64,66 @@ export function ShareTeacherButton({
     return () => window.clearTimeout(timeout);
   }, [copied]);
 
+  useEffect(() => {
+    if (!imageUrl || typeof File === "undefined" || !navigator.canShare) {
+      return;
+    }
+
+    let cancelled = false;
+
+    createShareFile(imageUrl, imageFileName)
+      .then((file) => {
+        if (!cancelled && navigator.canShare?.({ files: [file] })) {
+          setShareFile(file);
+        }
+      })
+      .catch(() => {
+        if (!cancelled) setShareFile(null);
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [imageFileName, imageUrl]);
+
+  async function getShareFile() {
+    if (shareFile) return shareFile;
+    if (!imageUrl || typeof File === "undefined" || !navigator.canShare) {
+      return null;
+    }
+
+    const file = await createShareFile(imageUrl, imageFileName);
+    if (!canShareFiles(file)) return null;
+
+    setShareFile(file);
+    return file;
+  }
+
   const handleShare = async () => {
     const shareData = { title, text, url };
 
     try {
       if (navigator.share) {
+        const file = await getShareFile();
+
+        if (file) {
+          const shareDataWithUrl = { ...shareData, files: [file] };
+          if (navigator.canShare?.(shareDataWithUrl)) {
+            await navigator.share(shareDataWithUrl);
+            return;
+          }
+
+          const shareDataWithTextUrl = {
+            title,
+            text: `${text}\n\n${url}`,
+            files: [file],
+          };
+          if (navigator.canShare?.(shareDataWithTextUrl)) {
+            await navigator.share(shareDataWithTextUrl);
+            return;
+          }
+        }
+
         await navigator.share(shareData);
         return;
       }

@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
@@ -7,14 +8,10 @@ import {
   type Teacher,
 } from "@/lib/teachers";
 
-export const runtime = "nodejs";
-
-export const alt = "Perfil de profe en A medio tono";
-export const size = {
+export const TEACHER_SHARE_IMAGE_SIZE = {
   width: 1200,
   height: 630,
 };
-export const contentType = "image/png";
 
 const COLOR_VALUES: Record<string, string> = {
   "var(--orange)": "#FD9804",
@@ -67,12 +64,7 @@ function socialCardText(value: string) {
     .trim();
 }
 
-export default async function Image({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const { slug } = await params;
+export async function generateTeacherShareImage(slug: string) {
   const teacher = getTeacherBySlug(slug);
   const logoSrc = await imageDataUrl("/logo-mark-transparent.png");
 
@@ -92,7 +84,7 @@ export default async function Image({
           <img src={logoSrc} alt="" width={360} />
         </div>
       ),
-      size,
+      TEACHER_SHARE_IMAGE_SIZE,
     );
   }
 
@@ -127,19 +119,20 @@ export default async function Image({
         <div
           style={{
             width: 450,
-            height: 514,
+            height: 450,
             border: `14px solid ${accent}`,
-            borderRadius: 46,
+            borderRadius: "50%",
             overflow: "hidden",
             display: "flex",
             background: accent,
+            marginTop: 32,
           }}
         >
           <img
             src={photoSrc}
             alt=""
             width={450}
-            height={514}
+            height={450}
             style={{
               width: "100%",
               height: "100%",
@@ -215,6 +208,6 @@ export default async function Image({
         </div>
       </div>
     ),
-    size,
+    TEACHER_SHARE_IMAGE_SIZE,
   );
 }
