@@ -88,7 +88,6 @@ export default async function ProfeDetailPage({
   const hasReviews = teacher.reviews.length > 0;
   const profeJsonLd = jsonLd(teacherJsonLd(teacher));
   const profileUrl = absoluteUrl(`/profes/${teacher.slug}`);
-  const shareImageUrl = `/profes/${teacher.slug}/share-image.png`;
   const shareTitle = `${teacher.name}, profe de ${primaryTeacherRole(teacher)} — A ½ tono`;
   const shareText = `Mira el perfil de ${teacher.name}, profe de ${teacher.role} en A medio tono.`;
   const mobileTeacherName = shortDisplayName(teacher.name);
@@ -168,8 +167,6 @@ export default async function ProfeDetailPage({
                   </a>
                   <ShareTeacherButton
                     className="pd-share-button-mobile"
-                    imageFileName={`${teacher.slug}-a-medio-tono.png`}
-                    imageUrl={shareImageUrl}
                     title={shareTitle}
                     text={shareText}
                     url={profileUrl}
@@ -342,8 +339,6 @@ export default async function ProfeDetailPage({
                   </a>
                   <ShareTeacherButton
                     className="pd-share-button-desktop"
-                    imageFileName={`${teacher.slug}-a-medio-tono.png`}
-                    imageUrl={shareImageUrl}
                     title={shareTitle}
                     text={shareText}
                     url={profileUrl}
