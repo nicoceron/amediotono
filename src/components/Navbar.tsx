@@ -52,13 +52,37 @@ export function Navbar() {
     );
   };
 
+  const handleHomeClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    setMenuOpen(false);
+
+    if (typeof window === "undefined") return;
+
+    event.preventDefault();
+    window.sessionStorage.removeItem(PENDING_SCROLL_TARGET_KEY);
+
+    if (pathname !== "/") {
+      router.push("/", { scroll: false });
+      return;
+    }
+
+    if (window.location.pathname !== "/" || window.location.search || window.location.hash) {
+      window.history.pushState(null, "", "/");
+    }
+
+    window.dispatchEvent(
+      new CustomEvent(SMOOTH_SCROLL_TO_EVENT, {
+        detail: { hash: "#top" },
+      }),
+    );
+  };
+
   const navClasses = ["topnav", menuOpen ? "topnav--open" : ""].join(" ");
 
   return (
     <header className={navClasses}>
       <div className="topnav-inner">
         <div className="nav-top">
-          <Link href="/" className="nav-logo" aria-label="A medio tono — inicio" onClick={() => setMenuOpen(false)}>
+          <Link href="/" className="nav-logo" aria-label="A medio tono — inicio" onClick={handleHomeClick}>
             <Image
               className="nav-logo-img logo-desktop-wordmark"
               src="/logo-nav.webp"

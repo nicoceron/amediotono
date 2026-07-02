@@ -32,8 +32,11 @@ export function Hero() {
         <HeroEntrance />
       </div>
       <a className="hero-scroll-cue" href="#cursos" aria-label="Ir a cursos">
-        <span className="hero-scroll-mouse" aria-hidden="true">
-          <span className="hero-scroll-wheel" />
+        <span className="hero-scroll-arrow-wrap" aria-hidden="true">
+          <svg className="hero-scroll-arrow" viewBox="0 0 44 38" focusable="false">
+            <path d="M22 6V28" />
+            <path d="M8 18C14.2 24.1 18.4 28.5 22 30C25.6 28.5 29.8 24.1 36 18" />
+          </svg>
         </span>
       </a>
     </section>

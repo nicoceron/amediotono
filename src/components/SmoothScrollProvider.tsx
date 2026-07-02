@@ -7,6 +7,7 @@ import type Lenis from "lenis";
 const SMOOTH_SCROLL_DISABLED_PATHS = new Set(["/trabaja-con-nosotros"]);
 const SMOOTH_SCROLL_TO_EVENT = "mediotono:smooth-scroll-to";
 const PENDING_SCROLL_TARGET_KEY = "mediotono:pending-scroll-target";
+const SECTION_SCROLL_DURATION_SECONDS = 2;
 
 function getElementByHash(hash: string) {
   const id = hash.startsWith("#") ? hash.slice(1) : hash;
@@ -61,7 +62,7 @@ function scrollToElement(element: HTMLElement, lenis: Lenis | null) {
 
   if (lenis) {
     lenis.resize();
-    lenis.scrollTo(top, { duration: 1.18 });
+    lenis.scrollTo(top, { duration: SECTION_SCROLL_DURATION_SECONDS });
     return;
   }
 
