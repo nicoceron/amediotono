@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Lenis from "lenis";
 import { usePathname } from "next/navigation";
+import type Lenis from "lenis";
 
 const SMOOTH_SCROLL_DISABLED_PATHS = new Set(["/trabaja-con-nosotros"]);
 const SMOOTH_SCROLL_TO_EVENT = "mediotono:smooth-scroll-to";
@@ -109,22 +109,28 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
       return;
     }
 
+    let disposed = false;
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const lenis = prefersReducedMotion
-      ? null
-      : new Lenis({
+
+    if (prefersReducedMotion) {
+      lenisRef.current = null;
+    } else {
+      void import("lenis").then(({ default: Lenis }) => {
+        if (disposed) return;
+
+        const lenis = new Lenis({
           autoRaf: true,
           duration: 1,
           smoothWheel: true,
           syncTouch: false,
         });
-    lenisRef.current = lenis;
+        lenisRef.current = lenis;
 
-    if (lenis) {
-      Array.from(document.getElementsByTagName("*")).forEach((node) => {
-        if (node instanceof HTMLElement && getComputedStyle(node).overflow === "auto") {
-          node.setAttribute("data-lenis-prevent", "true");
-        }
+        Array.from(document.getElementsByTagName("*")).forEach((node) => {
+          if (node instanceof HTMLElement && getComputedStyle(node).overflow === "auto") {
+            node.setAttribute("data-lenis-prevent", "true");
+          }
+        });
       });
     }
 
@@ -184,10 +190,11 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
     window.addEventListener("popstate", handlePopState);
     window.addEventListener(SMOOTH_SCROLL_TO_EVENT, handleSmoothScrollTo);
     return () => {
+      disposed = true;
       document.removeEventListener("click", handleAnchorClick);
       window.removeEventListener("popstate", handlePopState);
       window.removeEventListener(SMOOTH_SCROLL_TO_EVENT, handleSmoothScrollTo);
-      lenis?.destroy();
+      lenisRef.current?.destroy();
       lenisRef.current = null;
     };
   }, [smoothScrollDisabled]);

@@ -121,8 +121,9 @@ export default async function ProfeDetailPage({
                     src={teacher.photo}
                     alt={teacher.name}
                     fill
+                    loading="eager"
+                    fetchPriority="high"
                     sizes="(max-width: 360px) 172px, (max-width: 720px) 200px, 280px"
-                    unoptimized={teacher.photo.endsWith("-hd.webp")}
                     style={
                       teacher.photoPosition
                         ? { objectPosition: teacher.photoPosition }
