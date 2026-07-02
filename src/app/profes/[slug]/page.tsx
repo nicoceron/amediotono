@@ -18,7 +18,6 @@ import { ShareTeacherButton } from "@/components/ShareTeacherButton";
 import {
   TEACHERS,
   getTeacherBySlug,
-  primaryTeacherRole,
   shortDisplayName,
 } from "@/lib/teachers";
 import { whatsappHref } from "@/lib/contact";
@@ -42,6 +41,30 @@ function teacherMetaDescription(teacher: NonNullable<ReturnType<typeof getTeache
   return `Clases de ${teacher.role} con ${teacher.name} en ${teacher.location}. Modalidad ${formats}, en ${languages}. ${teacher.bio}`;
 }
 
+function teacherProfileTitle(teacher: NonNullable<ReturnType<typeof getTeacherBySlug>>) {
+  return `${teacher.name}, profe en A 1/2 tono`;
+}
+
+function teacherClassFormatsSummary(
+  teacher: NonNullable<ReturnType<typeof getTeacherBySlug>>,
+) {
+  const formats = teacher.classFormats ?? [];
+  if (formats.length === 0) return "virtuales y a domicilio";
+
+  const labels = formats.map((format) =>
+    format === "Virtual" ? "virtuales" : format.toLowerCase(),
+  );
+
+  if (labels.length === 1) return labels[0];
+  return `${labels.slice(0, -1).join(", ")} y ${labels[labels.length - 1]}`;
+}
+
+function teacherSocialDescription(
+  teacher: NonNullable<ReturnType<typeof getTeacherBySlug>>,
+) {
+  return `Clases ${teacherClassFormatsSummary(teacher)} en ${teacher.location} para todas las edades.`;
+}
+
 export function generateStaticParams() {
   return TEACHERS.map((t) => ({ slug: t.slug }));
 }
@@ -55,15 +78,19 @@ export async function generateMetadata({
   const teacher = getTeacherBySlug(slug);
   if (!teacher) return { title: "Profe — A ½ tono" };
 
+  const profileTitle = teacherProfileTitle(teacher);
+
   return createPageMetadata({
-    title: `${teacher.name}, profe de ${primaryTeacherRole(teacher)} — A ½ tono`,
+    title: profileTitle,
     description: teacherMetaDescription(teacher),
+    socialDescription: teacherSocialDescription(teacher),
+    socialTitle: profileTitle,
     path: `/profes/${teacher.slug}`,
     image: {
       url: `/profes/${teacher.slug}/share-image.png`,
       width: 1200,
       height: 630,
-      alt: `${teacher.name}, profe de ${primaryTeacherRole(teacher)} en A medio tono`,
+      alt: `${teacher.name}, profe de ${teacher.role} en A medio tono`,
       type: "image/png",
     },
   });
@@ -88,8 +115,8 @@ export default async function ProfeDetailPage({
   const hasReviews = teacher.reviews.length > 0;
   const profeJsonLd = jsonLd(teacherJsonLd(teacher));
   const profileUrl = absoluteUrl(`/profes/${teacher.slug}`);
-  const shareTitle = `${teacher.name}, profe de ${primaryTeacherRole(teacher)} — A ½ tono`;
-  const shareText = `Mira el perfil de ${teacher.name}, profe de ${teacher.role} en A medio tono.`;
+  const shareTitle = teacherProfileTitle(teacher);
+  const shareText = `Mira el perfil de ${teacher.name} en A medio tono. Clases de ${teacher.role}.`;
   const mobileTeacherName = shortDisplayName(teacher.name);
 
   return (

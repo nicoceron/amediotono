@@ -95,15 +95,23 @@ export function truncateMetaDescription(value: string, maxLength = 155) {
 export function createPageMetadata({
   title,
   description,
+  socialDescription,
+  socialTitle,
   path,
   image = DEFAULT_OG_IMAGE,
 }: {
   title: string;
   description: string;
+  socialDescription?: string;
+  socialTitle?: string;
   path: string;
   image?: SocialImage;
 }): Metadata {
   const safeDescription = truncateMetaDescription(description);
+  const safeSocialDescription = truncateMetaDescription(
+    socialDescription ?? description,
+  );
+  const safeSocialTitle = socialTitle ?? title;
 
   return {
     title,
@@ -112,8 +120,8 @@ export function createPageMetadata({
       canonical: path,
     },
     openGraph: {
-      title,
-      description: safeDescription,
+      title: safeSocialTitle,
+      description: safeSocialDescription,
       url: path,
       siteName: SITE_BRAND,
       locale: SITE_LOCALE,
@@ -122,8 +130,8 @@ export function createPageMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title,
-      description: safeDescription,
+      title: safeSocialTitle,
+      description: safeSocialDescription,
       images: [image],
     },
   };
