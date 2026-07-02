@@ -933,6 +933,54 @@ body:has(#profes-page .profes-mobile-filters[open]) .float-actions {
   position: relative;
   z-index: 2;
 }
+.hero-scroll-cue {
+  position: absolute;
+  left: 50%;
+  bottom: max(32px, env(safe-area-inset-bottom));
+  z-index: 3;
+  display: inline-flex;
+  width: 40px;
+  height: 54px;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  opacity: 0;
+  translate: -50% 0;
+  filter: drop-shadow(0 3px 12px color-mix(in srgb, black 34%, transparent));
+  animation: hero-scroll-cue-reveal 0.7s ease 1.35s both;
+}
+.hero-scroll-cue:hover .hero-scroll-mouse,
+.hero-scroll-cue:focus-visible .hero-scroll-mouse {
+  border-color: currentColor;
+  background: color-mix(in srgb, currentColor 12%, transparent);
+}
+.hero-scroll-cue:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 6px;
+  border-radius: var(--radius-pill);
+}
+.hero-scroll-mouse {
+  position: relative;
+  display: block;
+  width: 26px;
+  height: 42px;
+  border: 2px solid color-mix(in srgb, currentColor 86%, transparent);
+  border-radius: 18px;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+.hero-scroll-wheel {
+  position: absolute;
+  left: 50%;
+  top: 8px;
+  width: 4px;
+  height: 7px;
+  border-radius: 999px;
+  background: currentColor;
+  translate: -50% 0;
+  animation: hero-scroll-wheel 1.55s cubic-bezier(0.62, 0.02, 0.28, 1) infinite;
+}
 @media (max-width: 880px) {
   .hero-grid { grid-template-columns: 1fr; gap: 24px; }
   .hero { padding: 32px 0 60px; }
@@ -947,6 +995,9 @@ body:has(#profes-page .profes-mobile-filters[open]) .float-actions {
   .hero-with-bg::after {
     opacity: 0;
     animation: none;
+  }
+  .hero-scroll-cue {
+    display: none;
   }
 }
 @media (max-width: 700px) {
@@ -986,12 +1037,40 @@ body:has(#profes-page .profes-mobile-filters[open]) .float-actions {
   }
 }
 
+@keyframes hero-scroll-cue-reveal {
+  from { opacity: 0; }
+  to { opacity: 0.94; }
+}
+
+@keyframes hero-scroll-wheel {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  20% {
+    opacity: 1;
+  }
+  65% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-bg-image,
   .hero-logo-stage,
+  .hero-scroll-cue,
+  .hero-scroll-wheel,
   .hero-with-bg::before,
   .hero-with-bg::after {
     animation: none;
+  }
+  .hero-scroll-cue {
+    opacity: 0.94;
   }
 }
 /* Section base — broad, clean rhythm like the export */
