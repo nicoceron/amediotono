@@ -797,9 +797,14 @@ body:has(#profes-page .profes-mobile-filters[open]) .float-actions {
   z-index: 0;
   overflow: hidden;
 }
-.hero-bg-image {
-  object-fit: cover;
-  object-position: center top;
+.hero-bg-layer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/hero-bg-hd.webp");
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
   transform-origin: center;
   animation: hero-bg-zoom 2s cubic-bezier(0.6, -0.01, 0.3, 0.99) both;
   backface-visibility: hidden;
@@ -838,14 +843,10 @@ body:has(#profes-page .profes-mobile-filters[open]) .float-actions {
     padding-bottom: 0;
   }
 
-  .hero-bg-image { display: none; }
+  .hero-bg-layer { display: none; }
   .hero-with-bg::before {
     display: block;
-    background-image: url("/hero-bg-mobile-art.webp");
-    background-image: image-set(
-      url("/hero-bg-mobile-art.webp") type("image/webp"),
-      url("/hero-bg-mobile-art.png") type("image/png")
-    );
+    background-image: url("/hero-bg-mobile-art-hd.webp");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -895,7 +896,7 @@ body:has(#profes-page .profes-mobile-filters[open]) .float-actions {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-bg-image,
+  .hero-bg-layer::before,
   .hero-logo-stage,
   .hero-with-bg::before,
   .hero-with-bg::after {
