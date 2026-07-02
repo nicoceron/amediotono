@@ -101,6 +101,10 @@
   --control-text: var(--button-dark);
   --hero-overlay-bg: var(--bg);
   --hero-overlay-opacity: 0.07;
+  --hero-scroll-cue-color: var(--pink);
+  --hero-scroll-cue-surface: var(--nav-surface);
+  --hero-scroll-cue-border: var(--nav-border);
+  --hero-scroll-cue-shadow: color-mix(in srgb, black 28%, transparent);
   --nav-surface: rgba(255, 255, 255, 0.2);
   --nav-mobile-surface: #fff;
   --nav-border: #f0f0f0;
@@ -210,6 +214,8 @@
   --line: #FFF8EE;
   --hero-overlay-bg: var(--bg);
   --hero-overlay-opacity: 0.2;
+  --hero-scroll-cue-border: color-mix(in srgb, var(--ink) 14%, transparent);
+  --hero-scroll-cue-shadow: color-mix(in srgb, black 50%, transparent);
   --nav-surface: color-mix(in srgb, var(--bg) 20%, transparent);
   --nav-mobile-surface: var(--paper);
   --nav-border: color-mix(in srgb, var(--ink) 6%, transparent);
@@ -936,50 +942,51 @@ body:has(#profes-page .profes-mobile-filters[open]) .float-actions {
 .hero-scroll-cue {
   position: absolute;
   left: 50%;
-  bottom: max(32px, env(safe-area-inset-bottom));
+  bottom: calc(max(32px, env(safe-area-inset-bottom)) - 128px);
   z-index: 3;
   display: inline-flex;
-  width: 40px;
-  height: 54px;
+  width: 320px;
+  height: 320px;
   align-items: center;
   justify-content: center;
-  color: #fff;
-  opacity: 0;
+  color: var(--hero-scroll-cue-color);
   translate: -50% 0;
-  filter: drop-shadow(0 3px 12px color-mix(in srgb, black 34%, transparent));
-  animation: hero-scroll-cue-reveal 0.7s ease 1.35s both;
-}
-.hero-scroll-cue:hover .hero-scroll-mouse,
-.hero-scroll-cue:focus-visible .hero-scroll-mouse {
-  border-color: currentColor;
-  background: color-mix(in srgb, currentColor 12%, transparent);
 }
 .hero-scroll-cue:focus-visible {
+  outline: none;
+}
+.hero-scroll-arrow-wrap {
+  display: inline-flex;
+  width: 64px;
+  height: 64px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--hero-scroll-cue-border);
+  border-radius: 50%;
+  background: var(--hero-scroll-cue-surface);
+  padding: 6px;
+  opacity: 0;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  filter: drop-shadow(0 5px 14px var(--hero-scroll-cue-shadow));
+  animation:
+    hero-scroll-cue-reveal 0.7s ease 1.35s both,
+    hero-scroll-cue-bob 2.15s ease-in-out 1.35s infinite;
+}
+.hero-scroll-cue:focus-visible .hero-scroll-arrow-wrap {
   outline: 2px solid currentColor;
   outline-offset: 6px;
-  border-radius: var(--radius-pill);
 }
-.hero-scroll-mouse {
-  position: relative;
+.hero-scroll-arrow {
   display: block;
-  width: 26px;
-  height: 42px;
-  border: 2px solid color-mix(in srgb, currentColor 86%, transparent);
-  border-radius: 18px;
-  transition:
-    background-color 0.3s ease,
-    border-color 0.3s ease;
-}
-.hero-scroll-wheel {
-  position: absolute;
-  left: 50%;
-  top: 8px;
-  width: 4px;
-  height: 7px;
-  border-radius: 999px;
-  background: currentColor;
-  translate: -50% 0;
-  animation: hero-scroll-wheel 1.55s cubic-bezier(0.62, 0.02, 0.28, 1) infinite;
+  width: 42px;
+  height: 36px;
+  overflow: visible;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 4.25;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 @media (max-width: 880px) {
   .hero-grid { grid-template-columns: 1fr; gap: 24px; }
@@ -1039,24 +1046,16 @@ body:has(#profes-page .profes-mobile-filters[open]) .float-actions {
 
 @keyframes hero-scroll-cue-reveal {
   from { opacity: 0; }
-  to { opacity: 0.94; }
+  to { opacity: 1; }
 }
 
-@keyframes hero-scroll-wheel {
-  0% {
-    opacity: 0;
-    transform: translateY(0);
-  }
-  20% {
-    opacity: 1;
-  }
-  65% {
-    opacity: 0;
-    transform: translateY(14px);
-  }
+@keyframes hero-scroll-cue-bob {
+  0%,
   100% {
-    opacity: 0;
-    transform: translateY(14px);
+    transform: translateY(-2px);
+  }
+  50% {
+    transform: translateY(8px);
   }
 }
 
@@ -1064,13 +1063,14 @@ body:has(#profes-page .profes-mobile-filters[open]) .float-actions {
   .hero-bg-image,
   .hero-logo-stage,
   .hero-scroll-cue,
-  .hero-scroll-wheel,
+  .hero-scroll-arrow-wrap,
+  .hero-scroll-arrow,
   .hero-with-bg::before,
   .hero-with-bg::after {
     animation: none;
   }
-  .hero-scroll-cue {
-    opacity: 0.94;
+  .hero-scroll-arrow-wrap {
+    opacity: 1;
   }
 }
 /* Section base — broad, clean rhythm like the export */
@@ -3403,6 +3403,7 @@ body:has(.job-application-page) {
 /* Voces strip */
 .voces-strip {
   --voces-marquee-height: clamp(112px, 8vw, 148px);
+  --voces-marquee-duration: 28s;
   position: relative;
   z-index: 8;
   background: var(--bg-1);
@@ -3442,16 +3443,15 @@ body:has(.job-application-page) {
   display: flex;
   align-items: center;
   width: max-content;
-  min-width: 200%;
   height: 100%;
-  animation: voces-strip-scroll 28s linear infinite;
+  animation: voces-strip-scroll var(--voces-marquee-duration) linear infinite;
+  will-change: transform;
 }
 
 .voces-marquee-group {
   display: flex;
   align-items: center;
   flex: 0 0 auto;
-  min-width: 50%;
 }
 
 .voces-badge {
@@ -3521,6 +3521,7 @@ body:has(.job-application-page) {
 @media (max-width: 768px) {
   .voces-strip {
     --voces-marquee-height: 112px;
+    --voces-marquee-duration: 13s;
   }
   .voces-badge {
     padding: 0 34px;
@@ -6146,6 +6147,7 @@ body:has(.job-application-page) {
 
   .voces-strip {
     --voces-marquee-height: 104px;
+    --voces-marquee-duration: 13s;
   }
 
   .voces-badge {
