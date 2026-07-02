@@ -60,13 +60,14 @@ export function Navbar() {
     event.preventDefault();
     window.sessionStorage.removeItem(PENDING_SCROLL_TARGET_KEY);
 
-    if (pathname !== "/") {
-      router.push("/", { scroll: false });
+    if (window.location.pathname !== "/") {
+      window.sessionStorage.setItem(PENDING_SCROLL_TARGET_KEY, "#top");
+      router.replace("/", { scroll: false });
       return;
     }
 
     if (window.location.pathname !== "/" || window.location.search || window.location.hash) {
-      window.history.pushState(null, "", "/");
+      window.history.replaceState(null, "", "/");
     }
 
     window.dispatchEvent(
@@ -82,7 +83,14 @@ export function Navbar() {
     <header className={navClasses}>
       <div className="topnav-inner">
         <div className="nav-top">
-          <Link href="/" className="nav-logo" aria-label="A medio tono — inicio" onClick={handleHomeClick}>
+          <Link
+            href="/"
+            className="nav-logo"
+            aria-label="A medio tono — inicio"
+            replace
+            scroll={false}
+            onClick={handleHomeClick}
+          >
             <Image
               className="nav-logo-img logo-desktop-wordmark"
               src="/logo-nav.webp"

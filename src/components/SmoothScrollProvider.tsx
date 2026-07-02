@@ -219,6 +219,14 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
         window.sessionStorage.removeItem(PENDING_SCROLL_TARGET_KEY);
       }
 
+      if (
+        pendingHash === "#top" &&
+        window.location.pathname === "/" &&
+        (window.location.search || window.location.hash)
+      ) {
+        window.history.replaceState(null, "", "/");
+      }
+
       if (hash) {
         scrollToHashTarget(hash, lenisRef.current);
         return;
