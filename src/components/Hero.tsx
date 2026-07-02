@@ -48,6 +48,11 @@ export function Hero() {
       <div className="container hero-grid">
         <HeroEntrance />
       </div>
+      <a className="hero-scroll-cue" href="#cursos" aria-label="Ir a cursos">
+        <span className="hero-scroll-mouse" aria-hidden="true">
+          <span className="hero-scroll-wheel" />
+        </span>
+      </a>
     </section>
   );
 }
