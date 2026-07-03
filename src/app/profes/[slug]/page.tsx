@@ -127,7 +127,7 @@ export default async function ProfeDetailPage({
   const profeJsonLd = jsonLd(teacherJsonLd(teacher));
   const profileUrl = absoluteUrl(`/profes/${teacher.slug}`);
   const shareTitle = teacherProfileTitle(teacher);
-  const shareText = `Mira el perfil de ${teacher.name} en A medio tono. Da clases de ${teacherShareCourseList(teacher)}.`;
+  const shareText = `¡Mira el perfil de ${teacher.name}, nuestra profe de ${teacherShareCourseList(teacher)}!\nA 1/2 Tono - Escuela de Artes`;
   const mobileTeacherName = shortDisplayName(teacher.name);
 
   return (
