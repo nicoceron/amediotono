@@ -10,6 +10,7 @@ import {
 import {
   useCallback,
   useEffect,
+  useLayoutEffect,
   useRef,
   useState,
   type CSSProperties,
@@ -58,6 +59,7 @@ function clampVelocity(velocity: number) {
 export function TestimoniosSection() {
   const reduce = useReducedMotion();
   const trackRef = useRef<HTMLDivElement>(null);
+  const loopWidthRef = useRef(0);
   const momentumFrameRef = useRef<number | null>(null);
   const dragRef = useRef<DragState>({
     pointerId: null,
@@ -74,8 +76,7 @@ export function TestimoniosSection() {
   const items = [...FEATURED_QUOTES, ...FEATURED_QUOTES];
 
   const getLoopWidth = useCallback(() => {
-    const track = trackRef.current;
-    return track ? track.scrollWidth / 2 : 0;
+    return loopWidthRef.current;
   }, []);
 
   const setWrappedOffset = useCallback(
@@ -84,6 +85,32 @@ export function TestimoniosSection() {
     },
     [getLoopWidth, x],
   );
+
+  useLayoutEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+
+    const updateLoopWidth = () => {
+      loopWidthRef.current = track.scrollWidth / 2;
+      setWrappedOffset(x.get());
+    };
+
+    updateLoopWidth();
+
+    if (typeof ResizeObserver === "undefined") {
+      window.addEventListener("resize", updateLoopWidth);
+      return () => {
+        window.removeEventListener("resize", updateLoopWidth);
+      };
+    }
+
+    const resizeObserver = new ResizeObserver(updateLoopWidth);
+    resizeObserver.observe(track);
+
+    return () => {
+      resizeObserver.disconnect();
+    };
+  }, [setWrappedOffset, x]);
 
   const stopMomentum = useCallback(() => {
     if (momentumFrameRef.current) {
