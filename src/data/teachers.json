@@ -390,8 +390,8 @@
     ]
   },
   {
-    "slug": "julian-chacon",
-    "name": "Julián Chacón",
+    "slug": "julian-perez",
+    "name": "Julián Pérez",
     "shortName": "Julián",
     "color": "var(--purple)",
     "bio": "Podré fallar una nota pero no fallaré divirtiéndome en clase, soy Julian, aprendes si te diviertes 😁",
@@ -818,37 +818,6 @@
     "gallery": [],
     "reviews": [],
     "skillIds": [
-      "canto"
-    ],
-    "classFormats": [
-      "Virtual",
-      "A domicilio"
-    ],
-    "location": "Bogotá",
-    "classLanguages": [
-      "Español"
-    ]
-  },
-  {
-    "slug": "miguel-angel-paredes",
-    "name": "Miguel Ángel Paredes",
-    "shortName": "Miguel",
-    "color": "var(--blue)",
-    "bio": "Soy Miguel Ángel, aprendamos juntos la importancia de vivir construyendo un mundo musical propio 🤠🎇",
-    "longBio": "Soy Miguel Ángel, aprendamos juntos la importancia de vivir construyendo un mundo musical propio 🤠🎇",
-    "country": "Colombia",
-    "countryFlag": "🇨🇴",
-    "highlights": [
-      "Musical",
-      "Creativo",
-      "Paciente"
-    ],
-    "photo": "/profes/miguel-angel-hd.webp",
-    "photoPosition": "50% 32%",
-    "gallery": [],
-    "reviews": [],
-    "skillIds": [
-      "oboe",
       "canto"
     ],
     "classFormats": [
