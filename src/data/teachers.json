@@ -267,6 +267,36 @@
     ]
   },
   {
+    "slug": "kevin-garzon",
+    "name": "Kevin Garzón",
+    "shortName": "Kevin",
+    "color": "var(--blue)",
+    "bio": "¡Soy Kevin Garzón! Conmigo aprenderás sobre la importancia de la conciencia corporal para lograr transmitir emociones con el canto, así como el autocuidado vocal. ¡Te moverás mucho!",
+    "longBio": "¡Soy Kevin Garzón! Conmigo aprenderás sobre la importancia de la conciencia corporal para lograr transmitir emociones con el canto, así como el autocuidado vocal. ¡Te moverás mucho!",
+    "country": "Colombia",
+    "countryFlag": "🇨🇴",
+    "highlights": [
+      "Conciencia corporal",
+      "Expresivo",
+      "Autocuidado vocal"
+    ],
+    "photo": "/profes/kevin-garzon-hd.webp",
+    "photoPosition": "55% 28%",
+    "gallery": [],
+    "reviews": [],
+    "skillIds": [
+      "canto"
+    ],
+    "classFormats": [
+      "Virtual",
+      "A domicilio"
+    ],
+    "location": "Bogotá",
+    "classLanguages": [
+      "Español"
+    ]
+  },
+  {
     "slug": "mariana-castro",
     "name": "Mariana Castro",
     "shortName": "Mariana",
