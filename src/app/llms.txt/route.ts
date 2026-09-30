@@ -1,8 +1,9 @@
 import { B2B_HUB_PATH, B2B_SERVICES } from "@/lib/b2b";
-import { BLOG_POSTS, postPath } from "@/lib/blog";
+import { BLOG_CATEGORIES, BLOG_CATEGORY_ORDER, categoryPath, postPath, postsByCategory } from "@/lib/blog";
 import { CONTACT_EMAIL, INSTAGRAM_URL, WHATSAPP_DISPLAY, whatsappHref } from "@/lib/contact";
 import { COURSE_PAGES } from "@/lib/course-pages";
 import { TEACHERS } from "@/lib/teachers";
+import { METRONOME_PATH, TUNER_PATH, TUNER_PRESETS, tunerPresetPath } from "@/lib/music-tools";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_SLOGAN, absoluteUrl } from "@/lib/seo";
 
 export const dynamic = "force-static";
@@ -43,10 +44,27 @@ export function GET() {
       (service) => `- [${service.headline}](${absoluteUrl(service.path)}): ${service.metaDescription}`,
     ),
     "",
-    "## Blog",
+    "## Preparación y clases online",
     "",
-    ...BLOG_POSTS.map((post) => `- [${post.title}](${absoluteUrl(postPath(post.slug))}): ${post.description}`),
+    `- [Clases de música online](${absoluteUrl("/clases-de-musica-online")}): clases en vivo por videollamada desde cualquier ciudad.`,
+    `- [Preuniversitario de música](${absoluteUrl("/preuniversitario-musica")}): preparación para pruebas de admisión (teoría, solfeo, dictado, instrumento).`,
     "",
+    "## Herramientas gratis",
+    "",
+    `- [Metrónomo online](${absoluteUrl(METRONOME_PATH)})`,
+    `- [Afinador cromático online](${absoluteUrl(TUNER_PATH)})`,
+    ...TUNER_PRESETS.map((preset) => `- [${preset.headline}](${absoluteUrl(tunerPresetPath(preset.slug))})`),
+    "",
+    ...BLOG_CATEGORY_ORDER.flatMap((category) => {
+      const posts = postsByCategory(category);
+      if (!posts.length) return [];
+      return [
+        `## Blog: ${BLOG_CATEGORIES[category].label} (${absoluteUrl(categoryPath(category))})`,
+        "",
+        ...posts.map((post) => `- [${post.title}](${absoluteUrl(postPath(post.slug))}): ${post.description}`),
+        "",
+      ];
+    }),
     "## Contacto",
     "",
     `- WhatsApp: ${WHATSAPP_DISPLAY} (${whatsappHref()})`,

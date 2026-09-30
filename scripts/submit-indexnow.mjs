@@ -5,7 +5,7 @@ import { fileURLToPath } from "node:url";
 const INDEXNOW_ENDPOINT = "https://api.indexnow.org/indexnow";
 const INDEXNOW_KEY_PATH = "/indexnow-key.txt";
 const INDEXNOW_KEY_PATTERN = /^[A-Za-z0-9-]{8,128}$/;
-const FALLBACK_PATHS = ["/", "/clases", "/profes", "/blog", "/academias", "/nosotros", "/trabaja-con-nosotros"];
+const FALLBACK_PATHS = ["/", "/clases", "/clases-de-musica-online", "/preuniversitario-musica", "/profes", "/blog", "/herramientas", "/academias", "/nosotros", "/trabaja-con-nosotros"];
 
 function normalizeSiteUrl(value) {
   try {

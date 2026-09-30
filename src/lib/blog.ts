@@ -5,21 +5,54 @@ import { getTeacherBySlug } from "@/lib/teachers";
 
 export const BLOG_CATEGORIES: Record<
   BlogCategoryId,
-  { label: string; description: string; accent: string }
+  { label: string; title: string; description: string; accent: string }
 > = {
   "aprender-musica": {
     label: "Aprender música",
-    description: "Guías para familias y estudiantes: cuándo empezar, cómo elegir profe y cómo practicar.",
+    title: "Aprender música: guías para empezar y avanzar",
+    description: "Cómo empezar desde cero, practicar mejor y elegir entre clases virtuales, a domicilio o híbridas.",
     accent: "var(--orange)",
+  },
+  ninos: {
+    label: "Música para niños",
+    title: "Música para niños: guías para papás y mamás",
+    description: "Desde la estimulación musical de bebés hasta adolescentes: edades, instrumentos, práctica y motivación.",
+    accent: "var(--pink)",
+  },
+  adultos: {
+    label: "Adultos y mayores",
+    title: "Aprender música de adulto y en la tercera edad",
+    description: "Nunca es tarde: guías para adultos, abuelos y familias que quieren aprender música.",
+    accent: "var(--purple)",
   },
   instrumentos: {
     label: "Instrumentos",
-    description: "Todo sobre cada instrumento: por dónde empezar, qué esperar y cómo avanzar.",
-    accent: "var(--pink)",
+    title: "Guías de instrumentos: cuál elegir y cuánto toma aprender",
+    description: "Beneficios, comparativas y tiempos realistas para cada instrumento, incluida la música colombiana.",
+    accent: "var(--green)",
+  },
+  "cuidado-y-compra": {
+    label: "Cuidado y compra",
+    title: "Cómo elegir, comprar y cuidar tu instrumento",
+    description: "Guías para escoger tu primer instrumento y mantenerlo limpio, afinado y protegido del clima.",
+    accent: "var(--blue)",
+  },
+  tecnica: {
+    label: "Teoría y técnica",
+    title: "Teoría y técnica musical para principiantes",
+    description: "Afinar, leer partituras, acordes, escalas, respiración y ejercicios explicados paso a paso.",
+    accent: "var(--red)",
+  },
+  "estudiar-musica": {
+    label: "Estudiar música",
+    title: "Estudiar música en Colombia: admisiones y preuniversitario",
+    description: "Carreras de música, pruebas de admisión, dictado, solfeo y audiciones en universidades colombianas.",
+    accent: "var(--orange)",
   },
   academias: {
     label: "Para academias",
-    description: "Selección, evaluación y gestión de profes de música para academias y colegios.",
+    title: "Guías para academias y colegios",
+    description: "Selección, evaluación y gestión de profes de música para academias, colegios e instituciones.",
     accent: "var(--blue)",
   },
 };
@@ -40,12 +73,25 @@ export function postPath(slug: string) {
   return `/blog/${slug}`;
 }
 
+export function categoryPath(category: BlogCategoryId) {
+  return `/blog/categoria/${category}`;
+}
+
 export function postsByCategory(category: BlogCategoryId) {
   return BLOG_POSTS.filter((post) => post.category === category);
 }
 
+/** Posts about a course, the ones where it is the main instrument first. */
 export function postsForCourse(courseId: string) {
-  return BLOG_POSTS.filter((post) => post.relatedCourseIds?.includes(courseId));
+  return BLOG_POSTS.filter((post) => post.relatedCourseIds?.includes(courseId)).sort(
+    (a, b) =>
+      (a.relatedCourseIds?.indexOf(courseId) ?? 0) - (b.relatedCourseIds?.indexOf(courseId) ?? 0),
+  );
+}
+
+/** Posts whose main instrument is this course (first relatedCourseId). */
+export function primaryCoursePosts(courseId: string) {
+  return BLOG_POSTS.filter((post) => post.relatedCourseIds?.[0] === courseId);
 }
 
 export function relatedPosts(post: BlogPost, limit = 3) {
@@ -93,8 +139,8 @@ export function postAuthor(post: BlogPost) {
   }
 
   return {
-    name: "Equipo pedagógico de A medio tono",
-    role: "Profes y coordinación académica",
+    name: "Equipo de A medio tono",
+    role: "Escuela de artes y música en Bogotá",
     path: "/nosotros",
     teacher: undefined,
   };

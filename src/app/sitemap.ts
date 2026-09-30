@@ -1,7 +1,15 @@
 import type { MetadataRoute } from "next";
 import { B2B_HUB_PATH, B2B_SERVICES } from "@/lib/b2b";
-import { BLOG_POSTS, latestPostDate, postPath } from "@/lib/blog";
+import {
+  BLOG_CATEGORY_ORDER,
+  BLOG_POSTS,
+  categoryPath,
+  latestPostDate,
+  postPath,
+  postsByCategory,
+} from "@/lib/blog";
 import { COURSE_PAGES } from "@/lib/course-pages";
+import { METRONOME_PATH, TOOLS_PATH, TUNER_PATH, TUNER_PRESETS, tunerPresetPath } from "@/lib/music-tools";
 import { TEACHERS } from "@/lib/teachers";
 import { absoluteUrl, SITE_CONTENT_UPDATED_AT } from "@/lib/seo";
 
@@ -43,7 +51,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ),
     entry(B2B_HUB_PATH, SITE_CONTENT_UPDATED_AT, "monthly", 0.85),
     ...B2B_SERVICES.map((service) => entry(service.path, SITE_CONTENT_UPDATED_AT, "monthly", 0.8)),
+    entry("/clases-de-musica-online", SITE_CONTENT_UPDATED_AT, "monthly", 0.9),
+    entry("/preuniversitario-musica", SITE_CONTENT_UPDATED_AT, "monthly", 0.85),
+    entry(TOOLS_PATH, SITE_CONTENT_UPDATED_AT, "monthly", 0.7),
+    entry(METRONOME_PATH, SITE_CONTENT_UPDATED_AT, "monthly", 0.8),
+    entry(TUNER_PATH, SITE_CONTENT_UPDATED_AT, "monthly", 0.8),
+    ...TUNER_PRESETS.map((preset) =>
+      entry(tunerPresetPath(preset.slug), SITE_CONTENT_UPDATED_AT, "monthly", 0.75),
+    ),
     entry("/blog", blogUpdatedAt, "weekly", 0.8),
+    ...BLOG_CATEGORY_ORDER.filter((category) => postsByCategory(category).length > 0).map((category) =>
+      entry(categoryPath(category), blogUpdatedAt, "weekly", 0.7),
+    ),
     ...BLOG_POSTS.map((post) =>
       entry(postPath(post.slug), post.updatedAt ?? post.publishedAt, "monthly", 0.7, [
         `${postPath(post.slug)}/share-image.png`,

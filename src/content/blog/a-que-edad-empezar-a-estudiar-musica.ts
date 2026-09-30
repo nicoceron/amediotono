@@ -24,7 +24,7 @@ export const post: BlogPost = {
   ],
   keyTakeaways: [
     "Entre los 3 y los 5 años lo ideal es la iniciación musical: ritmo, canto, movimiento y juego, sin la presión de dominar un instrumento.",
-    "Piano, violín, violonchelo y percusión suelen poder empezar hacia los 5 o 6 años; la guitarra, hacia los 7 u 8, con un instrumento de tamaño adecuado.",
+    "Piano, violín, violonchelo y percusión suelen poder empezar hacia los 5 o 6 años; la guitarra, hacia los 6 o 7, con un instrumento de tamaño adecuado.",
     "Los vientos como clarinete, saxofón o trompeta se recomiendan en general desde los 8 a 10 años, cuando hay más control del aire y dientes frontales definitivos.",
     "Nunca es tarde: los adultos aprenden con más método y comprensión, y avanzan de verdad con práctica constante.",
     "La edad es orientativa: pesan más el interés del estudiante, su atención y un profe que adapte la clase a su etapa.",
@@ -68,7 +68,7 @@ export const post: BlogPost = {
         { type: "h3", text: "De 6 a 8 años: el primer instrumento" },
         {
           type: "p",
-          text: "Es una edad muy buena para empezar un instrumento. La lectura y la escritura que llegan con el colegio ayudan a conectar con la partitura, y la motricidad fina ya permite trabajar con los dedos. Piano, violín, violonchelo, percusión y flauta dulce son opciones frecuentes; la guitarra funciona bien hacia los 7 u 8 años con un tamaño reducido. Las prácticas en casa siguen siendo cortas, con apoyo de un adulto.",
+          text: "Es una edad muy buena para empezar un instrumento. La lectura y la escritura que llegan con el colegio ayudan a conectar con la partitura, y la motricidad fina ya permite trabajar con los dedos. Piano, violín, violonchelo, percusión y flauta dulce son opciones frecuentes; la guitarra funciona bien hacia los 6 o 7 años con un tamaño reducido. Las prácticas en casa siguen siendo cortas, con apoyo de un adulto.",
         },
         { type: "h3", text: "De 9 a 12 años: constancia y nuevos instrumentos" },
         {
@@ -132,7 +132,7 @@ export const post: BlogPost = {
             ],
             [
               "Guitarra acústica",
-              "Desde los 7 u 8 años",
+              "Desde los 6 o 7 años",
               "Presionar las cuerdas pide algo de fuerza en los dedos; con una guitarra de tamaño reducido y cuerdas de nylon es más cómodo.",
             ],
             [

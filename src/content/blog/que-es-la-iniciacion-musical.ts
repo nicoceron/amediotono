@@ -8,7 +8,7 @@ export const post: BlogPost = {
     "La iniciación musical enseña ritmo, canto y movimiento a través del juego. Descubre qué es, cómo es una clase y cuándo pasar a un instrumento.",
   excerpt:
     "Antes de elegir un instrumento, los niños pueden aprender música jugando. Te contamos qué es la iniciación musical, cómo es una clase y qué pedagogías la inspiran.",
-  category: "instrumentos",
+  category: "ninos",
   publishedAt: "2026-09-30",
   keywords: [
     "qué es la iniciación musical",

@@ -7,13 +7,18 @@ Sitio de [A medio tono](https://www.amediotonomusic.com): clases de música virt
 | Qué | Dónde | Notas |
 | --- | --- | --- |
 | Páginas de instrumento (`/clases/<id>`) | `src/content/courses/guides-*.ts` | Una guía por curso de `src/data/courses.json`. La página solo se publica si el curso tiene al menos un profe. |
-| Artículos del blog (`/blog/<slug>`) | `src/content/blog/<slug>.ts` | Crea el archivo y regístralo en `src/content/blog/index.ts`. Sitemap, RSS, `llms.txt` e imagen para redes se generan solos. |
+| Artículos del blog (`/blog/<slug>`) | `src/content/blog/<slug>.ts` | Crea el archivo y listo: `npm run content:index` (se ejecuta solo antes de `dev` y `build`) regenera el índice. Sitemap, RSS, `llms.txt`, categorías e imagen para redes se generan solos. |
+| Categorías del blog | `src/lib/blog.ts` | Títulos y descripciones de `/blog/categoria/<id>`. |
+| Glosario (`/glosario-musical`) | `src/content/glossary.ts` | Términos con anclas propias. |
+| Herramientas (`/herramientas`) | `src/lib/music-tools.ts`, `src/components/tools/` | Metrónomo y afinador; los afinadores por instrumento se definen en `TUNER_PRESETS`. |
 | Servicios para academias (`/academias/*`) | `src/lib/b2b.ts` | Textos, pasos, entregables y preguntas frecuentes. |
-| Profes | `src/data/teachers.json` | Alimenta perfiles, páginas de instrumento, directorio y datos estructurados. |
+| Profes | `src/data/teachers.json` | Alimenta perfiles, páginas de instrumento, directorio, «Nosotros» y datos estructurados. |
 | Vacante de profe (JobPosting) | `src/lib/job-posting.ts` | Extiende `JOB_VALID_THROUGH` mientras sigan contratando. |
 | Metadatos y datos estructurados | `src/lib/seo.ts` | Actualiza `SITE_CONTENT_UPDATED_AT` cuando cambien textos de páginas generales. |
 
 En el texto de guías y artículos se puede usar `**negrita**` y `[enlace](/ruta)`. Los enlaces a `/clases/<id>` de cursos sin página llevan automáticamente al directorio filtrado.
+
+Antes de publicar artículos nuevos, valida el contenido con `npm run content:check` (campos, longitudes, enlaces internos y afirmaciones prohibidas).
 
 Después de publicar, envía las URLs nuevas a Bing/Yandex con `npm run indexnow` (lee el sitemap en producción).
 

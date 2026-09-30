@@ -3,11 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "node scripts/generate-blog-index.mjs",
     "dev": "next dev",
+    "prebuild": "node scripts/generate-blog-index.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "indexnow": "node scripts/submit-indexnow.mjs"
+    "indexnow": "node scripts/submit-indexnow.mjs",
+    "content:index": "node scripts/generate-blog-index.mjs",
+    "content:check": "node scripts/validate-content.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

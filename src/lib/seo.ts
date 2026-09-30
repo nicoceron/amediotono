@@ -693,7 +693,7 @@ export function organizationAuthorJsonLd(): JsonLdNode {
   return {
     "@type": "Organization",
     "@id": ORGANIZATION_ID(),
-    name: `Equipo pedagógico de ${SITE_NAME}`,
+    name: `Equipo de ${SITE_NAME}`,
     url: absoluteUrl("/nosotros"),
   };
 }
@@ -770,5 +770,37 @@ export function jobPostingJsonLd({
         addressCountry: "CO",
       },
     },
+  };
+}
+
+export function webApplicationJsonLd({
+  path,
+  name,
+  description,
+  featureList,
+}: {
+  path: string;
+  name: string;
+  description: string;
+  featureList: string[];
+}): JsonLdNode {
+  return {
+    "@type": "WebApplication",
+    "@id": `${absoluteUrl(path)}#app`,
+    name,
+    description,
+    url: absoluteUrl(path),
+    applicationCategory: "MultimediaApplication",
+    operatingSystem: "Cualquiera (navegador web)",
+    browserRequirements: "Requiere un navegador moderno con Web Audio",
+    inLanguage: SITE_LANGUAGE,
+    isAccessibleForFree: true,
+    featureList,
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "COP",
+    },
+    publisher: organizationRef(),
   };
 }

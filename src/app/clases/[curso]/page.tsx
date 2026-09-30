@@ -29,6 +29,7 @@ import {
   relatedCoursePages,
 } from "@/lib/course-pages";
 import { courseHref } from "@/lib/courses";
+import { METRONOME_PATH, tunerPresetForCourse, tunerPresetPath } from "@/lib/music-tools";
 import {
   absoluteUrl,
   brandTitle,
@@ -108,7 +109,8 @@ export default async function CoursePage({
   const lowerLabel = label.toLowerCase();
   const accent = COURSE_FAMILY_ACCENTS[guide.family];
   const related = relatedCoursePages(guide);
-  const posts = postsForCourse(course.id).slice(0, 3);
+  const posts = postsForCourse(course.id).slice(0, 12);
+  const tuner = tunerPresetForCourse(course.id);
   const waUrl = whatsappHref(`¡Hola! Quiero información sobre clases de ${lowerLabel}.`);
   const crumbs = [
     { name: "Inicio", path: "/" },
@@ -328,6 +330,24 @@ export default async function CoursePage({
                 </ul>
               </div>
             )}
+
+            <div className="ed-related">
+              <h2 className="ed-h2">Herramientas gratis para practicar</h2>
+              <ul className="ed-chip-list">
+                {tuner && (
+                  <li>
+                    <Link href={tunerPresetPath(tuner.slug)} prefetch={false}>
+                      {tuner.headline}
+                    </Link>
+                  </li>
+                )}
+                <li>
+                  <Link href={METRONOME_PATH} prefetch={false}>
+                    Metrónomo online
+                  </Link>
+                </li>
+              </ul>
+            </div>
 
             {posts.length > 0 && (
               <div className="ed-related">

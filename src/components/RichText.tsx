@@ -30,7 +30,11 @@ export function Inline({ text }: { text: string }) {
     const key = `${index}-${match[0].length}`;
 
     if (bold) {
-      nodes.push(<strong key={key}>{bold}</strong>);
+      nodes.push(
+        <strong key={key}>
+          <Inline text={bold} />
+        </strong>,
+      );
     } else if (href.startsWith("/") || href.startsWith("#")) {
       nodes.push(
         <Link key={key} href={resolveHref(href)} prefetch={false}>
@@ -53,8 +57,10 @@ export function Inline({ text }: { text: string }) {
 }
 
 /** Strips the inline syntax, for meta tags, feeds and structured data. */
-export function plainText(text: string) {
-  return text.replace(INLINE_PATTERN, (_match, bold, label) => bold ?? label ?? "");
+export function plainText(text: string): string {
+  const stripped = text.replace(INLINE_PATTERN, (_match, bold, label) => bold ?? label ?? "");
+  // Bold text may itself contain a link: strip again until nothing is left.
+  return stripped === text ? stripped : plainText(stripped);
 }
 
 export function RichBlocks({ blocks }: { blocks: RichBlock[] }) {
@@ -75,8 +81,8 @@ export function RichBlocks({ blocks }: { blocks: RichBlock[] }) {
       case "ul":
         return (
           <ul key={index}>
-            {block.items.map((item) => (
-              <li key={item}>
+            {block.items.map((item, itemIndex) => (
+              <li key={itemIndex}>
                 <Inline text={item} />
               </li>
             ))}
@@ -85,8 +91,8 @@ export function RichBlocks({ blocks }: { blocks: RichBlock[] }) {
       case "ol":
         return (
           <ol key={index}>
-            {block.items.map((item) => (
-              <li key={item}>
+            {block.items.map((item, itemIndex) => (
+              <li key={itemIndex}>
                 <Inline text={item} />
               </li>
             ))}
@@ -121,8 +127,8 @@ export function RichBlocks({ blocks }: { blocks: RichBlock[] }) {
               {block.caption && <caption>{block.caption}</caption>}
               <thead>
                 <tr>
-                  {block.head.map((cell) => (
-                    <th scope="col" key={cell}>
+                  {block.head.map((cell, cellIndex) => (
+                    <th scope="col" key={cellIndex}>
                       <Inline text={cell} />
                     </th>
                   ))}

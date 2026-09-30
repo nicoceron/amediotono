@@ -7,6 +7,7 @@ import { ComoFuncionaSection } from "@/components/ComoFuncionaSection";
 import { CalidadBanner } from "@/components/CalidadBanner";
 import { TestimoniosSection } from "@/components/TestimoniosSection";
 import { JobsCTASection } from "@/components/JobsCTASection";
+import { HomeResourcesSection } from "@/components/HomeResourcesSection";
 import { ContactoSection } from "@/components/ContactoSection";
 import { Footer } from "@/components/Footer";
 import { COURSE_PAGES } from "@/lib/course-pages";
@@ -48,6 +49,7 @@ export default function Home() {
       <ComoFuncionaSection />
       <CalidadBanner />
       <TestimoniosSection />
+      <HomeResourcesSection />
       <JobsCTASection />
       <ContactoSection />
       <Footer />

@@ -14,11 +14,13 @@ import { B2B_HUB_PATH } from "@/lib/b2b";
 import {
   BLOG_CATEGORIES,
   BLOG_POSTS,
+  categoryPath,
   formatPostDate,
   getPost,
   postAuthor,
   postPath,
   postWordCount,
+  primaryCoursePosts,
   readingMinutes,
   relatedPosts,
 } from "@/lib/blog";
@@ -99,8 +101,17 @@ export default async function BlogPostPage({
   const crumbs = [
     { name: "Inicio", path: "/" },
     { name: "Blog", path: "/blog" },
+    { name: category.label, path: categoryPath(post.category) },
     { name: post.title, path },
   ];
+  const primaryCourse = courses[0]?.course;
+  // Ring order: each article links the ones after it in its cluster, so every
+  // guide about an instrument receives links from its siblings.
+  const cluster = primaryCourse ? primaryCoursePosts(primaryCourse.id) : [];
+  const clusterStart = cluster.findIndex((item) => item.slug === post.slug);
+  const clusterPosts = [...cluster.slice(clusterStart + 1), ...cluster.slice(0, Math.max(clusterStart, 0))]
+    .filter((item) => item.slug !== post.slug && !related.some((other) => other.slug === item.slug))
+    .slice(0, 6);
   const faqs = post.faqs ?? [];
   const updated = post.updatedAt && post.updatedAt !== post.publishedAt ? post.updatedAt : undefined;
 
@@ -145,7 +156,7 @@ export default async function BlogPostPage({
           <Breadcrumbs items={crumbs} />
 
           <header className="blog-header">
-            <Link className="ed-eyebrow" href={`/blog#${post.category}`} prefetch={false}>
+            <Link className="ed-eyebrow" href={categoryPath(post.category)} prefetch={false}>
               {category.label}
             </Link>
             <h1>{post.title}</h1>
@@ -255,16 +266,16 @@ export default async function BlogPostPage({
                   </strong>
                   <span>{author.role}</span>
                   <p>
-                    En A medio tono evaluamos a cada profe en música, pedagogía y calidad humana
-                    antes de su primera clase. Escribimos estas guías desde lo que vivimos en clase
-                    con estudiantes de todas las edades.
+                    A medio tono es una escuela de artes y música en Bogotá. Evaluamos a cada profe
+                    en música, pedagogía y calidad humana antes de su primera clase, y damos clases
+                    virtuales y a domicilio para todas las edades.
                   </p>
                 </div>
               </aside>
             </div>
           </div>
 
-          {(courses.length > 0 || related.length > 0) && (
+          {(courses.length > 0 || related.length > 0 || clusterPosts.length > 0) && (
             <footer className="blog-related">
               {courses.length > 0 && (
                 <div className="ed-related">
@@ -275,6 +286,21 @@ export default async function BlogPostPage({
                         <Link href={page.path} prefetch={false}>
                           <Image src={page.course.icon} alt="" width={28} height={28} />
                           Clases de {page.course.label.toLowerCase()}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {clusterPosts.length > 0 && primaryCourse && (
+                <div className="ed-related">
+                  <h2 className="ed-h2">Más guías de {primaryCourse.label.toLowerCase()}</h2>
+                  <ul className="ed-link-list">
+                    {clusterPosts.map((item) => (
+                      <li key={item.slug}>
+                        <Link href={postPath(item.slug)} prefetch={false}>
+                          <strong>{item.title}</strong>
+                          <span>{item.excerpt}</span>
                         </Link>
                       </li>
                     ))}

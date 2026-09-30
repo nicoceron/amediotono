@@ -67,7 +67,15 @@ export type CourseGuide = {
   relatedIds: string[];
 };
 
-export type BlogCategoryId = "aprender-musica" | "instrumentos" | "academias";
+export type BlogCategoryId =
+  | "aprender-musica"
+  | "ninos"
+  | "adultos"
+  | "instrumentos"
+  | "cuidado-y-compra"
+  | "tecnica"
+  | "estudiar-musica"
+  | "academias";
 
 export type BlogAuthor =
   | { type: "organization" }

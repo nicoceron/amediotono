@@ -89,6 +89,8 @@ const rootJsonLd = jsonLd([
         name: `Clases de ${page.course.label.toLowerCase()}`,
         path: page.path,
       })),
+      { name: "Clases de música online", path: "/clases-de-musica-online" },
+      { name: "Preuniversitario de música", path: "/preuniversitario-musica" },
       { name: "Selección y evaluación de profesores de música", path: B2B_HUB_PATH },
       ...B2B_SERVICES.map((service) => ({ name: service.headline, path: service.path })),
     ],
