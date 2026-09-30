@@ -25,6 +25,7 @@ import {
   createPageMetadata,
   webPageJsonLd,
 } from "@/lib/seo";
+import { shareImage } from "@/lib/share-cards";
 
 const PATH = "/blog";
 const TITLE = "Blog de música: guías para aprender, enseñar y elegir instrumento";
@@ -47,6 +48,7 @@ export const metadata: Metadata = {
     title: brandTitle("Blog de música: guías para aprender y enseñar"),
     description: DESCRIPTION,
     path: PATH,
+    image: shareImage("blog"),
   }),
   alternates: {
     canonical: PATH,

@@ -19,6 +19,7 @@ import {
   webPageJsonLd,
   SITE_CONTENT_UPDATED_AT,
 } from "@/lib/seo";
+import { shareImage } from "@/lib/share-cards";
 
 export const dynamicParams = false;
 
@@ -39,6 +40,7 @@ export async function generateMetadata({
     title: brandTitle(service.seoTitle),
     description: service.metaDescription,
     path: service.path,
+    image: shareImage(`academias-${service.slug}`),
     keywords: service.keywords,
   });
 }

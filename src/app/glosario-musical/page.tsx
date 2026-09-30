@@ -15,6 +15,7 @@ import {
   SITE_CONTENT_UPDATED_AT,
   SITE_LANGUAGE,
 } from "@/lib/seo";
+import { shareImage } from "@/lib/share-cards";
 
 const PATH = "/glosario-musical";
 const TITLE = "Diccionario musical: términos de música explicados";
@@ -25,6 +26,7 @@ export const metadata: Metadata = createPageMetadata({
   title: brandTitle("Diccionario musical: glosario de términos"),
   description: DESCRIPTION,
   path: PATH,
+  image: shareImage("glosario-musical"),
   keywords: ["diccionario musical", "glosario musical", "términos musicales", "qué es un acorde", "qué es el compás"],
 });
 

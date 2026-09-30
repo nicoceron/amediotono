@@ -26,7 +26,6 @@ function CourseCard({ course }: { course: Course }) {
       className="course-card"
       href={courseLandingHref(course)}
       prefetch={false}
-      aria-label={`Clases de ${course.label}: ${courseCountLabel(course)}`}
     >
       <span className="course-icon" aria-hidden="true">
         <Image src={course.icon} alt="" width={64} height={64} />

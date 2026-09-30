@@ -9,7 +9,15 @@ import {
   postsByCategory,
 } from "@/lib/blog";
 import { COURSE_PAGES } from "@/lib/course-pages";
-import { METRONOME_PATH, TOOLS_PATH, TUNER_PATH, TUNER_PRESETS, tunerPresetPath } from "@/lib/music-tools";
+import {
+  EAR_TRAINING_PATH,
+  METRONOME_PATH,
+  TOOLS_PATH,
+  TUNER_PATH,
+  TUNER_PRESETS,
+  VOICE_TYPE_PATH,
+  tunerPresetPath,
+} from "@/lib/music-tools";
 import { TEACHERS } from "@/lib/teachers";
 import { absoluteUrl, SITE_CONTENT_UPDATED_AT } from "@/lib/seo";
 
@@ -52,10 +60,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry(B2B_HUB_PATH, SITE_CONTENT_UPDATED_AT, "monthly", 0.85),
     ...B2B_SERVICES.map((service) => entry(service.path, SITE_CONTENT_UPDATED_AT, "monthly", 0.8)),
     entry("/clases-de-musica-online", SITE_CONTENT_UPDATED_AT, "monthly", 0.9),
+    entry("/clases-de-musica-a-domicilio-bogota", SITE_CONTENT_UPDATED_AT, "monthly", 0.9),
     entry("/preuniversitario-musica", SITE_CONTENT_UPDATED_AT, "monthly", 0.85),
     entry(TOOLS_PATH, SITE_CONTENT_UPDATED_AT, "monthly", 0.7),
     entry(METRONOME_PATH, SITE_CONTENT_UPDATED_AT, "monthly", 0.8),
     entry(TUNER_PATH, SITE_CONTENT_UPDATED_AT, "monthly", 0.8),
+    entry(VOICE_TYPE_PATH, SITE_CONTENT_UPDATED_AT, "monthly", 0.75),
+    entry(EAR_TRAINING_PATH, SITE_CONTENT_UPDATED_AT, "monthly", 0.75),
     ...TUNER_PRESETS.map((preset) =>
       entry(tunerPresetPath(preset.slug), SITE_CONTENT_UPDATED_AT, "monthly", 0.75),
     ),

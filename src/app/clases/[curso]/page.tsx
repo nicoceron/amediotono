@@ -29,7 +29,14 @@ import {
   relatedCoursePages,
 } from "@/lib/course-pages";
 import { courseHref } from "@/lib/courses";
-import { METRONOME_PATH, tunerPresetForCourse, tunerPresetPath } from "@/lib/music-tools";
+import {
+  EAR_TRAINING_PATH,
+  METRONOME_PATH,
+  TUNER_PATH,
+  VOICE_TYPE_PATH,
+  tunerPresetForCourse,
+  tunerPresetPath,
+} from "@/lib/music-tools";
 import {
   absoluteUrl,
   brandTitle,
@@ -341,9 +348,28 @@ export default async function CoursePage({
                     </Link>
                   </li>
                 )}
+                {course.id === "canto" && (
+                  <>
+                    <li>
+                      <Link href={VOICE_TYPE_PATH} prefetch={false}>
+                        Test de tipo de voz
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href={TUNER_PATH} prefetch={false}>
+                        Afinador para la voz
+                      </Link>
+                    </li>
+                  </>
+                )}
                 <li>
                   <Link href={METRONOME_PATH} prefetch={false}>
                     Metrónomo online
+                  </Link>
+                </li>
+                <li>
+                  <Link href={EAR_TRAINING_PATH} prefetch={false}>
+                    Entrenamiento auditivo
                   </Link>
                 </li>
               </ul>

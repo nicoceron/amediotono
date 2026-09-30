@@ -17,6 +17,7 @@ const FOOTER_COLUMNS = [
   [
     { href: "/clases", label: "Clases" },
     { href: "/clases-de-musica-online", label: "Clases online" },
+    { href: "/clases-de-musica-a-domicilio-bogota", label: "Clases a domicilio" },
     { href: "/preuniversitario-musica", label: "Preuniversitario" },
     { href: "/profes", label: "Profes" },
     { href: "/nosotros", label: "Nosotros" },
@@ -30,7 +31,7 @@ const FOOTER_COLUMNS = [
   ],
   [
     { href: "/blog", label: "Blog" },
-    { href: "/herramientas", label: "Metrónomo y afinador" },
+    { href: "/herramientas", label: "Herramientas gratis" },
     { href: "/glosario-musical", label: "Glosario musical" },
     { href: "/academias", label: "Para academias" },
     { href: "/trabaja-con-nosotros", label: "Trabaja con nosotros" },

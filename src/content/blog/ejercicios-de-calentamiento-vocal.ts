@@ -142,7 +142,7 @@ export const post: BlogPost = {
         },
         {
           type: "p",
-          text: "En las clases de [canto](/clases/canto), el profe adapta esta rutina a tu tipo de voz y a tu repertorio, y escucha detalles que es difícil notar solo. Si apenas vas a empezar, te contamos cómo son las [primeras clases de canto](/blog/primeras-clases-de-canto-que-esperar).",
+          text: "Si no sabes cuál es tu rango, haz nuestro [test de tipo de voz](/herramientas/tipo-de-voz) después de calentar. En las clases de [canto](/clases/canto), el profe adapta esta rutina a tu tipo de voz y a tu repertorio, y escucha detalles que es difícil notar solo. Si apenas vas a empezar, te contamos cómo son las [primeras clases de canto](/blog/primeras-clases-de-canto-que-esperar).",
         },
       ],
     },

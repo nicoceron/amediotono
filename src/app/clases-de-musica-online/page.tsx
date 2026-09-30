@@ -32,6 +32,7 @@ import {
   webPageJsonLd,
   SITE_CONTENT_UPDATED_AT,
 } from "@/lib/seo";
+import { shareImage } from "@/lib/share-cards";
 
 const PATH = "/clases-de-musica-online";
 const TITLE = "Clases de música online en vivo con profes evaluados";
@@ -42,6 +43,7 @@ export const metadata: Metadata = createPageMetadata({
   title: brandTitle("Clases de música online en Colombia, en vivo"),
   description: DESCRIPTION,
   path: PATH,
+  image: shareImage("clases-de-musica-online"),
   keywords: [
     "clases de música online",
     "clases de música virtuales",
@@ -99,7 +101,7 @@ const FAQS: FaqItem[] = [
   {
     question: "¿Puedo combinar clases online y a domicilio?",
     answer:
-      "Si vives en Bogotá o alrededores, sí: muchas familias combinan ambos formatos según la semana. Lo explicamos en [clases híbridas](/blog/clases-de-musica-hibridas-virtual-y-presencial).",
+      "Si vives en Bogotá o alrededores, sí: muchas familias combinan ambos formatos según la semana. Mira nuestras [clases de música a domicilio en Bogotá](/clases-de-musica-a-domicilio-bogota) y cómo funcionan las [clases híbridas](/blog/clases-de-musica-hibridas-virtual-y-presencial).",
   },
   {
     question: "¿Cuánto cuestan las clases online?",

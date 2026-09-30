@@ -23,6 +23,7 @@ import {
   createPageMetadata,
   webPageJsonLd,
 } from "@/lib/seo";
+import { shareImage } from "@/lib/share-cards";
 
 export const dynamicParams = false;
 
@@ -49,6 +50,7 @@ export async function generateMetadata({
     title: brandTitle(category.title),
     description: category.description,
     path: categoryPath(categoria),
+    image: shareImage(`blog-${categoria}`),
   });
 }
 

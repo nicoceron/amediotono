@@ -32,6 +32,7 @@ import {
   absoluteUrl,
   SITE_CONTENT_UPDATED_AT,
 } from "@/lib/seo";
+import { shareImage } from "@/lib/share-cards";
 
 const PATH = "/preuniversitario-musica";
 const TITLE = "Preuniversitario de música: prepárate para la prueba de admisión";
@@ -42,6 +43,7 @@ export const metadata: Metadata = createPageMetadata({
   title: brandTitle("Preuniversitario de música en Bogotá y virtual"),
   description: DESCRIPTION,
   path: PATH,
+  image: shareImage("preuniversitario-musica"),
   keywords: [
     "preuniversitario de música",
     "preparación prueba de admisión música",

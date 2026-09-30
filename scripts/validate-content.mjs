@@ -23,7 +23,7 @@ if (plannedIndex !== -1) {
 }
 const only = new Set(args.map((arg) => arg.replace(/\.ts$/, "").split("/").pop()));
 
-const CATEGORIES = ["aprender-musica", "ninos", "adultos", "instrumentos", "cuidado-y-compra", "tecnica", "estudiar-musica", "academias"];
+const CATEGORIES = ["aprender-musica", "ninos", "adultos", "instrumentos", "cuidado-y-compra", "tecnica", "estudiar-musica", "para-profes", "academias"];
 const courses = JSON.parse(await readFile(join(root, "src/data/courses.json"), "utf8"));
 const teachers = JSON.parse(await readFile(join(root, "src/data/teachers.json"), "utf8"));
 const b2bSource = await readFile(join(root, "src/lib/b2b.ts"), "utf8");
@@ -56,6 +56,7 @@ const postSlugs = new Set([...posts.map(({ post }) => post?.slug), ...plannedSlu
 const knownRoutes = new Set([
   "/", "/clases", "/profes", "/blog", "/nosotros", "/trabaja-con-nosotros", "/academias",
   "/herramientas", "/herramientas/metronomo", "/herramientas/afinador",
+  "/herramientas/tipo-de-voz", "/herramientas/entrenamiento-auditivo", "/clases-de-musica-a-domicilio-bogota",
   "/preuniversitario-musica", "/clases-de-musica-online", "/glosario-musical",
   ...TUNER_PRESETS.map((preset) => `/herramientas/afinador/${preset}`),
   ...b2bSlugs.map((slug) => `/academias/${slug}`),

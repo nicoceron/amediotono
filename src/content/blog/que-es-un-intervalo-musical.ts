@@ -171,7 +171,7 @@ export const post: BlogPost = {
         },
         {
           type: "p",
-          text: "Para intervalos descendentes sirven “Para Elisa” de Beethoven (segunda menor), “Yesterday” de los Beatles (segunda mayor), “Hey Jude” (tercera menor), el comienzo de la Quinta Sinfonía de Beethoven (tercera mayor) y la “Pequeña serenata nocturna” de Mozart (cuarta justa). Si alguna no te suena, reemplázala por una canción tuya: una referencia propia funciona mejor que una ajena.",
+          text: "Para intervalos descendentes sirven “Para Elisa” de Beethoven (segunda menor), “Yesterday” de los Beatles (segunda mayor), “Hey Jude” (tercera menor), el comienzo de la Quinta Sinfonía de Beethoven (tercera mayor) y la “Pequeña serenata nocturna” de Mozart (cuarta justa). Si alguna no te suena, reemplázala por una canción tuya: una referencia propia funciona mejor que una ajena. Cuando las tengas claras, ponlas a prueba en nuestro [entrenamiento auditivo](/herramientas/entrenamiento-auditivo) gratis.",
         },
       ],
     },

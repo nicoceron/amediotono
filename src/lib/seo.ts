@@ -358,6 +358,7 @@ export function webPageJsonLd({
   datePublished,
   dateModified,
   about,
+  breadcrumb = true,
 }: {
   path: string;
   name: string;
@@ -367,6 +368,8 @@ export function webPageJsonLd({
   datePublished?: string;
   dateModified?: string;
   about?: JsonLdNode;
+  /** Set to false on pages without a BreadcrumbList node (the home page). */
+  breadcrumb?: boolean;
 }): JsonLdNode {
   return {
     "@type": type,
@@ -381,7 +384,7 @@ export function webPageJsonLd({
     ...(image ? { primaryImageOfPage: { "@type": "ImageObject", url: absoluteUrl(image) } } : {}),
     ...(datePublished ? { datePublished } : {}),
     ...(dateModified ? { dateModified } : {}),
-    breadcrumb: { "@id": `${absoluteUrl(path)}#breadcrumb` },
+    ...(breadcrumb ? { breadcrumb: { "@id": `${absoluteUrl(path)}#breadcrumb` } } : {}),
   };
 }
 

@@ -28,6 +28,7 @@ import {
   webPageJsonLd,
   SITE_CONTENT_UPDATED_AT,
 } from "@/lib/seo";
+import { shareImage } from "@/lib/share-cards";
 
 const TITLE = "Afinador online con micrófono";
 const DESCRIPTION =
@@ -37,6 +38,7 @@ export const metadata: Metadata = createPageMetadata({
   title: brandTitle("Afinador online gratis con micrófono"),
   description: DESCRIPTION,
   path: TUNER_PATH,
+  image: shareImage("afinador"),
   keywords: ["afinador online", "afinador cromático", "afinador con micrófono", "afinador gratis", "tuner online"],
 });
 

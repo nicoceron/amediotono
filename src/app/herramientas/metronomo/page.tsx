@@ -21,6 +21,7 @@ import {
   webPageJsonLd,
   SITE_CONTENT_UPDATED_AT,
 } from "@/lib/seo";
+import { shareImage } from "@/lib/share-cards";
 
 const TITLE = "Metrónomo online gratis";
 const DESCRIPTION =
@@ -30,6 +31,7 @@ export const metadata: Metadata = createPageMetadata({
   title: brandTitle("Metrónomo online gratis: preciso y sin anuncios"),
   description: DESCRIPTION,
   path: METRONOME_PATH,
+  image: shareImage("metronomo"),
   keywords: ["metrónomo online", "metrónomo gratis", "metrónomo online gratis", "metronomo", "tap tempo", "bpm"],
 });
 

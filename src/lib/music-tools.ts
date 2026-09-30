@@ -374,3 +374,39 @@ export function tunerPresetForCourse(courseId: string) {
   const slug = TUNER_BY_COURSE[courseId];
   return slug ? getTunerPreset(slug) : undefined;
 }
+
+export const VOICE_TYPE_PATH = `${TOOLS_PATH}/tipo-de-voz`;
+export const EAR_TRAINING_PATH = `${TOOLS_PATH}/entrenamiento-auditivo`;
+
+/** Typical comfortable ranges (orientative, adult voices). */
+export const VOICE_TYPES = [
+  { name: "Bajo", low: 40, high: 64, description: "La voz masculina más grave." },
+  { name: "Barítono", low: 45, high: 69, description: "Voz masculina intermedia." },
+  { name: "Tenor", low: 48, high: 72, description: "La voz masculina más aguda." },
+  { name: "Contralto", low: 53, high: 77, description: "La voz femenina más grave." },
+  { name: "Mezzosoprano", low: 57, high: 81, description: "Voz femenina intermedia." },
+  { name: "Soprano", low: 60, high: 84, description: "La voz femenina más aguda." },
+];
+
+/** Closest voice type by comparing the singer's range with each typical range. */
+export function estimateVoiceType(low: number, high: number) {
+  return VOICE_TYPES.map((type) => ({
+    type,
+    distance: Math.abs(type.low - low) + Math.abs(type.high - high),
+  })).sort((a, b) => a.distance - b.distance)[0].type;
+}
+
+export const INTERVALS = [
+  { semitones: 1, name: "Segunda menor", short: "2m", hint: "El tema de «Tiburón»" },
+  { semitones: 2, name: "Segunda mayor", short: "2M", hint: "Las dos primeras notas distintas de «Cumpleaños feliz»" },
+  { semitones: 3, name: "Tercera menor", short: "3m", hint: "El inicio de «Greensleeves»" },
+  { semitones: 4, name: "Tercera mayor", short: "3M", hint: "El inicio de «When the Saints Go Marching In»" },
+  { semitones: 5, name: "Cuarta justa", short: "4J", hint: "El inicio de la marcha nupcial de Wagner" },
+  { semitones: 6, name: "Tritono", short: "4A/5d", hint: "El inicio del tema de «Los Simpson»" },
+  { semitones: 7, name: "Quinta justa", short: "5J", hint: "El salto de «Estrellita, ¿dónde estás?»" },
+  { semitones: 8, name: "Sexta menor", short: "6m", hint: "" },
+  { semitones: 9, name: "Sexta mayor", short: "6M", hint: "El inicio de «My Bonnie»" },
+  { semitones: 10, name: "Séptima menor", short: "7m", hint: "" },
+  { semitones: 11, name: "Séptima mayor", short: "7M", hint: "" },
+  { semitones: 12, name: "Octava", short: "8J", hint: "El inicio de «Somewhere Over the Rainbow»" },
+];

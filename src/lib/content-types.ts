@@ -75,6 +75,7 @@ export type BlogCategoryId =
   | "cuidado-y-compra"
   | "tecnica"
   | "estudiar-musica"
+  | "para-profes"
   | "academias";
 
 export type BlogAuthor =

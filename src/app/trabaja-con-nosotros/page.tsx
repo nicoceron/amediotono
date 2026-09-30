@@ -16,6 +16,7 @@ import {
   jobPostingJsonLd,
   jsonLd,
 } from "@/lib/seo";
+import { shareImage } from "@/lib/share-cards";
 
 const JOB_DETAILS = [
   {
@@ -45,6 +46,7 @@ export const metadata: Metadata = createPageMetadata({
   description:
     "Aplica para trabajar como profesor o profesora de música en A medio tono. Buscamos profes para clases virtuales y a domicilio en Bogotá y alrededores.",
   path: "/trabaja-con-nosotros",
+  image: shareImage("trabaja-con-nosotros"),
 });
 
 export default function TrabajaConNosotrosPage() {

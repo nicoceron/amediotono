@@ -35,6 +35,7 @@ import {
   webPageJsonLd,
   SITE_CONTENT_UPDATED_AT,
 } from "@/lib/seo";
+import { shareImage } from "@/lib/share-cards";
 
 const PATH = "/nosotros";
 const TITLE = "Somos A ½ tono: la escuela donde la música se vive, se siente y se comparte";
@@ -45,6 +46,7 @@ export const metadata: Metadata = createPageMetadata({
   title: brandTitle("Nosotros: escuela de artes y música en Bogotá"),
   description: DESCRIPTION,
   path: PATH,
+  image: shareImage("nosotros"),
 });
 
 const FOUNDERS = TEACHERS.filter((teacher) => teacher.isFounder).sort(

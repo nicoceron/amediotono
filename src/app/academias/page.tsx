@@ -38,6 +38,7 @@ import {
   webPageJsonLd,
   SITE_CONTENT_UPDATED_AT,
 } from "@/lib/seo";
+import { shareImage } from "@/lib/share-cards";
 
 const TITLE = "Selección y evaluación de profesores de música para academias y colegios";
 const DESCRIPTION =
@@ -47,6 +48,7 @@ export const metadata: Metadata = createPageMetadata({
   title: brandTitle("Profes de música para academias y colegios"),
   description: DESCRIPTION,
   path: B2B_HUB_PATH,
+  image: shareImage("academias"),
   keywords: [
     "selección de profesores de música",
     "profesores de música para colegios",

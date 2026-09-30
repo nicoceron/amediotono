@@ -32,7 +32,7 @@ const nextConfig: NextConfig = {
     authInterrupts: true,
   },
   images: {
-    formats: ["image/webp"],
+    formats: ["image/avif", "image/webp"],
     minimumCacheTTL: 604800,
     qualities: [75, 100],
   },

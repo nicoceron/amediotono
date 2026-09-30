@@ -11,12 +11,14 @@ import {
   jsonLd,
   teachersItemListJsonLd,
 } from "@/lib/seo";
+import { shareImage } from "@/lib/share-cards";
 
 export const metadata: Metadata = createPageMetadata({
   title: brandTitle("Profesores de música en Bogotá y virtuales"),
   description:
     "Encuentra profes de música para clases particulares virtuales o a domicilio. Filtra por curso, formato, ubicación e idioma en A medio tono.",
   path: "/profes",
+  image: shareImage("profes"),
 });
 
 export default function ProfesPage() {

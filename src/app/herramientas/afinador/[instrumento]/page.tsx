@@ -33,6 +33,7 @@ import {
   webPageJsonLd,
   SITE_CONTENT_UPDATED_AT,
 } from "@/lib/seo";
+import { shareImage } from "@/lib/share-cards";
 
 export const dynamicParams = false;
 
@@ -53,6 +54,7 @@ export async function generateMetadata({
     title: brandTitle(`${preset.headline} gratis con micrófono`),
     description: preset.metaDescription,
     path: tunerPresetPath(preset.slug),
+    image: shareImage(`afinador-${preset.slug}`),
     keywords: [
       `afinador de ${preset.name}`,
       `afinador de ${preset.name} online`,

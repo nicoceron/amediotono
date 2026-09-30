@@ -77,7 +77,7 @@ export const post: BlogPost = {
         },
         {
           type: "p",
-          text: "Para los intervalos, las canciones de referencia ayudan mucho al principio; tienes ejemplos en [qué es un intervalo musical](/blog/que-es-un-intervalo-musical). Con el tiempo, la meta es reconocer el color de cada intervalo sin pasar por la canción, porque en el examen no hay tiempo para cantarla entera.",
+          text: "Para los intervalos, las canciones de referencia ayudan mucho al principio; tienes ejemplos en [qué es un intervalo musical](/blog/que-es-un-intervalo-musical). Con el tiempo, la meta es reconocer el color de cada intervalo sin pasar por la canción, porque en el examen no hay tiempo para cantarla entera. Para practicar a diario, usa nuestro [entrenamiento auditivo de intervalos](/herramientas/entrenamiento-auditivo).",
         },
       ],
     },

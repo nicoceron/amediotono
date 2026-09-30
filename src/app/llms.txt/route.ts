@@ -3,7 +3,14 @@ import { BLOG_CATEGORIES, BLOG_CATEGORY_ORDER, categoryPath, postPath, postsByCa
 import { CONTACT_EMAIL, INSTAGRAM_URL, WHATSAPP_DISPLAY, whatsappHref } from "@/lib/contact";
 import { COURSE_PAGES } from "@/lib/course-pages";
 import { TEACHERS } from "@/lib/teachers";
-import { METRONOME_PATH, TUNER_PATH, TUNER_PRESETS, tunerPresetPath } from "@/lib/music-tools";
+import {
+  EAR_TRAINING_PATH,
+  METRONOME_PATH,
+  TUNER_PATH,
+  TUNER_PRESETS,
+  VOICE_TYPE_PATH,
+  tunerPresetPath,
+} from "@/lib/music-tools";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_SLOGAN, absoluteUrl } from "@/lib/seo";
 
 export const dynamic = "force-static";
@@ -44,15 +51,18 @@ export function GET() {
       (service) => `- [${service.headline}](${absoluteUrl(service.path)}): ${service.metaDescription}`,
     ),
     "",
-    "## Preparación y clases online",
+    "## Clases online, a domicilio y preparación",
     "",
     `- [Clases de música online](${absoluteUrl("/clases-de-musica-online")}): clases en vivo por videollamada desde cualquier ciudad.`,
+    `- [Clases de música a domicilio en Bogotá](${absoluteUrl("/clases-de-musica-a-domicilio-bogota")}): el profe va a tu casa en Bogotá y alrededores, según su disponibilidad.`,
     `- [Preuniversitario de música](${absoluteUrl("/preuniversitario-musica")}): preparación para pruebas de admisión (teoría, solfeo, dictado, instrumento).`,
     "",
     "## Herramientas gratis",
     "",
     `- [Metrónomo online](${absoluteUrl(METRONOME_PATH)})`,
     `- [Afinador cromático online](${absoluteUrl(TUNER_PATH)})`,
+    `- [Test de tipo de voz con micrófono](${absoluteUrl(VOICE_TYPE_PATH)})`,
+    `- [Entrenamiento auditivo de intervalos](${absoluteUrl(EAR_TRAINING_PATH)})`,
     `- [Glosario de términos musicales](${absoluteUrl("/glosario-musical")})`,
     ...TUNER_PRESETS.map((preset) => `- [${preset.headline}](${absoluteUrl(tunerPresetPath(preset.slug))})`),
     "",

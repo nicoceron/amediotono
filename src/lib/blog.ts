@@ -49,6 +49,12 @@ export const BLOG_CATEGORIES: Record<
     description: "Carreras de música, pruebas de admisión, dictado, solfeo y audiciones en universidades colombianas.",
     accent: "var(--orange)",
   },
+  "para-profes": {
+    label: "Para profes",
+    title: "Guías para profes de música",
+    description: "Cómo ser profe de música en Colombia, dar clases particulares y preparar clases que funcionan.",
+    accent: "var(--green)",
+  },
   academias: {
     label: "Para academias",
     title: "Guías para academias y colegios",

@@ -20,6 +20,7 @@ import {
   webPageJsonLd,
   SITE_CONTENT_UPDATED_AT,
 } from "@/lib/seo";
+import { shareImage } from "@/lib/share-cards";
 
 const PATH = "/clases";
 const TITLE = "Clases de música en Bogotá y virtuales";
@@ -30,6 +31,7 @@ export const metadata: Metadata = createPageMetadata({
   title: brandTitle(TITLE),
   description: DESCRIPTION,
   path: PATH,
+  image: shareImage("clases"),
   keywords: [
     "clases de música en Bogotá",
     "clases de música a domicilio",

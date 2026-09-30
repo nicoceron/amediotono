@@ -78,6 +78,7 @@ export function TeacherCard({ teacher }: { teacher: Teacher }) {
             </span>
             <span
               className="profe-card-badge"
+              role="img"
               aria-label="Profesor verificado"
               title="Profesor verificado"
             >

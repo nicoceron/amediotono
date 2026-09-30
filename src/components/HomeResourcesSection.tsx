@@ -1,5 +1,13 @@
 import Link from "next/link";
-import { ArrowRight, BookOpen, GraduationCap, MonitorSmartphone, Timer } from "lucide-react";
+import {
+  ArrowRight,
+  BookOpen,
+  GraduationCap,
+  House,
+  Library,
+  MonitorSmartphone,
+  Timer,
+} from "lucide-react";
 import { BLOG_POSTS } from "@/lib/blog";
 import { TOOLS_PATH } from "@/lib/music-tools";
 
@@ -12,25 +20,39 @@ const RESOURCES = [
     accent: "var(--blue)",
   },
   {
+    href: "/clases-de-musica-a-domicilio-bogota",
+    title: "Clases a domicilio",
+    body: "Tu profe va a tu casa en Bogotá y alrededores.",
+    icon: House,
+    accent: "var(--orange)",
+  },
+  {
     href: "/preuniversitario-musica",
     title: "Preuniversitario de música",
     body: "Teoría, solfeo, dictado e instrumento para tu prueba de admisión.",
     icon: GraduationCap,
-    accent: "var(--orange)",
+    accent: "var(--green)",
   },
   {
     href: TOOLS_PATH,
-    title: "Metrónomo y afinador",
-    body: "Herramientas gratis para practicar desde el celular.",
+    title: "Herramientas gratis",
+    body: "Metrónomo, afinador, test de voz y entrenamiento auditivo.",
     icon: Timer,
-    accent: "var(--green)",
+    accent: "var(--pink)",
   },
   {
     href: "/blog",
     title: "Blog de música",
     body: `${BLOG_POSTS.length} guías: edades, instrumentos, técnica y cuidado.`,
     icon: BookOpen,
-    accent: "var(--pink)",
+    accent: "var(--blue)",
+  },
+  {
+    href: "/glosario-musical",
+    title: "Glosario musical",
+    body: "Los términos de la música explicados en palabras sencillas.",
+    icon: Library,
+    accent: "var(--orange)",
   },
 ];
 

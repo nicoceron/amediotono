@@ -135,7 +135,7 @@ export const post: BlogPost = {
         { type: "h3", text: "Intervalos con canciones de referencia" },
         {
           type: "p",
-          text: "Asociar cada intervalo al comienzo de una melodía conocida es un truco clásico. Algunas referencias ascendentes:",
+          text: "Asociar cada intervalo al comienzo de una melodía conocida es un truco clásico, y luego puedes ponerte a prueba con nuestro [entrenamiento auditivo](/herramientas/entrenamiento-auditivo). Algunas referencias ascendentes:",
         },
         {
           type: "table",

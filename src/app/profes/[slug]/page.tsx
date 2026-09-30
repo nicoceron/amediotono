@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
-  ArrowLeft,
+  ArrowRight,
   BadgeCheck,
   GraduationCap,
   House,
@@ -15,6 +15,9 @@ import {
 } from "lucide-react";
 import { Footer } from "@/components/Footer";
 import { ShareTeacherButton } from "@/components/ShareTeacherButton";
+import { TeacherCard } from "@/components/TeacherCard";
+import { Breadcrumbs } from "@/components/editorial/Breadcrumbs";
+import { postPath, primaryCoursePosts } from "@/lib/blog";
 import {
   TEACHERS,
   getTeacherBySlug,
@@ -94,6 +97,23 @@ function teacherShareCourseList(
   return `${courses.slice(0, -1).join(", ")} y ${courses[courses.length - 1]}`;
 }
 
+const MORE_TEACHERS = 3;
+const MORE_GUIDES = 4;
+
+/**
+ * Other profes for the first instrument (in this profe's order) that someone
+ * else also teaches, so the "Más profes de X" heading is always accurate.
+ */
+function similarTeachers(teacher: NonNullable<ReturnType<typeof getTeacherBySlug>>) {
+  for (const skill of teacher.skills) {
+    const others = TEACHERS.filter(
+      (other) => other.slug !== teacher.slug && other.skills.some((item) => item.id === skill.id),
+    );
+    if (others.length) return { skill, teachers: others.slice(0, MORE_TEACHERS) };
+  }
+  return null;
+}
+
 export function generateStaticParams() {
   return TEACHERS.map((t) => ({ slug: t.slug }));
 }
@@ -146,6 +166,12 @@ export default async function ProfeDetailPage({
   const shareTitle = teacherProfileTitle(teacher);
   const shareText = `¡Mira el perfil de ${teacher.name}, tu profe de ${teacherShareCourseList(teacher)}!\nA 1/2 tono - Escuela de Artes y Música`;
   const mobileTeacherName = shortDisplayName(teacher.name);
+  const similar = similarTeachers(teacher);
+  const moreTeachers = similar?.teachers ?? [];
+  const mainSkill = similar?.skill;
+  const mainCoursePath = mainSkill ? COURSE_PAGE_PATHS.get(mainSkill.id) : undefined;
+  const guideSkill = teacher.skills.find((skill) => primaryCoursePosts(skill.id).length > 0);
+  const guides = guideSkill ? primaryCoursePosts(guideSkill.id).slice(0, MORE_GUIDES) : [];
 
   return (
     <>
@@ -159,10 +185,13 @@ export default async function ProfeDetailPage({
         style={{ "--profe-color": teacher.color } as React.CSSProperties}
       >
         <div className="container">
-          <Link href="/profes" className="profe-back">
-            <ArrowLeft size={18} strokeWidth={2.4} />
-            <span>Volver a profes</span>
-          </Link>
+          <Breadcrumbs
+            items={[
+              { name: "Inicio", path: "/" },
+              { name: "Profes", path: "/profes" },
+              { name: teacher.name, path: `/profes/${teacher.slug}` },
+            ]}
+          />
 
           <div className="profe-detail-grid">
             <div className="profe-detail-main">
@@ -433,6 +462,48 @@ export default async function ProfeDetailPage({
           </div>
         </div>
       </section>
+
+      {(moreTeachers.length > 0 || guides.length > 0) && (
+        <section className="block ed-section pd-more" aria-label="Más profes y guías">
+          <div className="container">
+            {moreTeachers.length > 0 && mainSkill && (
+              <>
+                <div className="sec-head ed-sec-head">
+                  <h2>Más profes de {mainSkill.label.toLowerCase()}</h2>
+                  {mainCoursePath && (
+                    <p className="sec-sub">
+                      <Link href={mainCoursePath} prefetch={false}>
+                        Ver las clases de {mainSkill.label.toLowerCase()} y todos sus profes{" "}
+                        <ArrowRight size={16} strokeWidth={2.4} aria-hidden="true" />
+                      </Link>
+                    </p>
+                  )}
+                </div>
+                <ul className="profe-list">
+                  {moreTeachers.map((other) => (
+                    <TeacherCard teacher={other} key={other.slug} />
+                  ))}
+                </ul>
+              </>
+            )}
+            {guides.length > 0 && guideSkill && (
+              <div className="ed-related">
+                <h2 className="ed-h2">Guías de {guideSkill.label.toLowerCase()}</h2>
+                <ul className="ed-link-list">
+                  {guides.map((post) => (
+                    <li key={post.slug}>
+                      <Link href={postPath(post.slug)} prefetch={false}>
+                        <strong>{post.title}</strong>
+                        <span>{post.excerpt}</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        </section>
+      )}
       <Footer />
     </>
   );
