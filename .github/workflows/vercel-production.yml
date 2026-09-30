@@ -16,6 +16,7 @@ concurrency:
 env:
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+  INDEXNOW_SITEMAP: .indexnow/sitemap.xml
 
 jobs:
   deploy-production:
@@ -37,11 +38,6 @@ jobs:
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
 
-      # Remember the live sitemap so only new or changed URLs are sent to IndexNow.
-      - name: Snapshot live sitemap
-        continue-on-error: true
-        run: node scripts/submit-indexnow.mjs --snapshot "$RUNNER_TEMP/sitemap-before.xml"
-
       # --archive=tgz uploads the build as a few compressed parts instead of one
       # request per file: a Next.js output has thousands of files and the Hobby
       # plan allows 5,000 uploads per day.
@@ -50,8 +46,25 @@ jobs:
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
 
+      # The sitemap from the last successful IndexNow submission, so only new or
+      # changed URLs are sent (all of them when there is no previous record).
+      - name: Restore last submitted sitemap
+        uses: actions/cache/restore@v4
+        with:
+          path: ${{ env.INDEXNOW_SITEMAP }}
+          key: indexnow-sitemap-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: indexnow-sitemap-
+
       # Notifies Bing (which also feeds ChatGPT search and Copilot), Yandex,
       # Seznam, Naver and Yep. Never fails the deploy.
       - name: Submit new and changed URLs to IndexNow
+        id: indexnow
         continue-on-error: true
-        run: node scripts/submit-indexnow.mjs --previous "$RUNNER_TEMP/sitemap-before.xml"
+        run: node scripts/submit-indexnow.mjs --previous "$INDEXNOW_SITEMAP" --save "$INDEXNOW_SITEMAP"
+
+      - name: Remember submitted sitemap
+        if: steps.indexnow.outcome == 'success' && hashFiles(env.INDEXNOW_SITEMAP) != ''
+        uses: actions/cache/save@v4
+        with:
+          path: ${{ env.INDEXNOW_SITEMAP }}
+          key: indexnow-sitemap-${{ github.run_id }}-${{ github.run_attempt }}
