@@ -1,6 +1,5 @@
-import nodemailer from "nodemailer";
 import { CONTACT_EMAIL } from "@/lib/contact";
-import { escapeHtml, getSmtpConfig } from "@/lib/mailer";
+import { escapeHtml, sendFormEmail } from "@/lib/mailer";
 
 export const runtime = "nodejs";
 
@@ -166,9 +165,7 @@ export async function POST(request: Request) {
     const residencia = getRequiredText(formData, "residencia");
     const idiomas = getOptionalList(formData, "idiomas");
 
-    const cvBuffer = Buffer.from(await cv.arrayBuffer());
-    const smtpConfig = getSmtpConfig();
-    const transporter = nodemailer.createTransport(smtpConfig);
+    const cvContent = await cv.arrayBuffer();
     const to = process.env.JOB_APPLICATION_EMAIL_TO?.trim() || CONTACT_EMAIL;
     const { text, html } = buildEmailBody({
       nombre,
@@ -183,8 +180,7 @@ export async function POST(request: Request) {
       idiomas,
     });
 
-    await transporter.sendMail({
-      from: `"A Medio Tono" <${smtpConfig.auth.user}>`,
+    await sendFormEmail({
       to,
       replyTo: correo,
       subject: `Nueva aplicación de ${nombre}`,
@@ -193,8 +189,8 @@ export async function POST(request: Request) {
       attachments: [
         {
           filename: cv.name || `cv-${nombre}.pdf`,
-          content: cvBuffer,
-          contentType: cv.type || undefined,
+          type: cv.type || "application/octet-stream",
+          content: cvContent,
         },
       ],
     });

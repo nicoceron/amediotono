@@ -1,27 +1,29 @@
-export function getSmtpConfig() {
-  const user = process.env.SMTP_USER?.trim();
-  const rawPassword = process.env.SMTP_PASSWORD?.trim();
-  const host = process.env.SMTP_HOST?.trim() || "smtp.gmail.com";
+import { getCloudflareContext } from "@opennextjs/cloudflare";
 
-  if (!user || !rawPassword) {
-    throw new Error("Email delivery is not configured.");
-  }
+/** Sender for form notifications; the domain is verified in Cloudflare Email Sending. */
+const FORM_EMAIL_FROM = { name: "A Medio Tono", email: "formularios@amediotonomusic.com" };
 
-  const port = Number(process.env.SMTP_PORT ?? 465);
-  const password =
-    host.toLowerCase() === "smtp.gmail.com"
-      ? rawPassword.replace(/\s+/g, "")
-      : rawPassword;
+type FormEmail = {
+  to: string;
+  replyTo: string;
+  subject: string;
+  text: string;
+  html: string;
+  attachments?: { filename: string; type: string; content: ArrayBuffer }[];
+};
 
-  return {
-    host,
-    port: Number.isFinite(port) ? port : 465,
-    secure: (process.env.SMTP_SECURE ?? "true").toLowerCase() !== "false",
-    auth: {
-      user,
-      pass: password,
-    },
-  };
+/** Sends a form notification through the Worker's Cloudflare Email Sending binding. */
+export async function sendFormEmail({ attachments, ...email }: FormEmail) {
+  const { env } = await getCloudflareContext({ async: true });
+
+  await env.EMAIL.send({
+    ...email,
+    from: FORM_EMAIL_FROM,
+    attachments: attachments?.map((attachment) => ({
+      ...attachment,
+      disposition: "attachment" as const,
+    })),
+  });
 }
 
 export function escapeHtml(value: string) {

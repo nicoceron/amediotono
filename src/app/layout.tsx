@@ -3,8 +3,6 @@ import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { SmoothScrollProvider } from "@/components/SmoothScrollProvider";
-import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import { B2B_HUB_PATH, B2B_SERVICES } from "@/lib/b2b";
 import { COURSE_PAGES } from "@/lib/course-pages";
 import { TEACHERS } from "@/lib/teachers";
@@ -146,8 +144,6 @@ export default function RootLayout({
           </main>
           <WhatsAppFloat />
         </SmoothScrollProvider>
-        <Analytics />
-        <SpeedInsights />
       </body>
     </html>
   );

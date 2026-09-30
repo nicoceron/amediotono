@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import type { FormEvent } from "react";
-import { track } from "@vercel/analytics";
 import { ArrowRight, CheckCircle2, MessageCircle } from "lucide-react";
 import { whatsappHref } from "@/lib/contact";
 
@@ -40,7 +39,6 @@ export function B2BLeadForm({
         throw new Error(result.message || "No pudimos enviar tu solicitud.");
       }
 
-      track("b2b_lead", { service: String(data.servicio || "sin-definir") });
       form.reset();
       setStatus("sent");
     } catch (error) {

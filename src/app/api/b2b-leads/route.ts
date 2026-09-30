@@ -1,7 +1,6 @@
-import nodemailer from "nodemailer";
 import { B2B_INSTITUTION_TYPES, getB2BService } from "@/lib/b2b";
 import { CONTACT_EMAIL } from "@/lib/contact";
-import { emailTableHtml, getSmtpConfig } from "@/lib/mailer";
+import { emailTableHtml, sendFormEmail } from "@/lib/mailer";
 
 export const runtime = "nodejs";
 
@@ -84,15 +83,12 @@ export async function POST(request: Request) {
       ["Necesidad", necesidad],
     ];
 
-    const smtpConfig = getSmtpConfig();
-    const transporter = nodemailer.createTransport(smtpConfig);
     const to =
       process.env.B2B_LEADS_EMAIL_TO?.trim() ||
       process.env.JOB_APPLICATION_EMAIL_TO?.trim() ||
       CONTACT_EMAIL;
 
-    await transporter.sendMail({
-      from: `"A Medio Tono" <${smtpConfig.auth.user}>`,
+    await sendFormEmail({
       to,
       replyTo: correo,
       subject: `Nueva solicitud B2B: ${institucion} (${serviceName})`,
