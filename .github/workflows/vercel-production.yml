@@ -42,8 +42,11 @@ jobs:
         continue-on-error: true
         run: node scripts/submit-indexnow.mjs --snapshot "$RUNNER_TEMP/sitemap-before.xml"
 
+      # --archive=tgz uploads the build as a few compressed parts instead of one
+      # request per file: a Next.js output has thousands of files and the Hobby
+      # plan allows 5,000 uploads per day.
       - name: Deploy production artifacts
-        run: vercel deploy --prebuilt --prod --token="$VERCEL_TOKEN"
+        run: vercel deploy --prebuilt --prod --archive=tgz --token="$VERCEL_TOKEN"
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
 
