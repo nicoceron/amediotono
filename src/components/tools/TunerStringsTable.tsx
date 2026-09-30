@@ -2,7 +2,7 @@ import { midiToFrequency, noteLabel, type TunerString } from "@/lib/music-tools"
 
 export function TunerStringsTable({ strings, caption }: { strings: TunerString[]; caption: string }) {
   return (
-    <div className="prose-table-wrap">
+    <div className="prose-table-wrap" role="region" aria-label={caption} tabIndex={0}>
       <table>
         <caption>{caption}</caption>
         <thead>

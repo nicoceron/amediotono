@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, BriefcaseBusiness, GraduationCap, MapPin, Music2 } from "lucide-react";
+import { ArrowLeft, ArrowRight, BriefcaseBusiness, GraduationCap, MapPin, Music2 } from "lucide-react";
 import { JobApplicationTabs } from "@/components/JobApplicationTabs";
 import {
   JOB_POSTED_AT,
@@ -112,6 +112,10 @@ export default function TrabajaConNosotrosPage() {
                   </div>
                 );
               })}
+              <Link className="job-summary-guides" href="/blog/categoria/para-profes" prefetch={false}>
+                Guías para profes de música
+                <ArrowRight aria-hidden="true" size={18} strokeWidth={2.4} />
+              </Link>
             </aside>
 
             <div className="job-form-panel" id="job-application-form">

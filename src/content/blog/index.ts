@@ -26,6 +26,12 @@ import { post as post_beneficios_de_aprender_violin } from "./beneficios-de-apre
 import { post as post_beneficios_de_cantar_y_tomar_clases_de_canto } from "./beneficios-de-cantar-y-tomar-clases-de-canto";
 import { post as post_beneficios_de_la_musica_en_los_ninos } from "./beneficios-de-la-musica-en-los-ninos";
 import { post as post_beneficios_de_tocar_bateria_y_percusion } from "./beneficios-de-tocar-bateria-y-percusion";
+import { post as post_canas_para_clarinete_y_saxofon_como_elegir_la_dureza } from "./canas-para-clarinete-y-saxofon-como-elegir-la-dureza";
+import { post as post_canciones_colombianas_para_aprender_en_tiple_o_guitarra } from "./canciones-colombianas-para-aprender-en-tiple-o-guitarra";
+import { post as post_canciones_faciles_para_empezar_a_cantar } from "./canciones-faciles-para-empezar-a-cantar";
+import { post as post_canciones_faciles_para_guitarra_principiantes } from "./canciones-faciles-para-guitarra-principiantes";
+import { post as post_canciones_faciles_para_piano_principiantes } from "./canciones-faciles-para-piano-principiantes";
+import { post as post_canciones_infantiles_para_aprender_un_instrumento } from "./canciones-infantiles-para-aprender-un-instrumento";
 import { post as post_canto_lirico_o_canto_popular } from "./canto-lirico-o-canto-popular";
 import { post as post_canto_para_ninos_como_cuidar_su_voz } from "./canto-para-ninos-como-cuidar-su-voz";
 import { post as post_carreras_de_musica_en_colombia } from "./carreras-de-musica-en-colombia";
@@ -43,11 +49,17 @@ import { post as post_clases_de_musica_para_ninos_de_4_y_5_anos } from "./clases
 import { post as post_clases_de_musica_para_ninos_de_6_a_8_anos } from "./clases-de-musica-para-ninos-de-6-a-8-anos";
 import { post as post_clases_de_musica_para_ninos_de_9_a_12_anos } from "./clases-de-musica-para-ninos-de-9-a-12-anos";
 import { post as post_como_acompanar_a_tu_hijo_en_clases_virtuales_de_musica } from "./como-acompanar-a-tu-hijo-en-clases-virtuales-de-musica";
+import { post as post_como_afinar_el_bajo_electrico } from "./como-afinar-el-bajo-electrico";
 import { post as post_como_afinar_el_tiple } from "./como-afinar-el-tiple";
 import { post as post_como_afinar_el_violin } from "./como-afinar-el-violin";
+import { post as post_como_afinar_el_violonchelo } from "./como-afinar-el-violonchelo";
 import { post as post_como_afinar_la_guitarra } from "./como-afinar-la-guitarra";
+import { post as post_como_ampliar_el_registro_vocal } from "./como-ampliar-el-registro-vocal";
 import { post as post_como_aprender_musica_desde_cero } from "./como-aprender-musica-desde-cero";
 import { post as post_como_cambiar_las_cuerdas_de_la_guitarra } from "./como-cambiar-las-cuerdas-de-la-guitarra";
+import { post as post_como_cantar_afinado } from "./como-cantar-afinado";
+import { post as post_como_cantar_sin_lastimar_la_garganta } from "./como-cantar-sin-lastimar-la-garganta";
+import { post as post_como_componer_una_cancion_desde_cero } from "./como-componer-una-cancion-desde-cero";
 import { post as post_como_contratar_profesores_de_musica_para_tu_academia } from "./como-contratar-profesores-de-musica-para-tu-academia";
 import { post as post_como_cuidar_la_voz_guia_para_cantantes } from "./como-cuidar-la-voz-guia-para-cantantes";
 import { post as post_como_cuidar_un_bajo_electrico } from "./como-cuidar-un-bajo-electrico";
@@ -57,6 +69,7 @@ import { post as post_como_cuidar_un_tiple_y_una_bandola } from "./como-cuidar-u
 import { post as post_como_cuidar_un_violonchelo } from "./como-cuidar-un-violonchelo";
 import { post as post_como_cuidar_una_bateria_y_los_instrumentos_de_percusion } from "./como-cuidar-una-bateria-y-los-instrumentos-de-percusion";
 import { post as post_como_cuidar_y_limpiar_un_piano } from "./como-cuidar-y-limpiar-un-piano";
+import { post as post_como_dar_clases_de_musica_particulares } from "./como-dar-clases-de-musica-particulares";
 import { post as post_como_elegir_profesor_de_musica } from "./como-elegir-profesor-de-musica";
 import { post as post_como_elegir_tu_primer_bajo_electrico } from "./como-elegir-tu-primer-bajo-electrico";
 import { post as post_como_elegir_tu_primer_clarinete } from "./como-elegir-tu-primer-clarinete";
@@ -73,8 +86,13 @@ import { post as post_como_elegir_un_contrabajo_para_empezar } from "./como-eleg
 import { post as post_como_elegir_un_tiple_o_una_bandola } from "./como-elegir-un-tiple-o-una-bandola";
 import { post as post_como_elegir_una_bateria_o_cajon_para_empezar } from "./como-elegir-una-bateria-o-cajon-para-empezar";
 import { post as post_como_elegir_una_flauta_dulce } from "./como-elegir-una-flauta-dulce";
+import { post as post_como_empezar_a_improvisar } from "./como-empezar-a-improvisar";
+import { post as post_como_entrenar_el_oido_musical } from "./como-entrenar-el-oido-musical";
 import { post as post_como_escribir_una_vacante_de_profesor_de_musica } from "./como-escribir-una-vacante-de-profesor-de-musica";
 import { post as post_como_guardar_instrumentos_humedad_y_clima_en_colombia } from "./como-guardar-instrumentos-humedad-y-clima-en-colombia";
+import { post as post_como_hacer_la_cejilla_en_guitarra } from "./como-hacer-la-cejilla-en-guitarra";
+import { post as post_como_hacer_vibrato_en_el_violin } from "./como-hacer-vibrato-en-el-violin";
+import { post as post_como_leer_la_clave_de_fa } from "./como-leer-la-clave-de-fa";
 import { post as post_como_leer_partituras_guia_para_principiantes } from "./como-leer-partituras-guia-para-principiantes";
 import { post as post_como_leer_tablaturas_de_guitarra_y_bajo } from "./como-leer-tablaturas-de-guitarra-y-bajo";
 import { post as post_como_limpiar_un_saxofon } from "./como-limpiar-un-saxofon";
@@ -89,14 +107,23 @@ import { post as post_como_limpiar_y_cuidar_una_guitarra_electrica } from "./com
 import { post as post_como_memorizar_una_pieza_musical } from "./como-memorizar-una-pieza-musical";
 import { post as post_como_motivar_a_tu_hijo_a_practicar_su_instrumento } from "./como-motivar-a-tu-hijo-a-practicar-su-instrumento";
 import { post as post_como_organizar_el_area_de_musica_de_un_colegio } from "./como-organizar-el-area-de-musica-de-un-colegio";
+import { post as post_como_poner_los_dedos_en_el_violin } from "./como-poner-los-dedos-en-el-violin";
 import { post as post_como_practicar_musica_en_casa } from "./como-practicar-musica-en-casa";
 import { post as post_como_preparar_tu_espacio_para_clases_virtuales_de_musica } from "./como-preparar-tu-espacio-para-clases-virtuales-de-musica";
+import { post as post_como_preparar_una_clase_de_musica } from "./como-preparar-una-clase-de-musica";
 import { post as post_como_prepararte_para_la_prueba_de_admision_de_musica } from "./como-prepararte-para-la-prueba-de-admision-de-musica";
 import { post as post_como_prepararte_para_tu_primer_recital } from "./como-prepararte-para-tu-primer-recital";
+import { post as post_como_proteger_tu_audicion_si_eres_musico } from "./como-proteger-tu-audicion-si-eres-musico";
 import { post as post_como_retener_a_los_profesores_de_tu_academia } from "./como-retener-a-los-profesores-de-tu-academia";
+import { post as post_como_saber_mi_tipo_de_voz } from "./como-saber-mi-tipo-de-voz";
+import { post as post_como_sacar_sonido_en_la_flauta_traversa } from "./como-sacar-sonido-en-la-flauta-traversa";
+import { post as post_como_ser_profesor_de_musica_en_colombia } from "./como-ser-profesor-de-musica-en-colombia";
 import { post as post_como_sostener_el_arco_del_violin } from "./como-sostener-el-arco-del-violin";
+import { post as post_como_transportar_una_cancion } from "./como-transportar-una-cancion";
 import { post as post_como_usar_el_metronomo_para_practicar } from "./como-usar-el-metronomo-para-practicar";
+import { post as post_como_usar_el_pedal_del_piano } from "./como-usar-el-pedal-del-piano";
 import { post as post_como_vencer_el_miedo_escenico } from "./como-vencer-el-miedo-escenico";
+import { post as post_compases_musicales_explicados_2_4_3_4_4_4_y_6_8 } from "./compases-musicales-explicados-2-4-3-4-4-4-y-6-8";
 import { post as post_cuantas_horas_practicar_al_dia } from "./cuantas-horas-practicar-al-dia";
 import { post as post_cuanto_cuestan_las_clases_de_musica_que_influye_en_el_precio } from "./cuanto-cuestan-las-clases-de-musica-que-influye-en-el-precio";
 import { post as post_cuanto_tiempo_toma_aprender_a_cantar } from "./cuanto-tiempo-toma-aprender-a-cantar";
@@ -113,8 +140,11 @@ import { post as post_cuanto_tiempo_toma_aprender_trompeta } from "./cuanto-tiem
 import { post as post_cuanto_tiempo_toma_aprender_violin } from "./cuanto-tiempo-toma-aprender-violin";
 import { post as post_cuanto_tiempo_toma_aprender_violonchelo } from "./cuanto-tiempo-toma-aprender-violonchelo";
 import { post as post_dictado_musical_como_prepararlo } from "./dictado-musical-como-prepararlo";
+import { post as post_dolor_en_los_dedos_al_tocar_guitarra } from "./dolor-en-los-dedos-al-tocar-guitarra";
 import { post as post_ejercicios_de_calentamiento_vocal } from "./ejercicios-de-calentamiento-vocal";
+import { post as post_ejercicios_de_independencia_de_manos_en_el_piano } from "./ejercicios-de-independencia-de-manos-en-el-piano";
 import { post as post_ejercicios_de_respiracion_para_cantar } from "./ejercicios-de-respiracion-para-cantar";
+import { post as post_embocadura_de_trompeta_como_empezar } from "./embocadura-de-trompeta-como-empezar";
 import { post as post_entrevista_de_admision_en_musica } from "./entrevista-de-admision-en-musica";
 import { post as post_equipo_para_clases_virtuales_de_musica_camara_microfono } from "./equipo-para-clases-virtuales-de-musica-camara-microfono";
 import { post as post_es_tarde_para_aprender_musica_a_los_30_40_o_50 } from "./es-tarde-para-aprender-musica-a-los-30-40-o-50";
@@ -129,10 +159,12 @@ import { post as post_guitarra_para_ninos_guia_para_padres } from "./guitarra-pa
 import { post as post_instrumento_nuevo_o_usado_que_revisar_antes_de_comprar } from "./instrumento-nuevo-o-usado-que-revisar-antes-de-comprar";
 import { post as post_instrumentos_de_la_musica_del_caribe_colombiano } from "./instrumentos-de-la-musica-del-caribe-colombiano";
 import { post as post_instrumentos_tipicos_de_colombia } from "./instrumentos-tipicos-de-colombia";
+import { post as post_juegos_musicales_para_ninos_en_casa } from "./juegos-musicales-para-ninos-en-casa";
 import { post as post_lectura_ritmica_y_melodica_para_la_prueba_de_admision } from "./lectura-ritmica-y-melodica-para-la-prueba-de-admision";
 import { post as post_maestro_en_musica_o_licenciatura_en_musica } from "./maestro-en-musica-o-licenciatura-en-musica";
 import { post as post_mi_hijo_quiere_dejar_el_instrumento_que_hacer } from "./mi-hijo-quiere-dejar-el-instrumento-que-hacer";
 import { post as post_microfono_para_cantar_en_casa_como_elegir } from "./microfono-para-cantar-en-casa-como-elegir";
+import { post as post_modos_griegos_explicados } from "./modos-griegos-explicados";
 import { post as post_musica_andina_colombiana_guia_para_empezar } from "./musica-andina-colombiana-guia-para-empezar";
 import { post as post_musica_para_bebes_estimulacion_musical_de_0_a_2_anos } from "./musica-para-bebes-estimulacion-musical-de-0-a-2-anos";
 import { post as post_musica_y_tdah_como_apoyar_el_aprendizaje } from "./musica-y-tdah-como-apoyar-el-aprendizaje";
@@ -151,25 +183,33 @@ import { post as post_por_que_aprender_trompeta_o_trombon } from "./por-que-apre
 import { post as post_por_que_aprender_violonchelo } from "./por-que-aprender-violonchelo";
 import { post as post_por_que_tomar_clases_de_musica_online } from "./por-que-tomar-clases-de-musica-online";
 import { post as post_posicion_correcta_de_las_manos_en_el_piano } from "./posicion-correcta-de-las-manos-en-el-piano";
+import { post as post_postura_y_ergonomia_para_musicos_evitar_lesiones } from "./postura-y-ergonomia-para-musicos-evitar-lesiones";
 import { post as post_preguntas_de_entrevista_para_profesor_de_musica } from "./preguntas-de-entrevista-para-profesor-de-musica";
 import { post as post_preuniversitario_de_musica_que_es } from "./preuniversitario-de-musica-que-es";
 import { post as post_primeras_clases_de_canto_que_esperar } from "./primeras-clases-de-canto-que-esperar";
+import { post as post_primeros_ritmos_de_bateria } from "./primeros-ritmos-de-bateria";
 import { post as post_profesores_de_musica_para_jornada_complementaria } from "./profesores-de-musica-para-jornada-complementaria";
 import { post as post_que_es_el_solfeo_y_como_practicarlo } from "./que-es-el-solfeo-y-como-practicarlo";
+import { post as post_que_es_la_armonia_musical } from "./que-es-la-armonia-musical";
 import { post as post_que_es_la_iniciacion_musical } from "./que-es-la-iniciacion-musical";
 import { post as post_que_es_un_intervalo_musical } from "./que-es-un-intervalo-musical";
 import { post as post_que_instrumento_aprender_despues_de_los_60 } from "./que-instrumento-aprender-despues-de-los-60";
 import { post as post_que_instrumento_elegir_para_mi_hijo } from "./que-instrumento-elegir-para-mi-hijo";
 import { post as post_regalos_musicales_para_ninos } from "./regalos-musicales-para-ninos";
 import { post as post_repertorio_para_la_audicion_de_admision } from "./repertorio-para-la-audicion-de-admision";
+import { post as post_respiracion_para_instrumentos_de_viento } from "./respiracion-para-instrumentos-de-viento";
 import { post as post_ritmos_colombianos_bambuco_pasillo_y_cumbia_explicados } from "./ritmos-colombianos-bambuco-pasillo-y-cumbia-explicados";
+import { post as post_ritmos_de_guitarra_rasgueos_basicos } from "./ritmos-de-guitarra-rasgueos-basicos";
 import { post as post_rubrica_de_evaluacion_docente_para_profesores_de_musica } from "./rubrica-de-evaluacion-docente-para-profesores-de-musica";
+import { post as post_rudimentos_de_bateria_para_principiantes } from "./rudimentos-de-bateria-para-principiantes";
 import { post as post_saxofon_alto_o_tenor_para_empezar } from "./saxofon-alto-o-tenor-para-empezar";
 import { post as post_trompeta_o_trombon } from "./trompeta-o-trombon";
 import { post as post_verificaciones_antes_de_contratar_profesores_colombia } from "./verificaciones-antes-de-contratar-profesores-colombia";
+import { post as post_villancicos_faciles_para_aprender_en_navidad } from "./villancicos-faciles-para-aprender-en-navidad";
 import { post as post_violin_o_viola_diferencias } from "./violin-o-viola-diferencias";
 import { post as post_violin_o_violonchelo_cual_elegir } from "./violin-o-violonchelo-cual-elegir";
 import { post as post_violin_para_ninos_guia_para_padres } from "./violin-para-ninos-guia-para-padres";
+import { post as post_voz_de_pecho_voz_de_cabeza_y_falsete } from "./voz-de-pecho-voz-de-cabeza-y-falsete";
 
 export const BLOG_POST_ENTRIES: BlogPost[] = [
   post_a_que_edad_empezar_a_estudiar_musica,
@@ -197,6 +237,12 @@ export const BLOG_POST_ENTRIES: BlogPost[] = [
   post_beneficios_de_cantar_y_tomar_clases_de_canto,
   post_beneficios_de_la_musica_en_los_ninos,
   post_beneficios_de_tocar_bateria_y_percusion,
+  post_canas_para_clarinete_y_saxofon_como_elegir_la_dureza,
+  post_canciones_colombianas_para_aprender_en_tiple_o_guitarra,
+  post_canciones_faciles_para_empezar_a_cantar,
+  post_canciones_faciles_para_guitarra_principiantes,
+  post_canciones_faciles_para_piano_principiantes,
+  post_canciones_infantiles_para_aprender_un_instrumento,
   post_canto_lirico_o_canto_popular,
   post_canto_para_ninos_como_cuidar_su_voz,
   post_carreras_de_musica_en_colombia,
@@ -214,11 +260,17 @@ export const BLOG_POST_ENTRIES: BlogPost[] = [
   post_clases_de_musica_para_ninos_de_6_a_8_anos,
   post_clases_de_musica_para_ninos_de_9_a_12_anos,
   post_como_acompanar_a_tu_hijo_en_clases_virtuales_de_musica,
+  post_como_afinar_el_bajo_electrico,
   post_como_afinar_el_tiple,
   post_como_afinar_el_violin,
+  post_como_afinar_el_violonchelo,
   post_como_afinar_la_guitarra,
+  post_como_ampliar_el_registro_vocal,
   post_como_aprender_musica_desde_cero,
   post_como_cambiar_las_cuerdas_de_la_guitarra,
+  post_como_cantar_afinado,
+  post_como_cantar_sin_lastimar_la_garganta,
+  post_como_componer_una_cancion_desde_cero,
   post_como_contratar_profesores_de_musica_para_tu_academia,
   post_como_cuidar_la_voz_guia_para_cantantes,
   post_como_cuidar_un_bajo_electrico,
@@ -228,6 +280,7 @@ export const BLOG_POST_ENTRIES: BlogPost[] = [
   post_como_cuidar_un_violonchelo,
   post_como_cuidar_una_bateria_y_los_instrumentos_de_percusion,
   post_como_cuidar_y_limpiar_un_piano,
+  post_como_dar_clases_de_musica_particulares,
   post_como_elegir_profesor_de_musica,
   post_como_elegir_tu_primer_bajo_electrico,
   post_como_elegir_tu_primer_clarinete,
@@ -244,8 +297,13 @@ export const BLOG_POST_ENTRIES: BlogPost[] = [
   post_como_elegir_un_tiple_o_una_bandola,
   post_como_elegir_una_bateria_o_cajon_para_empezar,
   post_como_elegir_una_flauta_dulce,
+  post_como_empezar_a_improvisar,
+  post_como_entrenar_el_oido_musical,
   post_como_escribir_una_vacante_de_profesor_de_musica,
   post_como_guardar_instrumentos_humedad_y_clima_en_colombia,
+  post_como_hacer_la_cejilla_en_guitarra,
+  post_como_hacer_vibrato_en_el_violin,
+  post_como_leer_la_clave_de_fa,
   post_como_leer_partituras_guia_para_principiantes,
   post_como_leer_tablaturas_de_guitarra_y_bajo,
   post_como_limpiar_un_saxofon,
@@ -260,14 +318,23 @@ export const BLOG_POST_ENTRIES: BlogPost[] = [
   post_como_memorizar_una_pieza_musical,
   post_como_motivar_a_tu_hijo_a_practicar_su_instrumento,
   post_como_organizar_el_area_de_musica_de_un_colegio,
+  post_como_poner_los_dedos_en_el_violin,
   post_como_practicar_musica_en_casa,
   post_como_preparar_tu_espacio_para_clases_virtuales_de_musica,
+  post_como_preparar_una_clase_de_musica,
   post_como_prepararte_para_la_prueba_de_admision_de_musica,
   post_como_prepararte_para_tu_primer_recital,
+  post_como_proteger_tu_audicion_si_eres_musico,
   post_como_retener_a_los_profesores_de_tu_academia,
+  post_como_saber_mi_tipo_de_voz,
+  post_como_sacar_sonido_en_la_flauta_traversa,
+  post_como_ser_profesor_de_musica_en_colombia,
   post_como_sostener_el_arco_del_violin,
+  post_como_transportar_una_cancion,
   post_como_usar_el_metronomo_para_practicar,
+  post_como_usar_el_pedal_del_piano,
   post_como_vencer_el_miedo_escenico,
+  post_compases_musicales_explicados_2_4_3_4_4_4_y_6_8,
   post_cuantas_horas_practicar_al_dia,
   post_cuanto_cuestan_las_clases_de_musica_que_influye_en_el_precio,
   post_cuanto_tiempo_toma_aprender_a_cantar,
@@ -284,8 +351,11 @@ export const BLOG_POST_ENTRIES: BlogPost[] = [
   post_cuanto_tiempo_toma_aprender_violin,
   post_cuanto_tiempo_toma_aprender_violonchelo,
   post_dictado_musical_como_prepararlo,
+  post_dolor_en_los_dedos_al_tocar_guitarra,
   post_ejercicios_de_calentamiento_vocal,
+  post_ejercicios_de_independencia_de_manos_en_el_piano,
   post_ejercicios_de_respiracion_para_cantar,
+  post_embocadura_de_trompeta_como_empezar,
   post_entrevista_de_admision_en_musica,
   post_equipo_para_clases_virtuales_de_musica_camara_microfono,
   post_es_tarde_para_aprender_musica_a_los_30_40_o_50,
@@ -300,10 +370,12 @@ export const BLOG_POST_ENTRIES: BlogPost[] = [
   post_instrumento_nuevo_o_usado_que_revisar_antes_de_comprar,
   post_instrumentos_de_la_musica_del_caribe_colombiano,
   post_instrumentos_tipicos_de_colombia,
+  post_juegos_musicales_para_ninos_en_casa,
   post_lectura_ritmica_y_melodica_para_la_prueba_de_admision,
   post_maestro_en_musica_o_licenciatura_en_musica,
   post_mi_hijo_quiere_dejar_el_instrumento_que_hacer,
   post_microfono_para_cantar_en_casa_como_elegir,
+  post_modos_griegos_explicados,
   post_musica_andina_colombiana_guia_para_empezar,
   post_musica_para_bebes_estimulacion_musical_de_0_a_2_anos,
   post_musica_y_tdah_como_apoyar_el_aprendizaje,
@@ -322,23 +394,31 @@ export const BLOG_POST_ENTRIES: BlogPost[] = [
   post_por_que_aprender_violonchelo,
   post_por_que_tomar_clases_de_musica_online,
   post_posicion_correcta_de_las_manos_en_el_piano,
+  post_postura_y_ergonomia_para_musicos_evitar_lesiones,
   post_preguntas_de_entrevista_para_profesor_de_musica,
   post_preuniversitario_de_musica_que_es,
   post_primeras_clases_de_canto_que_esperar,
+  post_primeros_ritmos_de_bateria,
   post_profesores_de_musica_para_jornada_complementaria,
   post_que_es_el_solfeo_y_como_practicarlo,
+  post_que_es_la_armonia_musical,
   post_que_es_la_iniciacion_musical,
   post_que_es_un_intervalo_musical,
   post_que_instrumento_aprender_despues_de_los_60,
   post_que_instrumento_elegir_para_mi_hijo,
   post_regalos_musicales_para_ninos,
   post_repertorio_para_la_audicion_de_admision,
+  post_respiracion_para_instrumentos_de_viento,
   post_ritmos_colombianos_bambuco_pasillo_y_cumbia_explicados,
+  post_ritmos_de_guitarra_rasgueos_basicos,
   post_rubrica_de_evaluacion_docente_para_profesores_de_musica,
+  post_rudimentos_de_bateria_para_principiantes,
   post_saxofon_alto_o_tenor_para_empezar,
   post_trompeta_o_trombon,
   post_verificaciones_antes_de_contratar_profesores_colombia,
+  post_villancicos_faciles_para_aprender_en_navidad,
   post_violin_o_viola_diferencias,
   post_violin_o_violonchelo_cual_elegir,
   post_violin_para_ninos_guia_para_padres,
+  post_voz_de_pecho_voz_de_cabeza_y_falsete,
 ];

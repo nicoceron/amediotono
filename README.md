@@ -10,7 +10,10 @@ Sitio de [A medio tono](https://www.amediotonomusic.com): clases de música virt
 | Artículos del blog (`/blog/<slug>`) | `src/content/blog/<slug>.ts` | Crea el archivo y listo: `npm run content:index` (se ejecuta solo antes de `dev` y `build`) regenera el índice. Sitemap, RSS, `llms.txt`, categorías e imagen para redes se generan solos. |
 | Categorías del blog | `src/lib/blog.ts` | Títulos y descripciones de `/blog/categoria/<id>`. |
 | Glosario (`/glosario-musical`) | `src/content/glossary.ts` | Términos con anclas propias. |
-| Herramientas (`/herramientas`) | `src/lib/music-tools.ts`, `src/components/tools/` | Metrónomo y afinador; los afinadores por instrumento se definen en `TUNER_PRESETS`. |
+| Herramientas (`/herramientas`) | `src/lib/music-tools.ts`, `src/components/tools/` | Metrónomo, afinador, test de tipo de voz y entrenamiento auditivo. Los afinadores por instrumento se definen en `TUNER_PRESETS`, los rangos de voz en `VOICE_TYPES` y los intervalos en `INTERVALS`. La detección de tono está en `src/lib/pitch.ts`. |
+| Páginas de formato (`/clases-de-musica-online`, `/clases-de-musica-a-domicilio-bogota`, `/preuniversitario-musica`) | `src/app/<ruta>/page.tsx` | Textos, preguntas frecuentes y guías enlazadas en cada archivo. |
+| Preguntas frecuentes del inicio | `src/components/HomeFaqSection.tsx` | Se muestran en el inicio y alimentan sus datos estructurados. |
+| Imágenes para redes de páginas generales (`/og/<clave>.png`) | `src/lib/share-cards.ts` | Artículos, cursos y profes tienen su propia `share-image.png`. |
 | Servicios para academias (`/academias/*`) | `src/lib/b2b.ts` | Textos, pasos, entregables y preguntas frecuentes. |
 | Profes | `src/data/teachers.json` | Alimenta perfiles, páginas de instrumento, directorio, «Nosotros» y datos estructurados. |
 | Vacante de profe (JobPosting) | `src/lib/job-posting.ts` | Extiende `JOB_VALID_THROUGH` mientras sigan contratando. |

@@ -379,13 +379,14 @@ export const VOICE_TYPE_PATH = `${TOOLS_PATH}/tipo-de-voz`;
 export const EAR_TRAINING_PATH = `${TOOLS_PATH}/entrenamiento-auditivo`;
 
 /** Typical comfortable ranges (orientative, adult voices). */
+/** Typical choral ranges (MIDI; 60 = Do4). Same values as /blog/como-saber-mi-tipo-de-voz. */
 export const VOICE_TYPES = [
   { name: "Bajo", low: 40, high: 64, description: "La voz masculina más grave." },
-  { name: "Barítono", low: 45, high: 69, description: "Voz masculina intermedia." },
-  { name: "Tenor", low: 48, high: 72, description: "La voz masculina más aguda." },
-  { name: "Contralto", low: 53, high: 77, description: "La voz femenina más grave." },
-  { name: "Mezzosoprano", low: 57, high: 81, description: "Voz femenina intermedia." },
-  { name: "Soprano", low: 60, high: 84, description: "La voz femenina más aguda." },
+  { name: "Barítono", low: 45, high: 65, description: "Voz masculina intermedia." },
+  { name: "Tenor", low: 48, high: 69, description: "La voz masculina más aguda." },
+  { name: "Contralto", low: 53, high: 74, description: "La voz femenina más grave." },
+  { name: "Mezzosoprano", low: 57, high: 77, description: "Voz femenina intermedia." },
+  { name: "Soprano", low: 60, high: 81, description: "La voz femenina más aguda." },
 ];
 
 /** Closest voice type by comparing the singer's range with each typical range. */

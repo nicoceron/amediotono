@@ -56,7 +56,7 @@ export function ComoFuncionaSection() {
           </h2>
         </div>
 
-        <div className="cf-grid">
+        <div className="cf-grid" role="region" aria-label="Pasos para empezar" tabIndex={0}>
           {STEPS.map((step, i) => (
             <Reveal as="article" className="cf-card" key={step.number} delay={i * 120}>
               <span

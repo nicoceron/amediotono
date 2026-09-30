@@ -120,7 +120,7 @@ export default function VoiceTypePage() {
               Estos rangos son orientativos y corresponden a voces adultas con cierta práctica. Muchas
               personas cantan con comodidad solo una parte de ellos, y está bien.
             </p>
-            <div className="prose-table-wrap">
+            <div className="prose-table-wrap" role="region" aria-label="Tipos de voz y rangos" tabIndex={0}>
               <table>
                 <thead>
                   <tr>

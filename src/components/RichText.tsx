@@ -122,16 +122,21 @@ export function RichBlocks({ blocks }: { blocks: RichBlock[] }) {
         );
       case "table":
         return (
-          <div className="prose-table-wrap" key={index}>
+          <div className="prose-table-wrap" key={index} role="region" aria-label={block.caption ?? `Tabla: ${block.head.filter((cell) => cell.trim()).map(plainText).join(", ")}`} tabIndex={0}>
             <table>
               {block.caption && <caption>{block.caption}</caption>}
               <thead>
                 <tr>
-                  {block.head.map((cell, cellIndex) => (
-                    <th scope="col" key={cellIndex}>
-                      <Inline text={cell} />
-                    </th>
-                  ))}
+                  {block.head.map((cell, cellIndex) =>
+                    // An empty corner cell (row labels below it) is not a header.
+                    cell.trim() ? (
+                      <th scope="col" key={cellIndex}>
+                        <Inline text={cell} />
+                      </th>
+                    ) : (
+                      <td key={cellIndex} />
+                    ),
+                  )}
                 </tr>
               </thead>
               <tbody>

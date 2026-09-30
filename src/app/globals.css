@@ -2087,7 +2087,7 @@ body:has(.job-application-page) {
 .job-summary-item:first-child {
   padding-top: 0;
 }
-.job-summary-item:last-child {
+.job-summary-item:last-of-type {
   padding-bottom: 0;
   border-bottom: 0;
 }
@@ -2137,7 +2137,7 @@ body:has(.job-application-page) {
   border-top: 0;
   border-right: 0;
   border-left: 0;
-  color: #7d8699;
+  color: #5f6878;
   font-family: var(--font-body);
   font-size: 16px;
   font-weight: 500;
@@ -9216,4 +9216,30 @@ section.block.ed-cta-section {
 
 .error-page-links a:hover {
   border-color: var(--ink);
+}
+
+.ed-sec-head .sec-sub a {
+  color: var(--ink);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--ed-accent, var(--ink)) 70%, transparent);
+  text-underline-offset: 3px;
+}
+
+.prose-table-wrap:focus-visible,
+.cf-grid:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--ed-accent, var(--ink)) 60%, transparent);
+  outline-offset: 4px;
+  border-radius: 12px;
+}
+
+.job-summary-guides {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  color: #373e4d;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }

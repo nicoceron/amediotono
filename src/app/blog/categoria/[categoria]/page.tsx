@@ -120,6 +120,7 @@ export default async function BlogCategoryPage({
             </div>
           </header>
 
+          <h2 className="visually-hidden">Guías de {category.label.toLowerCase()}</h2>
           <ul className="blog-grid blog-grid--spaced">
             {posts.map((post) => (
               <PostCard post={post} key={post.slug} showCategory={false} />

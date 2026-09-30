@@ -283,8 +283,14 @@ export default async function CoursePage({
           <div className="sec-head ed-sec-head">
             <h2>Cómo empezar tus clases de {lowerLabel}</h2>
             <p className="sec-sub">
-              Clases virtuales desde cualquier lugar o a domicilio en Bogotá y alrededores, para
-              niños, jóvenes y adultos.
+              <Link href="/clases-de-musica-online" prefetch={false}>
+                Clases virtuales
+              </Link>{" "}
+              desde cualquier lugar o{" "}
+              <Link href="/clases-de-musica-a-domicilio-bogota" prefetch={false}>
+                a domicilio en Bogotá
+              </Link>{" "}
+              y alrededores, para niños, jóvenes y adultos.
             </p>
           </div>
           <ol className="ed-steps">

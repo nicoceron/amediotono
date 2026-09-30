@@ -50,7 +50,7 @@ const HUB_FAQS: FaqItem[] = [
   {
     question: "¿Qué diferencia hay entre clases virtuales y a domicilio?",
     answer:
-      "En las clases a domicilio el profe va a tu casa en Bogotá o alrededores; en las virtuales te conectas por videollamada desde donde estés. Te contamos las ventajas de cada una en nuestra [guía para elegir formato](/blog/clases-de-musica-a-domicilio-o-virtuales).",
+      "En las clases a domicilio el profe va a tu casa en Bogotá o alrededores; en las virtuales te conectas por videollamada desde donde estés. Te contamos las ventajas de cada una en nuestra [guía para elegir formato](/blog/clases-de-musica-a-domicilio-o-virtuales), y tienes todos los detalles en [clases a domicilio en Bogotá](/clases-de-musica-a-domicilio-bogota) y [clases online](/clases-de-musica-online).",
   },
   {
     question: "¿Cuánto cuestan las clases?",
@@ -97,9 +97,15 @@ export default function ClasesPage() {
               <span className="ed-eyebrow">{COURSE_PAGES.length} instrumentos · {TEACHERS.length} profes</span>
               <h1>{TITLE}</h1>
               <p className="ed-lead">
-                Elige tu instrumento y conoce a los profes que lo enseñan. Clases a domicilio en
-                Bogotá y alrededores o virtuales desde cualquier lugar, para todas las edades y
-                niveles.
+                Elige tu instrumento y conoce a los profes que lo enseñan.{" "}
+                <Link href="/clases-de-musica-a-domicilio-bogota" prefetch={false}>
+                  Clases a domicilio en Bogotá
+                </Link>{" "}
+                y alrededores o{" "}
+                <Link href="/clases-de-musica-online" prefetch={false}>
+                  virtuales desde cualquier lugar
+                </Link>
+                , para todas las edades y niveles.
               </p>
               <div className="ed-actions">
                 <a

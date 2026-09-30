@@ -111,7 +111,7 @@ export default function EarTrainingPage() {
         <div className="container tool-content">
           <article className="prose">
             <h2>Los intervalos y sus canciones de referencia</h2>
-            <div className="prose-table-wrap">
+            <div className="prose-table-wrap" role="region" aria-label="Intervalos y canciones de referencia" tabIndex={0}>
               <table>
                 <thead>
                   <tr>

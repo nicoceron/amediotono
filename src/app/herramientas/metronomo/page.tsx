@@ -129,7 +129,7 @@ export default function MetronomePage() {
               Las indicaciones de tempo en italiano son orientativas: cada obra y cada intérprete
               las ajusta. Esta tabla te da un punto de partida.
             </p>
-            <div className="prose-table-wrap">
+            <div className="prose-table-wrap" role="region" aria-label="Tempos y BPM" tabIndex={0}>
               <table>
                 <thead>
                   <tr>
