@@ -11,20 +11,30 @@ import {
   whatsappHref,
 } from "@/lib/contact";
 
+// Course links point at instruments with several profes, so their landing
+// pages always exist (see COURSE_PAGES in src/lib/course-pages.ts).
 const FOOTER_COLUMNS = [
   [
-    { href: "/", label: "Inicio" },
-    { href: "/#cursos", label: "Cursos" },
+    { href: "/clases", label: "Clases" },
+    { href: "/clases-de-musica-online", label: "Clases online" },
+    { href: "/clases-de-musica-a-domicilio-bogota", label: "Clases a domicilio" },
+    { href: "/preuniversitario-musica", label: "Preuniversitario" },
     { href: "/profes", label: "Profes" },
     { href: "/nosotros", label: "Nosotros" },
-    { href: "/#testimonios", label: "Voces" },
   ],
   [
-    { href: "/#contacto", label: "Contacto" },
-    { href: "/#como-funciona", label: "Cómo funciona" },
+    { href: "/clases/piano", label: "Clases de piano" },
+    { href: "/clases/canto", label: "Clases de canto" },
+    { href: "/clases/guitarra-acustica", label: "Clases de guitarra" },
+    { href: "/clases/violin", label: "Clases de violín" },
+    { href: "/clases/iniciacion-musical", label: "Iniciación musical" },
+  ],
+  [
+    { href: "/blog", label: "Blog" },
+    { href: "/herramientas", label: "Herramientas gratis" },
+    { href: "/glosario-musical", label: "Glosario musical" },
+    { href: "/academias", label: "Para academias" },
     { href: "/trabaja-con-nosotros", label: "Trabaja con nosotros" },
-    { href: whatsappHref(), label: "WhatsApp", external: true },
-    { href: INSTAGRAM_URL, label: "Instagram", external: true },
   ],
 ];
 
@@ -157,23 +167,11 @@ export function Footer() {
             >
               {FOOTER_COLUMNS.map((column, columnIndex) => (
                 <div className="footer-menu-column" key={columnIndex}>
-                  {column.map((link) =>
-                    link.external ? (
-                      <a
-                        className="footer-menu-link"
-                        href={link.href}
-                        target="_blank"
-                        rel="noopener"
-                        key={link.label}
-                      >
-                        <span>{link.label}</span>
-                      </a>
-                    ) : (
-                      <Link className="footer-menu-link" href={link.href} prefetch={false} key={link.label}>
-                        <span>{link.label}</span>
-                      </Link>
-                    ),
-                  )}
+                  {column.map((link) => (
+                    <Link className="footer-menu-link" href={link.href} prefetch={false} key={link.label}>
+                      <span>{link.label}</span>
+                    </Link>
+                  ))}
                 </div>
               ))}
             </motion.nav>

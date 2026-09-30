@@ -41,7 +41,7 @@ export function ComoFuncionaSection() {
       <div className="container cf-container">
         <div className="cf-head">
           <h2 className="cf-title">
-            <span className="cf-title-first" style={{ color: "var(--orange)" }}>Cómo</span>
+            <span className="cf-title-first" style={{ color: "var(--orange)" }}>Cómo</span>{" "}
             <span className="cf-title-rest">
               <span style={{ color: "var(--ink)" }}>funciona</span>
               <Image
@@ -56,7 +56,7 @@ export function ComoFuncionaSection() {
           </h2>
         </div>
 
-        <div className="cf-grid">
+        <div className="cf-grid" role="region" aria-label="Pasos para empezar" tabIndex={0}>
           {STEPS.map((step, i) => (
             <Reveal as="article" className="cf-card" key={step.number} delay={i * 120}>
               <span

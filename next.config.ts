@@ -28,11 +28,21 @@ const nextConfig: NextConfig = {
       headers: publicAssetCacheHeaders,
     }));
   },
+  // Markdown twins for AI assistants (https://llmstxt.org): /blog/<slug>.md,
+  // /clases/<curso>.md, /academias/<servicio>.md and /profes.md.
+  async rewrites() {
+    return [
+      { source: "/blog/:slug\\.md", destination: "/md/blog/:slug" },
+      { source: "/clases/:curso\\.md", destination: "/md/clases/:curso" },
+      { source: "/academias/:servicio\\.md", destination: "/md/academias/:servicio" },
+      { source: "/profes\\.md", destination: "/md/profes" },
+    ];
+  },
   experimental: {
     authInterrupts: true,
   },
   images: {
-    formats: ["image/webp"],
+    formats: ["image/avif", "image/webp"],
     minimumCacheTTL: 604800,
     qualities: [75, 100],
   },

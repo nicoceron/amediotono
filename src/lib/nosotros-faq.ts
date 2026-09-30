@@ -1,4 +1,4 @@
-import type { FaqItem } from "@/lib/seo";
+import type { FaqItem } from "@/lib/content-types";
 
 export const NOSOTROS_FAQS: FaqItem[] = [
   {
@@ -19,7 +19,7 @@ export const NOSOTROS_FAQS: FaqItem[] = [
   {
     question: "¿Qué instrumentos puedo aprender?",
     answer:
-      "Puedes encontrar profes de piano, canto, guitarra, violín, flauta traversa, percusión, teoría musical, iniciación musical y otros instrumentos del equipo.",
+      "Puedes encontrar profes de piano, canto, guitarra, violín, flauta traversa, percusión, teoría musical, iniciación musical y otros instrumentos del equipo. Mira todas las [clases disponibles](/clases).",
   },
   {
     question: "¿Cómo eligen a los profes?",
@@ -29,6 +29,6 @@ export const NOSOTROS_FAQS: FaqItem[] = [
   {
     question: "¿Cómo puedo empezar?",
     answer:
-      "Puedes escribirnos por WhatsApp o revisar el directorio de profes. Te ayudamos a elegir según el instrumento, el formato de clase y tu objetivo musical.",
+      "Puedes escribirnos por WhatsApp o revisar el [directorio de profes](/profes). Te ayudamos a elegir según el instrumento, el formato de clase y tu objetivo musical.",
   },
 ];

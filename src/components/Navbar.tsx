@@ -135,6 +135,7 @@ export function Navbar() {
 
         <div className="nav-right" id="navMenu">
           <nav className="nav-links" id="navLinks">
+            <Link href="/clases" prefetch={false} onClick={() => setMenuOpen(false)}>Clases</Link>
             <Link
               href="/profes"
               className="nav-link-profes"
@@ -143,6 +144,8 @@ export function Navbar() {
             >
               Profes
             </Link>
+            <Link href="/academias" prefetch={false} onClick={() => setMenuOpen(false)}>Academias</Link>
+            <Link href="/blog" prefetch={false} onClick={() => setMenuOpen(false)}>Blog</Link>
             <Link href="/nosotros" prefetch={false} onClick={() => setMenuOpen(false)}>Nosotros</Link>
           </nav>
           <Link className="nav-cta" href="/#contacto" scroll={false} onClick={handleContactClick}>

@@ -1,9 +1,22 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, BriefcaseBusiness, GraduationCap, MapPin, Music2 } from "lucide-react";
+import { ArrowLeft, ArrowRight, BriefcaseBusiness, GraduationCap, MapPin, Music2 } from "lucide-react";
 import { JobApplicationTabs } from "@/components/JobApplicationTabs";
-import { breadcrumbJsonLd, createPageMetadata, jsonLd } from "@/lib/seo";
+import {
+  JOB_POSTED_AT,
+  JOB_TITLE,
+  JOB_VALID_THROUGH,
+  jobDescriptionHtml,
+} from "@/lib/job-posting";
+import {
+  brandTitle,
+  breadcrumbJsonLd,
+  createPageMetadata,
+  jobPostingJsonLd,
+  jsonLd,
+} from "@/lib/seo";
+import { shareImage } from "@/lib/share-cards";
 
 const JOB_DETAILS = [
   {
@@ -29,19 +42,27 @@ const JOB_DETAILS = [
 ];
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Trabaja como profesor/a de música — A ½ tono",
+  title: brandTitle("Trabajo como profesor/a de música en Bogotá"),
   description:
     "Aplica para trabajar como profesor o profesora de música en A medio tono. Buscamos profes para clases virtuales y a domicilio en Bogotá y alrededores.",
   path: "/trabaja-con-nosotros",
+  image: shareImage("trabaja-con-nosotros"),
 });
 
 export default function TrabajaConNosotrosPage() {
-  const jobsJsonLd = jsonLd(
+  const jobsJsonLd = jsonLd([
     breadcrumbJsonLd([
       { name: "Inicio", path: "/" },
       { name: "Trabaja con nosotros", path: "/trabaja-con-nosotros" },
     ]),
-  );
+    jobPostingJsonLd({
+      path: "/trabaja-con-nosotros",
+      title: JOB_TITLE,
+      descriptionHtml: jobDescriptionHtml(),
+      datePosted: JOB_POSTED_AT,
+      validThrough: JOB_VALID_THROUGH,
+    }),
+  ]);
 
   return (
     <>
@@ -74,7 +95,7 @@ export default function TrabajaConNosotrosPage() {
           </header>
 
           <div className="job-application-title">
-            <h1>Profesor/a de música</h1>
+            <h1>{JOB_TITLE}</h1>
           </div>
 
           <div className="job-application-layout">
@@ -91,6 +112,10 @@ export default function TrabajaConNosotrosPage() {
                   </div>
                 );
               })}
+              <Link className="job-summary-guides" href="/blog/categoria/para-profes" prefetch={false}>
+                Guías para profes de música
+                <ArrowRight aria-hidden="true" size={18} strokeWidth={2.4} />
+              </Link>
             </aside>
 
             <div className="job-form-panel" id="job-application-form">

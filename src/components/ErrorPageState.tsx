@@ -1,5 +1,6 @@
 "use client";
 
+import type { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Home, Mail, Music2, RefreshCw, UsersRound } from "lucide-react";
@@ -23,6 +24,8 @@ type ErrorPageStateProps = {
   actions?: LinkAction[];
   retryAction?: RetryAction;
   global?: boolean;
+  /** Extra content under the actions, e.g. popular links on the 404 page. */
+  children?: ReactNode;
 };
 
 const actionIcons = {
@@ -44,6 +47,7 @@ export function ErrorPageState({
   actions = [],
   retryAction,
   global = false,
+  children,
 }: ErrorPageStateProps) {
   return (
     <section className={["error-page", global ? "error-page--global" : ""].join(" ")}>
@@ -54,7 +58,7 @@ export function ErrorPageState({
           alt="A medio tono"
           width={635}
           height={548}
-          priority
+          loading="eager"
           sizes="76px"
         />
 
@@ -88,6 +92,8 @@ export function ErrorPageState({
             </Link>
           ))}
         </div>
+
+        {children}
       </div>
     </section>
   );

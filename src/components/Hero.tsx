@@ -1,21 +1,39 @@
 import { HeroEntrance } from "./HeroEntrance";
 
+export const HERO_MOBILE_AVIF_SRCSET =
+  "/hero/hero-mobile-480.avif 480w, /hero/hero-mobile-720.avif 720w, /hero/hero-mobile-1024.avif 1024w";
+export const HERO_DESKTOP_AVIF_SRCSET =
+  "/hero/hero-desktop-1280.avif 1280w, /hero/hero-desktop-1672.avif 1672w, /hero/hero-desktop-2560.avif 2560w, /hero/hero-desktop-3344.avif 3344w";
+
+/**
+ * Responsive AVIF first (roughly 5x lighter than the original WebP), WebP as
+ * the fallback. The first <source> whose media matches wins, so desktop
+ * sources come first and the unconditioned mobile sources cover the rest.
+ */
 function HeroBackground() {
   return (
     <picture className="hero-bg-layer">
+      <source media="(min-width: 881px)" srcSet={HERO_DESKTOP_AVIF_SRCSET} sizes="100vw" type="image/avif" />
       <source
         media="(min-width: 881px)"
-        srcSet="/hero-bg-hd.webp 1672w, /hero-bg-hd-2x.webp 3344w"
+        srcSet="/hero/hero-desktop-1280.webp 1280w, /hero-bg-hd.webp 1672w, /hero-bg-hd-2x.webp 3344w"
         sizes="100vw"
         type="image/webp"
       />
       <source media="(min-width: 881px)" srcSet="/hero-bg.svg" type="image/svg+xml" />
+      <source srcSet={HERO_MOBILE_AVIF_SRCSET} sizes="100vw" type="image/avif" />
+      <source
+        srcSet="/hero/hero-mobile-480.webp 480w, /hero/hero-mobile-720.webp 720w, /hero/hero-mobile-1024.webp 1024w"
+        sizes="100vw"
+        type="image/webp"
+      />
       <img
         src="/hero-bg-mobile-art-hd.webp"
         width={1024}
         height={1536}
         decoding="async"
         loading="eager"
+        fetchPriority="high"
         alt=""
         className="hero-bg-image"
         draggable={false}
