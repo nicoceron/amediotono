@@ -1,14 +1,18 @@
 // Tells IndexNow search engines (Bing, Yandex, Seznam, Naver, Yep…) which
 // URLs changed. Bing's index also feeds ChatGPT search and Copilot.
 //
-//   npm run indexnow                                   submit every URL in the live sitemap
-//   node scripts/submit-indexnow.mjs --snapshot FILE   save the live sitemap (before a deploy)
-//   node scripts/submit-indexnow.mjs --previous FILE   submit only URLs that are new or whose
-//                                                      <lastmod> changed since FILE (after a deploy)
+//   npm run indexnow                              submit every URL in the live sitemap
+//   node scripts/submit-indexnow.mjs \
+//     --previous FILE --save FILE                 submit only URLs that are new or whose
+//                                                 <lastmod> changed since the sitemap in
+//                                                 FILE (all of them if FILE is missing),
+//                                                 then store the live sitemap in FILE
 //
-// The production workflow (.github/workflows/vercel-production.yml) runs the
-// last two around every deploy. INDEXNOW_DRY_RUN=1 prints instead of sending.
-import { readFile, writeFile } from "node:fs/promises";
+// The production workflow (.github/workflows/vercel-production.yml) keeps
+// FILE in the GitHub Actions cache, so each deploy only sends what changed
+// since the last successful submission, whoever deployed the site.
+// INDEXNOW_DRY_RUN=1 prints instead of sending (and saves nothing).
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -32,6 +36,7 @@ const FALLBACK_PATHS = [
 ];
 
 const projectRoot = join(dirname(fileURLToPath(import.meta.url)), "..");
+const dryRun = process.env.INDEXNOW_DRY_RUN === "1";
 
 function fail(message) {
   console.error(message);
@@ -86,6 +91,7 @@ for (const filename of [".env.local", ".env", ".vercel/.env.production.local"]) 
 
 const siteUrl = normalizeSiteUrl(process.env.NEXT_PUBLIC_SITE_URL || process.env.SITE_URL);
 const keyLocation = new URL(INDEXNOW_KEY_PATH, `${siteUrl}/`).toString();
+const sitemapUrl = new URL("/sitemap.xml", `${siteUrl}/`).toString();
 
 async function fetchText(url, attempts = 3) {
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
@@ -129,20 +135,15 @@ async function resolveKey() {
   return String(config.key || "").trim();
 }
 
-const sitemapUrl = new URL("/sitemap.xml", `${siteUrl}/`).toString();
-const snapshotFile = argValue("--snapshot");
-const previousFile = argValue("--previous");
-
-if (snapshotFile) {
-  const xml = await fetchText(sitemapUrl);
-  await writeFile(snapshotFile, xml);
-  console.log(
-    xml
-      ? `Saved ${parseSitemap(xml).size} sitemap URL(s) from ${sitemapUrl} to ${snapshotFile}.`
-      : `Could not read ${sitemapUrl}; saved an empty snapshot (every URL will count as new).`,
-  );
-  process.exit(0);
+async function saveSitemap(file, xml) {
+  if (!file || dryRun) return;
+  await mkdir(dirname(file), { recursive: true });
+  await writeFile(file, xml);
+  console.log(`Saved the submitted sitemap to ${file}.`);
 }
+
+const previousFile = argValue("--previous");
+const saveFile = argValue("--save");
 
 const liveXml = await fetchText(sitemapUrl);
 const live = parseSitemap(liveXml);
@@ -150,9 +151,14 @@ let urlList;
 
 if (previousFile) {
   if (!live.size) fail(`Could not read ${sitemapUrl}; nothing submitted.`);
-  const previous = parseSitemap(await readFile(previousFile, "utf8").catch(() => ""));
+  const previousXml = await readFile(previousFile, "utf8").catch(() => "");
+  const previous = parseSitemap(previousXml);
   urlList = [...live].filter(([url, lastmod]) => previous.get(url) !== lastmod).map(([url]) => url);
-  console.log(`${live.size} URL(s) in the sitemap, ${urlList.length} new or changed since the previous deploy.`);
+  console.log(
+    previous.size
+      ? `${live.size} URL(s) in the sitemap, ${urlList.length} new or changed since the last submission.`
+      : `${live.size} URL(s) in the sitemap and no previous submission on record: submitting all of them.`,
+  );
 } else if (live.size) {
   urlList = [...live.keys()];
 } else {
@@ -162,6 +168,7 @@ if (previousFile) {
 
 if (!urlList.length) {
   console.log("Nothing to submit.");
+  await saveSitemap(saveFile, liveXml);
   process.exit(0);
 }
 
@@ -174,7 +181,7 @@ for (let start = 0; start < urlList.length; start += MAX_URLS_PER_REQUEST) {
   const batch = urlList.slice(start, start + MAX_URLS_PER_REQUEST);
   const payload = { host: new URL(siteUrl).host, key, keyLocation, urlList: batch };
 
-  if (process.env.INDEXNOW_DRY_RUN === "1") {
+  if (dryRun) {
     console.log(`IndexNow dry run: would submit ${batch.length} URL(s) to ${INDEXNOW_ENDPOINT}.`);
     console.log(JSON.stringify(payload, null, 2));
     continue;
@@ -195,3 +202,5 @@ for (let start = 0; start < urlList.length; start += MAX_URLS_PER_REQUEST) {
 
   console.log(`IndexNow accepted ${batch.length} URL(s) with HTTP ${response.status}.`);
 }
+
+if (live.size) await saveSitemap(saveFile, liveXml);
