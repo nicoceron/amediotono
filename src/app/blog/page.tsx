@@ -118,6 +118,12 @@ export default function BlogPage() {
                   </Link>
                 </li>
               ))}
+              <li style={{ ["--ed-accent" as string]: "var(--purple)" }}>
+                <Link href="/glosario-musical" prefetch={false}>
+                  <strong>Glosario musical</strong>
+                  <span>Términos explicados</span>
+                </Link>
+              </li>
               <li style={{ ["--ed-accent" as string]: "var(--orange)" }}>
                 <a href="/blog/rss.xml">
                   <strong>

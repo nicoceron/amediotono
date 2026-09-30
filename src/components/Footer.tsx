@@ -31,9 +31,9 @@ const FOOTER_COLUMNS = [
   [
     { href: "/blog", label: "Blog" },
     { href: "/herramientas", label: "Metrónomo y afinador" },
+    { href: "/glosario-musical", label: "Glosario musical" },
     { href: "/academias", label: "Para academias" },
     { href: "/trabaja-con-nosotros", label: "Trabaja con nosotros" },
-    { href: "/#contacto", label: "Contacto" },
   ],
 ];
 

@@ -59,6 +59,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...TUNER_PRESETS.map((preset) =>
       entry(tunerPresetPath(preset.slug), SITE_CONTENT_UPDATED_AT, "monthly", 0.75),
     ),
+    entry("/glosario-musical", SITE_CONTENT_UPDATED_AT, "monthly", 0.75),
     entry("/blog", blogUpdatedAt, "weekly", 0.8),
     ...BLOG_CATEGORY_ORDER.filter((category) => postsByCategory(category).length > 0).map((category) =>
       entry(categoryPath(category), blogUpdatedAt, "weekly", 0.7),

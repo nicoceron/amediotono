@@ -53,6 +53,7 @@ export function GET() {
     "",
     `- [Metrónomo online](${absoluteUrl(METRONOME_PATH)})`,
     `- [Afinador cromático online](${absoluteUrl(TUNER_PATH)})`,
+    `- [Glosario de términos musicales](${absoluteUrl("/glosario-musical")})`,
     ...TUNER_PRESETS.map((preset) => `- [${preset.headline}](${absoluteUrl(tunerPresetPath(preset.slug))})`),
     "",
     ...BLOG_CATEGORY_ORDER.flatMap((category) => {
