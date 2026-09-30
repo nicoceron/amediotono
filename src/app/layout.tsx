@@ -5,16 +5,21 @@ import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { SmoothScrollProvider } from "@/components/SmoothScrollProvider";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { B2B_HUB_PATH, B2B_SERVICES } from "@/lib/b2b";
+import { COURSE_PAGES } from "@/lib/course-pages";
+import { TEACHERS } from "@/lib/teachers";
 import {
   DEFAULT_OG_IMAGE,
   SITE_BRAND,
   SITE_DESCRIPTION,
   SITE_KEYWORDS,
+  SITE_LANGUAGE,
   SITE_LOCALE,
   SITE_NAME,
   SITE_URL,
   jsonLd,
   organizationJsonLd,
+  siteVerification,
   websiteJsonLd,
 } from "@/lib/seo";
 
@@ -30,6 +35,8 @@ export const metadata: Metadata = {
   authors: [{ name: SITE_NAME, url: SITE_URL }],
   creator: SITE_NAME,
   publisher: SITE_NAME,
+  category: "education",
+  verification: siteVerification(),
   icons: {
     shortcut: [{ url: "/favicon.ico", sizes: "256x256", type: "image/x-icon" }],
     icon: [{ url: "/icon.png", sizes: "512x512", type: "image/png" }],
@@ -37,6 +44,9 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "/",
+    types: {
+      "application/rss+xml": [{ url: "/blog/rss.xml", title: "Blog de A medio tono" }],
+    },
   },
   openGraph: {
     title: `${SITE_BRAND} — Clases de música en Bogotá`,
@@ -67,7 +77,24 @@ export const metadata: Metadata = {
   },
 };
 
-const rootJsonLd = jsonLd([organizationJsonLd(), websiteJsonLd()]);
+const FOUNDERS = TEACHERS.filter((teacher) => teacher.isFounder).sort(
+  (a, b) => (a.founderOrder ?? 0) - (b.founderOrder ?? 0),
+);
+
+const rootJsonLd = jsonLd([
+  organizationJsonLd({
+    founders: FOUNDERS,
+    services: [
+      ...COURSE_PAGES.map((page) => ({
+        name: `Clases de ${page.course.label.toLowerCase()}`,
+        path: page.path,
+      })),
+      { name: "Selección y evaluación de profesores de música", path: B2B_HUB_PATH },
+      ...B2B_SERVICES.map((service) => ({ name: service.headline, path: service.path })),
+    ],
+  }),
+  websiteJsonLd(),
+]);
 
 const themeInitScript = `
   (function() {
@@ -101,7 +128,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-      <html lang="es" className="antialiased" suppressHydrationWarning>
+      <html lang={SITE_LANGUAGE} className="antialiased" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <script

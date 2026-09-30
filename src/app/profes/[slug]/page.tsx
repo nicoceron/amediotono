@@ -21,8 +21,10 @@ import {
   shortDisplayName,
 } from "@/lib/teachers";
 import { whatsappHref } from "@/lib/contact";
+import { COURSE_PAGE_PATHS } from "@/lib/course-pages";
 import {
   absoluteUrl,
+  brandTitle,
   createPageMetadata,
   jsonLd,
   teacherJsonLd,
@@ -35,14 +37,30 @@ function classFormatIcon(format: string) {
 }
 
 function teacherMetaDescription(teacher: NonNullable<ReturnType<typeof getTeacherBySlug>>) {
-  const formats = teacher.classFormats?.join(" y ") || "virtuales y a domicilio";
-  const languages = teacher.classLanguages?.join(" y ") || "Español";
+  const languages = teacher.classLanguages?.join(" y ").toLowerCase() || "español";
 
-  return `Clases de ${teacher.role} con ${teacher.name} en ${teacher.location}. Modalidad ${formats}, en ${languages}. ${teacher.bio}`;
+  return `Clases de ${teacherShareCourseList(teacher).toLowerCase()} con ${teacher.name} en ${teacher.location}, ${teacherClassFormatsSummary(teacher)}, en ${languages}. ${teacher.bio}`;
 }
 
 function teacherProfileTitle(teacher: NonNullable<ReturnType<typeof getTeacherBySlug>>) {
   return `${teacher.name}, profe en A 1/2 tono`;
+}
+
+const MAX_SEARCH_TITLE_LENGTH = 62;
+
+/**
+ * Search title: name + what they teach + where, kept short enough for the
+ * results page, e.g. "Gisselle Torres, profe de flauta traversa en Bogotá | A ½ tono".
+ */
+function teacherSearchTitle(teacher: NonNullable<ReturnType<typeof getTeacherBySlug>>) {
+  const skills = teacher.skills.map((skill) => skill.label.toLowerCase());
+  const candidates = [
+    `${teacher.name}, profe de ${skills.slice(0, 2).join(" y ")} en ${teacher.location}`,
+    `${teacher.name}, profe de ${skills[0]} en ${teacher.location}`,
+    `${teacher.name}, profe de ${skills[0]}`,
+  ].map(brandTitle);
+
+  return candidates.find((title) => title.length <= MAX_SEARCH_TITLE_LENGTH) ?? candidates[candidates.length - 1];
 }
 
 function teacherClassFormatsSummary(
@@ -92,7 +110,7 @@ export async function generateMetadata({
   const profileTitle = teacherProfileTitle(teacher);
 
   return createPageMetadata({
-    title: profileTitle,
+    title: teacherSearchTitle(teacher),
     description: teacherMetaDescription(teacher),
     socialDescription: teacherSocialDescription(teacher),
     socialTitle: profileTitle,
@@ -120,11 +138,10 @@ export default async function ProfeDetailPage({
     `¡Hola! Quiero más información sobre las clases con ${teacher.name}.`,
   );
 
-  const instruments = teacher.skills.map((skill) => skill.label);
   const classFormats = teacher.classFormats ?? [];
   const classLanguages = teacher.classLanguages ?? [];
   const hasReviews = teacher.reviews.length > 0;
-  const profeJsonLd = jsonLd(teacherJsonLd(teacher));
+  const profeJsonLd = jsonLd(teacherJsonLd(teacher, COURSE_PAGE_PATHS));
   const profileUrl = absoluteUrl(`/profes/${teacher.slug}`);
   const shareTitle = teacherProfileTitle(teacher);
   const shareText = `¡Mira el perfil de ${teacher.name}, tu profe de ${teacherShareCourseList(teacher)}!\nA 1/2 tono - Escuela de Artes y Música`;
@@ -221,16 +238,31 @@ export default async function ProfeDetailPage({
                 </header>
                 <div className="pd-imparte-groups">
                   <ul className="pd-imparte">
-                    {instruments.map((inst) => (
-                      <li key={inst} className="pd-imparte-item">
-                        <span
-                          className="pd-imparte-dot"
-                          style={{ background: teacher.color }}
-                          aria-hidden="true"
-                        />
-                        {inst}
-                      </li>
-                    ))}
+                    {teacher.skills.map((skill) => {
+                      const coursePath = COURSE_PAGE_PATHS.get(skill.id);
+
+                      return (
+                        <li key={skill.id} className="pd-imparte-item">
+                          <span
+                            className="pd-imparte-dot"
+                            style={{ background: teacher.color }}
+                            aria-hidden="true"
+                          />
+                          {coursePath ? (
+                            <Link
+                              className="pd-imparte-link"
+                              href={coursePath}
+                              prefetch={false}
+                              title={`Clases de ${skill.label.toLowerCase()} en A medio tono`}
+                            >
+                              {skill.label}
+                            </Link>
+                          ) : (
+                            skill.label
+                          )}
+                        </li>
+                      );
+                    })}
                   </ul>
 
                   {(classFormats.length > 0 || classLanguages.length > 0) && (

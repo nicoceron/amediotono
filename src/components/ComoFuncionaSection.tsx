@@ -41,7 +41,7 @@ export function ComoFuncionaSection() {
       <div className="container cf-container">
         <div className="cf-head">
           <h2 className="cf-title">
-            <span className="cf-title-first" style={{ color: "var(--orange)" }}>Cómo</span>
+            <span className="cf-title-first" style={{ color: "var(--orange)" }}>Cómo</span>{" "}
             <span className="cf-title-rest">
               <span style={{ color: "var(--ink)" }}>funciona</span>
               <Image

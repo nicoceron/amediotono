@@ -1,3 +1,4 @@
+import { FaqList } from "@/components/editorial/FaqList";
 import { NOSOTROS_FAQS } from "@/lib/nosotros-faq";
 
 export function NosotrosFAQSection() {
@@ -15,14 +16,7 @@ export function NosotrosFAQSection() {
           </p>
         </div>
 
-        <div className="nosotros-faq-list">
-          {NOSOTROS_FAQS.map((item, index) => (
-            <details className="nosotros-faq-item" key={item.question} open={index === 0}>
-              <summary>{item.question}</summary>
-              <p>{item.answer}</p>
-            </details>
-          ))}
-        </div>
+        <FaqList items={NOSOTROS_FAQS} />
       </div>
     </section>
   );

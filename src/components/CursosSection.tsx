@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight, Minus, Plus } from "lucide-react";
-import { MAIN_COURSES, MORE_COURSES, courseHref, type Course } from "@/lib/courses";
+import { courseLandingHref } from "@/lib/course-pages";
+import { MAIN_COURSES, MORE_COURSES, type Course } from "@/lib/courses";
 import { TEACHERS } from "@/lib/teachers";
 
 const COURSE_TEACHER_COUNTS = new Map<string, number>();
@@ -23,9 +24,9 @@ function CourseCard({ course }: { course: Course }) {
   return (
     <Link
       className="course-card"
-      href={courseHref(course)}
+      href={courseLandingHref(course)}
       prefetch={false}
-      aria-label={`Ver profes de ${course.label}`}
+      aria-label={`Clases de ${course.label}: ${courseCountLabel(course)}`}
     >
       <span className="course-icon" aria-hidden="true">
         <Image src={course.icon} alt="" width={64} height={64} />

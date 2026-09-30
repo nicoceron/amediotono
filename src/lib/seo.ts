@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { CONTACT_EMAIL, INSTAGRAM_URL, WHATSAPP_DISPLAY } from "@/lib/contact";
+import type { BlogPost, CourseGuide, FaqItem } from "@/lib/content-types";
 import type { Course } from "@/lib/courses";
-import { courseHref } from "@/lib/courses";
 import type { Teacher } from "@/lib/teachers";
+
+export type { FaqItem } from "@/lib/content-types";
 
 const DEFAULT_SITE_URL = "https://www.amediotonomusic.com";
 
@@ -10,6 +12,7 @@ export const SITE_NAME = "A medio tono";
 export const SITE_BRAND = "A ½ tono";
 export const SITE_LOCALE = "es_CO";
 export const SITE_LANGUAGE = "es-CO";
+export const SITE_SLOGAN = "Profes elegidos a mano, y oído.";
 export const SITE_DESCRIPTION =
   "Clases de música virtuales y a domicilio en Bogotá para niños, jóvenes y adultos. Encuentra profes de piano, canto, guitarra, violín, flauta y más.";
 export const SITE_KEYWORDS = [
@@ -22,7 +25,15 @@ export const SITE_KEYWORDS = [
   "clases virtuales de música",
   "clases de música a domicilio",
   "escuela de artes",
+  "selección de profesores de música",
 ];
+
+/**
+ * Date of the last meaningful content change for pages without their own
+ * date (home, directories, service pages). Bump it when that copy changes so
+ * sitemap `lastmod` stays trustworthy instead of changing on every build.
+ */
+export const SITE_CONTENT_UPDATED_AT = "2026-09-30";
 
 type SocialImage = {
   url: string;
@@ -83,6 +94,26 @@ export function indexNowKeyLocation() {
   return absoluteUrl(INDEXNOW_KEY_PATH);
 }
 
+/** Search Console / Bing Webmaster verification tokens, read from env. */
+export function siteVerification(): Metadata["verification"] {
+  const google = process.env.GOOGLE_SITE_VERIFICATION?.trim();
+  const bing = process.env.BING_SITE_VERIFICATION?.trim();
+  const yandex = process.env.YANDEX_SITE_VERIFICATION?.trim();
+
+  if (!google && !bing && !yandex) return undefined;
+
+  return {
+    ...(google ? { google } : {}),
+    ...(yandex ? { yandex } : {}),
+    ...(bing ? { other: { "msvalidate.01": bing } } : {}),
+  };
+}
+
+/** "Clases de piano" → "Clases de piano | A ½ tono" */
+export function brandTitle(title: string) {
+  return `${title} | ${SITE_BRAND}`;
+}
+
 export function truncateMetaDescription(value: string, maxLength = 155) {
   const normalized = value.replace(/\s+/g, " ").trim();
   if (normalized.length <= maxLength) return normalized;
@@ -92,6 +123,14 @@ export function truncateMetaDescription(value: string, maxLength = 155) {
   return `${slice.slice(0, lastSpace > 0 ? lastSpace : maxLength - 1).trim()}…`;
 }
 
+type ArticleMetadata = {
+  publishedTime: string;
+  modifiedTime?: string;
+  section?: string;
+  tags?: string[];
+  authors?: string[];
+};
+
 export function createPageMetadata({
   title,
   description,
@@ -99,6 +138,9 @@ export function createPageMetadata({
   socialTitle,
   path,
   image = DEFAULT_OG_IMAGE,
+  keywords,
+  article,
+  noindex = false,
 }: {
   title: string;
   description: string;
@@ -106,6 +148,9 @@ export function createPageMetadata({
   socialTitle?: string;
   path: string;
   image?: SocialImage;
+  keywords?: string[];
+  article?: ArticleMetadata;
+  noindex?: boolean;
 }): Metadata {
   const safeDescription = truncateMetaDescription(description);
   const safeSocialDescription = truncateMetaDescription(
@@ -116,18 +161,43 @@ export function createPageMetadata({
   return {
     title,
     description: safeDescription,
+    ...(keywords?.length ? { keywords } : {}),
     alternates: {
       canonical: path,
     },
-    openGraph: {
-      title: safeSocialTitle,
-      description: safeSocialDescription,
-      url: path,
-      siteName: SITE_BRAND,
-      locale: SITE_LOCALE,
-      type: "website",
-      images: [image],
-    },
+    ...(noindex
+      ? {
+          robots: {
+            index: false,
+            follow: true,
+            googleBot: { index: false, follow: true },
+          },
+        }
+      : {}),
+    openGraph: article
+      ? {
+          title: safeSocialTitle,
+          description: safeSocialDescription,
+          url: path,
+          siteName: SITE_BRAND,
+          locale: SITE_LOCALE,
+          type: "article",
+          publishedTime: article.publishedTime,
+          modifiedTime: article.modifiedTime ?? article.publishedTime,
+          section: article.section,
+          tags: article.tags,
+          authors: article.authors,
+          images: [image],
+        }
+      : {
+          title: safeSocialTitle,
+          description: safeSocialDescription,
+          url: path,
+          siteName: SITE_BRAND,
+          locale: SITE_LOCALE,
+          type: "website",
+          images: [image],
+        },
     twitter: {
       card: "summary_large_image",
       title: safeSocialTitle,
@@ -138,10 +208,6 @@ export function createPageMetadata({
 }
 
 export type JsonLdNode = Record<string, unknown>;
-export type FaqItem = {
-  question: string;
-  answer: string;
-};
 
 export function jsonLd(nodes: JsonLdNode | JsonLdNode[]) {
   return JSON.stringify({
@@ -150,63 +216,181 @@ export function jsonLd(nodes: JsonLdNode | JsonLdNode[]) {
   }).replace(/</g, "\\u003c");
 }
 
-export function organizationJsonLd(): JsonLdNode {
+const ORGANIZATION_ID = () => absoluteUrl("/#organization");
+const WEBSITE_ID = () => absoluteUrl("/#website");
+
+function organizationRef() {
+  return { "@id": ORGANIZATION_ID() };
+}
+
+function personId(slug: string) {
+  return absoluteUrl(`/profes/${slug}#person`);
+}
+
+const AREA_SERVED = [
+  {
+    "@type": "City",
+    name: "Bogotá",
+    sameAs: "https://www.wikidata.org/wiki/Q2841",
+  },
+  {
+    "@type": "Country",
+    name: "Colombia",
+    sameAs: "https://www.wikidata.org/wiki/Q739",
+  },
+];
+
+export function organizationJsonLd({
+  founders = [],
+  services = [],
+}: {
+  founders?: Teacher[];
+  services?: Array<{ name: string; path: string }>;
+} = {}): JsonLdNode {
   return {
     "@type": "EducationalOrganization",
-    "@id": absoluteUrl("/#organization"),
+    "@id": ORGANIZATION_ID(),
     name: SITE_NAME,
-    alternateName: SITE_BRAND,
+    alternateName: [SITE_BRAND, "A medio tono music", "A 1/2 tono"],
     url: absoluteUrl("/"),
-    logo: absoluteUrl(SITE_LOGO_IMAGE.url),
+    logo: {
+      "@type": "ImageObject",
+      "@id": absoluteUrl("/#logo"),
+      url: absoluteUrl(SITE_LOGO_IMAGE.url),
+      contentUrl: absoluteUrl(SITE_LOGO_IMAGE.url),
+      width: SITE_LOGO_IMAGE.width,
+      height: SITE_LOGO_IMAGE.height,
+      caption: SITE_NAME,
+    },
     image: absoluteUrl(DEFAULT_OG_IMAGE.url),
     description: SITE_DESCRIPTION,
+    slogan: SITE_SLOGAN,
     email: CONTACT_EMAIL,
     telephone: WHATSAPP_DISPLAY,
     sameAs: [INSTAGRAM_URL],
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        contactType: "customer service",
+        telephone: WHATSAPP_DISPLAY,
+        email: CONTACT_EMAIL,
+        availableLanguage: ["es", "en"],
+        areaServed: "CO",
+      },
+      {
+        "@type": "ContactPoint",
+        contactType: "sales",
+        name: "Selección de profes para academias y colegios",
+        telephone: WHATSAPP_DISPLAY,
+        email: CONTACT_EMAIL,
+        availableLanguage: ["es"],
+        areaServed: "CO",
+      },
+    ],
     address: {
       "@type": "PostalAddress",
       addressLocality: "Bogotá",
+      addressRegion: "Bogotá D.C.",
       addressCountry: "CO",
     },
-    areaServed: [
-      {
-        "@type": "City",
-        name: "Bogotá",
-      },
-      {
-        "@type": "Country",
-        name: "Colombia",
-      },
-    ],
+    areaServed: AREA_SERVED,
+    knowsLanguage: ["es", "en"],
     knowsAbout: [
       "Educación musical",
+      "Pedagogía musical",
+      "Iniciación musical",
       "Clases de piano",
       "Clases de canto",
       "Clases de guitarra",
       "Clases de violín",
-      "Iniciación musical",
       "Teoría musical",
+      "Música andina colombiana",
+      "Selección de profesores de música",
+      "Evaluación docente",
     ],
+    ...(founders.length
+      ? {
+          founder: founders.map((founder) => ({
+            "@type": "Person",
+            "@id": personId(founder.slug),
+            name: founder.name,
+            url: absoluteUrl(`/profes/${founder.slug}`),
+          })),
+        }
+      : {}),
+    ...(services.length
+      ? {
+          hasOfferCatalog: {
+            "@type": "OfferCatalog",
+            name: "Clases de música y servicios de A medio tono",
+            itemListElement: services.map((service) => ({
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: service.name,
+                url: absoluteUrl(service.path),
+              },
+            })),
+          },
+        }
+      : {}),
   };
 }
 
 export function websiteJsonLd(): JsonLdNode {
   return {
     "@type": "WebSite",
-    "@id": absoluteUrl("/#website"),
+    "@id": WEBSITE_ID(),
     name: SITE_NAME,
     alternateName: SITE_BRAND,
     url: absoluteUrl("/"),
     inLanguage: SITE_LANGUAGE,
-    publisher: {
-      "@id": absoluteUrl("/#organization"),
-    },
+    publisher: organizationRef(),
+  };
+}
+
+export function webPageJsonLd({
+  path,
+  name,
+  description,
+  type = "WebPage",
+  image,
+  datePublished,
+  dateModified,
+  about,
+}: {
+  path: string;
+  name: string;
+  description: string;
+  type?: "WebPage" | "CollectionPage" | "AboutPage" | "ContactPage" | "ProfilePage" | "FAQPage";
+  image?: string;
+  datePublished?: string;
+  dateModified?: string;
+  about?: JsonLdNode;
+}): JsonLdNode {
+  return {
+    "@type": type,
+    "@id": `${absoluteUrl(path)}#webpage`,
+    url: absoluteUrl(path),
+    name,
+    description,
+    inLanguage: SITE_LANGUAGE,
+    isPartOf: { "@id": WEBSITE_ID() },
+    publisher: organizationRef(),
+    ...(about ? { about } : { about: organizationRef() }),
+    ...(image ? { primaryImageOfPage: { "@type": "ImageObject", url: absoluteUrl(image) } } : {}),
+    ...(datePublished ? { datePublished } : {}),
+    ...(dateModified ? { dateModified } : {}),
+    breadcrumb: { "@id": `${absoluteUrl(path)}#breadcrumb` },
   };
 }
 
 export function breadcrumbJsonLd(items: Array<{ name: string; path: string }>): JsonLdNode {
+  const last = items[items.length - 1];
+
   return {
     "@type": "BreadcrumbList",
+    "@id": `${absoluteUrl(last?.path ?? "/")}#breadcrumb`,
     itemListElement: items.map((item, index) => ({
       "@type": "ListItem",
       position: index + 1,
@@ -216,9 +400,10 @@ export function breadcrumbJsonLd(items: Array<{ name: string; path: string }>): 
   };
 }
 
-export function faqPageJsonLd(items: FaqItem[]): JsonLdNode {
+export function faqPageJsonLd(items: FaqItem[], path?: string): JsonLdNode {
   return {
     "@type": "FAQPage",
+    ...(path ? { "@id": `${absoluteUrl(path)}#faq` } : {}),
     mainEntity: items.map((item) => ({
       "@type": "Question",
       name: item.question,
@@ -230,103 +415,360 @@ export function faqPageJsonLd(items: FaqItem[]): JsonLdNode {
   };
 }
 
-export function coursesItemListJsonLd(courses: Course[]): JsonLdNode {
+export function coursesItemListJsonLd(
+  courses: Array<Course & { href: string }>,
+  path = "/",
+): JsonLdNode {
   return {
     "@type": "ItemList",
-    "@id": absoluteUrl("/#courses"),
-    name: "Cursos de música disponibles en A medio tono",
+    "@id": `${absoluteUrl(path)}#courses`,
+    name: "Clases de música disponibles en A medio tono",
+    numberOfItems: courses.length,
     itemListElement: courses.map((course, index) => ({
       "@type": "ListItem",
       position: index + 1,
-      item: {
-        "@type": "Course",
-        name: `Clases de ${course.label}`,
-        url: absoluteUrl(courseHref(course)),
-        provider: {
-          "@id": absoluteUrl("/#organization"),
-        },
-      },
+      name: `Clases de ${course.label}`,
+      url: absoluteUrl(course.href),
     })),
   };
 }
 
-export function teachersItemListJsonLd(teachers: Teacher[]): JsonLdNode {
+function teacherPersonJsonLd(teacher: Teacher, detailed = false): JsonLdNode {
+  return {
+    "@type": "Person",
+    "@id": personId(teacher.slug),
+    name: teacher.name,
+    url: absoluteUrl(`/profes/${teacher.slug}`),
+    image: absoluteUrl(teacher.photo),
+    description: detailed ? teacher.longBio || teacher.bio : teacher.bio,
+    jobTitle: `Profe de ${teacher.role}`,
+    worksFor: organizationRef(),
+    knowsAbout: teacher.skills.map((skill) => skill.label),
+    ...(detailed
+      ? {
+          knowsLanguage: teacher.classLanguages ?? ["Español"],
+          homeLocation: {
+            "@type": "Place",
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: teacher.location || "Bogotá",
+              addressCountry: teacher.country === "Colombia" || !teacher.country ? "CO" : teacher.country,
+            },
+          },
+        }
+      : {}),
+  };
+}
+
+export function teachersItemListJsonLd(
+  teachers: Teacher[],
+  { path = "/profes", name = "Profesores de música de A medio tono" } = {},
+): JsonLdNode {
   return {
     "@type": "ItemList",
-    "@id": absoluteUrl("/profes#teachers"),
-    name: "Profesores de música de A medio tono",
+    "@id": `${absoluteUrl(path)}#teachers`,
+    name,
+    numberOfItems: teachers.length,
     itemListElement: teachers.map((teacher, index) => ({
       "@type": "ListItem",
       position: index + 1,
-      item: {
-        "@type": "Person",
-        "@id": absoluteUrl(`/profes/${teacher.slug}#person`),
-        name: teacher.name,
-        url: absoluteUrl(`/profes/${teacher.slug}`),
-        image: absoluteUrl(teacher.photo),
-        description: teacher.bio,
-        jobTitle: `Profe de ${teacher.role}`,
-        worksFor: {
-          "@id": absoluteUrl("/#organization"),
-        },
-        knowsAbout: teacher.skills.map((skill) => skill.label),
-      },
+      item: teacherPersonJsonLd(teacher),
     })),
   };
 }
 
-export function teacherJsonLd(teacher: Teacher): JsonLdNode[] {
+export function teacherJsonLd(teacher: Teacher, coursePaths: Map<string, string>): JsonLdNode[] {
+  const path = `/profes/${teacher.slug}`;
   const formats = teacher.classFormats ?? [];
-  const languages = teacher.classLanguages ?? [];
-  const areaServed = teacher.location
-    ? {
-        "@type": "City",
-        name: teacher.location,
-      }
-    : {
-        "@type": "Country",
-        name: teacher.country ?? "Colombia",
-      };
 
   return [
     breadcrumbJsonLd([
       { name: "Inicio", path: "/" },
       { name: "Profes", path: "/profes" },
-      { name: teacher.name, path: `/profes/${teacher.slug}` },
+      { name: teacher.name, path },
     ]),
     {
-      "@type": "Person",
-      "@id": absoluteUrl(`/profes/${teacher.slug}#person`),
-      name: teacher.name,
-      url: absoluteUrl(`/profes/${teacher.slug}`),
-      image: absoluteUrl(teacher.photo),
-      description: teacher.longBio || teacher.bio,
-      jobTitle: `Profe de ${teacher.role}`,
-      worksFor: {
-        "@id": absoluteUrl("/#organization"),
-      },
-      knowsAbout: teacher.skills.map((skill) => skill.label),
-      knowsLanguage: languages,
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: teacher.location || "Bogotá",
-        addressCountry: teacher.country ?? "Colombia",
-      },
+      ...webPageJsonLd({
+        path,
+        type: "ProfilePage",
+        name: `${teacher.name}, profe de ${teacher.role}`,
+        description: teacher.bio,
+        image: teacher.photo,
+        dateModified: SITE_CONTENT_UPDATED_AT,
+      }),
+      mainEntity: { "@id": personId(teacher.slug) },
     },
+    teacherPersonJsonLd(teacher, true),
     {
       "@type": "Service",
-      "@id": absoluteUrl(`/profes/${teacher.slug}#classes`),
+      "@id": `${absoluteUrl(path)}#classes`,
       name: `Clases de ${teacher.role} con ${teacher.name}`,
       description: teacher.bio,
-      provider: {
-        "@id": absoluteUrl(`/profes/${teacher.slug}#person`),
-      },
-      areaServed,
+      provider: { "@id": personId(teacher.slug) },
+      brand: organizationRef(),
+      areaServed: AREA_SERVED,
       serviceType: teacher.skills.map((skill) => `Clases de ${skill.label}`),
       availableChannel: formats.map((format) => ({
         "@type": "ServiceChannel",
-        name: format,
+        name: format === "Virtual" ? "Clases virtuales" : "Clases a domicilio",
+        ...(format === "A domicilio"
+          ? { serviceLocation: { "@type": "City", name: teacher.location || "Bogotá" } }
+          : {}),
       })),
+      isRelatedTo: teacher.skills
+        .map((skill) => coursePaths.get(skill.id))
+        .filter((coursePath): coursePath is string => Boolean(coursePath))
+        .map((coursePath) => ({ "@id": `${absoluteUrl(coursePath)}#service` })),
     },
   ];
+}
+
+export function courseServiceJsonLd({
+  course,
+  guide,
+  path,
+  teachers,
+}: {
+  course: Course;
+  guide: CourseGuide;
+  path: string;
+  teachers: Teacher[];
+}): JsonLdNode {
+  return {
+    "@type": "Service",
+    "@id": `${absoluteUrl(path)}#service`,
+    name: `Clases de ${course.label}`,
+    alternateName: course.aliases.map((alias) => `Clases de ${alias.toLowerCase()}`),
+    serviceType: `Clases de ${course.label}`,
+    category: "Educación musical",
+    description: guide.metaDescription,
+    url: absoluteUrl(path),
+    provider: organizationRef(),
+    areaServed: AREA_SERVED,
+    audience: {
+      "@type": "PeopleAudience",
+      audienceType: "Niños, jóvenes y adultos",
+    },
+    availableChannel: [
+      {
+        "@type": "ServiceChannel",
+        name: "Clases virtuales",
+        serviceUrl: absoluteUrl(path),
+      },
+      {
+        "@type": "ServiceChannel",
+        name: "Clases a domicilio",
+        serviceLocation: { "@type": "City", name: "Bogotá" },
+      },
+    ],
+    availableLanguage: ["es", "en"],
+    ...(teachers.length
+      ? {
+          hasOfferCatalog: {
+            "@type": "OfferCatalog",
+            name: `Profes de ${course.label}`,
+            itemListElement: teachers.map((teacher) => ({
+              "@type": "Offer",
+              itemOffered: { "@id": `${absoluteUrl(`/profes/${teacher.slug}`)}#classes` },
+              offeredBy: { "@id": personId(teacher.slug) },
+            })),
+          },
+        }
+      : {}),
+  };
+}
+
+/** Course detail markup, paired with the `coursesItemListJsonLd` summary list. */
+export function courseJsonLd({
+  course,
+  guide,
+  path,
+}: {
+  course: Course;
+  guide: CourseGuide;
+  path: string;
+}): JsonLdNode {
+  return {
+    "@type": "Course",
+    "@id": `${absoluteUrl(path)}#course`,
+    name: `Clases de ${course.label}`,
+    description: guide.metaDescription,
+    url: absoluteUrl(path),
+    inLanguage: SITE_LANGUAGE,
+    provider: {
+      "@type": "Organization",
+      "@id": ORGANIZATION_ID(),
+      name: SITE_NAME,
+      sameAs: absoluteUrl("/"),
+    },
+    about: { "@type": "Thing", name: course.label },
+    teaches: guide.learn.map((item) => item.replace(/\*\*|\[|\]\([^)]*\)/g, "")),
+    educationalLevel: "Principiante, intermedio y avanzado",
+    audience: {
+      "@type": "EducationalAudience",
+      educationalRole: "student",
+      audienceType: "Niños, jóvenes y adultos",
+    },
+    hasCourseInstance: [
+      {
+        "@type": "CourseInstance",
+        courseMode: "Online",
+        courseWorkload: "Clases semanales, particulares o en grupos pequeños",
+      },
+      {
+        "@type": "CourseInstance",
+        courseMode: "Onsite",
+        location: { "@type": "City", name: "Bogotá" },
+        courseWorkload: "Clases semanales, particulares o en grupos pequeños",
+      },
+    ],
+  };
+}
+
+export function businessServiceJsonLd({
+  path,
+  name,
+  description,
+  serviceType,
+  audience,
+}: {
+  path: string;
+  name: string;
+  description: string;
+  serviceType: string;
+  audience: string;
+}): JsonLdNode {
+  return {
+    "@type": "Service",
+    "@id": `${absoluteUrl(path)}#service`,
+    name,
+    serviceType,
+    category: "Selección y evaluación de docentes",
+    description,
+    url: absoluteUrl(path),
+    provider: organizationRef(),
+    areaServed: AREA_SERVED,
+    audience: {
+      "@type": "BusinessAudience",
+      audienceType: audience,
+    },
+    availableLanguage: ["es"],
+  };
+}
+
+export function blogPostingJsonLd({
+  post,
+  path,
+  image,
+  wordCount,
+  author,
+}: {
+  post: BlogPost;
+  path: string;
+  image: string;
+  wordCount: number;
+  author: JsonLdNode;
+}): JsonLdNode {
+  return {
+    "@type": "BlogPosting",
+    "@id": `${absoluteUrl(path)}#article`,
+    mainEntityOfPage: { "@id": `${absoluteUrl(path)}#webpage` },
+    headline: post.title,
+    description: post.description,
+    image: [absoluteUrl(image)],
+    datePublished: post.publishedAt,
+    dateModified: post.updatedAt ?? post.publishedAt,
+    inLanguage: SITE_LANGUAGE,
+    author,
+    publisher: organizationRef(),
+    isPartOf: { "@id": absoluteUrl("/blog#blog") },
+    keywords: post.keywords.join(", "),
+    articleSection: post.category,
+    wordCount,
+    about: (post.relatedCourseIds ?? []).map((id) => ({ "@id": `${absoluteUrl(`/clases/${id}`)}#service` })),
+  };
+}
+
+export function organizationAuthorJsonLd(): JsonLdNode {
+  return {
+    "@type": "Organization",
+    "@id": ORGANIZATION_ID(),
+    name: `Equipo pedagógico de ${SITE_NAME}`,
+    url: absoluteUrl("/nosotros"),
+  };
+}
+
+export function teacherAuthorJsonLd(teacher: Teacher): JsonLdNode {
+  return {
+    "@type": "Person",
+    "@id": personId(teacher.slug),
+    name: teacher.name,
+    url: absoluteUrl(`/profes/${teacher.slug}`),
+    jobTitle: `Profe de ${teacher.role}`,
+    worksFor: organizationRef(),
+  };
+}
+
+export function blogJsonLd(posts: Array<{ post: BlogPost; path: string }>): JsonLdNode {
+  return {
+    "@type": "Blog",
+    "@id": absoluteUrl("/blog#blog"),
+    url: absoluteUrl("/blog"),
+    name: `Blog de ${SITE_NAME}`,
+    description:
+      "Guías prácticas sobre aprender música, elegir instrumento y profe, y seleccionar docentes de música para academias y colegios.",
+    inLanguage: SITE_LANGUAGE,
+    publisher: organizationRef(),
+    blogPost: posts.map(({ post, path }) => ({
+      "@type": "BlogPosting",
+      "@id": `${absoluteUrl(path)}#article`,
+      headline: post.title,
+      url: absoluteUrl(path),
+      datePublished: post.publishedAt,
+      dateModified: post.updatedAt ?? post.publishedAt,
+    })),
+  };
+}
+
+export function jobPostingJsonLd({
+  path,
+  title,
+  descriptionHtml,
+  datePosted,
+  validThrough,
+}: {
+  path: string;
+  title: string;
+  descriptionHtml: string;
+  datePosted: string;
+  validThrough: string;
+}): JsonLdNode {
+  return {
+    "@type": "JobPosting",
+    "@id": `${absoluteUrl(path)}#job`,
+    title,
+    description: descriptionHtml,
+    datePosted,
+    validThrough,
+    directApply: true,
+    url: absoluteUrl(path),
+    industry: "Educación musical",
+    occupationalCategory: "2354 Otros profesores de música (ISCO-08)",
+    hiringOrganization: {
+      "@type": "Organization",
+      "@id": ORGANIZATION_ID(),
+      name: SITE_NAME,
+      sameAs: absoluteUrl("/"),
+      logo: absoluteUrl(SITE_LOGO_IMAGE.url),
+    },
+    jobLocation: {
+      "@type": "Place",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Bogotá",
+        addressRegion: "Bogotá D.C.",
+        addressCountry: "CO",
+      },
+    },
+  };
 }

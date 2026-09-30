@@ -1,3 +1,22 @@
+# A medio tono
+
+Sitio de [A medio tono](https://www.amediotonomusic.com): clases de música virtuales y a domicilio en Bogotá, directorio de profes, blog y servicios de selección de profes para academias y colegios.
+
+## Contenido y SEO
+
+| Qué | Dónde | Notas |
+| --- | --- | --- |
+| Páginas de instrumento (`/clases/<id>`) | `src/content/courses/guides-*.ts` | Una guía por curso de `src/data/courses.json`. La página solo se publica si el curso tiene al menos un profe. |
+| Artículos del blog (`/blog/<slug>`) | `src/content/blog/<slug>.ts` | Crea el archivo y regístralo en `src/content/blog/index.ts`. Sitemap, RSS, `llms.txt` e imagen para redes se generan solos. |
+| Servicios para academias (`/academias/*`) | `src/lib/b2b.ts` | Textos, pasos, entregables y preguntas frecuentes. |
+| Profes | `src/data/teachers.json` | Alimenta perfiles, páginas de instrumento, directorio y datos estructurados. |
+| Vacante de profe (JobPosting) | `src/lib/job-posting.ts` | Extiende `JOB_VALID_THROUGH` mientras sigan contratando. |
+| Metadatos y datos estructurados | `src/lib/seo.ts` | Actualiza `SITE_CONTENT_UPDATED_AT` cuando cambien textos de páginas generales. |
+
+En el texto de guías y artículos se puede usar `**negrita**` y `[enlace](/ruta)`. Los enlaces a `/clases/<id>` de cursos sin página llevan automáticamente al directorio filtrado.
+
+Después de publicar, envía las URLs nuevas a Bing/Yandex con `npm run indexnow` (lee el sitemap en producción).
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started

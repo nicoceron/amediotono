@@ -9,7 +9,8 @@ export default function Loading() {
     >
       <div className="container">
         <div className="sec-head profes-page-head">
-          <h1>Profes y tutores de música</h1>
+          {/* Not an <h1>: this fallback is streamed into the prerendered HTML of /profes and every profile. */}
+          <p className="profes-page-title" aria-hidden="true">Profes y tutores de música</p>
         </div>
 
         <ProfesDirectorySkeleton />

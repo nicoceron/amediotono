@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
-import { useEffect, useRef, useState, useSyncExternalStore } from "react";
+import { Fragment, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { whatsappHref } from "@/lib/contact";
 
 const HEADLINE_WORDS = ["Únete", "a", "nuestra", "comunidad", "musical"];
@@ -176,10 +176,11 @@ export function ContactoSection() {
             className="contact-cta-title"
             aria-label="Únete a nuestra comunidad musical"
           >
-            {HEADLINE_WORDS.map((word) => (
-              <span aria-hidden="true" key={word}>
-                {word}
-              </span>
+            {HEADLINE_WORDS.map((word, index) => (
+              <Fragment key={word}>
+                {index > 0 && " "}
+                <span aria-hidden="true">{word}</span>
+              </Fragment>
             ))}
           </h2>
 

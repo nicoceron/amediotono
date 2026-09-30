@@ -11,18 +11,27 @@ import {
   whatsappHref,
 } from "@/lib/contact";
 
+// Course links point at instruments with several profes, so their landing
+// pages always exist (see COURSE_PAGES in src/lib/course-pages.ts).
 const FOOTER_COLUMNS = [
   [
     { href: "/", label: "Inicio" },
-    { href: "/#cursos", label: "Cursos" },
+    { href: "/clases", label: "Clases" },
     { href: "/profes", label: "Profes" },
+    { href: "/blog", label: "Blog" },
     { href: "/nosotros", label: "Nosotros" },
-    { href: "/#testimonios", label: "Voces" },
   ],
   [
-    { href: "/#contacto", label: "Contacto" },
-    { href: "/#como-funciona", label: "Cómo funciona" },
+    { href: "/clases/piano", label: "Clases de piano" },
+    { href: "/clases/canto", label: "Clases de canto" },
+    { href: "/clases/guitarra-acustica", label: "Clases de guitarra" },
+    { href: "/clases/violin", label: "Clases de violín" },
+    { href: "/clases/iniciacion-musical", label: "Iniciación musical" },
+  ],
+  [
+    { href: "/academias", label: "Para academias" },
     { href: "/trabaja-con-nosotros", label: "Trabaja con nosotros" },
+    { href: "/#contacto", label: "Contacto" },
     { href: whatsappHref(), label: "WhatsApp", external: true },
     { href: INSTAGRAM_URL, label: "Instagram", external: true },
   ],

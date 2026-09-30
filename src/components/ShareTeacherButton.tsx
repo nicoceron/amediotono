@@ -11,6 +11,7 @@ type ShareTeacherButtonProps = {
   text: string;
   url: string;
   showLabel?: boolean;
+  shareLabel?: string;
 };
 
 async function copyToClipboard(value: string) {
@@ -52,10 +53,11 @@ export function ShareTeacherButton({
   text,
   url,
   showLabel = true,
+  shareLabel = "Compartir perfil",
 }: ShareTeacherButtonProps) {
   const [copied, setCopied] = useState(false);
   const [shareFile, setShareFile] = useState<File | null>(null);
-  const label = copied ? "Enlace copiado" : "Compartir perfil";
+  const label = copied ? "Enlace copiado" : shareLabel;
 
   useEffect(() => {
     if (!copied) return;

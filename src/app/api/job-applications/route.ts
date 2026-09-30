@@ -1,5 +1,6 @@
 import nodemailer from "nodemailer";
 import { CONTACT_EMAIL } from "@/lib/contact";
+import { escapeHtml, getSmtpConfig } from "@/lib/mailer";
 
 export const runtime = "nodejs";
 
@@ -79,40 +80,6 @@ async function readFormData(request: Request) {
   } catch {
     throw new RequestValidationError("La aplicación debe enviarse como formulario.");
   }
-}
-
-function getSmtpConfig() {
-  const user = process.env.SMTP_USER?.trim();
-  const rawPassword = process.env.SMTP_PASSWORD?.trim();
-  const host = process.env.SMTP_HOST?.trim() || "smtp.gmail.com";
-
-  if (!user || !rawPassword) {
-    throw new Error("Email delivery is not configured.");
-  }
-
-  const port = Number(process.env.SMTP_PORT ?? 465);
-  const password =
-    host.toLowerCase() === "smtp.gmail.com"
-      ? rawPassword.replace(/\s+/g, "")
-      : rawPassword;
-
-  return {
-    host,
-    port: Number.isFinite(port) ? port : 465,
-    secure: (process.env.SMTP_SECURE ?? "true").toLowerCase() !== "false",
-    auth: {
-      user,
-      pass: password,
-    },
-  };
-}
-
-function escapeHtml(value: string) {
-  return value
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
 }
 
 function formatBooleanAnswer(value: string) {

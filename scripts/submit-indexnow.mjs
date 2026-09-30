@@ -5,7 +5,7 @@ import { fileURLToPath } from "node:url";
 const INDEXNOW_ENDPOINT = "https://api.indexnow.org/indexnow";
 const INDEXNOW_KEY_PATH = "/indexnow-key.txt";
 const INDEXNOW_KEY_PATTERN = /^[A-Za-z0-9-]{8,128}$/;
-const STATIC_PATHS = ["/", "/profes", "/nosotros", "/trabaja-con-nosotros"];
+const FALLBACK_PATHS = ["/", "/clases", "/profes", "/blog", "/academias", "/nosotros", "/trabaja-con-nosotros"];
 
 function normalizeSiteUrl(value) {
   try {
@@ -58,12 +58,31 @@ if (!INDEXNOW_KEY_PATTERN.test(key)) {
   fail("Set INDEXNOW_KEY to 8-128 letters, numbers, or dashes before running npm run indexnow.");
 }
 
-const teachersPath = join(projectRoot, "src/data/teachers.json");
-const teachers = JSON.parse(await readFile(teachersPath, "utf8"));
-const teacherPaths = teachers.map((teacher) => `/profes/${teacher.slug}`);
-const urlList = [...STATIC_PATHS, ...teacherPaths].map((path) =>
-  new URL(path, `${siteUrl}/`).toString(),
-);
+async function sitemapUrls() {
+  try {
+    const response = await fetch(new URL("/sitemap.xml", `${siteUrl}/`));
+    if (!response.ok) return [];
+    const xml = await response.text();
+    return [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1].trim());
+  } catch {
+    return [];
+  }
+}
+
+async function fallbackUrls() {
+  const teachersPath = join(projectRoot, "src/data/teachers.json");
+  const teachers = JSON.parse(await readFile(teachersPath, "utf8"));
+  const teacherPaths = teachers.map((teacher) => `/profes/${teacher.slug}`);
+  return [...FALLBACK_PATHS, ...teacherPaths].map((path) => new URL(path, `${siteUrl}/`).toString());
+}
+
+// Submit every URL in the live sitemap so new pages (courses, blog posts,
+// business pages) are always included; fall back to a local list offline.
+const liveUrls = await sitemapUrls();
+const urlList = liveUrls.length ? liveUrls : await fallbackUrls();
+if (!liveUrls.length) {
+  console.warn("Could not read the live sitemap; submitting the local fallback URL list.");
+}
 const payload = {
   host: new URL(siteUrl).host,
   key,

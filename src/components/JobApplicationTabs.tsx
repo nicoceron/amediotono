@@ -2,25 +2,7 @@
 
 import { useId, useState } from "react";
 import { JobApplicationForm } from "@/components/JobApplicationForm";
-
-const OVERVIEW_ITEMS = [
-  {
-    title: "Sobre el rol",
-    body: "Buscamos profes de música para acompañar estudiantes en clases virtuales y a domicilio en Bogotá y alrededores.",
-  },
-  {
-    title: "Qué harás",
-    body: "Planear clases claras, adaptar repertorio al nivel de cada estudiante y mantener una comunicación cercana con familias y equipo.",
-  },
-  {
-    title: "Lo que valoramos",
-    body: "Valoramos sobre todo resultados: progreso visible en los estudiantes, clases bien preparadas, puntualidad y comunicación clara con familias y equipo.",
-  },
-  {
-    title: "Modalidad",
-    body: "Clases virtuales y presenciales a domicilio.",
-  },
-];
+import { JOB_OVERVIEW_ITEMS } from "@/lib/job-posting";
 
 export function JobApplicationTabs() {
   const [activeTab, setActiveTab] = useState<"overview" | "application">("application");
@@ -73,7 +55,7 @@ export function JobApplicationTabs() {
         hidden={activeTab !== "overview"}
       >
         <div className="job-overview-panel">
-          {OVERVIEW_ITEMS.map((item) => (
+          {JOB_OVERVIEW_ITEMS.map((item) => (
             <section key={item.title}>
               <h3>{item.title}</h3>
               <p>{item.body}</p>

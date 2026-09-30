@@ -5,6 +5,7 @@ import { ProfesDirectory } from "@/components/ProfesDirectory";
 import { ProfesDirectorySkeleton } from "@/components/ProfesDirectorySkeleton";
 import { TEACHERS } from "@/lib/teachers";
 import {
+  brandTitle,
   breadcrumbJsonLd,
   createPageMetadata,
   jsonLd,
@@ -12,7 +13,7 @@ import {
 } from "@/lib/seo";
 
 export const metadata: Metadata = createPageMetadata({
-  title: "Profesores de música en Bogotá y virtuales — A ½ tono",
+  title: brandTitle("Profesores de música en Bogotá y virtuales"),
   description:
     "Encuentra profes de música para clases particulares virtuales o a domicilio. Filtra por curso, formato, ubicación e idioma en A medio tono.",
   path: "/profes",

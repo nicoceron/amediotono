@@ -9,7 +9,7 @@ import { TestimoniosSection } from "@/components/TestimoniosSection";
 import { JobsCTASection } from "@/components/JobsCTASection";
 import { ContactoSection } from "@/components/ContactoSection";
 import { Footer } from "@/components/Footer";
-import { COURSES } from "@/lib/courses";
+import { COURSE_PAGES } from "@/lib/course-pages";
 import {
   SITE_BRAND,
   SITE_DESCRIPTION,
@@ -25,7 +25,9 @@ export const metadata: Metadata = createPageMetadata({
 });
 
 export default function Home() {
-  const homeJsonLd = jsonLd(coursesItemListJsonLd(COURSES));
+  const homeJsonLd = jsonLd(
+    coursesItemListJsonLd(COURSE_PAGES.map((page) => ({ ...page.course, href: page.path }))),
+  );
 
   preload("/hero-bg-mobile-art-hd.webp", {
     as: "image",
