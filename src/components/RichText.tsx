@@ -1,21 +1,9 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import type { RichBlock } from "@/lib/content-types";
-import { courseLandingHref } from "@/lib/course-pages";
-import { getCourseById } from "@/lib/courses";
+import { resolveContentHref } from "@/lib/content-links";
 
 const INLINE_PATTERN = /\*\*([^*]+)\*\*|\[([^\]]+)\]\(([^)\s]+)\)/g;
-const COURSE_LINK_PATTERN = /^\/clases\/([a-z0-9-]+)$/;
-
-/**
- * Course pages only exist while a course has profes, so `/clases/<id>` links in
- * content fall back to the filtered directory instead of ever returning 404.
- */
-function resolveHref(href: string) {
-  const courseId = href.match(COURSE_LINK_PATTERN)?.[1];
-  const course = courseId ? getCourseById(courseId) : undefined;
-  return course ? courseLandingHref(course) : href;
-}
 
 /** Renders `**bold**` and `[label](/href)` inside a plain string. */
 export function Inline({ text }: { text: string }) {
@@ -37,7 +25,7 @@ export function Inline({ text }: { text: string }) {
       );
     } else if (href.startsWith("/") || href.startsWith("#")) {
       nodes.push(
-        <Link key={key} href={resolveHref(href)} prefetch={false}>
+        <Link key={key} href={resolveContentHref(href)} prefetch={false}>
           {label}
         </Link>,
       );

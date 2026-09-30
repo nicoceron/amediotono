@@ -11,14 +11,15 @@ import {
   VOICE_TYPE_PATH,
   tunerPresetPath,
 } from "@/lib/music-tools";
+import { siteFactsMarkdown } from "@/lib/markdown";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_SLOGAN, absoluteUrl } from "@/lib/seo";
 
 export const dynamic = "force-static";
 
 /**
  * llms.txt (https://llmstxt.org): a plain-Markdown map of the site for AI
- * assistants. Google Search ignores it; it is a cheap, harmless courtesy for
- * other answer engines and agents.
+ * assistants, with the key facts up front. /llms-full.txt has the full text
+ * and every guide, course page and service also answers at `<url>.md`.
  */
 export function GET() {
   const lines = [
@@ -27,6 +28,13 @@ export function GET() {
     `> ${SITE_DESCRIPTION} ${SITE_SLOGAN}`,
     "",
     `${SITE_NAME} es una escuela de artes y música en Bogotá, Colombia. Conecta estudiantes de todas las edades con ${TEACHERS.length} profes evaluados en música, pedagogía y calidad humana antes de su primera clase. Las clases son virtuales o a domicilio en Bogotá y alrededores. También ofrece selección y evaluación de profesores de música para academias, colegios e instituciones.`,
+    "",
+    ...siteFactsMarkdown(),
+    "## Versiones para asistentes de IA",
+    "",
+    `- [Contenido completo en un solo archivo](${absoluteUrl("/llms-full.txt")}): todas las guías, clases, profes y servicios en Markdown.`,
+    `- Cada artículo del blog, página de clase y servicio para academias tiene una versión en Markdown: agrega \`.md\` a su URL (por ejemplo ${absoluteUrl("/clases/piano.md")}).`,
+    `- [Profes en Markdown](${absoluteUrl("/profes.md")})`,
     "",
     "## Clases de música",
     "",

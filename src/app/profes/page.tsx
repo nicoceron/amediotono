@@ -18,6 +18,7 @@ export const metadata: Metadata = createPageMetadata({
   description:
     "Encuentra profes de música para clases particulares virtuales o a domicilio. Filtra por curso, formato, ubicación e idioma en A medio tono.",
   path: "/profes",
+  markdownPath: "/profes.md",
   image: shareImage("profes"),
 });
 
@@ -50,7 +51,7 @@ export default function ProfesPage() {
             </p>
           </div>
 
-          <Suspense fallback={<ProfesDirectorySkeleton />}>
+          <Suspense fallback={<ProfesDirectorySkeleton teachers={TEACHERS} />}>
             <ProfesDirectory teachers={TEACHERS} />
           </Suspense>
         </div>

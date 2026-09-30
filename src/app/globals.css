@@ -4014,6 +4014,10 @@ body:has(.job-application-page) {
 .profes-directory-skeleton {
   --profes-skeleton-base: color-mix(in srgb, var(--ink) 7%, transparent);
   --profes-skeleton-glint: color-mix(in srgb, var(--ink) 13%, transparent);
+}
+
+.profes-search-skeleton,
+.profes-skeleton-list {
   pointer-events: none;
 }
 

@@ -23,7 +23,9 @@ En el texto de guías y artículos se puede usar `**negrita**` y `[enlace](/ruta
 
 Antes de publicar artículos nuevos, valida el contenido con `npm run content:check` (campos, longitudes, enlaces internos y afirmaciones prohibidas).
 
-Después de publicar, envía las URLs nuevas a Bing/Yandex con `npm run indexnow` (lee el sitemap en producción).
+Cada despliegue a producción (`.github/workflows/vercel-production.yml`) avisa por IndexNow a Bing, Yandex, Seznam, Naver y Yep las URLs nuevas o modificadas, comparando el sitemap antes y después. `npm run indexnow` envía el sitemap completo a mano. La clave IndexNow es pública por diseño y está en `src/data/indexnow.json` (`INDEXNOW_KEY` la reemplaza).
+
+Para asistentes de IA: `/llms.txt` (índice con datos clave), `/llms-full.txt` (todo el contenido en Markdown) y una versión Markdown de cada artículo, página de clase, servicio para academias y del directorio de profes agregando `.md` a la URL (`src/lib/markdown.ts`). `robots.txt` permite a los rastreadores de buscadores y de IA. Si se abren otros perfiles oficiales (Google Business Profile, Facebook, TikTok…), agrégalos en `OTHER_PROFILE_URLS` de `src/lib/contact.ts`.
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 

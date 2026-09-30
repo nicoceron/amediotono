@@ -40,6 +40,7 @@ export async function generateMetadata({
     title: brandTitle(service.seoTitle),
     description: service.metaDescription,
     path: service.path,
+    markdownPath: `${service.path}.md`,
     image: shareImage(`academias-${service.slug}`),
     keywords: service.keywords,
   });

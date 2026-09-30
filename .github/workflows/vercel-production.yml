@@ -37,7 +37,18 @@ jobs:
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
 
+      # Remember the live sitemap so only new or changed URLs are sent to IndexNow.
+      - name: Snapshot live sitemap
+        continue-on-error: true
+        run: node scripts/submit-indexnow.mjs --snapshot "$RUNNER_TEMP/sitemap-before.xml"
+
       - name: Deploy production artifacts
         run: vercel deploy --prebuilt --prod --token="$VERCEL_TOKEN"
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+
+      # Notifies Bing (which also feeds ChatGPT search and Copilot), Yandex,
+      # Seznam, Naver and Yep. Never fails the deploy.
+      - name: Submit new and changed URLs to IndexNow
+        continue-on-error: true
+        run: node scripts/submit-indexnow.mjs --previous "$RUNNER_TEMP/sitemap-before.xml"

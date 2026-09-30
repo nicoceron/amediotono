@@ -69,6 +69,7 @@ export async function generateMetadata({
     title: brandTitle(page.guide.seoTitle),
     description: page.guide.metaDescription,
     path: page.path,
+    markdownPath: `${page.path}.md`,
     image: {
       url: `${page.path}/share-image.png`,
       width: 1200,

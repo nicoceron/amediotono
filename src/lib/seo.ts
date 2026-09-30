@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { CONTACT_EMAIL, INSTAGRAM_URL, WHATSAPP_DISPLAY } from "@/lib/contact";
+import { CONTACT_EMAIL, INSTAGRAM_URL, OTHER_PROFILE_URLS, WHATSAPP_DISPLAY } from "@/lib/contact";
+import indexNowConfig from "@/data/indexnow.json";
 import type { BlogPost, CourseGuide, FaqItem } from "@/lib/content-types";
 import type { Course } from "@/lib/courses";
 import type { Teacher } from "@/lib/teachers";
@@ -85,8 +86,13 @@ export function siteHost() {
   return new URL(SITE_URL).host;
 }
 
+/**
+ * IndexNow keys are public by design (search engines read them from
+ * /indexnow-key.txt), so a default key is committed in src/data/indexnow.json.
+ * INDEXNOW_KEY overrides it.
+ */
 export function getIndexNowKey() {
-  const key = process.env.INDEXNOW_KEY?.trim() ?? "";
+  const key = process.env.INDEXNOW_KEY?.trim() || indexNowConfig.key;
   return INDEXNOW_KEY_PATTERN.test(key) ? key : "";
 }
 
@@ -141,6 +147,7 @@ export function createPageMetadata({
   keywords,
   article,
   noindex = false,
+  markdownPath,
 }: {
   title: string;
   description: string;
@@ -151,6 +158,8 @@ export function createPageMetadata({
   keywords?: string[];
   article?: ArticleMetadata;
   noindex?: boolean;
+  /** Markdown twin for AI assistants, e.g. "/blog/<slug>.md". */
+  markdownPath?: string;
 }): Metadata {
   const safeDescription = truncateMetaDescription(description);
   const safeSocialDescription = truncateMetaDescription(
@@ -164,6 +173,7 @@ export function createPageMetadata({
     ...(keywords?.length ? { keywords } : {}),
     alternates: {
       canonical: path,
+      ...(markdownPath ? { types: { "text/markdown": markdownPath } } : {}),
     },
     ...(noindex
       ? {
@@ -267,7 +277,7 @@ export function organizationJsonLd({
     slogan: SITE_SLOGAN,
     email: CONTACT_EMAIL,
     telephone: WHATSAPP_DISPLAY,
-    sameAs: [INSTAGRAM_URL],
+    sameAs: [INSTAGRAM_URL, ...OTHER_PROFILE_URLS],
     contactPoint: [
       {
         "@type": "ContactPoint",

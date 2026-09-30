@@ -64,6 +64,7 @@ export async function generateMetadata({
     description: post.description,
     socialTitle: post.title,
     path: postPath(post.slug),
+    markdownPath: `${postPath(post.slug)}.md`,
     keywords: post.keywords,
     image: {
       url: shareImage(post.slug),

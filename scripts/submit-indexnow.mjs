@@ -1,23 +1,49 @@
-import { readFile } from "node:fs/promises";
+// Tells IndexNow search engines (Bing, Yandex, Seznam, Naver, Yep…) which
+// URLs changed. Bing's index also feeds ChatGPT search and Copilot.
+//
+//   npm run indexnow                                   submit every URL in the live sitemap
+//   node scripts/submit-indexnow.mjs --snapshot FILE   save the live sitemap (before a deploy)
+//   node scripts/submit-indexnow.mjs --previous FILE   submit only URLs that are new or whose
+//                                                      <lastmod> changed since FILE (after a deploy)
+//
+// The production workflow (.github/workflows/vercel-production.yml) runs the
+// last two around every deploy. INDEXNOW_DRY_RUN=1 prints instead of sending.
+import { readFile, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const INDEXNOW_ENDPOINT = "https://api.indexnow.org/indexnow";
 const INDEXNOW_KEY_PATH = "/indexnow-key.txt";
 const INDEXNOW_KEY_PATTERN = /^[A-Za-z0-9-]{8,128}$/;
-const FALLBACK_PATHS = ["/", "/clases", "/clases-de-musica-online", "/preuniversitario-musica", "/profes", "/blog", "/herramientas", "/academias", "/nosotros", "/trabaja-con-nosotros"];
+const DEFAULT_SITE_URL = "https://www.amediotonomusic.com";
+const MAX_URLS_PER_REQUEST = 10000;
+const FALLBACK_PATHS = [
+  "/",
+  "/clases",
+  "/clases-de-musica-online",
+  "/clases-de-musica-a-domicilio-bogota",
+  "/preuniversitario-musica",
+  "/profes",
+  "/blog",
+  "/herramientas",
+  "/academias",
+  "/nosotros",
+  "/trabaja-con-nosotros",
+];
 
-function normalizeSiteUrl(value) {
-  try {
-    return new URL(value).toString().replace(/\/$/, "");
-  } catch {
-    return "";
-  }
-}
+const projectRoot = join(dirname(fileURLToPath(import.meta.url)), "..");
 
 function fail(message) {
   console.error(message);
   process.exit(1);
+}
+
+function argValue(name) {
+  const index = process.argv.indexOf(name);
+  if (index === -1) return undefined;
+  const value = process.argv[index + 1];
+  if (!value || value.startsWith("--")) fail(`Missing file path after ${name}.`);
+  return value;
 }
 
 function parseEnv(contents) {
@@ -37,79 +63,135 @@ function parseEnv(contents) {
       value = value.slice(1, -1);
     }
 
-    process.env[name] ??= value;
+    if (value) process.env[name] ??= value;
   }
 }
 
-const projectRoot = join(dirname(fileURLToPath(import.meta.url)), "..");
-for (const filename of [".env.local", ".env"]) {
+/** Same rules as SITE_URL in src/lib/seo.ts: https://www. host, no trailing slash. */
+function normalizeSiteUrl(value) {
+  try {
+    const url = new URL(value || DEFAULT_SITE_URL);
+    if (url.hostname === "amediotonomusic.com") url.hostname = "www.amediotonomusic.com";
+    return url.toString().replace(/\/$/, "");
+  } catch {
+    return DEFAULT_SITE_URL;
+  }
+}
+
+// `vercel pull` (used by the deploy workflow) writes .vercel/.env.production.local.
+for (const filename of [".env.local", ".env", ".vercel/.env.production.local"]) {
   const contents = await readFile(join(projectRoot, filename), "utf8").catch(() => "");
   parseEnv(contents);
 }
 
 const siteUrl = normalizeSiteUrl(process.env.NEXT_PUBLIC_SITE_URL || process.env.SITE_URL);
-const key = (process.env.INDEXNOW_KEY || "").trim();
+const keyLocation = new URL(INDEXNOW_KEY_PATH, `${siteUrl}/`).toString();
 
-if (!siteUrl) {
-  fail("Set NEXT_PUBLIC_SITE_URL or SITE_URL before running npm run indexnow.");
-}
-
-if (!INDEXNOW_KEY_PATTERN.test(key)) {
-  fail("Set INDEXNOW_KEY to 8-128 letters, numbers, or dashes before running npm run indexnow.");
-}
-
-async function sitemapUrls() {
-  try {
-    const response = await fetch(new URL("/sitemap.xml", `${siteUrl}/`));
-    if (!response.ok) return [];
-    const xml = await response.text();
-    return [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1].trim());
-  } catch {
-    return [];
+async function fetchText(url, attempts = 3) {
+  for (let attempt = 1; attempt <= attempts; attempt += 1) {
+    try {
+      const response = await fetch(url, { headers: { "cache-control": "no-cache" } });
+      if (response.ok) return await response.text();
+    } catch {
+      // Retry below.
+    }
+    if (attempt < attempts) await new Promise((resolve) => setTimeout(resolve, 5000 * attempt));
   }
+  return "";
+}
+
+/** Map of URL → lastmod ("" when missing) from a sitemap XML string. */
+function parseSitemap(xml) {
+  const entries = new Map();
+  for (const match of xml.matchAll(/<url>([\s\S]*?)<\/url>/g)) {
+    const loc = match[1].match(/<loc>([^<]+)<\/loc>/)?.[1]?.trim();
+    const lastmod = match[1].match(/<lastmod>([^<]+)<\/lastmod>/)?.[1]?.trim() ?? "";
+    if (loc) entries.set(loc, lastmod);
+  }
+  return entries;
 }
 
 async function fallbackUrls() {
-  const teachersPath = join(projectRoot, "src/data/teachers.json");
-  const teachers = JSON.parse(await readFile(teachersPath, "utf8"));
+  const teachers = JSON.parse(await readFile(join(projectRoot, "src/data/teachers.json"), "utf8"));
   const teacherPaths = teachers.map((teacher) => `/profes/${teacher.slug}`);
   return [...FALLBACK_PATHS, ...teacherPaths].map((path) => new URL(path, `${siteUrl}/`).toString());
 }
 
-// Submit every URL in the live sitemap so new pages (courses, blog posts,
-// business pages) are always included; fall back to a local list offline.
-const liveUrls = await sitemapUrls();
-const urlList = liveUrls.length ? liveUrls : await fallbackUrls();
-if (!liveUrls.length) {
-  console.warn("Could not read the live sitemap; submitting the local fallback URL list.");
-}
-const payload = {
-  host: new URL(siteUrl).host,
-  key,
-  keyLocation: new URL(INDEXNOW_KEY_PATH, `${siteUrl}/`).toString(),
-  urlList,
-};
+/** The key the live site serves is the one IndexNow will verify against. */
+async function resolveKey() {
+  const liveKey = (await fetchText(keyLocation, 2)).trim();
+  if (INDEXNOW_KEY_PATTERN.test(liveKey)) return liveKey;
 
-if (process.env.INDEXNOW_DRY_RUN === "1") {
-  console.log(`IndexNow dry run: would submit ${urlList.length} URL(s) to ${INDEXNOW_ENDPOINT}.`);
-  console.log(JSON.stringify(payload, null, 2));
+  const envKey = (process.env.INDEXNOW_KEY || "").trim();
+  if (INDEXNOW_KEY_PATTERN.test(envKey)) return envKey;
+
+  const config = JSON.parse(await readFile(join(projectRoot, "src/data/indexnow.json"), "utf8"));
+  return String(config.key || "").trim();
+}
+
+const sitemapUrl = new URL("/sitemap.xml", `${siteUrl}/`).toString();
+const snapshotFile = argValue("--snapshot");
+const previousFile = argValue("--previous");
+
+if (snapshotFile) {
+  const xml = await fetchText(sitemapUrl);
+  await writeFile(snapshotFile, xml);
+  console.log(
+    xml
+      ? `Saved ${parseSitemap(xml).size} sitemap URL(s) from ${sitemapUrl} to ${snapshotFile}.`
+      : `Could not read ${sitemapUrl}; saved an empty snapshot (every URL will count as new).`,
+  );
   process.exit(0);
 }
 
-const response = await fetch(INDEXNOW_ENDPOINT, {
-  method: "POST",
-  headers: {
-    "content-type": "application/json; charset=utf-8",
-  },
-  body: JSON.stringify(payload),
-});
-const body = await response.text();
+const liveXml = await fetchText(sitemapUrl);
+const live = parseSitemap(liveXml);
+let urlList;
 
-if (response.status !== 200 && response.status !== 202) {
-  console.error(`IndexNow rejected ${urlList.length} URL(s) with HTTP ${response.status}.`);
-  if (body.trim()) console.error(body);
-  process.exit(1);
+if (previousFile) {
+  if (!live.size) fail(`Could not read ${sitemapUrl}; nothing submitted.`);
+  const previous = parseSitemap(await readFile(previousFile, "utf8").catch(() => ""));
+  urlList = [...live].filter(([url, lastmod]) => previous.get(url) !== lastmod).map(([url]) => url);
+  console.log(`${live.size} URL(s) in the sitemap, ${urlList.length} new or changed since the previous deploy.`);
+} else if (live.size) {
+  urlList = [...live.keys()];
+} else {
+  console.warn("Could not read the live sitemap; submitting the local fallback URL list.");
+  urlList = await fallbackUrls();
 }
 
-console.log(`IndexNow accepted ${urlList.length} URL(s) with HTTP ${response.status}.`);
-if (body.trim()) console.log(body);
+if (!urlList.length) {
+  console.log("Nothing to submit.");
+  process.exit(0);
+}
+
+const key = await resolveKey();
+if (!INDEXNOW_KEY_PATTERN.test(key)) {
+  fail("No valid IndexNow key: check /indexnow-key.txt, INDEXNOW_KEY or src/data/indexnow.json.");
+}
+
+for (let start = 0; start < urlList.length; start += MAX_URLS_PER_REQUEST) {
+  const batch = urlList.slice(start, start + MAX_URLS_PER_REQUEST);
+  const payload = { host: new URL(siteUrl).host, key, keyLocation, urlList: batch };
+
+  if (process.env.INDEXNOW_DRY_RUN === "1") {
+    console.log(`IndexNow dry run: would submit ${batch.length} URL(s) to ${INDEXNOW_ENDPOINT}.`);
+    console.log(JSON.stringify(payload, null, 2));
+    continue;
+  }
+
+  const response = await fetch(INDEXNOW_ENDPOINT, {
+    method: "POST",
+    headers: { "content-type": "application/json; charset=utf-8" },
+    body: JSON.stringify(payload),
+  });
+  const body = await response.text();
+
+  if (response.status !== 200 && response.status !== 202) {
+    console.error(`IndexNow rejected ${batch.length} URL(s) with HTTP ${response.status}.`);
+    if (body.trim()) console.error(body);
+    process.exit(1);
+  }
+
+  console.log(`IndexNow accepted ${batch.length} URL(s) with HTTP ${response.status}.`);
+}

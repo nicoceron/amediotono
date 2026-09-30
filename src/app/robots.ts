@@ -39,12 +39,22 @@ const aiAnswerBots = [
   "Google-Extended",
   "Applebot-Extended",
   "meta-externalagent",
+  "Meta-ExternalFetcher",
+  "FacebookBot",
+  "Amazonbot",
   "CCBot",
   "MistralAI-User",
   "cohere-ai",
+  "cohere-training-data-crawler",
+  "GoogleOther",
+  "Google-CloudVertexBot",
+  "Bytespider",
+  "YouBot",
+  "AI2Bot",
 ];
 
-const privatePaths = ["/api/"];
+// /md/ is only reached through the public `<page>.md` URLs (see next.config.ts).
+const privatePaths = ["/api/", "/md/"];
 
 export default function robots(): MetadataRoute.Robots {
   return {
