@@ -179,6 +179,12 @@ export function Footer() {
 
           <div className="footer-bottom">
             <span>© {year} A medio tono</span>
+            <span className="footer-credit">
+              Diseño y desarrollo:{" "}
+              <a href="https://dardo.studio/es/" target="_blank" rel="noopener">
+                Dardo
+              </a>
+            </span>
           </div>
         </div>
 
