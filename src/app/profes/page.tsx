@@ -14,9 +14,8 @@ import {
 import { shareImage } from "@/lib/share-cards";
 
 export const metadata: Metadata = createPageMetadata({
-  title: brandTitle("Profesores de música en Bogotá y virtuales"),
-  description:
-    "Encuentra profes de música para clases particulares virtuales o a domicilio. Filtra por curso, formato, ubicación e idioma en A medio tono.",
+  title: brandTitle(`${TEACHERS.length} profesores de música a domicilio en Bogotá y virtuales`),
+  description: `${TEACHERS.length} profes de música evaluados para clases particulares a domicilio en Bogotá o virtuales: piano, canto, guitarra, violín y más. Filtra por instrumento, formato e idioma.`,
   path: "/profes",
   markdownPath: "/profes.md",
   image: shareImage("profes"),
@@ -44,7 +43,7 @@ export default function ProfesPage() {
       >
         <div className="container">
           <div className="sec-head profes-page-head">
-            <h1>Profes y tutores de música</h1>
+            <h1>Profesores de música a domicilio en Bogotá y virtuales</h1>
             <p className="sec-sub">
               Elige profes de piano, canto, guitarra, violín, flauta y más para
               clases virtuales o a domicilio en Bogotá.
