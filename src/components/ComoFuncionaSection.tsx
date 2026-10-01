@@ -5,6 +5,7 @@ import {
   Languages,
 } from "lucide-react";
 import { TEACHERS } from "@/lib/teachers";
+import { BrandText, BrandWordmark } from "@/components/BrandWordmark";
 import { LazyVideo } from "@/components/LazyVideo";
 import { Reveal } from "@/components/Reveal";
 
@@ -44,14 +45,7 @@ export function ComoFuncionaSection() {
             <span className="cf-title-first" style={{ color: "var(--orange)" }}>Cómo</span>{" "}
             <span className="cf-title-rest">
               <span style={{ color: "var(--ink)" }}>funciona</span>
-              <Image
-                className="cf-title-logo"
-                src="/logo-nav.webp"
-                alt="A medio tono"
-                width={1205}
-                height={300}
-                sizes="(max-width: 700px) 150px, 230px"
-              />
+              <BrandWordmark className="cf-title-logo" />
             </span>
           </h2>
         </div>
@@ -67,7 +61,9 @@ export function ComoFuncionaSection() {
                 {step.number}
               </span>
               <h3 className="cf-card-title">{step.title}</h3>
-              <p className="cf-card-body">{step.body}</p>
+              <p className="cf-card-body">
+                <BrandText text={step.body} />
+              </p>
 
               {i === 0 && (
                 <div className="cf-card-visual cf-visual-profes">

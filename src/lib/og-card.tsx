@@ -57,6 +57,7 @@ export async function renderOgCard({
 }) {
   const color = COLOR_VALUES[accent] ?? accent;
   const logoSrc = await publicImageDataUrl("/logo-mark-transparent.png");
+  const wordmarkSrc = await publicImageDataUrl("/logo-wordmark-og.png");
   const iconSrc = icon ? await publicImageDataUrl(icon) : undefined;
   const safeTitle = compact(title, 96);
   const titleSize = safeTitle.length > 70 ? 54 : safeTitle.length > 44 ? 62 : 72;
@@ -140,8 +141,10 @@ export async function renderOgCard({
               </div>
             )}
           </div>
-          <div style={{ display: "flex", fontSize: 22, fontWeight: 800, color: "#2A1B3D" }}>
-            <span>A ½ tono</span>
+          <div
+            style={{ display: "flex", alignItems: "center", fontSize: 22, fontWeight: 800, color: "#2A1B3D" }}
+          >
+            <img src={wordmarkSrc} alt="" width={121} height={30} />
             <span style={{ margin: "0 14px", color }}>•</span>
             <span style={{ color: "#5C4A6E" }}>{footer}</span>
           </div>

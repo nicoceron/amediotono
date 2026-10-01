@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BrandWordmark } from "@/components/BrandWordmark";
 import {
   ArrowRight,
   BookOpen,
@@ -61,7 +62,9 @@ export function HomeResourcesSection() {
     <section className="block ed-section home-resources" aria-labelledby="explora-title">
       <div className="container">
         <div className="sec-head ed-sec-head">
-          <h2 id="explora-title">Explora A ½ tono</h2>
+          <h2 id="explora-title">
+            Explora <BrandWordmark />
+          </h2>
           <p className="sec-sub">Más formas de aprender, practicar y prepararte con nosotros.</p>
         </div>
         <ul className="b2b-service-grid home-resources-grid">

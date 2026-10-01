@@ -18,6 +18,7 @@ import {
   type PointerEvent,
 } from "react";
 import { FEATURED_QUOTES } from "@/lib/teachers";
+import { BrandText } from "@/components/BrandWordmark";
 
 function trimQuote(text: string, maxChars = 130): string {
   if (text.length <= maxChars) return text;
@@ -292,7 +293,9 @@ export function TestimoniosSection() {
                       />
                     ))}
                   </div>
-                  <p className="voces-card-quote">{trimQuote(q.quote, 130)}</p>
+                  <p className="voces-card-quote">
+                    <BrandText text={trimQuote(q.quote, 130)} />
+                  </p>
                   <footer className="voces-card-foot">
                     <strong>{q.author}</strong>
                     <span>

@@ -5624,6 +5624,14 @@ body:has(.job-application-page) {
   column-gap: 0.25em;
   white-space: nowrap;
 }
+/* "A ½ tono" wordmark inline in running text or headings (BrandWordmark). */
+.brand-wordmark {
+  display: inline-block;
+  height: 1.05em;
+  width: auto;
+  vertical-align: -0.2em;
+}
+
 .cf-title-logo {
   height: 0.95em;
   width: auto;
