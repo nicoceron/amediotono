@@ -1,4 +1,4 @@
-name: Vercel Production Deployment
+name: Cloudflare Production Deployment
 
 on:
   push:
@@ -10,12 +10,10 @@ permissions:
   contents: read
 
 concurrency:
-  group: vercel-production
+  group: cloudflare-production
   cancel-in-progress: true
 
 env:
-  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
   INDEXNOW_SITEMAP: .indexnow/sitemap.xml
 
 jobs:
@@ -25,26 +23,23 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Install Vercel CLI
-        run: npm install --global vercel@latest
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
 
-      - name: Pull Vercel environment information
-        run: vercel pull --yes --environment=production --token="$VERCEL_TOKEN"
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      - name: Install dependencies
+        run: npm ci
 
-      - name: Build production artifacts
-        run: vercel build --prod --token="$VERCEL_TOKEN"
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      - name: Build for Cloudflare Workers
+        run: npx opennextjs-cloudflare build
 
-      # --archive=tgz uploads the build as a few compressed parts instead of one
-      # request per file: a Next.js output has thousands of files and the Hobby
-      # plan allows 5,000 uploads per day.
-      - name: Deploy production artifacts
-        run: vercel deploy --prebuilt --prod --archive=tgz --token="$VERCEL_TOKEN"
+      # Uploads only changed static assets, then publishes the new Worker version.
+      - name: Deploy to Cloudflare Workers
+        run: npx opennextjs-cloudflare deploy
         env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
 
       # The sitemap from the last successful IndexNow submission, so only new or
       # changed URLs are sent (all of them when there is no previous record).
