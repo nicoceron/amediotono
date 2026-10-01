@@ -46,7 +46,7 @@ export const post: BlogPost = {
         },
         {
           type: "p",
-          text: "Entre cada cuerda y la siguiente hay una cuarta justa. En un bajo de cinco cuerdas, la adicional suele ser un Si grave (B0, unos 30,87 Hz) por debajo del Mi; en uno de seis se suma además un Do agudo (C3) por encima del Sol. El contrabajo usa las mismas cuatro notas que el bajo eléctrico y tiene su propio [afinador de contrabajo](/herramientas/afinador/contrabajo).",
+          text: "Entre cada cuerda y la siguiente hay una cuarta justa. En un bajo de cinco cuerdas, la adicional suele ser un Si grave (B0, unos 30,87 Hz) por debajo del Mi, y tiene su propio [afinador de bajo de 5 cuerdas](/herramientas/afinador/bajo-5-cuerdas); en uno de seis se suma además un Do agudo (C3) por encima del Sol. El contrabajo usa las mismas cuatro notas que el bajo eléctrico y tiene su propio [afinador de contrabajo](/herramientas/afinador/contrabajo).",
         },
       ],
     },

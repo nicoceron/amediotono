@@ -29,7 +29,12 @@ const teachers = JSON.parse(await readFile(join(root, "src/data/teachers.json"),
 const b2bSource = await readFile(join(root, "src/lib/b2b.ts"), "utf8");
 const b2bSlugs = [...b2bSource.matchAll(/slug: "([a-z0-9-]+)"/g)].map((match) => match[1]);
 const courseIds = new Set(courses.map((course) => course.id));
-const TUNER_PRESETS = ["guitarra", "violin", "viola", "violonchelo", "contrabajo", "bajo", "ukelele"];
+// Tool presets are read from their content files, like the b2b slugs above.
+const slugsIn = async (...files) =>
+  (await Promise.all(files.map((file) => readFile(join(root, file), "utf8"))))
+    .flatMap((source) => [...source.matchAll(/^    slug: "([a-z0-9-]+)"/gm)].map((match) => match[1]));
+const TUNER_PRESETS = await slugsIn("src/content/tuner-presets.ts", "src/content/tuner-presets-guitar.ts");
+const RHYTHM_PRESETS = await slugsIn("src/content/metronome-rhythms.ts");
 
 async function loadPost(file) {
   const source = await readFile(join(blogDir, file), "utf8");
@@ -59,6 +64,7 @@ const knownRoutes = new Set([
   "/herramientas/tipo-de-voz", "/herramientas/entrenamiento-auditivo", "/clases-de-musica-a-domicilio-bogota",
   "/preuniversitario-musica", "/clases-de-musica-online", "/glosario-musical",
   ...TUNER_PRESETS.map((preset) => `/herramientas/afinador/${preset}`),
+  ...RHYTHM_PRESETS.map((preset) => `/herramientas/metronomo/${preset}`),
   ...b2bSlugs.map((slug) => `/academias/${slug}`),
   ...[...courseIds].map((id) => `/clases/${id}`),
   ...teachers.map((teacher) => `/profes/${teacher.slug}`),

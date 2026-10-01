@@ -2,27 +2,33 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Minus, Pause, Play, Plus, Hand } from "lucide-react";
-import { tempoMarking } from "@/lib/music-tools";
+import {
+  METERS,
+  defaultAccents,
+  getMeter,
+  subdivisionOptions,
+  tempoMarking,
+  type AccentLevel,
+  type MeterId,
+  type MetronomeSetup,
+} from "@/lib/music-core";
 
 const MIN_BPM = 30;
 const MAX_BPM = 250;
 const LOOKAHEAD_MS = 25;
 const SCHEDULE_AHEAD_S = 0.12;
 
-const SUBDIVISIONS = [
-  { value: 1, label: "Negras" },
-  { value: 2, label: "Corcheas" },
-  { value: 3, label: "Tresillos" },
-  { value: 4, label: "Semicorcheas" },
-];
+const ACCENT_NAMES = ["sin acento", "acento suave", "acento fuerte"];
+const NO_SETUPS: MetronomeSetup[] = [];
 
-const METERS = [2, 3, 4, 5, 6, 7];
+type ClickKind = "accent" | "secondary" | "beat" | "sub";
 
 type Settings = {
   bpm: number;
   beats: number;
   subdivision: number;
   accent: boolean;
+  accents: AccentLevel[];
   volume: number;
 };
 
@@ -30,16 +36,44 @@ function clampBpm(value: number) {
   return Math.min(MAX_BPM, Math.max(MIN_BPM, Math.round(value)));
 }
 
-export function Metronome({ initialBpm = 80 }: { initialBpm?: number }) {
-  const [bpm, setBpm] = useState(initialBpm);
-  const [beats, setBeats] = useState(4);
-  const [subdivision, setSubdivision] = useState(1);
+/**
+ * Clicks per pulse after a meter change: entering a compound meter turns on
+ * eighths so its groups of three are audible; leaving one maps eighths back
+ * to two per beat.
+ */
+function subdivisionFor(from: MeterId, to: MeterId, current: number) {
+  const fromCompound = getMeter(from).pulse === "negra con puntillo";
+  const toCompound = getMeter(to).pulse === "negra con puntillo";
+  if (fromCompound === toCompound) return current;
+  if (toCompound) return 3;
+  return current === 1 ? 1 : 2;
+}
+
+export function Metronome({
+  initialBpm = 80,
+  setups = NO_SETUPS,
+}: {
+  initialBpm?: number;
+  /** Rhythm presets: the first one loads, the others are one tap away. */
+  setups?: MetronomeSetup[];
+}) {
+  const first = setups[0];
+  const [bpm, setBpm] = useState(first?.bpm ?? initialBpm);
+  const [meterId, setMeterId] = useState<MeterId>(first?.meter ?? "4/4");
+  const [subdivision, setSubdivision] = useState(first?.subdivision ?? 1);
+  const [accents, setAccents] = useState<AccentLevel[]>(
+    () => first?.accents ?? defaultAccents(getMeter(first?.meter ?? "4/4").beats),
+  );
+  const [setupIndex, setSetupIndex] = useState<number | null>(first ? 0 : null);
   const [accent, setAccent] = useState(true);
   const [volume, setVolume] = useState(0.8);
   const [running, setRunning] = useState(false);
   const [activeBeat, setActiveBeat] = useState(-1);
 
-  const settingsRef = useRef<Settings>({ bpm, beats, subdivision, accent, volume });
+  const meter = getMeter(meterId);
+  const beats = meter.beats;
+
+  const settingsRef = useRef<Settings>({ bpm, beats, subdivision, accent, accents, volume });
   const contextRef = useRef<AudioContext | null>(null);
   const timerRef = useRef<number | null>(null);
   const frameRef = useRef<number | null>(null);
@@ -49,17 +83,17 @@ export function Metronome({ initialBpm = 80 }: { initialBpm?: number }) {
   const tapsRef = useRef<number[]>([]);
 
   useEffect(() => {
-    settingsRef.current = { bpm, beats, subdivision, accent, volume };
-  }, [bpm, beats, subdivision, accent, volume]);
+    settingsRef.current = { bpm, beats, subdivision, accent, accents, volume };
+  }, [bpm, beats, subdivision, accent, accents, volume]);
 
-  const click = useCallback((time: number, kind: "accent" | "beat" | "sub") => {
+  const click = useCallback((time: number, kind: ClickKind) => {
     const context = contextRef.current;
     if (!context) return;
     const oscillator = context.createOscillator();
     const gain = context.createGain();
     oscillator.type = kind === "sub" ? "triangle" : "square";
-    oscillator.frequency.value = kind === "accent" ? 1760 : kind === "beat" ? 1320 : 880;
-    const level = settingsRef.current.volume * (kind === "sub" ? 0.35 : kind === "accent" ? 0.9 : 0.6);
+    oscillator.frequency.value = { accent: 1760, secondary: 1568, beat: 1320, sub: 880 }[kind];
+    const level = settingsRef.current.volume * { accent: 0.9, secondary: 0.75, beat: 0.6, sub: 0.35 }[kind];
     gain.gain.setValueAtTime(0.0001, time);
     gain.gain.exponentialRampToValueAtTime(Math.max(level, 0.0002), time + 0.002);
     gain.gain.exponentialRampToValueAtTime(0.0001, time + 0.06);
@@ -72,15 +106,17 @@ export function Metronome({ initialBpm = 80 }: { initialBpm?: number }) {
     const context = contextRef.current;
     if (!context) return;
     while (nextTimeRef.current < context.currentTime + SCHEDULE_AHEAD_S) {
-      const { bpm: tempo, beats: meter, subdivision: parts, accent: useAccent } = settingsRef.current;
-      const tick = tickRef.current;
+      const { bpm: tempo, beats: count, subdivision: parts, accent: useAccent, accents: levels } = settingsRef.current;
+      // Modulo first: the meter may have changed since the last tick.
+      const tick = tickRef.current % (count * parts);
       const isBeat = tick % parts === 0;
-      const beat = Math.floor(tick / parts) % meter;
-      const kind = isBeat ? (beat === 0 && useAccent ? "accent" : "beat") : "sub";
+      const beat = Math.floor(tick / parts);
+      const level = useAccent ? (levels[beat] ?? 0) : 0;
+      const kind: ClickKind = !isBeat ? "sub" : level === 2 ? "accent" : level === 1 ? "secondary" : "beat";
       click(nextTimeRef.current, kind);
       if (isBeat) queueRef.current.push({ time: nextTimeRef.current, beat });
       nextTimeRef.current += 60 / tempo / parts;
-      tickRef.current = (tick + 1) % (meter * parts);
+      tickRef.current = (tick + 1) % (count * parts);
     }
   }, [click]);
 
@@ -160,24 +196,75 @@ export function Metronome({ initialBpm = 80 }: { initialBpm?: number }) {
     }
   };
 
+  /** A new meter starts on its first beat, with the accent on beat one. */
+  const changeMeter = (id: MeterId) => {
+    setMeterId(id);
+    setSubdivision((current) => subdivisionFor(meterId, id, current));
+    setAccents(defaultAccents(getMeter(id).beats));
+    setSetupIndex(null);
+    tickRef.current = 0;
+  };
+
+  const applySetup = (index: number) => {
+    const setup = setups[index];
+    setBpm(setup.bpm);
+    setMeterId(setup.meter);
+    setSubdivision(setup.subdivision);
+    setAccents(setup.accents ?? defaultAccents(getMeter(setup.meter).beats));
+    setAccent(true);
+    setSetupIndex(index);
+    tickRef.current = 0;
+  };
+
+  /** Strong → soft → none → strong. */
+  const cycleAccent = (beat: number) => {
+    setAccents((current) =>
+      current.map((level, index) => (index === beat ? (((level + 2) % 3) as AccentLevel) : level)),
+    );
+    setAccent(true);
+  };
+
   const marking = tempoMarking(bpm);
 
   return (
     <div className="tool-card metronome">
+      {setups.length > 1 && (
+        <div className="metronome-setups" role="group" aria-label="Compás del ritmo">
+          {setups.map((setup, index) => (
+            <button
+              key={setup.label}
+              type="button"
+              className={setupIndex === index ? "is-active" : undefined}
+              aria-pressed={setupIndex === index}
+              onClick={() => applySetup(index)}
+            >
+              {setup.label}
+            </button>
+          ))}
+        </div>
+      )}
+
       <div className="metronome-display">
         <p className="metronome-bpm" aria-live="polite">
           <strong>{bpm}</strong>
-          <span>BPM · {marking.name}</span>
+          <span>
+            BPM{meter.pulse === "negra" ? "" : ` (${meter.pulse})`} · {meterId} · {marking.name}
+          </span>
         </p>
-        <ol className="metronome-beats" aria-hidden="true">
-          {Array.from({ length: beats }, (_, index) => (
-            <li
-              key={index}
-              className={[
-                index === activeBeat ? "is-active" : "",
-                index === 0 && accent ? "is-accent" : "",
-              ].join(" ")}
-            />
+        <ol className="metronome-beats" aria-label="Tiempos del compás">
+          {accents.slice(0, beats).map((level, index) => (
+            <li key={index}>
+              <button
+                type="button"
+                className={[
+                  index === activeBeat ? "is-active" : "",
+                  accent && level === 2 ? "is-accent" : "",
+                  accent && level === 1 ? "is-secondary" : "",
+                ].join(" ")}
+                onClick={() => cycleAccent(index)}
+                aria-label={`Tiempo ${index + 1}: ${ACCENT_NAMES[accent ? level : 0]}. Toca para cambiar el acento.`}
+              />
+            </li>
           ))}
         </ol>
       </div>
@@ -221,10 +308,10 @@ export function Metronome({ initialBpm = 80 }: { initialBpm?: number }) {
       <div className="metronome-options">
         <label className="tool-select">
           <span>Compás</span>
-          <select value={beats} onChange={(event) => setBeats(Number(event.target.value))}>
-            {METERS.map((meter) => (
-              <option key={meter} value={meter}>
-                {meter}/4
+          <select value={meterId} onChange={(event) => changeMeter(event.target.value as MeterId)}>
+            {METERS.map((option) => (
+              <option key={option.id} value={option.id}>
+                {option.id}
               </option>
             ))}
           </select>
@@ -232,7 +319,7 @@ export function Metronome({ initialBpm = 80 }: { initialBpm?: number }) {
         <label className="tool-select">
           <span>Subdivisión</span>
           <select value={subdivision} onChange={(event) => setSubdivision(Number(event.target.value))}>
-            {SUBDIVISIONS.map((option) => (
+            {subdivisionOptions(meter.pulse).map((option) => (
               <option key={option.value} value={option.value}>
                 {option.label}
               </option>
@@ -241,7 +328,7 @@ export function Metronome({ initialBpm = 80 }: { initialBpm?: number }) {
         </label>
         <label className="tool-check">
           <input type="checkbox" checked={accent} onChange={(event) => setAccent(event.target.checked)} />
-          <span>Acentuar el primer tiempo</span>
+          <span>Acentuar tiempos</span>
         </label>
         <label className="tool-select tool-volume">
           <span>Volumen</span>
@@ -255,7 +342,10 @@ export function Metronome({ initialBpm = 80 }: { initialBpm?: number }) {
           />
         </label>
       </div>
-      <p className="tool-hint">Atajos: barra espaciadora para iniciar o detener, flechas para cambiar el tempo.</p>
+      <p className="tool-hint">
+        Toca un punto para cambiar su acento: fuerte, suave o ninguno. Atajos: barra espaciadora para
+        iniciar o detener, flechas para cambiar el tempo.
+      </p>
     </div>
   );
 }

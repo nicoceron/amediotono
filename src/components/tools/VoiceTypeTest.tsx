@@ -7,7 +7,7 @@ import {
   estimateVoiceType,
   frequencyToMidi,
   noteLabel,
-} from "@/lib/music-tools";
+} from "@/lib/music-core";
 import {
   createAudioContext,
   detectPitch,

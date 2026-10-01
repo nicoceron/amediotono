@@ -98,7 +98,7 @@ export const post: BlogPost = {
         {
           type: "ol",
           items: [
-            "Configura el [metrónomo](/herramientas/metronomo) en 3/4, con acento en el primer tiempo y un tempo lento.",
+            "Configura el [metrónomo para pasillo](/herramientas/metronomo/pasillo) en 3/4, con acento en el primer tiempo y un tempo lento.",
             "Marca el 1 con el pie y da dos palmas suaves en el 2 y el 3.",
             "Cuando se estabilice, canta o tararea la melodía de un pasillo que conozcas sobre esa base.",
             "Sube el tempo de a poco. El reto del pasillo rápido es que el primer tiempo siga claro.",

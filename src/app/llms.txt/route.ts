@@ -6,9 +6,11 @@ import { TEACHERS } from "@/lib/teachers";
 import {
   EAR_TRAINING_PATH,
   METRONOME_PATH,
+  RHYTHM_PRESETS,
   TUNER_PATH,
   TUNER_PRESETS,
   VOICE_TYPE_PATH,
+  rhythmPresetPath,
   tunerPresetPath,
 } from "@/lib/music-tools";
 import { siteFactsMarkdown } from "@/lib/markdown";
@@ -70,10 +72,11 @@ export function GET() {
     "",
     `- [Metrónomo online](${absoluteUrl(METRONOME_PATH)})`,
     `- [Afinador cromático online](${absoluteUrl(TUNER_PATH)})`,
-    `- [Test de tipo de voz con micrófono](${absoluteUrl(VOICE_TYPE_PATH)})`,
+    `- [¿Qué tipo de voz tengo? Test de tesitura con micrófono](${absoluteUrl(VOICE_TYPE_PATH)})`,
     `- [Entrenamiento auditivo de intervalos](${absoluteUrl(EAR_TRAINING_PATH)})`,
     `- [Glosario de términos musicales](${absoluteUrl("/glosario-musical")})`,
     ...TUNER_PRESETS.map((preset) => `- [${preset.headline}](${absoluteUrl(tunerPresetPath(preset.slug))})`),
+    ...RHYTHM_PRESETS.map((preset) => `- [${preset.headline}](${absoluteUrl(rhythmPresetPath(preset.slug))})`),
     "",
     ...BLOG_CATEGORY_ORDER.flatMap((category) => {
       const posts = postsByCategory(category);

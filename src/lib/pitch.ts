@@ -7,17 +7,25 @@
  */
 export const MIN_FREQUENCY = 38;
 export const MAX_FREQUENCY = 1400;
+/**
+ * Lowest floor a caller may ask for (5-string bass low B is ≈ 30.9 Hz). A
+ * 4096-sample buffer still holds over two periods at 25 Hz, which the method
+ * needs; lower floors cost more lags per frame, so only tuners that need them
+ * pass one.
+ */
+export const LOWEST_MIN_FREQUENCY = 25;
 const CLARITY_THRESHOLD = 0.82;
 const RMS_THRESHOLD = 0.008;
 
-export function detectPitch(buffer: Float32Array, sampleRate: number) {
+export function detectPitch(buffer: Float32Array, sampleRate: number, minFrequency = MIN_FREQUENCY) {
   let rms = 0;
   for (let i = 0; i < buffer.length; i += 1) rms += buffer[i] * buffer[i];
   rms = Math.sqrt(rms / buffer.length);
   if (rms < RMS_THRESHOLD) return null;
 
   const minLag = Math.floor(sampleRate / MAX_FREQUENCY);
-  const maxLag = Math.min(Math.floor(sampleRate / MIN_FREQUENCY), Math.floor(buffer.length / 2));
+  const floor = Math.max(LOWEST_MIN_FREQUENCY, minFrequency);
+  const maxLag = Math.min(Math.floor(sampleRate / floor), Math.floor(buffer.length / 2));
   const nsdf = new Float32Array(maxLag + 1);
 
   for (let tau = minLag; tau <= maxLag; tau += 1) {
