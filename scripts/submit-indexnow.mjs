@@ -8,9 +8,8 @@
 //                                                 FILE (all of them if FILE is missing),
 //                                                 then store the live sitemap in FILE
 //
-// The production workflow (.github/workflows/vercel-production.yml) keeps
-// FILE in the GitHub Actions cache, so each deploy only sends what changed
-// since the last successful submission, whoever deployed the site.
+// The production deploy (scripts/deploy-production.sh) saves the live sitemap
+// to FILE before deploying, so each deploy only sends what it changed.
 // INDEXNOW_DRY_RUN=1 prints instead of sending (and saves nothing).
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
@@ -83,8 +82,7 @@ function normalizeSiteUrl(value) {
   }
 }
 
-// `vercel pull` (used by the deploy workflow) writes .vercel/.env.production.local.
-for (const filename of [".env.local", ".env", ".vercel/.env.production.local"]) {
+for (const filename of [".env.local", ".env"]) {
   const contents = await readFile(join(projectRoot, filename), "utf8").catch(() => "");
   parseEnv(contents);
 }

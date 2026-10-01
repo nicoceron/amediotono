@@ -1,0 +1,40 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "amediotono",
+  "account_id": "290e6974d5ab11e9b3563b1c6f9b4584",
+  "main": "worker.ts",
+  "compatibility_date": "2026-09-30",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  // Serve only on the real domain, so search engines don't index a
+  // duplicate copy on workers.dev.
+  "workers_dev": false,
+  // Cloudflare creates the DNS records and certificates for these hostnames.
+  "routes": [
+    { "pattern": "www.amediotonomusic.com", "custom_domain": true },
+    { "pattern": "amediotonomusic.com", "custom_domain": true }
+  ],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "services": [
+    {
+      // Self-reference binding used by OpenNext; must match "name" above.
+      "binding": "WORKER_SELF_REFERENCE",
+      "service": "amediotono"
+    }
+  ],
+  // next/image optimization through Cloudflare Images.
+  "images": {
+    "binding": "IMAGES"
+  },
+  // Cloudflare Email Sending, used by the lead and job-application forms.
+  "send_email": [
+    {
+      "name": "EMAIL"
+    }
+  ],
+  "observability": {
+    "enabled": true
+  }
+}

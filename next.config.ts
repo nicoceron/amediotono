@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
 
 const PUBLIC_ASSET_EXTENSIONS = [
   "avif",
@@ -49,3 +50,6 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
+
+// Gives `next dev` local versions of the Worker bindings (e.g. EMAIL).
+initOpenNextCloudflareForDev();
