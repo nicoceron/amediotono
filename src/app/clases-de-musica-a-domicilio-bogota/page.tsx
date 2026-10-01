@@ -16,8 +16,9 @@ import { Breadcrumbs } from "@/components/editorial/Breadcrumbs";
 import { CtaBand } from "@/components/editorial/CtaBand";
 import { FaqList } from "@/components/editorial/FaqList";
 import { JsonLdScript } from "@/components/editorial/JsonLdScript";
+import { HOME_CLASSES_PAGE } from "@/content/service-pages";
 import { getPost, postPath } from "@/lib/blog";
-import type { BlogPost, FaqItem } from "@/lib/content-types";
+import type { BlogPost } from "@/lib/content-types";
 import { whatsappHref } from "@/lib/contact";
 import { COURSE_PAGES } from "@/lib/course-pages";
 import { TEACHERS } from "@/lib/teachers";
@@ -32,15 +33,18 @@ import {
 } from "@/lib/seo";
 import { shareImage } from "@/lib/share-cards";
 
-const PATH = "/clases-de-musica-a-domicilio-bogota";
-const TITLE = "Clases de música a domicilio en Bogotá";
-const DESCRIPTION =
-  "Clases de música a domicilio en Bogotá: piano, canto, guitarra, violín, batería y más, con profes evaluados que van a tu casa. Para niños, jóvenes y adultos.";
+const PAGE = HOME_CLASSES_PAGE;
+const PATH = PAGE.path;
+const TITLE = PAGE.title;
+const DESCRIPTION = PAGE.description;
+const [BENEFITS_SECTION, STEPS_SECTION] = PAGE.sections;
+const BENEFIT_ICONS = [House, CalendarCheck, UsersRound, ShieldCheck];
 
 export const metadata: Metadata = createPageMetadata({
   title: brandTitle("Clases de música a domicilio en Bogotá"),
   description: DESCRIPTION,
   path: PATH,
+  markdownPath: `${PATH}.md`,
   image: shareImage("clases-de-musica-a-domicilio-bogota"),
   keywords: [
     "clases de música a domicilio Bogotá",
@@ -51,82 +55,9 @@ export const metadata: Metadata = createPageMetadata({
   ],
 });
 
-const BENEFITS = [
-  {
-    icon: House,
-    title: "En tu casa, con tu instrumento",
-    body: "Aprendes en el piano, la guitarra o la batería con los que vas a practicar toda la semana.",
-  },
-  {
-    icon: CalendarCheck,
-    title: "Sin trancones de tu lado",
-    body: "El profe llega a tu casa: tú no pierdes tiempo en desplazamientos ni en esperas.",
-  },
-  {
-    icon: UsersRound,
-    title: "Ideal para niños y familias",
-    body: "Los niños aprenden en un entorno conocido y los papás pueden ver cómo avanza la clase.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Profes evaluados",
-    body: "Cada profe pasa por una evaluación musical, pedagógica y de perfil antes de dar clases.",
-  },
-];
-
-const STEPS = [
-  {
-    title: "Nos escribes",
-    body: "Por WhatsApp nos cuentas el instrumento, la edad del estudiante, tu barrio y los horarios que te sirven.",
-  },
-  {
-    title: "Te recomendamos profe",
-    body: "Te proponemos el profe que mejor encaja con tus objetivos y su disponibilidad en tu zona.",
-  },
-  {
-    title: "Empiezan las clases",
-    body: "Acordamos día y hora fijos, y el profe llega a tu casa con el plan de la primera clase.",
-  },
-];
-
-const FAQS: FaqItem[] = [
-  {
-    question: "¿A qué zonas de Bogotá van los profes?",
-    answer:
-      "Damos clases a domicilio en Bogotá y alrededores. La cobertura depende del barrio y de la disponibilidad de cada profe, así que escríbenos con tu dirección aproximada y te confirmamos.",
-  },
-  {
-    question: "¿Necesito tener el instrumento en casa?",
-    answer:
-      "Para piano o batería, sí: el profe no puede llevarlos. Para guitarra, violín o vientos también conviene tener el tuyo para practicar entre clases. Si aún no lo tienes, te orientamos: mira [cómo elegir tu primer piano o teclado](/blog/como-elegir-tu-primer-piano-o-teclado) o [tu primera guitarra acústica](/blog/como-elegir-tu-primera-guitarra-acustica).",
-  },
-  {
-    question: "¿Las clases a domicilio sirven para niños pequeños?",
-    answer:
-      "Sí. Para los más pequeños recomendamos empezar con [iniciación musical](/clases/iniciacion-musical), una clase de juego, ritmo y canto que se adapta muy bien a la casa.",
-  },
-  {
-    question: "¿Puedo combinar clases a domicilio y virtuales?",
-    answer:
-      "Sí. Muchas familias alternan según la semana, por ejemplo cuando hay viajes o días de lluvia. Lo explicamos en [clases híbridas](/blog/clases-de-musica-hibridas-virtual-y-presencial).",
-  },
-  {
-    question: "¿Cuánto cuestan las clases a domicilio?",
-    answer:
-      "El valor depende de la duración, la frecuencia y la zona. Escríbenos por WhatsApp y te enviamos las opciones.",
-  },
-];
-
-const GUIDES = [
-  "clases-de-musica-a-domicilio-que-esperar",
-  "clases-de-musica-a-domicilio-o-virtuales",
-  "clases-de-musica-hibridas-virtual-y-presencial",
-  "como-elegir-profesor-de-musica",
-];
-
 export default function HomeClassesPage() {
   const homeTeachers = TEACHERS.filter((teacher) => teacher.classFormats?.includes("A domicilio"));
-  const guides = GUIDES.map((slug) => getPost(slug)).filter((post): post is BlogPost => Boolean(post));
+  const guides = PAGE.guides.map((slug) => getPost(slug)).filter((post): post is BlogPost => Boolean(post));
   const waUrl = whatsappHref("¡Hola! Quiero información sobre clases de música a domicilio en Bogotá.");
   const crumbs = [
     { name: "Inicio", path: "/" },
@@ -163,7 +94,7 @@ export default function HomeClassesPage() {
               })),
             },
           },
-          faqPageJsonLd(FAQS.map((faq) => ({ question: faq.question, answer: plainText(faq.answer) })), PATH),
+          faqPageJsonLd(PAGE.faqs.map((faq) => ({ question: faq.question, answer: plainText(faq.answer) })), PATH),
         ]}
       />
 
@@ -176,10 +107,7 @@ export default function HomeClassesPage() {
                 {homeTeachers.length} profes · {COURSE_PAGES.length} instrumentos · Bogotá
               </span>
               <h1>{TITLE}</h1>
-              <p className="ed-lead">
-                Un profe de música evaluado va a tu casa en Bogotá y alrededores. Piano, canto,
-                guitarra, violín, batería, vientos e iniciación musical para niños, jóvenes y adultos.
-              </p>
+              <p className="ed-lead">{PAGE.lead}</p>
               <div className="ed-actions">
                 <a className="ed-button" href={waUrl} target="_blank" rel="noopener">
                   <MessageCircle size={20} strokeWidth={2.4} aria-hidden="true" />
@@ -197,11 +125,11 @@ export default function HomeClassesPage() {
       <section className="block ed-section" style={{ ["--ed-accent" as string]: "var(--orange)" }}>
         <div className="container">
           <div className="sec-head ed-sec-head">
-            <h2>Por qué elegir clases a domicilio</h2>
+            <h2>{BENEFITS_SECTION.heading}</h2>
           </div>
           <ul className="ed-benefit-grid ed-benefit-grid--4">
-            {BENEFITS.map((benefit) => {
-              const Icon = benefit.icon;
+            {BENEFITS_SECTION.points.map((benefit, index) => {
+              const Icon = BENEFIT_ICONS[index] ?? House;
               return (
                 <li className="ed-benefit ed-benefit--stacked about-criterion" key={benefit.title}>
                   <Icon size={26} strokeWidth={2.4} aria-hidden="true" />
@@ -240,13 +168,41 @@ export default function HomeClassesPage() {
         </div>
       </section>
 
+      <section className="block ed-section" id="profes">
+        <div className="container">
+          <div className="sec-head ed-sec-head">
+            <h2>Profes que van a tu casa</h2>
+            <p className="sec-sub">
+              Estos {homeTeachers.length} profes dan clases a domicilio en Bogotá. Entra a su
+              perfil para ver su experiencia, sus instrumentos y las opiniones de sus estudiantes.
+            </p>
+          </div>
+          <ul className="ed-chip-list ed-chip-list--center">
+            {homeTeachers.map((teacher) => (
+              <li key={teacher.slug}>
+                <Link href={`/profes/${teacher.slug}`} prefetch={false}>
+                  <Image
+                    className="ed-chip-photo"
+                    src={teacher.photo}
+                    alt=""
+                    width={28}
+                    height={28}
+                  />
+                  {teacher.name} · {teacher.role}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       <section className="block ed-section" style={{ ["--ed-accent" as string]: "var(--green)" }}>
         <div className="container">
           <div className="sec-head ed-sec-head">
-            <h2>Cómo empezar</h2>
+            <h2>{STEPS_SECTION.heading}</h2>
           </div>
           <ol className="ed-benefit-grid ed-benefit-grid--3">
-            {STEPS.map((step, index) => (
+            {STEPS_SECTION.points.map((step, index) => (
               <li className="ed-benefit" key={step.title}>
                 <Music2 size={22} strokeWidth={2.4} aria-hidden="true" />
                 <div>
@@ -260,7 +216,7 @@ export default function HomeClassesPage() {
           </ol>
           {guides.length > 0 && (
             <div className="ed-related">
-              <h2 className="ed-h2">Guías sobre clases a domicilio</h2>
+              <h2 className="ed-h2">{PAGE.guidesHeading}</h2>
               <ul className="ed-link-list">
                 {guides.map((post) => (
                   <li key={post.slug}>
@@ -281,7 +237,7 @@ export default function HomeClassesPage() {
           <div className="sec-head ed-sec-head">
             <h2>Preguntas frecuentes</h2>
           </div>
-          <FaqList items={FAQS} />
+          <FaqList items={PAGE.faqs} />
           <p className="ed-note">
             ¿No vives en Bogotá? Toma tus clases en vivo por videollamada:{" "}
             <Link href="/clases-de-musica-online" prefetch={false}>

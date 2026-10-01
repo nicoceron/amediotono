@@ -134,7 +134,7 @@ export default async function CoursePage({
             path,
             name: guide.headline,
             description: guide.metaDescription,
-            image: course.icon,
+            image: `${path}/share-image.png`,
             dateModified: SITE_CONTENT_UPDATED_AT,
             about: { "@id": `${absoluteUrl(path)}#service` },
           }),

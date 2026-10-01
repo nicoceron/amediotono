@@ -1,9 +1,10 @@
+import type { ServicePage } from "@/content/service-pages";
 import type { B2BService } from "@/lib/b2b";
-import { BLOG_CATEGORIES, postAuthor, postPath, postsForCourse } from "@/lib/blog";
+import { BLOG_CATEGORIES, getPost, postAuthor, postPath, postsForCourse } from "@/lib/blog";
 import { CONTACT_EMAIL, INSTAGRAM_URL, WHATSAPP_DISPLAY, whatsappHref } from "@/lib/contact";
 import { resolveContentHref } from "@/lib/content-links";
 import type { BlogPost, FaqItem, RichBlock } from "@/lib/content-types";
-import { COURSE_PAGES, type CoursePage } from "@/lib/course-pages";
+import { COURSE_PAGES, coursePagePath, type CoursePage } from "@/lib/course-pages";
 import { SITE_BRAND, SITE_NAME, absoluteUrl } from "@/lib/seo";
 import { TEACHERS, type Teacher } from "@/lib/teachers";
 
@@ -174,6 +175,125 @@ export function coursePageMarkdown(page: CoursePage) {
     "## Cómo empezar",
     "",
     `Escribe por WhatsApp (${WHATSAPP_DISPLAY}, ${whatsappHref()}) con la edad del estudiante, su nivel, los horarios que le sirven y si prefiere clases virtuales o a domicilio. ${SITE_NAME} recomienda el profe que mejor encaja. El valor depende del formato, la duración y la frecuencia.`,
+    "",
+  ]);
+}
+
+export function teacherProfileMarkdown(teacher: Teacher) {
+  const formats = teacher.classFormats?.join(" y ").toLowerCase() || "virtual y a domicilio";
+  const languages = teacher.classLanguages?.join(" y ").toLowerCase() || "español";
+  const courses = teacher.skills.map((skill) => {
+    const path = COURSE_PAGES.some((page) => page.course.id === skill.id) ? coursePagePath(skill.id) : undefined;
+    return path ? `[${skill.label}](${absoluteUrl(path)})` : skill.label;
+  });
+
+  return finish([
+    `# ${teacher.name}, profe de ${teacher.role}`,
+    "",
+    `> ${teacher.bio.replace(/\s+/g, " ").trim()}`,
+    "",
+    `- URL: ${absoluteUrl(`/profes/${teacher.slug}`)}`,
+    `- Enseña: ${courses.join(", ")}`,
+    `- Formato: clases ${formats}${teacher.classFormats?.includes("A domicilio") ? ` (a domicilio en ${teacher.location || "Bogotá"})` : ""}`,
+    `- Idiomas de las clases: ${languages}`,
+    teacher.highlights.length ? `- Rasgos: ${teacher.highlights.join(", ").toLowerCase()}` : "",
+    `- Escuela: ${SITE_NAME}, Bogotá, Colombia (${absoluteUrl("/")}). Pasó la evaluación de música, pedagogía y calidad humana de la escuela antes de su primera clase.`,
+    "",
+    "## Sobre mí",
+    "",
+    teacher.longBio.replace(/\s+/g, " ").trim(),
+    "",
+    ...(teacher.reviews.length
+      ? [
+          "## Lo que dicen sus estudiantes",
+          "",
+          ...teacher.reviews.flatMap((review) => [
+            `> ${review.quote.replace(/\s+/g, " ").trim()}`,
+            ">",
+            `> — ${review.author}${review.instrument ? `, ${review.instrument.toLowerCase()}` : ""}`,
+            "",
+          ]),
+        ]
+      : []),
+    "## Cómo tomar clases",
+    "",
+    `Escribe por WhatsApp (${WHATSAPP_DISPLAY}, ${whatsappHref()}) y menciona a ${teacher.name}. El valor depende del formato, la duración y la frecuencia.`,
+    "",
+  ]);
+}
+
+export function servicePageMarkdown(page: ServicePage, extra: string[] = []) {
+  return finish([
+    `# ${page.title}`,
+    "",
+    `> ${page.description}`,
+    "",
+    `- URL: ${absoluteUrl(page.path)}`,
+    `- Escuela: ${SITE_NAME}, Bogotá, Colombia (${absoluteUrl("/")})`,
+    "",
+    markdownInline(page.lead),
+    "",
+    ...page.sections.flatMap((section) => [
+      `## ${section.heading}`,
+      "",
+      ...(section.intro ? [markdownInline(section.intro), ""] : []),
+      ...section.points.map((point) => {
+        const guide = point.guide ? ` Guía: ${absoluteUrl(postPath(point.guide))}` : "";
+        return `- **${point.title}.** ${markdownInline(point.body)}${guide}`;
+      }),
+      "",
+      ...(section.note ? [`**Importante:** ${markdownInline(section.note)}`, ""] : []),
+    ]),
+    ...extra,
+    ...faqMarkdown(page.faqs),
+    ...(page.guides.length
+      ? [
+          `## ${page.guidesHeading}`,
+          "",
+          ...page.guides.map((slug) => {
+            const post = getPost(slug);
+            const url = absoluteUrl(postPath(slug));
+            return post ? `- [${post.title}](${url}): ${post.excerpt}` : `- ${url}`;
+          }),
+          "",
+        ]
+      : []),
+    "## Cómo empezar",
+    "",
+    `Escribe por WhatsApp (${WHATSAPP_DISPLAY}, ${whatsappHref()}). El valor depende del formato, la duración y la frecuencia de las clases.`,
+    "",
+  ]);
+}
+
+/** A service page's Markdown, plus the instruments and profes its HTML lists. */
+export function serviceMarkdown(page: ServicePage) {
+  const format = page.path === "/clases-de-musica-online" ? "Virtual" : "A domicilio";
+  const teachers =
+    page.path === "/preuniversitario-musica"
+      ? TEACHERS.filter((teacher) => teacher.skillIds.includes("teoria-musical"))
+      : TEACHERS.filter((teacher) => teacher.classFormats?.includes(format));
+  const extra =
+    page.path === "/preuniversitario-musica"
+      ? []
+      : [
+          format === "Virtual" ? "## Instrumentos que puedes aprender online" : "## Instrumentos que puedes aprender en casa",
+          "",
+          ...COURSE_PAGES.map(
+            (coursePage) =>
+              `- [${coursePage.course.label}](${absoluteUrl(coursePage.path)}): ${coursePage.teachers.length} ${coursePage.teachers.length === 1 ? "profe" : "profes"}`,
+          ),
+          "",
+        ];
+
+  return servicePageMarkdown(page, [
+    ...extra,
+    page.path === "/preuniversitario-musica"
+      ? "## Profes de teoría musical"
+      : format === "Virtual"
+        ? "## Profes que dan clases online"
+        : "## Profes que van a tu casa",
+    "",
+    ...teachers.map(teacherLine),
     "",
   ]);
 }

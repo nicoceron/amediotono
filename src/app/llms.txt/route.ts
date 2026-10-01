@@ -19,7 +19,8 @@ export const dynamic = "force-static";
 /**
  * llms.txt (https://llmstxt.org): a plain-Markdown map of the site for AI
  * assistants, with the key facts up front. /llms-full.txt has the full text
- * and every guide, course page and service also answers at `<url>.md`.
+ * and every guide, course page, profe, service and service page also answers
+ * at `<url>.md`.
  */
 export function GET() {
   const lines = [
@@ -33,7 +34,7 @@ export function GET() {
     "## Versiones para asistentes de IA",
     "",
     `- [Contenido completo en un solo archivo](${absoluteUrl("/llms-full.txt")}): todas las guías, clases, profes y servicios en Markdown.`,
-    `- Cada artículo del blog, página de clase y servicio para academias tiene una versión en Markdown: agrega \`.md\` a su URL (por ejemplo ${absoluteUrl("/clases/piano.md")}).`,
+    `- Cada artículo del blog, página de clase, perfil de profe, servicio para academias y las páginas de clases a domicilio, clases online y preuniversitario tienen una versión en Markdown: agrega \`.md\` a su URL (por ejemplo ${absoluteUrl("/clases/piano.md")} o ${absoluteUrl("/clases-de-musica-a-domicilio-bogota.md")}).`,
     `- [Profes en Markdown](${absoluteUrl("/profes.md")})`,
     "",
     "## Clases de música",

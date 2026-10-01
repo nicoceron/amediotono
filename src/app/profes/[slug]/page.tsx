@@ -135,6 +135,7 @@ export async function generateMetadata({
     socialDescription: teacherSocialDescription(teacher),
     socialTitle: profileTitle,
     path: `/profes/${teacher.slug}`,
+    markdownPath: `/profes/${teacher.slug}.md`,
     image: {
       url: `/profes/${teacher.slug}/share-image.png`,
       width: 1200,
@@ -221,8 +222,11 @@ export default async function ProfeDetailPage({
                 </div>
                 <div className="pd-hero-copy">
                   <h1 className="pd-hero-name">
-                    <span className="pd-hero-name-full">{teacher.name}</span>
-                    <span className="pd-hero-name-mobile">{mobileTeacherName}</span>
+                    {/* The short mobile name is CSS-generated, so the heading's text
+                        stays the full name for crawlers and screen readers. */}
+                    <span className="pd-hero-name-full" data-short-name={mobileTeacherName}>
+                      {teacher.name}
+                    </span>
                     <BadgeCheck
                       size={28}
                       strokeWidth={2.4}

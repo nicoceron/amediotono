@@ -4,8 +4,8 @@ export const GUIDES_A: CourseGuide[] = [
   {
     id: "iniciacion-musical",
     family: "formacion",
-    headline: "Clases de iniciación musical para niños en Bogotá",
-    seoTitle: "Iniciación musical en Bogotá: clases para niños",
+    headline: "Clases de iniciación musical para niños en Bogotá, a domicilio y virtuales",
+    seoTitle: "Iniciación musical para niños a domicilio en Bogotá",
     metaDescription:
       "Iniciación musical para niños en Bogotá, a domicilio o virtual: ritmo, canto y juego con profes evaluados para que descubran la música a su ritmo.",
     intro:
@@ -63,7 +63,7 @@ export const GUIDES_A: CourseGuide[] = [
     id: "flauta-traversa",
     family: "vientos-madera",
     headline: "Clases de flauta traversa en Bogotá, a domicilio y virtuales",
-    seoTitle: "Clases de flauta traversa en Bogotá y virtuales",
+    seoTitle: "Clases de flauta traversa a domicilio en Bogotá",
     metaDescription:
       "Aprende flauta traversa en Bogotá, a domicilio o virtual: respiración, sonido y repertorio con profes evaluados que se adaptan a tu nivel y tu meta.",
     intro:
@@ -174,7 +174,7 @@ export const GUIDES_A: CourseGuide[] = [
   {
     id: "piano",
     family: "teclados",
-    headline: "Clases de piano en Bogotá y virtuales",
+    headline: "Clases de piano en Bogotá, a domicilio y virtuales",
     seoTitle: "Clases de piano en Bogotá: a domicilio y virtuales",
     metaDescription:
       "Clases de piano en Bogotá a domicilio o virtuales para niños y adultos: lectura, técnica y las canciones que te gustan, con profes evaluados.",
@@ -231,7 +231,7 @@ export const GUIDES_A: CourseGuide[] = [
     id: "guitarra-acustica",
     family: "cuerdas-pulsadas",
     headline: "Clases de guitarra acústica en Bogotá, a domicilio y virtuales",
-    seoTitle: "Clases de guitarra acústica en Bogotá y virtuales",
+    seoTitle: "Clases de guitarra acústica a domicilio en Bogotá",
     metaDescription:
       "Clases de guitarra acústica en Bogotá a domicilio o virtuales: acordes, ritmos, punteo y las canciones que quieres tocar, con profes evaluados.",
     intro:
@@ -286,8 +286,8 @@ export const GUIDES_A: CourseGuide[] = [
   {
     id: "canto",
     family: "voz",
-    headline: "Clases de canto en Bogotá y virtuales",
-    seoTitle: "Clases de canto y técnica vocal en Bogotá",
+    headline: "Clases de canto en Bogotá, a domicilio y virtuales",
+    seoTitle: "Clases de canto a domicilio en Bogotá y virtuales",
     metaDescription:
       "Clases de canto en Bogotá a domicilio o virtuales: respiración, afinación y técnica vocal para cantar con confianza. Para niños, jóvenes y adultos.",
     intro:
@@ -342,8 +342,8 @@ export const GUIDES_A: CourseGuide[] = [
   {
     id: "teoria-musical",
     family: "formacion",
-    headline: "Clases de teoría musical en Bogotá y virtuales",
-    seoTitle: "Clases de teoría musical y armonía en Bogotá",
+    headline: "Clases de teoría musical en Bogotá, a domicilio y virtuales",
+    seoTitle: "Clases de teoría musical a domicilio en Bogotá",
     metaDescription:
       "Clases de teoría musical en Bogotá, a domicilio o virtuales: lectura, armonía y entrenamiento auditivo para entender lo que tocas y cantas.",
     intro:
@@ -399,7 +399,7 @@ export const GUIDES_A: CourseGuide[] = [
     id: "guitarra-electrica",
     family: "cuerdas-pulsadas",
     headline: "Clases de guitarra eléctrica en Bogotá, a domicilio y virtuales",
-    seoTitle: "Clases de guitarra eléctrica en Bogotá y virtuales",
+    seoTitle: "Clases de guitarra eléctrica a domicilio en Bogotá",
     metaDescription:
       "Clases de guitarra eléctrica en Bogotá a domicilio o virtuales: riffs, solos, escalas y tono con profes evaluados. Rock, blues, metal, funk y más.",
     intro:
@@ -454,8 +454,8 @@ export const GUIDES_A: CourseGuide[] = [
   {
     id: "percusion",
     family: "percusion",
-    headline: "Clases de percusión y batería en Bogotá y virtuales",
-    seoTitle: "Clases de percusión y batería en Bogotá",
+    headline: "Clases de percusión y batería en Bogotá, a domicilio y virtuales",
+    seoTitle: "Clases de batería y percusión a domicilio en Bogotá",
     metaDescription:
       "Clases de percusión y batería en Bogotá a domicilio o virtuales: técnica, coordinación y ritmos colombianos como cumbia y vallenato, a tu ritmo.",
     intro:
@@ -511,7 +511,7 @@ export const GUIDES_A: CourseGuide[] = [
     id: "bajo-electrico",
     family: "cuerdas-pulsadas",
     headline: "Clases de bajo eléctrico en Bogotá, a domicilio y virtuales",
-    seoTitle: "Clases de bajo eléctrico en Bogotá y virtuales",
+    seoTitle: "Clases de bajo eléctrico a domicilio en Bogotá",
     metaDescription:
       "Clases de bajo eléctrico en Bogotá a domicilio o virtuales: groove, líneas, lectura y ritmos latinos con profes elegidos a mano, y oído.",
     intro:
@@ -567,7 +567,7 @@ export const GUIDES_A: CourseGuide[] = [
     id: "tiple",
     family: "cuerdas-pulsadas",
     headline: "Clases de tiple en Bogotá, a domicilio y virtuales",
-    seoTitle: "Clases de tiple colombiano en Bogotá y virtuales",
+    seoTitle: "Clases de tiple colombiano a domicilio en Bogotá",
     metaDescription:
       "Clases de tiple en Bogotá a domicilio o virtuales: acompañamiento, punteo y ritmos andinos como bambuco, pasillo, guabina y torbellino.",
     intro:

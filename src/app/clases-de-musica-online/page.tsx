@@ -18,8 +18,9 @@ import { Breadcrumbs } from "@/components/editorial/Breadcrumbs";
 import { CtaBand } from "@/components/editorial/CtaBand";
 import { FaqList } from "@/components/editorial/FaqList";
 import { JsonLdScript } from "@/components/editorial/JsonLdScript";
+import { ONLINE_CLASSES_PAGE } from "@/content/service-pages";
 import { getPost, postPath } from "@/lib/blog";
-import type { BlogPost, FaqItem } from "@/lib/content-types";
+import type { BlogPost } from "@/lib/content-types";
 import { whatsappHref } from "@/lib/contact";
 import { COURSE_PAGES } from "@/lib/course-pages";
 import { TEACHERS } from "@/lib/teachers";
@@ -34,15 +35,19 @@ import {
 } from "@/lib/seo";
 import { shareImage } from "@/lib/share-cards";
 
-const PATH = "/clases-de-musica-online";
-const TITLE = "Clases de música online en vivo con profes evaluados";
-const DESCRIPTION =
-  "Clases de música online en vivo desde cualquier ciudad de Colombia: piano, canto, guitarra, violín y más, con profes evaluados y seguimiento semanal.";
+const PAGE = ONLINE_CLASSES_PAGE;
+const PATH = PAGE.path;
+const TITLE = PAGE.title;
+const DESCRIPTION = PAGE.description;
+const [BENEFITS_SECTION, SETUP_SECTION] = PAGE.sections;
+const BENEFIT_ICONS = [Globe2, CalendarCheck, UsersRound, MonitorSmartphone];
+const SETUP_ICONS = [Wifi, Camera, Headphones];
 
 export const metadata: Metadata = createPageMetadata({
   title: brandTitle("Clases de música online en Colombia, en vivo"),
   description: DESCRIPTION,
   path: PATH,
+  markdownPath: `${PATH}.md`,
   image: shareImage("clases-de-musica-online"),
   keywords: [
     "clases de música online",
@@ -53,73 +58,9 @@ export const metadata: Metadata = createPageMetadata({
   ],
 });
 
-const BENEFITS = [
-  {
-    icon: Globe2,
-    title: "Desde cualquier ciudad",
-    body: "Medellín, Cali, Barranquilla, un municipio o fuera del país: solo necesitas conexión.",
-  },
-  {
-    icon: CalendarCheck,
-    title: "Horarios que sí te sirven",
-    body: "Sin desplazamientos ni trancones: la clase empieza cuando abres la videollamada.",
-  },
-  {
-    icon: UsersRound,
-    title: "Profe elegido para ti",
-    body: "Accedes a todo el equipo, sin depender de quién vive cerca.",
-  },
-  {
-    icon: MonitorSmartphone,
-    title: "Clase en vivo, no un curso grabado",
-    body: "Tu profe te escucha, corrige en el momento y ajusta la clase a tu ritmo.",
-  },
-];
-
-const SETUP = [
-  { icon: Wifi, title: "Conexión estable", body: "Wifi o datos con buena señal; mejor si estás cerca del router." },
-  { icon: Camera, title: "Cámara bien ubicada", body: "Que se vean tus manos y tu postura: de lado para piano, de frente para canto." },
-  { icon: Headphones, title: "Audio claro", body: "Micrófono del celular o del computador; audífonos si hay eco." },
-];
-
-const FAQS: FaqItem[] = [
-  {
-    question: "¿De verdad se puede aprender música por videollamada?",
-    answer:
-      "Sí. Canto, teoría, piano y guitarra se adaptan muy bien, y la mayoría de instrumentos funcionan con una buena ubicación de cámara. Lo importante es que la clase sea en vivo y con seguimiento. Te contamos ventajas y límites en [por qué tomar clases de música online](/blog/por-que-tomar-clases-de-musica-online).",
-  },
-  {
-    question: "¿Qué plataforma usan?",
-    answer:
-      "Una videollamada común desde el celular, la tableta o el computador. Tu profe te comparte el enlace y, si hace falta, te ayuda a configurar el audio antes de la primera clase.",
-  },
-  {
-    question: "¿Sirven para niños?",
-    answer:
-      "Sí, con un adulto cerca en las primeras clases para ayudar con la cámara y la atención. Mira nuestra guía para [acompañar a tu hijo en clases virtuales](/blog/como-acompanar-a-tu-hijo-en-clases-virtuales-de-musica).",
-  },
-  {
-    question: "¿Puedo combinar clases online y a domicilio?",
-    answer:
-      "Si vives en Bogotá o alrededores, sí: muchas familias combinan ambos formatos según la semana. Mira nuestras [clases de música a domicilio en Bogotá](/clases-de-musica-a-domicilio-bogota) y cómo funcionan las [clases híbridas](/blog/clases-de-musica-hibridas-virtual-y-presencial).",
-  },
-  {
-    question: "¿Cuánto cuestan las clases online?",
-    answer:
-      "El valor depende de la duración y la frecuencia. Escríbenos por WhatsApp y te enviamos las opciones.",
-  },
-];
-
-const GUIDES = [
-  "por-que-tomar-clases-de-musica-online",
-  "como-preparar-tu-espacio-para-clases-virtuales-de-musica",
-  "equipo-para-clases-virtuales-de-musica-camara-microfono",
-  "clases-de-musica-a-domicilio-o-virtuales",
-];
-
 export default function OnlineClassesPage() {
   const virtualTeachers = TEACHERS.filter((teacher) => teacher.classFormats?.includes("Virtual"));
-  const guides = GUIDES.map((slug) => getPost(slug)).filter((post): post is BlogPost => Boolean(post));
+  const guides = PAGE.guides.map((slug) => getPost(slug)).filter((post): post is BlogPost => Boolean(post));
   const waUrl = whatsappHref("¡Hola! Quiero información sobre clases de música online.");
   const crumbs = [
     { name: "Inicio", path: "/" },
@@ -157,7 +98,7 @@ export default function OnlineClassesPage() {
               })),
             },
           },
-          faqPageJsonLd(FAQS.map((faq) => ({ question: faq.question, answer: plainText(faq.answer) })), PATH),
+          faqPageJsonLd(PAGE.faqs.map((faq) => ({ question: faq.question, answer: plainText(faq.answer) })), PATH),
         ]}
       />
 
@@ -170,10 +111,7 @@ export default function OnlineClassesPage() {
                 {virtualTeachers.length} profes · {COURSE_PAGES.length} instrumentos · en vivo
               </span>
               <h1>{TITLE}</h1>
-              <p className="ed-lead">
-                Aprende piano, canto, guitarra, violín, vientos o teoría desde cualquier ciudad de
-                Colombia, con clases en vivo por videollamada y un profe que te acompaña cada semana.
-              </p>
+              <p className="ed-lead">{PAGE.lead}</p>
               <div className="ed-actions">
                 <a className="ed-button" href={waUrl} target="_blank" rel="noopener">
                   <MessageCircle size={20} strokeWidth={2.4} aria-hidden="true" />
@@ -191,11 +129,11 @@ export default function OnlineClassesPage() {
       <section className="block ed-section" style={{ ["--ed-accent" as string]: "var(--blue)" }}>
         <div className="container">
           <div className="sec-head ed-sec-head">
-            <h2>Por qué elegir clases online</h2>
+            <h2>{BENEFITS_SECTION.heading}</h2>
           </div>
           <ul className="ed-benefit-grid ed-benefit-grid--4">
-            {BENEFITS.map((benefit) => {
-              const Icon = benefit.icon;
+            {BENEFITS_SECTION.points.map((benefit, index) => {
+              const Icon = BENEFIT_ICONS[index] ?? Globe2;
               return (
                 <li className="ed-benefit ed-benefit--stacked about-criterion" key={benefit.title}>
                   <Icon size={26} strokeWidth={2.4} aria-hidden="true" />
@@ -237,11 +175,11 @@ export default function OnlineClassesPage() {
       <section className="block ed-section" style={{ ["--ed-accent" as string]: "var(--green)" }}>
         <div className="container">
           <div className="sec-head ed-sec-head">
-            <h2>Lo que necesitas para tu primera clase</h2>
+            <h2>{SETUP_SECTION.heading}</h2>
           </div>
           <ul className="ed-benefit-grid ed-benefit-grid--3">
-            {SETUP.map((item) => {
-              const Icon = item.icon;
+            {SETUP_SECTION.points.map((item, index) => {
+              const Icon = SETUP_ICONS[index] ?? Wifi;
               return (
                 <li className="ed-benefit" key={item.title}>
                   <Icon size={22} strokeWidth={2.4} aria-hidden="true" />
@@ -255,7 +193,7 @@ export default function OnlineClassesPage() {
           </ul>
           {guides.length > 0 && (
             <div className="ed-related">
-              <h2 className="ed-h2">Guías para aprovechar tus clases online</h2>
+              <h2 className="ed-h2">{PAGE.guidesHeading}</h2>
               <ul className="ed-link-list">
                 {guides.map((post) => (
                   <li key={post.slug}>
@@ -276,7 +214,7 @@ export default function OnlineClassesPage() {
           <div className="sec-head ed-sec-head">
             <h2>Preguntas frecuentes</h2>
           </div>
-          <FaqList items={FAQS} />
+          <FaqList items={PAGE.faqs} />
         </div>
       </section>
 

@@ -1161,6 +1161,10 @@ section.block.courses-section {
   transition: border-color 0.16s ease, background 0.16s ease, transform 0.16s ease;
 }
 
+.course-card-soon {
+  cursor: default;
+}
+
 .course-card:hover {
   background: var(--paper);
   border-color: color-mix(in srgb, var(--ink) 16%, transparent);
@@ -5139,9 +5143,6 @@ body:has(.job-application-page) {
   margin: 0;
   color: var(--ink);
 }
-.pd-hero-name-mobile {
-  display: none;
-}
 @media (max-width: 720px) {
   .pd-hero-copy {
     width: 100%;
@@ -5150,9 +5151,10 @@ body:has(.job-application-page) {
   }
 
   .pd-hero-name {
+    --pd-hero-name-size: clamp(28px, 7vw, 32px);
     justify-content: flex-start;
     gap: 8px;
-    font-size: clamp(28px, 7vw, 32px);
+    font-size: var(--pd-hero-name-size);
   }
 
   .pd-hero-name svg {
@@ -5166,11 +5168,13 @@ body:has(.job-application-page) {
   }
 
   .pd-hero-name-full {
-    display: none;
+    font-size: 0;
   }
 
-  .pd-hero-name-mobile {
-    display: inline;
+  .pd-hero-name-full::after {
+    content: attr(data-short-name);
+    content: attr(data-short-name) / "";
+    font-size: var(--pd-hero-name-size);
   }
 }
 @media (max-width: 360px) {
@@ -5185,7 +5189,7 @@ body:has(.job-application-page) {
   }
 
   .pd-hero-name {
-    font-size: 26px;
+    --pd-hero-name-size: 26px;
   }
 }
 .pd-hero-meta {
@@ -6901,6 +6905,15 @@ section.block.ed-section {
   font-weight: 700;
   text-decoration: none;
   transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.ed-chip-list--center {
+  justify-content: center;
+}
+
+.ed-chip-photo {
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .ed-chip-list a:hover {

@@ -4,8 +4,8 @@ export const GUIDES_B: CourseGuide[] = [
   {
     id: "bandola-andina",
     family: "cuerdas-pulsadas",
-    headline: "Clases de bandola andina en Bogotá y virtuales",
-    seoTitle: "Clases de bandola andina en Bogotá y virtuales",
+    headline: "Clases de bandola andina en Bogotá, a domicilio y virtuales",
+    seoTitle: "Clases de bandola andina a domicilio en Bogotá y virtuales",
     metaDescription:
       "Aprende bandola andina con profes evaluados: bambucos, pasillos y torbellinos con trémolo. Clases virtuales o a domicilio en Bogotá, a tu ritmo.",
     intro:
@@ -60,8 +60,8 @@ export const GUIDES_B: CourseGuide[] = [
   {
     id: "clarinete",
     family: "vientos-madera",
-    headline: "Clases de clarinete en Bogotá y virtuales",
-    seoTitle: "Clases de clarinete en Bogotá y virtuales",
+    headline: "Clases de clarinete en Bogotá, a domicilio y virtuales",
+    seoTitle: "Clases de clarinete a domicilio en Bogotá y virtuales",
     metaDescription:
       "Clases de clarinete para niños, jóvenes y adultos: embocadura, caña y repertorio de banda. Virtuales o a domicilio en Bogotá con profes evaluados.",
     intro:
@@ -116,8 +116,8 @@ export const GUIDES_B: CourseGuide[] = [
   {
     id: "saxofon",
     family: "vientos-madera",
-    headline: "Clases de saxofón en Bogotá y virtuales",
-    seoTitle: "Clases de saxofón en Bogotá y virtuales",
+    headline: "Clases de saxofón en Bogotá, a domicilio y virtuales",
+    seoTitle: "Clases de saxofón a domicilio en Bogotá y virtuales",
     metaDescription:
       "Aprende saxofón con un profe evaluado: sonido, improvisación y jazz, pop o música tropical. Clases virtuales o a domicilio en Bogotá, a tu nivel.",
     intro:
@@ -172,8 +172,8 @@ export const GUIDES_B: CourseGuide[] = [
   {
     id: "oboe",
     family: "vientos-madera",
-    headline: "Clases de oboe en Bogotá y virtuales",
-    seoTitle: "Clases de oboe en Bogotá y virtuales",
+    headline: "Clases de oboe en Bogotá, a domicilio y virtuales",
+    seoTitle: "Clases de oboe a domicilio en Bogotá y virtuales",
     metaDescription:
       "Aprende oboe con profes evaluados: caña doble, control del aire y repertorio orquestal. Clases virtuales o a domicilio en Bogotá, a tu ritmo.",
     intro:
@@ -228,8 +228,8 @@ export const GUIDES_B: CourseGuide[] = [
   {
     id: "trompeta",
     family: "vientos-metal",
-    headline: "Clases de trompeta en Bogotá y virtuales",
-    seoTitle: "Clases de trompeta en Bogotá y virtuales",
+    headline: "Clases de trompeta en Bogotá, a domicilio y virtuales",
+    seoTitle: "Clases de trompeta a domicilio en Bogotá y virtuales",
     metaDescription:
       "Clases de trompeta con profes evaluados: buzzing, embocadura y repertorio de salsa, banda o jazz. Virtuales o a domicilio en Bogotá, a tu nivel.",
     intro:
@@ -284,8 +284,8 @@ export const GUIDES_B: CourseGuide[] = [
   {
     id: "trombon",
     family: "vientos-metal",
-    headline: "Clases de trombón en Bogotá y virtuales",
-    seoTitle: "Clases de trombón en Bogotá y virtuales",
+    headline: "Clases de trombón en Bogotá, a domicilio y virtuales",
+    seoTitle: "Clases de trombón a domicilio en Bogotá y virtuales",
     metaDescription:
       "Aprende trombón de vara con profes evaluados: posiciones, sonido y repertorio de salsa, banda y jazz. Clases virtuales o a domicilio en Bogotá.",
     intro:
@@ -452,8 +452,8 @@ export const GUIDES_B: CourseGuide[] = [
   {
     id: "violoncello",
     family: "cuerdas-frotadas",
-    headline: "Clases de violonchelo en Bogotá y virtuales",
-    seoTitle: "Clases de violonchelo en Bogotá y virtuales",
+    headline: "Clases de violonchelo en Bogotá, a domicilio y virtuales",
+    seoTitle: "Clases de violonchelo a domicilio en Bogotá y virtuales",
     metaDescription:
       "Clases de violonchelo (chelo) para niños y adultos: postura, arco y repertorio clásico o moderno. Virtuales o a domicilio en Bogotá, a tu ritmo.",
     intro:
@@ -508,8 +508,8 @@ export const GUIDES_B: CourseGuide[] = [
   {
     id: "contrabajo",
     family: "cuerdas-frotadas",
-    headline: "Clases de contrabajo en Bogotá y virtuales",
-    seoTitle: "Clases de contrabajo en Bogotá y virtuales",
+    headline: "Clases de contrabajo en Bogotá, a domicilio y virtuales",
+    seoTitle: "Clases de contrabajo a domicilio en Bogotá y virtuales",
     metaDescription:
       "Clases de contrabajo con profes evaluados: arco, pizzicato y walking bass para jazz u orquesta. Virtuales o a domicilio en Bogotá, a tu ritmo.",
     intro:
@@ -564,8 +564,8 @@ export const GUIDES_B: CourseGuide[] = [
   {
     id: "flauta-dulce",
     family: "vientos-madera",
-    headline: "Clases de flauta dulce en Bogotá y virtuales",
-    seoTitle: "Clases de flauta dulce en Bogotá y virtuales",
+    headline: "Clases de flauta dulce en Bogotá, a domicilio y virtuales",
+    seoTitle: "Clases de flauta dulce a domicilio en Bogotá y virtuales",
     metaDescription:
       "Clases de flauta dulce para niños desde los 6 años y adultos: lectura, respiración y repertorio. Virtuales o a domicilio en Bogotá con profes.",
     intro:
