@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
@@ -20,6 +21,10 @@ import {
   siteVerification,
   websiteJsonLd,
 } from "@/lib/seo";
+
+// Cloudflare Web Analytics (cookieless). The token is public by design; the
+// site is managed in the Cloudflare dashboard under Analytics > Web Analytics.
+const CLOUDFLARE_WEB_ANALYTICS_TOKEN = "34f7314ed803427fa410404495e39475";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -144,6 +149,11 @@ export default function RootLayout({
           </main>
           <WhatsAppFloat />
         </SmoothScrollProvider>
+        <Script
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon={JSON.stringify({ token: CLOUDFLARE_WEB_ANALYTICS_TOKEN })}
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
