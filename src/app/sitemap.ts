@@ -9,6 +9,8 @@ import {
   postsByCategory,
 } from "@/lib/blog";
 import { COURSE_PAGES } from "@/lib/course-pages";
+import { CHORDS_PATH, CIRCLE_OF_FIFTHS_PATH, SCALES_PATH, chordPath, scalePath } from "@/lib/music-pages";
+import { CHORDS, SCALES } from "@/lib/music-theory";
 import {
   EAR_TRAINING_PATH,
   METRONOME_PATH,
@@ -22,6 +24,9 @@ import { TEACHERS } from "@/lib/teachers";
 import { absoluteUrl, SITE_CONTENT_UPDATED_AT } from "@/lib/seo";
 
 type SitemapEntry = MetadataRoute.Sitemap[number];
+
+/** When the chord and scale dictionaries and the circle of fifths were last edited. */
+const MUSIC_DICTIONARY_UPDATED_AT = "2026-10-01";
 
 /**
  * `lastModified` uses real content dates (never `new Date()`): Google only
@@ -70,6 +75,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...TUNER_PRESETS.map((preset) =>
       entry(tunerPresetPath(preset.slug), SITE_CONTENT_UPDATED_AT, "monthly", 0.75),
     ),
+    entry(CIRCLE_OF_FIFTHS_PATH, MUSIC_DICTIONARY_UPDATED_AT, "monthly", 0.8),
+    entry(CHORDS_PATH, MUSIC_DICTIONARY_UPDATED_AT, "monthly", 0.85),
+    ...CHORDS.map((chord) => entry(chordPath(chord), MUSIC_DICTIONARY_UPDATED_AT, "monthly", 0.7)),
+    entry(SCALES_PATH, MUSIC_DICTIONARY_UPDATED_AT, "monthly", 0.85),
+    ...SCALES.map((scale) => entry(scalePath(scale), MUSIC_DICTIONARY_UPDATED_AT, "monthly", 0.7)),
     entry("/glosario-musical", SITE_CONTENT_UPDATED_AT, "monthly", 0.75),
     entry("/blog", blogUpdatedAt, "weekly", 0.8),
     ...BLOG_CATEGORY_ORDER.filter((category) => postsByCategory(category).length > 0).map((category) =>

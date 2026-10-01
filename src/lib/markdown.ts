@@ -5,6 +5,7 @@ import { CONTACT_EMAIL, INSTAGRAM_URL, WHATSAPP_DISPLAY, whatsappHref } from "@/
 import { resolveContentHref } from "@/lib/content-links";
 import type { BlogPost, FaqItem, RichBlock } from "@/lib/content-types";
 import { COURSE_PAGES, coursePagePath, type CoursePage } from "@/lib/course-pages";
+import { chordsSummary } from "@/lib/music-pages";
 import { SITE_BRAND, SITE_NAME, absoluteUrl } from "@/lib/seo";
 import { TEACHERS, type Teacher } from "@/lib/teachers";
 
@@ -62,6 +63,10 @@ export function blocksToMarkdown(blocks: RichBlock[]): string[] {
           ...block.rows.map(tableRow),
           "",
         );
+        break;
+      case "chords":
+        if (block.caption) lines.push(`**${block.caption}**`, "");
+        lines.push(...chordsSummary(block.chords).map((line) => `- [${line.name}](${absoluteUrl(line.path)}): ${line.frets}`), "");
         break;
     }
   }
@@ -372,7 +377,7 @@ export function siteFactsMarkdown() {
     `- Preuniversitario de música: preparación para las pruebas de admisión a carreras de música (teoría, solfeo, dictado e instrumento): ${absoluteUrl("/preuniversitario-musica")}`,
     `- Para academias, colegios e instituciones: selección de profesores de música, evaluación de candidatos y evaluación docente: ${absoluteUrl("/academias")}`,
     "- Precios: dependen del formato, la duración y la frecuencia de las clases; se consultan por WhatsApp.",
-    `- Herramientas gratis: metrónomo, afinador con micrófono, test de tipo de voz, entrenamiento auditivo y glosario musical: ${absoluteUrl("/herramientas")}`,
+    `- Herramientas gratis: metrónomo, afinador con micrófono, test de tipo de voz, entrenamiento auditivo, círculo de quintas y glosario musical: ${absoluteUrl("/herramientas")}. Diccionario de acordes para guitarra, piano y ukelele: ${absoluteUrl("/acordes")}. Escalas musicales: ${absoluteUrl("/escalas")}.`,
     `- Por dónde empezar: estudiantes y familias en ${absoluteUrl("/clases")}; instituciones en ${absoluteUrl("/academias")}; profes que quieren enseñar en ${absoluteUrl("/trabaja-con-nosotros")}.`,
     `- Contacto: WhatsApp ${WHATSAPP_DISPLAY} (${whatsappHref()}), ${CONTACT_EMAIL}, Instagram ${INSTAGRAM_URL}.`,
     "",

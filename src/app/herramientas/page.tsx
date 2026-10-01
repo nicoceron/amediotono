@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Ear, Gauge, Mic, Timer } from "lucide-react";
+import { ArrowRight, CircleDot, Ear, Gauge, Guitar, Mic, Piano, Timer } from "lucide-react";
 import { Footer } from "@/components/Footer";
 import { Breadcrumbs } from "@/components/editorial/Breadcrumbs";
 import { JsonLdScript } from "@/components/editorial/JsonLdScript";
@@ -13,6 +13,8 @@ import {
   VOICE_TYPE_PATH,
   tunerPresetPath,
 } from "@/lib/music-tools";
+import { CHORDS_PATH, CIRCLE_OF_FIFTHS_PATH, SCALES_PATH } from "@/lib/music-pages";
+import { CHORDS, SCALES } from "@/lib/music-theory";
 import {
   absoluteUrl,
   brandTitle,
@@ -59,6 +61,30 @@ const TOOLS = [
     cta: "Entrenar el oído",
     accent: "var(--blue)",
     Icon: Ear,
+  },
+  {
+    href: CIRCLE_OF_FIFTHS_PATH,
+    title: "Círculo de quintas",
+    text: "Armaduras, relativas y acordes de las 24 tonalidades.",
+    cta: "Abrir el círculo",
+    accent: "var(--purple)",
+    Icon: CircleDot,
+  },
+  {
+    href: CHORDS_PATH,
+    title: "Diccionario de acordes",
+    text: `${CHORDS.length} acordes en guitarra, piano y ukelele, con digitación y sonido.`,
+    cta: "Ver acordes",
+    accent: "var(--orange)",
+    Icon: Guitar,
+  },
+  {
+    href: SCALES_PATH,
+    title: "Escalas musicales",
+    text: `${SCALES.length} escalas con teclado, mástil de guitarra y sonido.`,
+    cta: "Ver escalas",
+    accent: "var(--pink)",
+    Icon: Piano,
   },
 ];
 

@@ -55,6 +55,21 @@
   font-weight: 900;
 }
 
+/*
+ * Satoshi has no ♭ ♮ ♯ 𝄪 𝄫, and the system fallback draws them a full em wide
+ * ("B ♭ m7"). This 1 KB subset of Noto Music (SIL Open Font License 1.1) sits
+ * right after Satoshi in the font stacks and only covers those characters.
+ */
+@font-face {
+  font-family: "Accidentals";
+  src: url("/fonts/accidentals.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 100 900;
+  size-adjust: 125%;
+  unicode-range: U+266D-266F, U+1D12A-1D12B;
+}
+
 @font-face {
   font-family: "Satoshi Placeholder";
   src: local("Arial");
@@ -135,8 +150,8 @@
   --accent: var(--pink);
   --course-icon-filter: none;
 
-  --font-display: "Satoshi", "Satoshi Placeholder", sans-serif;
-  --font-body:    "Satoshi", "Satoshi Placeholder", sans-serif;
+  --font-display: "Satoshi", "Accidentals", "Satoshi Placeholder", sans-serif;
+  --font-body:    "Satoshi", "Accidentals", "Satoshi Placeholder", sans-serif;
   --font-hand:    "Satisfy", sans-serif;
   --font-hand-2:  "Satisfy", sans-serif;
   --font-mono:    ui-monospace, "SF Mono", Menlo, monospace;

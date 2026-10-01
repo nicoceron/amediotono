@@ -3,10 +3,12 @@
 //   node scripts/validate-content.mjs                 # all articles
 //   node scripts/validate-content.mjs slug-a slug-b   # only these
 //   node scripts/validate-content.mjs --planned plan.json slug-a  # also accept planned slugs as link targets
-import { readdir, readFile } from "node:fs/promises";
+import { mkdtemp, readdir, readFile, rm } from "node:fs/promises";
+import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { createRequire } from "node:module";
+import { build } from "esbuild";
 
 const require = createRequire(import.meta.url);
 const ts = require("typescript");
@@ -53,6 +55,19 @@ for (const file of files) {
 }
 
 const postSlugs = new Set([...posts.map(({ post }) => post?.slug), ...plannedSlugs]);
+
+// Chord and scale pages are generated from src/lib/music-theory.ts.
+const musicDir = await mkdtemp(join(tmpdir(), "music-theory-"));
+await build({
+  entryPoints: [join(root, "src/lib/music-theory.ts")],
+  bundle: true,
+  format: "esm",
+  platform: "node",
+  outfile: join(musicDir, "music-theory.mjs"),
+  logLevel: "error",
+});
+const { CHORDS, SCALES } = await import(join(musicDir, "music-theory.mjs"));
+await rm(musicDir, { recursive: true });
 const knownRoutes = new Set([
   "/", "/clases", "/profes", "/blog", "/nosotros", "/trabaja-con-nosotros", "/academias",
   "/herramientas", "/herramientas/metronomo", "/herramientas/afinador",
@@ -64,6 +79,9 @@ const knownRoutes = new Set([
   ...teachers.map((teacher) => `/profes/${teacher.slug}`),
   ...[...postSlugs].map((slug) => `/blog/${slug}`),
   ...CATEGORIES.map((category) => `/blog/categoria/${category}`),
+  "/acordes", "/escalas", "/herramientas/circulo-de-quintas",
+  ...CHORDS.map((chord) => `/acordes/${chord.slug}`),
+  ...SCALES.map((scale) => `/escalas/${scale.slug}`),
 ]);
 
 const BANNED = [/garantizad[oa]s?\b(?! que no)/i, /\b100 ?%/, /el mejor de colombia/i, /outsourcing docente/i, /banco de profesores/i, /lorem ipsum/i];
@@ -117,6 +135,10 @@ for (const { file, post } of posts) {
     if (["en-resumen", "preguntas-frecuentes"].includes(section.id)) report(`reserved section id "${section.id}"`);
     ids.add(section.id);
     if (!section.blocks?.length) report(`section "${section.id}" has no blocks`);
+    for (const block of section.blocks ?? []) {
+      if (block.type !== "chords") continue;
+      for (const chord of block.chords) if (!knownRoutes.has(`/acordes/${chord}`)) report(`unknown chord "${chord}"`);
+    }
   }
   if (post.faqs && (post.faqs.length < 3 || post.faqs.length > 6)) report(`faqs ${post.faqs.length} (need 3–6)`);
   for (const id of post.relatedCourseIds ?? []) if (!courseIds.has(id)) report(`unknown relatedCourseId "${id}"`);

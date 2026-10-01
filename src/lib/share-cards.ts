@@ -1,6 +1,7 @@
 import { B2B_SERVICES } from "@/lib/b2b";
 import { BLOG_CATEGORIES, BLOG_CATEGORY_ORDER, BLOG_POSTS } from "@/lib/blog";
 import { COURSE_PAGES } from "@/lib/course-pages";
+import { CHORDS, SCALES } from "@/lib/music-theory";
 import { TUNER_PRESETS } from "@/lib/music-tools";
 import { TEACHERS } from "@/lib/teachers";
 import { GLOSSARY } from "@/content/glossary";
@@ -95,6 +96,27 @@ const STATIC_CARDS: Record<string, ShareCard> = {
     eyebrow: `${GLOSSARY.length} términos`,
     title: "Glosario musical en palabras sencillas",
     subtitle: "Los términos de la música explicados con ejemplos.",
+    accent: "var(--purple)",
+    icon: courseIcon("teoria-musical"),
+  },
+  acordes: {
+    eyebrow: `${CHORDS.length} acordes con diagramas`,
+    title: "Acordes de guitarra, piano y ukelele",
+    subtitle: "Notas, digitación, inversiones y progresiones de cada acorde.",
+    accent: "var(--orange)",
+    icon: courseIcon("guitarra-acustica"),
+  },
+  escalas: {
+    eyebrow: `${SCALES.length} escalas`,
+    title: "Escalas musicales: notas, piano y guitarra",
+    subtitle: "Mayores, menores, pentatónicas y de blues en las 12 tonalidades.",
+    accent: "var(--blue)",
+    icon: courseIcon("piano"),
+  },
+  "circulo-de-quintas": {
+    eyebrow: "Herramienta gratis",
+    title: "Círculo de quintas interactivo",
+    subtitle: "Armaduras, relativas y acordes de las 24 tonalidades.",
     accent: "var(--purple)",
     icon: courseIcon("teoria-musical"),
   },

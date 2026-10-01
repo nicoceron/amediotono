@@ -12,6 +12,8 @@ import {
   tunerPresetPath,
 } from "@/lib/music-tools";
 import { siteFactsMarkdown } from "@/lib/markdown";
+import { CHORDS_PATH, CIRCLE_OF_FIFTHS_PATH, SCALES_PATH, chordPath } from "@/lib/music-pages";
+import { CHORDS, CHORD_TYPES, SCALES } from "@/lib/music-theory";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_SLOGAN, absoluteUrl } from "@/lib/seo";
 
 export const dynamic = "force-static";
@@ -73,6 +75,9 @@ export function GET() {
     `- [Test de tipo de voz con micrófono](${absoluteUrl(VOICE_TYPE_PATH)})`,
     `- [Entrenamiento auditivo de intervalos](${absoluteUrl(EAR_TRAINING_PATH)})`,
     `- [Glosario de términos musicales](${absoluteUrl("/glosario-musical")})`,
+    `- [Círculo de quintas interactivo](${absoluteUrl(CIRCLE_OF_FIFTHS_PATH)}): armaduras, relativas y acordes de las 24 tonalidades.`,
+    `- [Diccionario de acordes](${absoluteUrl(CHORDS_PATH)}): ${CHORDS.length} acordes (12 notas × ${CHORD_TYPES.length} tipos) con notas, digitación en guitarra, piano y ukelele, inversiones y progresiones. URL de cada acorde: ${absoluteUrl(CHORDS_PATH)}/<nota>-<tipo>, por ejemplo ${absoluteUrl(chordPath(CHORDS[0]))}.`,
+    `- [Escalas musicales](${absoluteUrl(SCALES_PATH)}): ${SCALES.length} escalas (mayor, menores, pentatónicas y blues en las 12 tonalidades) con notas, fórmula, armadura, acordes, piano y mástil de guitarra.`,
     ...TUNER_PRESETS.map((preset) => `- [${preset.headline}](${absoluteUrl(tunerPresetPath(preset.slug))})`),
     "",
     ...BLOG_CATEGORY_ORDER.flatMap((category) => {

@@ -29,6 +29,7 @@ import {
   relatedCoursePages,
 } from "@/lib/course-pages";
 import { courseHref } from "@/lib/courses";
+import { CHORDS_PATH, CIRCLE_OF_FIFTHS_PATH, SCALES_PATH } from "@/lib/music-pages";
 import {
   EAR_TRAINING_PATH,
   METRONOME_PATH,
@@ -87,6 +88,9 @@ export async function generateMetadata({
     ],
   });
 }
+
+/** Courses whose students play chords: their pages link the chord dictionary. */
+const CHORD_COURSES = new Set(["piano", "guitarra-acustica", "guitarra-electrica", "bajo-electrico", "tiple", "teoria-musical"]);
 
 const HOW_IT_WORKS = [
   {
@@ -377,6 +381,23 @@ export default async function CoursePage({
                 <li>
                   <Link href={EAR_TRAINING_PATH} prefetch={false}>
                     Entrenamiento auditivo
+                  </Link>
+                </li>
+                {CHORD_COURSES.has(course.id) && (
+                  <li>
+                    <Link href={CHORDS_PATH} prefetch={false}>
+                      Diccionario de acordes
+                    </Link>
+                  </li>
+                )}
+                <li>
+                  <Link href={SCALES_PATH} prefetch={false}>
+                    Escalas musicales
+                  </Link>
+                </li>
+                <li>
+                  <Link href={CIRCLE_OF_FIFTHS_PATH} prefetch={false}>
+                    Círculo de quintas
                   </Link>
                 </li>
               </ul>
