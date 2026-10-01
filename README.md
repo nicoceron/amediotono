@@ -23,7 +23,7 @@ En el texto de guías y artículos se puede usar `**negrita**` y `[enlace](/ruta
 
 Antes de publicar artículos nuevos, valida el contenido con `npm run content:check` (campos, longitudes, enlaces internos y afirmaciones prohibidas).
 
-Cada despliegue a producción (`.github/workflows/cloudflare-production.yml`) avisa por IndexNow a Bing, Yandex, Seznam, Naver y Yep las URLs nuevas o modificadas desde el último envío (el sitemap enviado se guarda en la caché de GitHub Actions; si no hay registro, envía todas). `npm run indexnow` envía el sitemap completo a mano. La clave IndexNow es pública por diseño y está en `src/data/indexnow.json` (`INDEXNOW_KEY` la reemplaza).
+Cada despliegue a producción (`scripts/deploy-production.sh`) avisa por IndexNow a Bing, Yandex, Seznam, Naver y Yep las URLs nuevas o modificadas en ese despliegue (compara con el sitemap publicado justo antes; si no lo puede leer, envía todas). `npm run indexnow` envía el sitemap completo a mano. La clave IndexNow es pública por diseño y está en `src/data/indexnow.json` (`INDEXNOW_KEY` la reemplaza).
 
 Para asistentes de IA: `/llms.txt` (índice con datos clave), `/llms-full.txt` (todo el contenido en Markdown) y una versión Markdown de cada artículo, página de clase, servicio para academias y del directorio de profes agregando `.md` a la URL (`src/lib/markdown.ts`). `robots.txt` permite a los rastreadores de buscadores y de IA. Si se abren otros perfiles oficiales (Google Business Profile, Facebook, TikTok…), agrégalos en `OTHER_PROFILE_URLS` de `src/lib/contact.ts`.
 
@@ -60,7 +60,7 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 ## Deploy on Cloudflare
 
-The site runs on Cloudflare Workers through [OpenNext](https://opennext.js.org/cloudflare) (`wrangler.jsonc`, `open-next.config.ts`). Every push to `main` builds and deploys it with `.github/workflows/cloudflare-production.yml`, which needs a `CLOUDFLARE_API_TOKEN` repository secret.
+The site runs on Cloudflare Workers through [OpenNext](https://opennext.js.org/cloudflare) (`wrangler.jsonc`, `open-next.config.ts`). Cloudflare Workers Builds is connected to this repository: every push to `main` runs `npx opennextjs-cloudflare build`, then `npm run deploy:production` (deploy plus IndexNow).
 
 - `npm run preview` builds the Worker and runs it locally with Wrangler.
 - `npm run deploy` builds and deploys it from your machine.
