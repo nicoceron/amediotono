@@ -15,10 +15,13 @@ import {
 import {
   EAR_TRAINING_PATH,
   METRONOME_PATH,
+  RHYTHM_PRESETS,
+  TUNER_GROUPS,
   TUNER_PATH,
-  TUNER_PRESETS,
   VOICE_TYPE_PATH,
+  rhythmPresetPath,
   tunerPresetPath,
+  tunerPresetsInGroup,
 } from "@/lib/music-tools";
 import { SITE_BRAND, SITE_DESCRIPTION, SITE_NAME, absoluteUrl } from "@/lib/seo";
 import { TEACHERS } from "@/lib/teachers";
@@ -53,13 +56,25 @@ export function GET() {
   const tools = [
     "# Herramientas gratis para músicos",
     "",
-    `- [Metrónomo online](${absoluteUrl(METRONOME_PATH)}): de 30 a 250 BPM, compases, subdivisiones, acento y tap tempo.`,
+    `- [Metrónomo online](${absoluteUrl(METRONOME_PATH)}): de 30 a 250 BPM, compases simples y compuestos (2/4 a 7/4, 2/2, 6/8, 9/8, 12/8), subdivisiones, acentos por tiempo y tap tempo.`,
     `- [Afinador cromático con micrófono](${absoluteUrl(TUNER_PATH)}): afina cualquier instrumento o la voz; el audio se analiza en el dispositivo.`,
-    ...TUNER_PRESETS.map(
-      (preset) => `- [${preset.headline}](${absoluteUrl(tunerPresetPath(preset.slug))}): ${preset.tuningName}.`,
-    ),
     `- [Test de tipo de voz](${absoluteUrl(VOICE_TYPE_PATH)}): estima el tipo de voz a partir de la nota más grave y la más aguda que cantas.`,
     `- [Entrenamiento auditivo](${absoluteUrl(EAR_TRAINING_PATH)}): ejercicios para reconocer intervalos ascendentes, descendentes y armónicos.`,
+    "",
+    ...TUNER_GROUPS.flatMap((group) => [
+      `## Afinadores: ${group.title.toLowerCase()}`,
+      "",
+      ...tunerPresetsInGroup(group.id).map(
+        (preset) => `- [${preset.headline}](${absoluteUrl(tunerPresetPath(preset.slug))}): ${preset.tuningName}. ${preset.intro}`,
+      ),
+      "",
+    ]),
+    "## Metrónomo para ritmos colombianos",
+    "",
+    ...RHYTHM_PRESETS.map(
+      (preset) =>
+        `- [${preset.headline}](${absoluteUrl(rhythmPresetPath(preset.slug))}): ${preset.summary}. ${preset.facts.map(([label, detail]) => `${label}: ${detail}`).join("; ")}.`,
+    ),
   ].join("\n");
 
   const glossary = [

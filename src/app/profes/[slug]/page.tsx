@@ -14,6 +14,7 @@ import {
   Video,
 } from "lucide-react";
 import { Footer } from "@/components/Footer";
+import { BrandText } from "@/components/BrandWordmark";
 import { ShareTeacherButton } from "@/components/ShareTeacherButton";
 import { TeacherCard } from "@/components/TeacherCard";
 import { Breadcrumbs } from "@/components/editorial/Breadcrumbs";
@@ -396,7 +397,9 @@ export default async function ProfeDetailPage({
                             />
                           ))}
                         </span>
-                        <p className="pd-review-quote">{r.quote}</p>
+                        <p className="pd-review-quote">
+                          <BrandText text={r.quote} />
+                        </p>
                       </article>
                     ))}
                   </div>

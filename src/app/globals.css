@@ -55,6 +55,21 @@
   font-weight: 900;
 }
 
+/*
+ * Satoshi has no ♭ ♮ ♯ 𝄪 𝄫, and the system fallback draws them a full em wide
+ * ("B ♭ m7"). This 1 KB subset of Noto Music (SIL Open Font License 1.1) sits
+ * right after Satoshi in the font stacks and only covers those characters.
+ */
+@font-face {
+  font-family: "Accidentals";
+  src: url("/fonts/accidentals.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 100 900;
+  size-adjust: 125%;
+  unicode-range: U+266D-266F, U+1D12A-1D12B;
+}
+
 @font-face {
   font-family: "Satoshi Placeholder";
   src: local("Arial");
@@ -135,8 +150,8 @@
   --accent: var(--pink);
   --course-icon-filter: none;
 
-  --font-display: "Satoshi", "Satoshi Placeholder", sans-serif;
-  --font-body:    "Satoshi", "Satoshi Placeholder", sans-serif;
+  --font-display: "Satoshi", "Accidentals", "Satoshi Placeholder", sans-serif;
+  --font-body:    "Satoshi", "Accidentals", "Satoshi Placeholder", sans-serif;
   --font-hand:    "Satisfy", sans-serif;
   --font-hand-2:  "Satisfy", sans-serif;
   --font-mono:    ui-monospace, "SF Mono", Menlo, monospace;
@@ -3048,6 +3063,43 @@ body:has(.job-application-page) {
   text-underline-offset: 0.2em;
 }
 
+/* Every course landing page, linked from every page. */
+.footer-courses {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  color: var(--footer-muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.footer-courses-title {
+  margin: 0 0 10px;
+  color: var(--footer-fg);
+  font-weight: 700;
+}
+
+.footer-courses-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-courses-list a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer-courses-list a:hover,
+.footer-courses-list a:focus-visible {
+  color: var(--footer-accent);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
 .footer-bottom {
   position: relative;
   z-index: 5;
@@ -5624,6 +5676,14 @@ body:has(.job-application-page) {
   column-gap: 0.25em;
   white-space: nowrap;
 }
+/* "A ½ tono" wordmark inline in running text or headings (BrandWordmark). */
+.brand-wordmark {
+  display: inline-block;
+  height: 1.05em;
+  width: auto;
+  vertical-align: -0.2em;
+}
+
 .cf-title-logo {
   height: 0.95em;
   width: auto;
@@ -8590,6 +8650,12 @@ section.block.ed-cta-section {
   font-size: 20px;
 }
 
+.tuner-octave {
+  max-width: 46ch;
+  margin: 4px auto 0;
+  font-size: 13px;
+}
+
 .tuner-strings {
   display: grid;
   gap: 10px;
@@ -8665,6 +8731,22 @@ section.block.ed-cta-section {
   margin-top: 48px;
 }
 
+/* Grouped hub lists: Instrumentos · Colombianos · Afinaciones de guitarra. */
+.tuner-presets-group + .tuner-presets-group {
+  margin-top: 32px;
+}
+
+.tuner-presets-group h3 {
+  margin: 0 0 4px;
+  font-size: 18px;
+}
+
+.tuner-presets-group > p {
+  margin: 0 0 14px;
+  color: var(--ink-soft);
+  font-size: 14px;
+}
+
 .tuner-presets ul {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -8694,15 +8776,17 @@ section.block.ed-cta-section {
 }
 
 .tuner-presets a svg {
-  grid-row: span 2;
+  grid-row: 1 / span 2;
   grid-column: 2;
 }
 
 .tuner-presets strong {
+  grid-column: 1;
   font-size: 16px;
 }
 
 .tuner-presets span {
+  grid-column: 1;
   color: var(--ink-soft);
   font-size: 13px;
 }
@@ -8738,34 +8822,97 @@ section.block.ed-cta-section {
 
 .metronome-beats {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 12px;
+  gap: 2px;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.metronome-beats li {
+/* Each beat is a 40px button (tap to cycle its accent) drawing a 22px dot. */
+.metronome-beats button {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  cursor: pointer;
+}
+
+.metronome-beats button::before {
+  content: "";
   width: 22px;
   height: 22px;
+  box-sizing: border-box;
   border: 2px solid color-mix(in srgb, var(--ink) 30%, transparent);
   border-radius: 50%;
   transition: transform 0.08s ease, background-color 0.08s ease;
 }
 
-.metronome-beats li.is-accent {
-  border-color: var(--orange);
+.metronome-beats button:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 0;
 }
 
-.metronome-beats li.is-active {
+.metronome-beats button.is-accent::before {
+  border-color: var(--orange);
+  border-width: 3px;
+}
+
+.metronome-beats button.is-secondary::before {
+  border-color: color-mix(in srgb, var(--orange) 60%, transparent);
+  border-style: dashed;
+}
+
+.metronome-beats button.is-active::before {
   background: var(--ink);
   border-color: var(--ink);
+  border-style: solid;
   transform: scale(1.25);
 }
 
-.metronome-beats li.is-active.is-accent {
+.metronome-beats button.is-active.is-accent::before,
+.metronome-beats button.is-active.is-secondary::before {
   background: var(--orange);
   border-color: var(--orange);
+}
+
+/* Rhythm pages: switch between the meters a rhythm is written in (6/8 · 3/4). */
+.metronome-setups {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.metronome-setups button {
+  min-height: 44px;
+  padding: 8px 18px;
+  border: 1px solid color-mix(in srgb, var(--ink) 25%, transparent);
+  border-radius: var(--radius-pill);
+  background: var(--paper);
+  color: var(--ink);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+}
+
+.metronome-setups button.is-active {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.metronome-setup-note {
+  width: min(100%, 760px);
+  margin: 14px auto 0;
+  color: var(--ink-soft);
+  font-size: 14px;
+  text-align: center;
 }
 
 .metronome-tempo {

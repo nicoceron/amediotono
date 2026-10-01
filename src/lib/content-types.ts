@@ -20,7 +20,9 @@ export type RichBlock =
   | { type: "ol"; items: string[] }
   | { type: "callout"; title?: string; text: string }
   | { type: "quote"; text: string; cite?: string }
-  | { type: "table"; caption?: string; head: string[]; rows: string[][] };
+  | { type: "table"; caption?: string; head: string[]; rows: string[][] }
+  /** Guitar diagrams for chord dictionary slugs, e.g. ["do-mayor", "la-menor"]. */
+  | { type: "chords"; chords: string[]; caption?: string };
 
 export type RichSection = {
   /** URL fragment for the table of contents, e.g. "edad-recomendada". */

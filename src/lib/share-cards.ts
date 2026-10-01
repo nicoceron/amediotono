@@ -1,7 +1,8 @@
 import { B2B_SERVICES } from "@/lib/b2b";
 import { BLOG_CATEGORIES, BLOG_CATEGORY_ORDER, BLOG_POSTS } from "@/lib/blog";
 import { COURSE_PAGES } from "@/lib/course-pages";
-import { TUNER_PRESETS } from "@/lib/music-tools";
+import { CHORDS, SCALES } from "@/lib/music-theory";
+import { RHYTHM_PRESETS, TUNER_PRESETS } from "@/lib/music-tools";
 import { TEACHERS } from "@/lib/teachers";
 import { GLOSSARY } from "@/content/glossary";
 
@@ -79,8 +80,8 @@ const STATIC_CARDS: Record<string, ShareCard> = {
   },
   "tipo-de-voz": {
     eyebrow: "Test gratis",
-    title: "¿Cuál es tu tipo de voz?",
-    subtitle: "Canta tu nota más grave y la más aguda y descubre tu rango.",
+    title: "¿Qué tipo de voz tengo?",
+    subtitle: "Test de tesitura: canta tu nota más grave y la más aguda.",
     accent: "var(--pink)",
     icon: courseIcon("canto"),
   },
@@ -95,6 +96,27 @@ const STATIC_CARDS: Record<string, ShareCard> = {
     eyebrow: `${GLOSSARY.length} términos`,
     title: "Glosario musical en palabras sencillas",
     subtitle: "Los términos de la música explicados con ejemplos.",
+    accent: "var(--purple)",
+    icon: courseIcon("teoria-musical"),
+  },
+  acordes: {
+    eyebrow: `${CHORDS.length} acordes con diagramas`,
+    title: "Acordes de guitarra, piano y ukelele",
+    subtitle: "Notas, digitación, inversiones y progresiones de cada acorde.",
+    accent: "var(--orange)",
+    icon: courseIcon("guitarra-acustica"),
+  },
+  escalas: {
+    eyebrow: `${SCALES.length} escalas`,
+    title: "Escalas musicales: notas, piano y guitarra",
+    subtitle: "Mayores, menores, pentatónicas y de blues en las 12 tonalidades.",
+    accent: "var(--blue)",
+    icon: courseIcon("piano"),
+  },
+  "circulo-de-quintas": {
+    eyebrow: "Herramienta gratis",
+    title: "Círculo de quintas interactivo",
+    subtitle: "Armaduras, relativas y acordes de las 24 tonalidades.",
     accent: "var(--purple)",
     icon: courseIcon("teoria-musical"),
   },
@@ -157,6 +179,18 @@ export const SHARE_CARDS: Record<string, ShareCard> = {
         subtitle: "Gratis, con el micrófono de tu celular o computador.",
         accent: "var(--green)",
         icon: courseIcon(preset.courseId),
+      },
+    ]),
+  ),
+  ...Object.fromEntries(
+    RHYTHM_PRESETS.map((preset) => [
+      `metronomo-${preset.slug}`,
+      {
+        eyebrow: preset.summary,
+        title: preset.headline,
+        subtitle: "Compás, tempo y acentos listos para practicar, gratis en el navegador.",
+        accent: "var(--orange)",
+        icon: courseIcon(preset.courseId ?? "percusion"),
       },
     ]),
   ),

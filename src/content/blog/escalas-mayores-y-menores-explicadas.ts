@@ -9,6 +9,7 @@ export const post: BlogPost = {
     "Todas las escalas mayores siguen la misma fórmula de tonos y semitonos, y las menores tienen tres versiones. Aprende a construirlas desde cualquier nota.",
   category: "tecnica",
   publishedAt: "2026-09-30",
+  updatedAt: "2026-10-01",
   keywords: [
     "escalas mayores y menores",
     "fórmula de la escala mayor",
@@ -55,6 +56,11 @@ export const post: BlogPost = {
       id: "escala-mayor",
       heading: "La escala mayor y su fórmula",
       blocks: [
+        {
+          type: "callout",
+          title: "Todas las escalas, con sonido",
+          text: "En nuestras [escalas musicales](/escalas) tienes las 12 tonalidades con teclado, mástil de guitarra y audio. Empieza por [Do mayor](/escalas/do-mayor) y [La menor](/escalas/la-menor-natural).",
+        },
         {
           type: "table",
           caption: "Escala de Do mayor: grados y distancias",

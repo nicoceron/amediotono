@@ -17,6 +17,7 @@ import {
   Video,
 } from "lucide-react";
 import { Footer } from "@/components/Footer";
+import { BrandText } from "@/components/BrandWordmark";
 import { NosotrosFAQSection } from "@/components/NosotrosFAQSection";
 import { plainText } from "@/components/RichText";
 import { Breadcrumbs } from "@/components/editorial/Breadcrumbs";
@@ -166,7 +167,9 @@ export default function Nosotros() {
           <header className="ed-hero">
             <div className="ed-hero-copy">
               <span className="ed-eyebrow">Nosotros</span>
-              <h1>{TITLE}</h1>
+              <h1>
+                <BrandText text={TITLE} />
+              </h1>
               <p className="ed-lead">
                 Somos una escuela de artes y música en Bogotá. Unimos a estudiantes de todas las
                 edades con profes que eligimos <strong>a mano y a oído</strong>: músicos que tocan

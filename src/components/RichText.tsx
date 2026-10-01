@@ -2,6 +2,8 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import type { RichBlock } from "@/lib/content-types";
 import { resolveContentHref } from "@/lib/content-links";
+import { ChordsBlock } from "@/components/music/ChordsBlock";
+import { chordsSummary } from "@/lib/music-pages";
 
 const INLINE_PATTERN = /\*\*([^*]+)\*\*|\[([^\]]+)\]\(([^)\s]+)\)/g;
 
@@ -147,6 +149,8 @@ export function RichBlocks({ blocks }: { blocks: RichBlock[] }) {
             </table>
           </div>
         );
+      case "chords":
+        return <ChordsBlock key={index} slugs={block.chords} caption={block.caption} />;
       default:
         return null;
     }
@@ -167,6 +171,8 @@ export function blocksToPlainText(blocks: RichBlock[]) {
           return block.items.map((item) => `- ${plainText(item)}`).join("\n");
         case "table":
           return [block.head, ...block.rows].map((row) => row.map(plainText).join(" | ")).join("\n");
+        case "chords":
+          return chordsSummary(block.chords).map((line) => `- ${line.name}: ${line.frets}`).join("\n");
         default:
           return "";
       }

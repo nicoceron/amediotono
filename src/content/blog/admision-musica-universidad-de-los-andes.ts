@@ -188,8 +188,8 @@ export const post: BlogPost = {
   relatedCourseIds: ["teoria-musical"],
   relatedPostSlugs: [
     "admision-musica-universidad-javeriana",
+    "admision-musica-universidad-el-bosque",
     "como-prepararte-para-la-prueba-de-admision-de-musica",
-    "carreras-de-musica-en-colombia",
   ],
   cta: "clases",
 };

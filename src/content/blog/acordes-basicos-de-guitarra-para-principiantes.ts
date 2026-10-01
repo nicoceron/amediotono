@@ -9,6 +9,7 @@ export const post: BlogPost = {
     "Con ocho acordes abiertos ya puedes acompañar muchísimas canciones. Aquí tienes cómo se pisa cada uno, en qué orden aprenderlos y cómo cambiar entre ellos sin pausas.",
   category: "tecnica",
   publishedAt: "2026-09-30",
+  updatedAt: "2026-10-01",
   keywords: [
     "acordes básicos de guitarra",
     "acordes de guitarra para principiantes",
@@ -53,6 +54,11 @@ export const post: BlogPost = {
       id: "tabla-de-acordes",
       heading: "Los 8 acordes básicos, cuerda por cuerda",
       blocks: [
+        {
+          type: "chords",
+          chords: ["mi-menor", "la-menor", "mi-mayor", "do-mayor", "sol-mayor", "re-mayor", "re-menor", "la-mayor"],
+          caption: "Toca cualquier diagrama para ver el acorde en piano y ukelele, sus inversiones y cómo suena.",
+        },
         {
           type: "table",
           caption: "Digitación de los acordes abiertos (traste y dedo por cuerda)",

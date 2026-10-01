@@ -1,15 +1,21 @@
 import Link from "next/link";
+import { BrandWordmark } from "@/components/BrandWordmark";
 import {
   ArrowRight,
   BookOpen,
+  CircleDot,
   GraduationCap,
+  Guitar,
   House,
   Library,
   MonitorSmartphone,
+  Piano,
   Timer,
 } from "lucide-react";
 import { BLOG_POSTS } from "@/lib/blog";
 import { TOOLS_PATH } from "@/lib/music-tools";
+import { CHORDS_PATH, CIRCLE_OF_FIFTHS_PATH, SCALES_PATH } from "@/lib/music-pages";
+import { CHORDS } from "@/lib/music-theory";
 
 const RESOURCES = [
   {
@@ -54,6 +60,27 @@ const RESOURCES = [
     icon: Library,
     accent: "var(--orange)",
   },
+  {
+    href: CHORDS_PATH,
+    title: "Acordes",
+    body: `${CHORDS.length} acordes con diagramas para guitarra, piano y ukelele.`,
+    icon: Guitar,
+    accent: "var(--green)",
+  },
+  {
+    href: SCALES_PATH,
+    title: "Escalas musicales",
+    body: "Mayores, menores, pentatónicas y blues, con teclado, mástil y sonido.",
+    icon: Piano,
+    accent: "var(--pink)",
+  },
+  {
+    href: CIRCLE_OF_FIFTHS_PATH,
+    title: "Círculo de quintas",
+    body: "Armaduras, relativas y acordes de cada tonalidad, interactivo.",
+    icon: CircleDot,
+    accent: "var(--blue)",
+  },
 ];
 
 export function HomeResourcesSection() {
@@ -61,7 +88,9 @@ export function HomeResourcesSection() {
     <section className="block ed-section home-resources" aria-labelledby="explora-title">
       <div className="container">
         <div className="sec-head ed-sec-head">
-          <h2 id="explora-title">Explora A ½ tono</h2>
+          <h2 id="explora-title">
+            Explora <BrandWordmark />
+          </h2>
           <p className="sec-sub">Más formas de aprender, practicar y prepararte con nosotros.</p>
         </div>
         <ul className="b2b-service-grid home-resources-grid">

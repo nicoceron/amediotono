@@ -1,15 +1,14 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import { Mail } from "lucide-react";
-import { motion, useReducedMotion } from "motion/react";
+import { FooterReveal } from "@/components/FooterReveal";
 import {
   CONTACT_EMAIL,
   INSTAGRAM_URL,
   WHATSAPP_DISPLAY,
   whatsappHref,
 } from "@/lib/contact";
+import { COURSE_PAGES } from "@/lib/course-pages";
 
 // Course links point at instruments with several profes, so their landing
 // pages always exist (see COURSE_PAGES in src/lib/course-pages.ts).
@@ -32,6 +31,8 @@ const FOOTER_COLUMNS = [
   [
     { href: "/blog", label: "Blog" },
     { href: "/herramientas", label: "Herramientas gratis" },
+    { href: "/acordes", label: "Acordes" },
+    { href: "/escalas", label: "Escalas musicales" },
     { href: "/glosario-musical", label: "Glosario musical" },
     { href: "/academias", label: "Para academias" },
     { href: "/trabaja-con-nosotros", label: "Trabaja con nosotros" },
@@ -76,17 +77,7 @@ const SOCIAL_LINKS = [
   },
 ];
 
-const FOOTER_REVEAL_INITIAL = { opacity: 0, y: 42 };
-const footerRevealTransition = (delay: number) => ({
-  damping: 48,
-  delay,
-  mass: 1,
-  stiffness: 420,
-  type: "spring" as const,
-});
-
 export function Footer() {
-  const reduce = useReducedMotion();
   const year = new Date().getFullYear();
 
   return (
@@ -95,13 +86,7 @@ export function Footer() {
         <div className="footer-content">
           <div className="footer-main">
             <div className="footer-brand-social">
-              <motion.div
-                className="footer-brand-form"
-                initial={reduce ? false : FOOTER_REVEAL_INITIAL}
-                whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0 }}
-                transition={footerRevealTransition(0.1)}
-              >
+              <FooterReveal className="footer-brand-form" delay={0.1}>
                 <Link href="/" className="footer-logo-link" aria-label="A medio tono — inicio" prefetch={false}>
                   <Image
                     src="/logo-nav.webp"
@@ -124,15 +109,9 @@ export function Footer() {
                 <p className="footer-tagline">
                   Una escuela donde el arte se vive, se siente y se comparte todos los días.
                 </p>
-              </motion.div>
+              </FooterReveal>
 
-              <motion.div
-                className="footer-social-block"
-                initial={reduce ? false : FOOTER_REVEAL_INITIAL}
-                whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0 }}
-                transition={footerRevealTransition(0.2)}
-              >
+              <FooterReveal className="footer-social-block" delay={0.2}>
                 <div className="footer-social-row">
                   {SOCIAL_LINKS.map((link) => (
                     <a
@@ -154,16 +133,14 @@ export function Footer() {
                 <a className="footer-direct-link" href={`mailto:${CONTACT_EMAIL}`}>
                   {CONTACT_EMAIL}
                 </a>
-              </motion.div>
+              </FooterReveal>
             </div>
 
-            <motion.nav
+            <FooterReveal
+              as="nav"
               className="footer-menu"
-              aria-label="Enlaces del pie de página"
-              initial={reduce ? false : FOOTER_REVEAL_INITIAL}
-              whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0 }}
-              transition={footerRevealTransition(0.3)}
+              label="Enlaces del pie de página"
+              delay={0.3}
             >
               {FOOTER_COLUMNS.map((column, columnIndex) => (
                 <div className="footer-menu-column" key={columnIndex}>
@@ -174,8 +151,21 @@ export function Footer() {
                   ))}
                 </div>
               ))}
-            </motion.nav>
+            </FooterReveal>
           </div>
+
+          <nav className="footer-courses" aria-label="Clases de música por instrumento">
+            <p className="footer-courses-title">Clases de música en Bogotá y virtuales</p>
+            <ul className="footer-courses-list">
+              {COURSE_PAGES.map((page) => (
+                <li key={page.path}>
+                  <Link href={page.path} prefetch={false}>
+                    Clases de {page.course.label.toLowerCase()}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
           <div className="footer-bottom">
             <span>© {year} A medio tono</span>

@@ -9,6 +9,7 @@ export const post: BlogPost = {
     "El círculo de quintas ordena las 12 tonalidades como un reloj. Aprende a dibujarlo, a leer armaduras y relativas menores con él y a usarlo en la práctica.",
   category: "tecnica",
   publishedAt: "2026-09-30",
+  updatedAt: "2026-10-01",
   keywords: [
     "círculo de quintas",
     "círculo de quintas explicado",
@@ -33,6 +34,11 @@ export const post: BlogPost = {
       id: "que-es-y-como-dibujarlo",
       heading: "Qué es el círculo de quintas y cómo dibujarlo",
       blocks: [
+        {
+          type: "callout",
+          title: "Ábrelo mientras lees",
+          text: "Usa nuestro [círculo de quintas interactivo](/herramientas/circulo-de-quintas): tocas una tonalidad y ves su armadura, su relativa menor y sus acordes.",
+        },
         {
           type: "p",
           text: "Una quinta justa es la distancia de siete semitonos que hay, por ejemplo, entre Do y Sol: contando ambas notas, Do-Re-Mi-Fa-Sol son cinco. Si repites ese salto doce veces, pasas por las doce notas y vuelves a Do. El círculo es el dibujo de ese recorrido. Si el concepto de distancia entre notas te resulta nuevo, empieza por [qué es un intervalo musical](/blog/que-es-un-intervalo-musical).",

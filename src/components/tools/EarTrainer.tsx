@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Play, RotateCcw, SkipForward } from "lucide-react";
-import { INTERVALS, midiToFrequency } from "@/lib/music-tools";
+import { INTERVALS, midiToFrequency } from "@/lib/music-core";
 import { createAudioContext, playTone } from "@/lib/pitch";
 
 type Mode = "ascendente" | "descendente" | "armonico";
