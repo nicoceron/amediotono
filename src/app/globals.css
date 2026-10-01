@@ -3038,6 +3038,12 @@ body:has(.job-application-page) {
   outline: none;
 }
 
+.footer-credit a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
 .footer-bottom {
   position: relative;
   z-index: 5;
