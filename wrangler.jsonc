@@ -15,7 +15,10 @@
   ],
   "assets": {
     "directory": ".open-next/assets",
-    "binding": "ASSETS"
+    "binding": "ASSETS",
+    // Static files go through worker.ts too, so its https and bare-domain
+    // redirects cover images and fonts; it then serves them from ASSETS.
+    "run_worker_first": true
   },
   "services": [
     {

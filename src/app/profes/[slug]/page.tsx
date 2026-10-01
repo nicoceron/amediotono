@@ -137,11 +137,12 @@ export async function generateMetadata({
     path: `/profes/${teacher.slug}`,
     markdownPath: `/profes/${teacher.slug}.md`,
     image: {
-      url: `/profes/${teacher.slug}/share-image.png`,
+      // JPEG version from worker.ts: the PNG is too heavy for WhatsApp previews.
+      url: `/profes/${teacher.slug}/share-image.jpg`,
       width: 1200,
       height: 630,
       alt: `${teacher.name}, profe de ${teacher.role} en A medio tono`,
-      type: "image/png",
+      type: "image/jpeg",
     },
   });
 }
