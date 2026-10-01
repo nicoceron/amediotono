@@ -177,8 +177,8 @@ export const post: BlogPost = {
   relatedCourseIds: ["teoria-musical"],
   relatedPostSlugs: [
     "admision-musica-universidad-de-los-andes",
+    "admision-musica-universidad-el-bosque",
     "repertorio-para-la-audicion-de-admision",
-    "como-prepararte-para-la-prueba-de-admision-de-musica",
   ],
   cta: "clases",
 };

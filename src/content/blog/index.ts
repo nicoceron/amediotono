@@ -5,8 +5,16 @@ import { post as post_a_que_edad_empezar_a_estudiar_musica } from "./a-que-edad-
 import { post as post_academia_de_musica_o_profesor_particular } from "./academia-de-musica-o-profesor-particular";
 import { post as post_acordes_basicos_de_guitarra_para_principiantes } from "./acordes-basicos-de-guitarra-para-principiantes";
 import { post as post_admision_licenciatura_en_musica_universidad_pedagogica } from "./admision-licenciatura-en-musica-universidad-pedagogica";
+import { post as post_admision_musica_conservatorio_del_tolima } from "./admision-musica-conservatorio-del-tolima";
+import { post as post_admision_musica_eafit } from "./admision-musica-eafit";
+import { post as post_admision_musica_uis } from "./admision-musica-uis";
+import { post as post_admision_musica_universidad_de_antioquia } from "./admision-musica-universidad-de-antioquia";
+import { post as post_admision_musica_universidad_de_caldas } from "./admision-musica-universidad-de-caldas";
 import { post as post_admision_musica_universidad_de_los_andes } from "./admision-musica-universidad-de-los-andes";
+import { post as post_admision_musica_universidad_del_atlantico } from "./admision-musica-universidad-del-atlantico";
+import { post as post_admision_musica_universidad_del_valle } from "./admision-musica-universidad-del-valle";
 import { post as post_admision_musica_universidad_distrital_asab } from "./admision-musica-universidad-distrital-asab";
+import { post as post_admision_musica_universidad_el_bosque } from "./admision-musica-universidad-el-bosque";
 import { post as post_admision_musica_universidad_javeriana } from "./admision-musica-universidad-javeriana";
 import { post as post_aprender_a_cantar_de_adulto } from "./aprender-a-cantar-de-adulto";
 import { post as post_aprender_guitarra_de_adulto } from "./aprender-guitarra-de-adulto";
@@ -216,8 +224,16 @@ export const BLOG_POST_ENTRIES: BlogPost[] = [
   post_academia_de_musica_o_profesor_particular,
   post_acordes_basicos_de_guitarra_para_principiantes,
   post_admision_licenciatura_en_musica_universidad_pedagogica,
+  post_admision_musica_conservatorio_del_tolima,
+  post_admision_musica_eafit,
+  post_admision_musica_uis,
+  post_admision_musica_universidad_de_antioquia,
+  post_admision_musica_universidad_de_caldas,
   post_admision_musica_universidad_de_los_andes,
+  post_admision_musica_universidad_del_atlantico,
+  post_admision_musica_universidad_del_valle,
   post_admision_musica_universidad_distrital_asab,
+  post_admision_musica_universidad_el_bosque,
   post_admision_musica_universidad_javeriana,
   post_aprender_a_cantar_de_adulto,
   post_aprender_guitarra_de_adulto,

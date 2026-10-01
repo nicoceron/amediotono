@@ -25,10 +25,10 @@ export const post: BlogPost = {
   ],
   keyTakeaways: [
     "En la Universidad de Antioquia no hay examen general para música: el ingreso se define con dos pruebas eliminatorias, una específica y otra de aptitud y conocimientos teórico-musicales.",
-    "En Univalle, en la convocatoria revisada, la prueba específica era todo el puntaje: examen teórico (alrededor del 45 %) y audición instrumental de hasta 10 minutos (alrededor del 55 %).",
+    "En Univalle, en la convocatoria 2027-I, la prueba específica era todo el puntaje: para Música, instrumento 50 %, examen teórico oral 40 % y entrevista 10 %; en la Licenciatura se invierten teoría e instrumento.",
     "Univalle admite una vez al año y con cupos limitados, así que conviene planear con mucha anticipación.",
     "Varias licenciaturas regionales evalúan también la disposición pedagógica, con entrevista o con un ejercicio pedagógico.",
-    "Hay preparatorios universitarios fuera de Bogotá: el Preparatorio de Música de la UdeA, el Diplomado Preuniversitario de EAFIT y el Plan Pentagrama de Univalle.",
+    "Hay preparatorios universitarios fuera de Bogotá: el Preparatorio de Música de la UdeA, el Preuniversitario en Música de EAFIT y el curso Prebásico de Univalle, entre otros.",
   ],
   sections: [
     {
@@ -46,12 +46,12 @@ export const post: BlogPost = {
           head: ["Ciudad", "Institución", "Programas", "Qué evalúa la prueba"],
           rows: [
             ["Medellín", "Universidad de Antioquia (pública)", "Música, Música Canto y Licenciatura en Música (esta también en Oriente y Urabá)", "Prueba específica y prueba de aptitud y conocimientos teórico-musicales, ambas eliminatorias"],
-            ["Medellín", "EAFIT (privada)", "Música, con énfasis en clásica o jazz", "Consulta el detalle en su sitio oficial"],
-            ["Cali", "Universidad del Valle (pública)", "Música y Licenciatura en Música", "Examen teórico y audición instrumental; la licenciatura suma entrevista"],
+            ["Medellín", "EAFIT (privada)", "Música, con énfasis en clásica o jazz", "Examen teórico grupal y audición según el énfasis; sin entrevista"],
+            ["Cali", "Universidad del Valle (pública)", "Música y Licenciatura en Música", "Audición instrumental, examen teórico oral y entrevista en ambos programas"],
             ["Ibagué", "Conservatorio del Tolima (público)", "Maestro en Música y Licenciatura en Música", "Maestro: teoría y audición, ejecución y entrevista. Licenciatura: lectoescritura, aptitud con gramática básica y entrevista"],
-            ["Bucaramanga", "UIS (pública)", "Licenciatura en Música", "Audición, teoría, lectura, aptitud e instrumento"],
-            ["Manizales", "Universidad de Caldas (pública)", "Licenciatura en Música", "Saber 11 y prueba interna de ritmo, entonación e instrumento"],
-            ["Barranquilla", "Universidad del Atlántico (pública)", "Licenciatura en Música", "Teoría, aptitud (cantar a cappella, imitación), ejercicio pedagógico corto e instrumento"],
+            ["Bucaramanga", "UIS (pública)", "Licenciatura en Música", "Percepción auditiva, ejercicios preparados con lectura a primera vista, aptitud, instrumento y entrevista"],
+            ["Manizales", "Universidad de Caldas (pública)", "Licenciatura en Música y Maestro en Música", "Saber 11 (50 %) y prueba interna de ritmo, entonación e instrumento, más prueba pedagógica o entrevista según el programa"],
+            ["Barranquilla", "Universidad del Atlántico (pública)", "Licenciatura en Música y Música", "Licenciatura: teoría, aptitud (cantar a cappella, imitación), entrevista pedagógica e instrumento. Música: teoría con dictados, solfeo e instrumento"],
             ["Pasto", "Universidad de Nariño (pública)", "Licenciatura en Música", "Prueba específica por video"],
             ["Pereira", "UTP (pública)", "Licenciatura en Música", "Prueba de aptitud; admite una vez al año"],
             ["Popayán", "Universidad del Cauca (pública)", "Música Instrumental, Dirección de Banda y Licenciatura en Música", "Percepción del lenguaje musical y prueba instrumental"],
@@ -69,7 +69,7 @@ export const post: BlogPost = {
       blocks: [
         {
           type: "p",
-          text: "La [Universidad de Antioquia](https://www.udea.edu.co/wps/portal/udea/web/inicio/unidades-academicas/artes/acerca-facultad/departamentos/musica) ofrece Música (con títulos de Maestro en composición, dirección o instrumento), Música Canto (canto lírico o popular) y Licenciatura en Música. Para música no hay examen general de admisión: todo se juega en dos pruebas eliminatorias, la prueba específica (instrumento, voz, dirección o composición) y la prueba de aptitud y conocimientos teórico-musicales. Algunos años se han hecho en formato virtual.",
+          text: "La [Universidad de Antioquia](https://www.udea.edu.co/wps/portal/udea/web/inicio/unidades-academicas/artes/acerca-facultad/departamentos/musica) ofrece Música (con títulos de Maestro en composición, dirección o instrumento), Música Canto (canto lírico o popular) y Licenciatura en Música. Para música no hay examen general de admisión: todo se juega en dos pruebas eliminatorias, la prueba específica (instrumento, voz, dirección o composición) y una prueba de aptitud y conocimientos musicales, que en la convocatoria 2027-1 se llamaba prueba de aptitud, entonación, lectura y armonía (PAELA). Te explicamos cada una, con puntajes mínimos, en [el examen de admisión de Música en la UdeA](/blog/admision-musica-universidad-de-antioquia).",
         },
         {
           type: "p",
@@ -77,11 +77,11 @@ export const post: BlogPost = {
         },
         {
           type: "p",
-          text: "La UdeA tiene además un Preparatorio de Música para mayores de 15 años o estudiantes de los últimos grados del colegio, de hasta cuatro semestres. Ojo: para entrar al preparatorio también se presentan las mismas dos pruebas eliminatorias, así que no es un atajo, sino otro proceso que también se prepara.",
+          text: "La UdeA tiene además un Preparatorio de Música para mayores de 15 años o estudiantes de los últimos grados del colegio, de hasta cuatro semestres. Ojo: para entrar al preparatorio también se presentan dos pruebas eliminatorias (la específica y una de aptitud musical), y la UdeA aclara que cursarlo no implica el ingreso directo al pregrado, así que no es un atajo, sino otro proceso que también se prepara.",
         },
         {
           type: "p",
-          text: "EAFIT, privada, ofrece Música con énfasis en clásica o jazz y un Diplomado Preuniversitario en Música de cuatro niveles, con énfasis individual, lectura y dictado, y apreciación. El detalle de su prueba de admisión conviene consultarlo directamente en su sitio.",
+          text: "EAFIT, privada, ofrece Música con énfasis en clásica o jazz. Su admisión no tiene entrevista: presentas un examen teórico grupal y una audición según el énfasis, y en la selección cuenta solo ese examen. Lo detallamos en [la admisión a Música en EAFIT](/blog/admision-musica-eafit).",
         },
       ],
     },
@@ -91,24 +91,25 @@ export const post: BlogPost = {
       blocks: [
         {
           type: "p",
-          text: "La Universidad del Valle ofrece Música, que forma Maestros en Música en interpretación, dirección, composición o musicología, y Licenciatura en Música. Admite una vez al año y los cupos son limitados. En la convocatoria revisada, la [prueba específica](https://musica.univalle.edu.co/aspirantes/prueba-especifica) era la totalidad del puntaje y tenía dos partes:",
+          text: "La Universidad del Valle ofrece Música, que forma Maestros en Música en interpretación, dirección, composición o musicología, y Licenciatura en Música. Admite una vez al año y los cupos son limitados. En la convocatoria 2027-I, la [prueba específica](https://musica.univalle.edu.co/aspirantes/prueba-especifica) era la totalidad del puntaje y tenía tres componentes:",
         },
         {
           type: "table",
-          caption: "Prueba específica de Univalle (convocatoria revisada, 2026)",
-          head: ["Parte", "Peso aproximado", "Contenido"],
+          caption: "Prueba específica de Univalle (convocatoria 2027-I)",
+          head: ["Parte", "Música", "Licenciatura", "Contenido"],
           rows: [
-            ["Examen teórico", "Alrededor del 45 %", "Lectura y audición, dictado melódico, memoria musical y gramática."],
-            ["Audición instrumental", "Alrededor del 55 %", "Hasta 10 minutos; llevas tu instrumento, salvo piano, contrabajo y percusión."],
+            ["Prueba de instrumento", "50 %", "40 %", "Hasta 10 minutos; llevas tu instrumento, salvo piano, contrabajo y percusión."],
+            ["Examen de conocimientos teóricos", "40 %", "50 %", "Individual y oral: entonar escalas y arpegios, lectura entonada a primera vista e imitación rítmica, entre otros."],
+            ["Entrevista", "10 %", "10 %", "Aspiraciones, expectativas, disponibilidad y conocimiento del perfil de egresado."],
           ],
         },
         {
           type: "p",
-          text: "La licenciatura suma una entrevista. Univalle tiene también el Plan Pentagrama, su programa de extensión con un nivel prebásico y programas infantiles y juveniles.",
+          text: "Univalle tiene también el Plan Pentagrama, su programa de extensión con un curso prebásico y programas infantiles y juveniles. Te explicamos cada componente en [el examen de admisión de Música en Univalle](/blog/admision-musica-universidad-del-valle).",
         },
         {
           type: "p",
-          text: "Como admite una vez al año, un mal día te puede costar un año de espera. Llega con un repertorio que quepa holgado en 10 minutos, muy bien montado, y trabaja el dictado melódico y la memoria con constancia; te damos un método en [cómo preparar el dictado musical](/blog/dictado-musical-como-prepararlo).",
+          text: "Como admite una vez al año, un mal día te puede costar un año de espera. Llega con un repertorio que quepa holgado en 10 minutos, muy bien montado, y trabaja la lectura entonada y la imitación con constancia; te damos un método en [lectura rítmica y melódica para la prueba de admisión](/blog/lectura-ritmica-y-melodica-para-la-prueba-de-admision).",
         },
       ],
     },
@@ -118,7 +119,7 @@ export const post: BlogPost = {
       blocks: [
         {
           type: "p",
-          text: "El [Conservatorio del Tolima](https://conservatoriodeltolima.edu.co/index.php/maestro-en-musica/), en Ibagué, es público y ofrece Maestro en Música y Licenciatura en Música. Para Maestro, en lo revisado, se evaluaban teoría y audición, una prueba de ejecución (canto lírico o instrumento) y una entrevista; para la licenciatura, lectoescritura, aptitud musical con gramática básica y entrevista.",
+          text: "El [Conservatorio del Tolima](https://conservatoriodeltolima.edu.co/index.php/maestro-en-musica/), en Ibagué, es público y ofrece Maestro en Música y Licenciatura en Música. Para Maestro, en lo revisado, se evaluaban teoría y audición, una prueba de ejecución (canto lírico o instrumento) y una entrevista; para la licenciatura, lectoescritura, aptitud musical con gramática básica y entrevista. Los pesos y contenidos de cada prueba están en [la admisión al Conservatorio del Tolima](/blog/admision-musica-conservatorio-del-tolima).",
         },
         { type: "h3", text: "Qué tienen en común las licenciaturas" },
         {
@@ -129,7 +130,7 @@ export const post: BlogPost = {
           type: "ul",
           items: [
             "Si la prueba es por video, como en Nariño según lo revisado, cuida sonido, luz y encuadre, y graba varias tomas antes de elegir.",
-            "Si hay ejercicio pedagógico, como en el Atlántico, o entrevista, practica explicar algo sencillo, como un ritmo o una canción, a un grupo de niños. Te ayudamos a prepararlo en [la entrevista de admisión en música](/blog/entrevista-de-admision-en-musica).",
+            "Si hay prueba pedagógica, como en [la Universidad de Caldas](/blog/admision-musica-universidad-de-caldas), o entrevista pedagógica, como en [la Universidad del Atlántico](/blog/admision-musica-universidad-del-atlantico), practica explicar algo sencillo, como un ritmo o una canción, a un grupo de niños. Te ayudamos a prepararlo en [la entrevista de admisión en música](/blog/entrevista-de-admision-en-musica).",
             "Si evalúan cantar a cappella o entonar, practica sin apoyo de ningún instrumento.",
             "Si la universidad admite una vez al año, como la UTP, marca las fechas con meses de anticipación.",
           ],
@@ -187,9 +188,9 @@ export const post: BlogPost = {
   ],
   relatedCourseIds: ["teoria-musical"],
   relatedPostSlugs: [
+    "admision-musica-universidad-de-antioquia",
+    "admision-musica-universidad-del-valle",
     "carreras-de-musica-en-colombia",
-    "como-prepararte-para-la-prueba-de-admision-de-musica",
-    "maestro-en-musica-o-licenciatura-en-musica",
   ],
   cta: "clases",
 };

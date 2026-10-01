@@ -121,7 +121,7 @@ export const post: BlogPost = {
             ],
             [
               "El Bosque",
-              "Formación Musical (10 semestres)",
+              "Formación Musical (9 semestres)",
               "Maestro en Música",
               "Privada",
               "Aptitud musical, instrumento, teoría y audición, más entrevista",
@@ -139,6 +139,10 @@ export const post: BlogPost = {
           type: "p",
           text: "También tienen programas de música en Bogotá la Sergio Arboleda y la Fundación Universitaria Juan N. Corpas, entre otras; consulta directamente sus requisitos. La ficha oficial de cada programa es la fuente final; por ejemplo, la de [Artes Musicales de la Distrital](https://www.udistrital.edu.co/admisiones/index.php/oferta/programas/artes-musicales) o la de [Estudios Musicales de la Javeriana](https://www.javeriana.edu.co/carrera-estudios-musicales).",
         },
+        {
+          type: "p",
+          text: "Si ya tienes una universidad en mente, tenemos guías de admisión con lo que evalúa cada prueba: [Universidad Nacional](/blog/examen-de-admision-musica-universidad-nacional), [Distrital ASAB](/blog/admision-musica-universidad-distrital-asab), [Pedagógica Nacional](/blog/admision-licenciatura-en-musica-universidad-pedagogica), [Javeriana](/blog/admision-musica-universidad-javeriana), [Los Andes](/blog/admision-musica-universidad-de-los-andes) y [El Bosque](/blog/admision-musica-universidad-el-bosque).",
+        },
       ],
     },
     {
@@ -155,8 +159,8 @@ export const post: BlogPost = {
             ["Cali", "Universidad del Valle", "Música (interpretación, dirección, composición, musicología) y Licenciatura en Música", "Pública"],
             ["Ibagué", "Conservatorio del Tolima", "Maestro en Música y Licenciatura en Música", "Pública"],
             ["Bucaramanga", "UIS", "Licenciatura en Música", "Pública"],
-            ["Manizales", "Universidad de Caldas", "Licenciatura en Música", "Pública"],
-            ["Barranquilla", "Universidad del Atlántico", "Licenciatura en Música", "Pública"],
+            ["Manizales", "Universidad de Caldas", "Licenciatura en Música y Maestro en Música", "Pública"],
+            ["Barranquilla", "Universidad del Atlántico", "Licenciatura en Música (Barranquilla) y Música (Puerto Colombia)", "Pública"],
             ["Pasto", "Universidad de Nariño", "Licenciatura en Música", "Pública"],
             ["Pereira", "UTP", "Licenciatura en Música", "Pública"],
             ["Popayán", "Universidad del Cauca", "Música Instrumental, Dirección de Banda y Licenciatura en Música", "Pública"],
@@ -165,6 +169,10 @@ export const post: BlogPost = {
         {
           type: "p",
           text: "Hay más oferta que no revisamos en detalle, como la UPTC, la UNAB, Icesi o Bellas Artes en Medellín. Te contamos cómo son las pruebas de varias de estas universidades en [estudiar música en Medellín, Cali y otras ciudades](/blog/estudiar-musica-en-medellin-cali-y-otras-ciudades).",
+        },
+        {
+          type: "p",
+          text: "Y tenemos guías de admisión detalladas para varias de ellas: [Universidad de Antioquia](/blog/admision-musica-universidad-de-antioquia), [EAFIT](/blog/admision-musica-eafit), [Univalle](/blog/admision-musica-universidad-del-valle), [Conservatorio del Tolima](/blog/admision-musica-conservatorio-del-tolima), [UIS](/blog/admision-musica-uis), [Universidad de Caldas](/blog/admision-musica-universidad-de-caldas) y [Universidad del Atlántico](/blog/admision-musica-universidad-del-atlantico).",
         },
       ],
     },
@@ -244,7 +252,7 @@ export const post: BlogPost = {
     {
       question: "¿Cuánto dura una carrera de música en Colombia?",
       answer:
-        "Varios de los programas revisados duran diez semestres, como la Licenciatura en Música de la Pedagógica, Estudios Musicales de la Javeriana y Formación Musical de El Bosque. Confirma la duración de cada programa en su ficha oficial.",
+        "Varios de los programas revisados duran diez semestres, como la Licenciatura en Música de la Pedagógica, Estudios Musicales de la Javeriana o Música en Univalle; otros duran menos, como Formación Musical de El Bosque (nueve) o Música en la Universidad de Antioquia (ocho). Confirma la duración de cada programa en su ficha oficial.",
     },
     {
       question: "¿Puedo estudiar música en la universidad si nunca he tomado clases?",
