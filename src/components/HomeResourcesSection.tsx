@@ -3,14 +3,19 @@ import { BrandWordmark } from "@/components/BrandWordmark";
 import {
   ArrowRight,
   BookOpen,
+  CircleDot,
   GraduationCap,
+  Guitar,
   House,
   Library,
   MonitorSmartphone,
+  Piano,
   Timer,
 } from "lucide-react";
 import { BLOG_POSTS } from "@/lib/blog";
 import { TOOLS_PATH } from "@/lib/music-tools";
+import { CHORDS_PATH, CIRCLE_OF_FIFTHS_PATH, SCALES_PATH } from "@/lib/music-pages";
+import { CHORDS } from "@/lib/music-theory";
 
 const RESOURCES = [
   {
@@ -54,6 +59,27 @@ const RESOURCES = [
     body: "Los términos de la música explicados en palabras sencillas.",
     icon: Library,
     accent: "var(--orange)",
+  },
+  {
+    href: CHORDS_PATH,
+    title: "Acordes",
+    body: `${CHORDS.length} acordes con diagramas para guitarra, piano y ukelele.`,
+    icon: Guitar,
+    accent: "var(--green)",
+  },
+  {
+    href: SCALES_PATH,
+    title: "Escalas musicales",
+    body: "Mayores, menores, pentatónicas y blues, con teclado, mástil y sonido.",
+    icon: Piano,
+    accent: "var(--pink)",
+  },
+  {
+    href: CIRCLE_OF_FIFTHS_PATH,
+    title: "Círculo de quintas",
+    body: "Armaduras, relativas y acordes de cada tonalidad, interactivo.",
+    icon: CircleDot,
+    accent: "var(--blue)",
   },
 ];
 
