@@ -15,16 +15,17 @@ import { JsonLdScript } from "@/components/editorial/JsonLdScript";
 import { plainText } from "@/components/RichText";
 import { COURSE_PAGES } from "@/lib/course-pages";
 import {
-  SITE_BRAND,
   SITE_CONTENT_UPDATED_AT,
   SITE_DESCRIPTION,
+  SITE_NAME,
   coursesItemListJsonLd,
   createPageMetadata,
   faqPageJsonLd,
   webPageJsonLd,
 } from "@/lib/seo";
 
-const HOME_TITLE = `${SITE_BRAND} — Clases de música en Bogotá y virtuales`;
+// The plain-text brand name: searches for "A medio tono" don't match "A ½ tono".
+const HOME_TITLE = `${SITE_NAME}: clases de música a domicilio en Bogotá y virtuales`;
 
 export const metadata: Metadata = createPageMetadata({
   title: HOME_TITLE,

@@ -18,8 +18,9 @@ import { Breadcrumbs } from "@/components/editorial/Breadcrumbs";
 import { CtaBand } from "@/components/editorial/CtaBand";
 import { FaqList } from "@/components/editorial/FaqList";
 import { JsonLdScript } from "@/components/editorial/JsonLdScript";
+import { PREUNIVERSITARIO_PAGE } from "@/content/service-pages";
 import { getPost, postPath } from "@/lib/blog";
-import type { BlogPost, FaqItem } from "@/lib/content-types";
+import type { BlogPost } from "@/lib/content-types";
 import { whatsappHref } from "@/lib/contact";
 import { teachersForCourse } from "@/lib/course-pages";
 import {
@@ -34,15 +35,18 @@ import {
 } from "@/lib/seo";
 import { shareImage } from "@/lib/share-cards";
 
-const PATH = "/preuniversitario-musica";
-const TITLE = "Preuniversitario de música: prepárate para la prueba de admisión";
-const DESCRIPTION =
-  "Prepárate para la prueba de admisión de música con clases de teoría, solfeo, dictado e instrumento. Virtual o a domicilio en Bogotá, con plan a tu medida.";
+const PAGE = PREUNIVERSITARIO_PAGE;
+const PATH = PAGE.path;
+const TITLE = PAGE.title;
+const DESCRIPTION = PAGE.description;
+const [COMPONENTS_SECTION, STEPS_SECTION] = PAGE.sections;
+const COMPONENT_ICONS = [Ear, BookOpenCheck, AudioLines, Music2, MicVocal, ClipboardList];
 
 export const metadata: Metadata = createPageMetadata({
   title: brandTitle("Preuniversitario de música en Bogotá y virtual"),
   description: DESCRIPTION,
   path: PATH,
+  markdownPath: `${PATH}.md`,
   image: shareImage("preuniversitario-musica"),
   keywords: [
     "preuniversitario de música",
@@ -53,106 +57,9 @@ export const metadata: Metadata = createPageMetadata({
   ],
 });
 
-const COMPONENTS = [
-  {
-    icon: Ear,
-    title: "Aptitud y entrenamiento auditivo",
-    body: "Repetir ritmos, melodías e intervalos de oído y fortalecer la memoria musical.",
-    guide: "que-es-un-intervalo-musical",
-  },
-  {
-    icon: BookOpenCheck,
-    title: "Teoría y gramática",
-    body: "Tonalidades, armaduras, escalas, intervalos, tríadas y acordes de séptima; armonía cuando la prueba la pide.",
-    guide: "escalas-mayores-y-menores-explicadas",
-  },
-  {
-    icon: AudioLines,
-    title: "Dictado",
-    body: "Dictado rítmico, melódico, de intervalos y armónico, con un método progresivo.",
-    guide: "dictado-musical-como-prepararlo",
-  },
-  {
-    icon: Music2,
-    title: "Lectura rítmica y melódica",
-    body: "Solfeo entonado y lectura a primera vista, como se evalúa frente a un jurado.",
-    guide: "lectura-ritmica-y-melodica-para-la-prueba-de-admision",
-  },
-  {
-    icon: MicVocal,
-    title: "Instrumento o voz",
-    body: "Repertorio, escalas y estudios para la audición, con simulacros frente a tu profe.",
-    guide: "repertorio-para-la-audicion-de-admision",
-  },
-  {
-    icon: ClipboardList,
-    title: "Entrevista",
-    body: "Cómo contar tu recorrido musical y tu motivación, clave en muchas licenciaturas.",
-    guide: "entrevista-de-admision-en-musica",
-  },
-];
-
-const STEPS = [
-  {
-    title: "Diagnóstico",
-    body: "Revisamos tu nivel actual, la universidad y el programa al que apuntas y la fecha de la prueba.",
-  },
-  {
-    title: "Plan semana a semana",
-    body: "Armamos un plan hacia la fecha de la prueba, con metas claras de teoría, oído e instrumento.",
-  },
-  {
-    title: "Clases con profes",
-    body: "Teoría, solfeo y dictado con profes de teoría musical, e instrumento con un profe de tu instrumento.",
-  },
-  {
-    title: "Simulacros",
-    body: "Practicas dictados, lectura a primera vista y tu audición en condiciones parecidas a las de la prueba.",
-  },
-];
-
-const UNIVERSITY_GUIDES = [
-  "examen-de-admision-musica-universidad-nacional",
-  "admision-musica-universidad-distrital-asab",
-  "admision-licenciatura-en-musica-universidad-pedagogica",
-  "admision-musica-universidad-javeriana",
-  "admision-musica-universidad-de-los-andes",
-  "estudiar-musica-en-medellin-cali-y-otras-ciudades",
-  "carreras-de-musica-en-colombia",
-  "maestro-en-musica-o-licenciatura-en-musica",
-];
-
-const FAQS: FaqItem[] = [
-  {
-    question: "¿Con cuánto tiempo de anticipación debo empezar a prepararme?",
-    answer:
-      "Depende de tu punto de partida. Si ya lees música y tocas con soltura, unos meses de trabajo enfocado pueden ser suficientes; si empiezas desde cero en teoría y dictado, conviene empezar con más tiempo. En el diagnóstico te damos una recomendación honesta.",
-  },
-  {
-    question: "¿Me sirve si soy autodidacta?",
-    answer:
-      "Sí. Muchos aspirantes tocan muy bien de oído pero nunca han estudiado teoría ni dictado. El plan se enfoca justamente en lo que te falta para la prueba específica.",
-  },
-  {
-    question: "¿Puedo prepararme si vivo fuera de Bogotá?",
-    answer:
-      "Sí. Las clases de teoría, solfeo y dictado funcionan muy bien de forma virtual, y el instrumento también puede trabajarse por videollamada. Mira cómo funcionan nuestras [clases online](/clases-de-musica-online).",
-  },
-  {
-    question: "¿La preparación garantiza que pase la prueba?",
-    answer:
-      "No, y desconfía de quien lo prometa. La admisión depende de la universidad, del número de cupos y de tu desempeño el día de la prueba. Nuestro objetivo es que llegues con las habilidades trabajadas y sin sorpresas. No estamos afiliados a ninguna universidad.",
-  },
-  {
-    question: "¿Es lo mismo que el preparatorio de una universidad?",
-    answer:
-      "No. Algunas universidades tienen sus propios programas preparatorios o de extensión. Nuestras clases son particulares y se ajustan a tu nivel, tu horario y la prueba que vas a presentar. Te lo explicamos en [qué es un preuniversitario de música](/blog/preuniversitario-de-musica-que-es).",
-  },
-];
-
 export default function PreuniversitarioPage() {
   const theoryTeachers = teachersForCourse("teoria-musical");
-  const guides = UNIVERSITY_GUIDES.map((slug) => getPost(slug)).filter(
+  const guides = PAGE.guides.map((slug) => getPost(slug)).filter(
     (post): post is BlogPost => Boolean(post),
   );
   const pillar = getPost("como-prepararte-para-la-prueba-de-admision-de-musica");
@@ -189,7 +96,7 @@ export default function PreuniversitarioPage() {
             audience: { "@type": "EducationalAudience", educationalRole: "student", audienceType: "Aspirantes a programas universitarios de música" },
           },
           teachersItemListJsonLd(theoryTeachers, { path: PATH, name: "Profes de teoría musical" }),
-          faqPageJsonLd(FAQS.map((faq) => ({ question: faq.question, answer: plainText(faq.answer) })), PATH),
+          faqPageJsonLd(PAGE.faqs.map((faq) => ({ question: faq.question, answer: plainText(faq.answer) })), PATH),
         ]}
       />
 
@@ -200,11 +107,7 @@ export default function PreuniversitarioPage() {
             <div className="ed-hero-copy">
               <span className="ed-eyebrow">Preparación para pruebas de admisión</span>
               <h1>{TITLE}</h1>
-              <p className="ed-lead">
-                Clases de teoría, solfeo, dictado e instrumento con profes, virtuales o a domicilio
-                en Bogotá, para que llegues a la prueba específica de la universidad que elijas con
-                todo trabajado.
-              </p>
+              <p className="ed-lead">{PAGE.lead}</p>
               <div className="ed-actions">
                 <a className="ed-button" href={waUrl} target="_blank" rel="noopener">
                   <MessageCircle size={20} strokeWidth={2.4} aria-hidden="true" />
@@ -247,16 +150,13 @@ export default function PreuniversitarioPage() {
       <section className="block ed-section" style={{ ["--ed-accent" as string]: "var(--orange)" }}>
         <div className="container">
           <div className="sec-head ed-sec-head">
-            <h2>Qué preparamos</h2>
-            <p className="sec-sub">
-              Las pruebas específicas de música en Colombia suelen evaluar estos componentes. Cada
-              universidad los combina y pondera distinto.
-            </p>
+            <h2>{COMPONENTS_SECTION.heading}</h2>
+            <p className="sec-sub">{COMPONENTS_SECTION.intro}</p>
           </div>
           <ul className="ed-benefit-grid ed-benefit-grid--3">
-            {COMPONENTS.map((component) => {
-              const Icon = component.icon;
-              const guide = getPost(component.guide);
+            {COMPONENTS_SECTION.points.map((component, index) => {
+              const Icon = COMPONENT_ICONS[index] ?? Music2;
+              const guide = component.guide ? getPost(component.guide) : undefined;
               return (
                 <li className="ed-benefit ed-benefit--stacked about-criterion" key={component.title}>
                   <Icon size={26} strokeWidth={2.4} aria-hidden="true" />
@@ -279,10 +179,10 @@ export default function PreuniversitarioPage() {
       <section className="block ed-section" style={{ ["--ed-accent" as string]: "var(--blue)" }}>
         <div className="container">
           <div className="sec-head ed-sec-head">
-            <h2>Cómo funciona</h2>
+            <h2>{STEPS_SECTION.heading}</h2>
           </div>
           <ol className="ed-steps ed-steps--4">
-            {STEPS.map((step, index) => (
+            {STEPS_SECTION.points.map((step, index) => (
               <li className="ed-step" key={step.title}>
                 <span className="ed-step-number" aria-hidden="true">
                   {index + 1}
@@ -294,11 +194,7 @@ export default function PreuniversitarioPage() {
           </ol>
           <aside className="prose-callout ed-disclaimer">
             <strong className="prose-callout-title">Importante</strong>
-            <p>
-              No estamos afiliados a ninguna universidad y ninguna preparación garantiza la
-              admisión. Los requisitos cambian en cada convocatoria: revisa siempre el instructivo
-              o la guía del aspirante vigente de tu universidad.
-            </p>
+            <p>{STEPS_SECTION.note}</p>
           </aside>
         </div>
       </section>
@@ -307,7 +203,7 @@ export default function PreuniversitarioPage() {
         <section className="block ed-section">
           <div className="container">
             <div className="ed-related">
-              <h2 className="ed-h2">Guías por universidad y carrera</h2>
+              <h2 className="ed-h2">{PAGE.guidesHeading}</h2>
               <ul className="ed-link-list">
                 {guides.map((post) => (
                   <li key={post.slug}>
@@ -346,7 +242,7 @@ export default function PreuniversitarioPage() {
           <div className="sec-head ed-sec-head">
             <h2>Preguntas frecuentes</h2>
           </div>
-          <FaqList items={FAQS} />
+          <FaqList items={PAGE.faqs} />
         </div>
       </section>
 

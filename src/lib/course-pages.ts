@@ -74,9 +74,14 @@ export function getCoursePage(courseId: string) {
   return COURSE_PAGE_BY_ID.get(courseId);
 }
 
-/** Best link for a course: its landing page when it exists, else the directory filter. */
+/**
+ * Best link for a course: its landing page when it exists, else the directory
+ * filter, else (no profes yet) the full course directory.
+ */
 export function courseLandingHref(course: Pick<Course, "id" | "label">) {
-  return COURSE_PAGE_PATHS.get(course.id) ?? courseHref(course);
+  const pagePath = COURSE_PAGE_PATHS.get(course.id);
+  if (pagePath) return pagePath;
+  return teachersForCourse(course.id).length > 0 ? courseHref(course) : "/clases";
 }
 
 export function relatedCoursePages(guide: CourseGuide) {

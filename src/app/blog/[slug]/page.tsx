@@ -106,6 +106,9 @@ export default async function BlogPostPage({
     { name: post.title, path },
   ];
   const primaryCourse = courses[0]?.course;
+  const courseTeachers = courses[0]?.teachers.slice(0, 8) ?? [];
+  // Learner-facing posts also point to the two ways of taking classes.
+  const showFormats = post.cta !== "academias";
   // Ring order: each article links the ones after it in its cluster, so every
   // guide about an instrument receives links from its siblings.
   const cluster = primaryCourse ? primaryCoursePosts(primaryCourse.id) : [];
@@ -136,6 +139,7 @@ export default async function BlogPostPage({
             image: shareImage(post.slug),
             wordCount: postWordCount(post),
             author: author.teacher ? teacherAuthorJsonLd(author.teacher) : organizationAuthorJsonLd(),
+            section: category.label,
           }),
           ...(faqs.length
             ? [
@@ -276,9 +280,9 @@ export default async function BlogPostPage({
             </div>
           </div>
 
-          {(courses.length > 0 || related.length > 0 || clusterPosts.length > 0) && (
+          {(courses.length > 0 || showFormats || related.length > 0 || clusterPosts.length > 0) && (
             <footer className="blog-related">
-              {courses.length > 0 && (
+              {(courses.length > 0 || showFormats) && (
                 <div className="ed-related">
                   <h2 className="ed-h2">Clases relacionadas</h2>
                   <ul className="ed-chip-list">
@@ -287,6 +291,41 @@ export default async function BlogPostPage({
                         <Link href={page.path} prefetch={false}>
                           <Image src={page.course.icon} alt="" width={28} height={28} />
                           Clases de {page.course.label.toLowerCase()}
+                        </Link>
+                      </li>
+                    ))}
+                    {showFormats && (
+                      <>
+                        <li>
+                          <Link href="/clases-de-musica-a-domicilio-bogota" prefetch={false}>
+                            Clases de música a domicilio en Bogotá
+                          </Link>
+                        </li>
+                        <li>
+                          <Link href="/clases-de-musica-online" prefetch={false}>
+                            Clases de música virtuales
+                          </Link>
+                        </li>
+                      </>
+                    )}
+                  </ul>
+                </div>
+              )}
+              {courseTeachers.length > 0 && primaryCourse && (
+                <div className="ed-related">
+                  <h2 className="ed-h2">Profes de {primaryCourse.label.toLowerCase()}</h2>
+                  <ul className="ed-chip-list">
+                    {courseTeachers.map((teacher) => (
+                      <li key={teacher.slug}>
+                        <Link href={`/profes/${teacher.slug}`} prefetch={false}>
+                          <Image
+                            className="ed-chip-photo"
+                            src={teacher.photo}
+                            alt=""
+                            width={28}
+                            height={28}
+                          />
+                          {teacher.name}
                         </Link>
                       </li>
                     ))}

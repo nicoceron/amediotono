@@ -21,12 +21,8 @@ function courseCountLabel(course: Course) {
 }
 
 function CourseCard({ course }: { course: Course }) {
-  return (
-    <Link
-      className="course-card"
-      href={courseLandingHref(course)}
-      prefetch={false}
-    >
+  const content = (
+    <>
       <span className="course-icon" aria-hidden="true">
         <Image src={course.icon} alt="" width={64} height={64} />
       </span>
@@ -34,6 +30,21 @@ function CourseCard({ course }: { course: Course }) {
         <span className="course-name">{course.label}</span>
         <span className="course-count">{courseCountLabel(course)}</span>
       </div>
+    </>
+  );
+
+  // Courses without profes yet aren't linked: there is nothing to show behind them.
+  if (!COURSE_TEACHER_COUNTS.get(course.id)) {
+    return <div className="course-card course-card-soon">{content}</div>;
+  }
+
+  return (
+    <Link
+      className="course-card"
+      href={courseLandingHref(course)}
+      prefetch={false}
+    >
+      {content}
       <ChevronRight className="course-arrow" size={24} strokeWidth={2.4} aria-hidden="true" />
     </Link>
   );

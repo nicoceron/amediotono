@@ -508,6 +508,7 @@ export function teacherJsonLd(teacher: Teacher, coursePaths: Map<string, string>
         description: teacher.bio,
         image: teacher.photo,
         dateModified: SITE_CONTENT_UPDATED_AT,
+        about: { "@id": personId(teacher.slug) },
       }),
       mainEntity: { "@id": personId(teacher.slug) },
     },
@@ -675,12 +676,15 @@ export function blogPostingJsonLd({
   image,
   wordCount,
   author,
+  section,
 }: {
   post: BlogPost;
   path: string;
   image: string;
   wordCount: number;
   author: JsonLdNode;
+  /** The category's display label, e.g. "Aprender música". */
+  section: string;
 }): JsonLdNode {
   return {
     "@type": "BlogPosting",
@@ -696,18 +700,19 @@ export function blogPostingJsonLd({
     publisher: organizationRef(),
     isPartOf: { "@id": absoluteUrl("/blog#blog") },
     keywords: post.keywords.join(", "),
-    articleSection: post.category,
+    articleSection: section,
     wordCount,
     about: (post.relatedCourseIds ?? []).map((id) => ({ "@id": `${absoluteUrl(`/clases/${id}`)}#service` })),
   };
 }
 
+/** Same name and url as the main Organization node, which shares this @id. */
 export function organizationAuthorJsonLd(): JsonLdNode {
   return {
     "@type": "Organization",
     "@id": ORGANIZATION_ID(),
-    name: `Equipo de ${SITE_NAME}`,
-    url: absoluteUrl("/nosotros"),
+    name: SITE_NAME,
+    url: absoluteUrl("/"),
   };
 }
 

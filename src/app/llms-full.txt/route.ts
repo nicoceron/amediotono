@@ -1,15 +1,16 @@
 import { HOME_FAQS } from "@/components/HomeFaqSection";
 import { B2B_SERVICES } from "@/lib/b2b";
-import { BLOG_CATEGORIES, BLOG_CATEGORY_ORDER, postsByCategory } from "@/lib/blog";
+import { SERVICE_PAGES } from "@/content/service-pages";
+import { BLOG_CATEGORIES, BLOG_CATEGORY_ORDER, postPath, postsByCategory } from "@/lib/blog";
 import { COURSE_PAGES } from "@/lib/course-pages";
 import {
   b2bServiceMarkdown,
   contactMarkdown,
   coursePageMarkdown,
   markdownInline,
-  postMarkdown,
+  serviceMarkdown,
   siteFactsMarkdown,
-  teachersMarkdown,
+  teacherProfileMarkdown,
 } from "@/lib/markdown";
 import {
   EAR_TRAINING_PATH,
@@ -28,9 +29,11 @@ export const dynamic = "force-static";
 const SEPARATOR = "\n\n---\n\n";
 
 /**
- * llms-full.txt: every guide, course page, profe and service of the site as
- * one Markdown document, so AI assistants can read the whole site in a
- * single request. /llms.txt is the short index.
+ * llms-full.txt: the site's services, course pages, profes, tools and
+ * glossary as one Markdown document, so AI assistants can read it in a single
+ * request. Blog posts are listed with their URLs rather than inlined (each
+ * has its own `.md` twin), which keeps the file small enough to read whole.
+ * /llms.txt is the short index.
  */
 export function GET() {
   const intro = [
@@ -38,7 +41,7 @@ export function GET() {
     "",
     `> ${SITE_DESCRIPTION}`,
     "",
-    `Este archivo reúne en Markdown el contenido de ${absoluteUrl("/")}: clases, profes, servicios para instituciones, herramientas, glosario y todas las guías del blog. Cada sección indica su URL original. Índice corto: ${absoluteUrl("/llms.txt")}.`,
+    `Este archivo reúne en Markdown el contenido de ${absoluteUrl("/")}: clases, profes, servicios para instituciones, herramientas, glosario y el índice de las guías del blog (cada guía está completa en Markdown agregando .md a su URL). Cada sección indica su URL original. Índice corto: ${absoluteUrl("/llms.txt")}.`,
     "",
     ...siteFactsMarkdown(),
     "## Preguntas frecuentes",
@@ -73,23 +76,32 @@ export function GET() {
     ]),
   ].join("\n");
 
-  const blog = BLOG_CATEGORY_ORDER.flatMap((category) => {
-    const posts = postsByCategory(category);
-    if (!posts.length) return [];
-    return [
-      `# Blog: ${BLOG_CATEGORIES[category].title}`,
-      ...posts.map(postMarkdown),
-    ];
-  });
+  const blog = [
+    `# Guías del blog (${absoluteUrl("/blog")})`,
+    "",
+    "Cada guía está completa en Markdown en su URL terminada en .md.",
+    "",
+    ...BLOG_CATEGORY_ORDER.flatMap((category) => {
+      const posts = postsByCategory(category);
+      if (!posts.length) return [];
+      return [
+        `## ${BLOG_CATEGORIES[category].title}`,
+        "",
+        ...posts.map((post) => `- [${post.title}](${absoluteUrl(postPath(post.slug))}): ${post.excerpt}`),
+        "",
+      ];
+    }),
+  ].join("\n");
 
   const body = [
     intro,
-    teachersMarkdown(TEACHERS),
+    ...SERVICE_PAGES.map(serviceMarkdown),
     ...COURSE_PAGES.map(coursePageMarkdown),
+    ...TEACHERS.map(teacherProfileMarkdown),
     ...B2B_SERVICES.map(b2bServiceMarkdown),
     tools,
     glossary,
-    ...blog,
+    blog,
   ]
     .map((part) => part.trim())
     .join(SEPARATOR);
