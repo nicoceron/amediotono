@@ -132,11 +132,16 @@ export const post: BlogPost = {
               "Examen de aptitud musical obligatorio de unos 20 minutos; la audición de instrumento llega después de la admisión",
               "[Admisión a Música en Los Andes](/blog/admision-musica-universidad-de-los-andes)",
             ],
+            [
+              "El Bosque",
+              "Aptitud, prueba teórico-auditiva en computador, instrumento y entrevista el mismo día",
+              "[Admisión a Formación Musical](/blog/admision-musica-universidad-el-bosque)",
+            ],
           ],
         },
         {
           type: "p",
-          text: "Los detalles oficiales están en páginas como las [pruebas específicas de la Universidad Nacional](https://admisiones.unal.edu.co/pregrado/pruebas-especificas/) o el [proceso de admisión de Música en Los Andes](https://musica.uniandes.edu.co/programas/pregrado/proceso-de-admision/). Si piensas estudiar fuera de Bogotá, revisa [estudiar música en Medellín, Cali y otras ciudades](/blog/estudiar-musica-en-medellin-cali-y-otras-ciudades). Y si todavía no sabes qué título buscas, empieza por las [carreras de música en Colombia](/blog/carreras-de-musica-en-colombia) y la diferencia entre [Maestro en Música y Licenciatura](/blog/maestro-en-musica-o-licenciatura-en-musica).",
+          text: "Los detalles oficiales están en páginas como las [pruebas específicas de la Universidad Nacional](https://admisiones.unal.edu.co/pregrado/pruebas-especificas/) o el [proceso de admisión de Música en Los Andes](https://musica.uniandes.edu.co/programas/pregrado/proceso-de-admision/). Si piensas estudiar fuera de Bogotá, revisa [estudiar música en Medellín, Cali y otras ciudades](/blog/estudiar-musica-en-medellin-cali-y-otras-ciudades) y nuestras guías de [la UdeA](/blog/admision-musica-universidad-de-antioquia), [EAFIT](/blog/admision-musica-eafit), [Univalle](/blog/admision-musica-universidad-del-valle), [la UIS](/blog/admision-musica-uis), [la Universidad del Atlántico](/blog/admision-musica-universidad-del-atlantico), [la Universidad de Caldas](/blog/admision-musica-universidad-de-caldas) y [el Conservatorio del Tolima](/blog/admision-musica-conservatorio-del-tolima). Y si todavía no sabes qué título buscas, empieza por las [carreras de música en Colombia](/blog/carreras-de-musica-en-colombia) y la diferencia entre [Maestro en Música y Licenciatura](/blog/maestro-en-musica-o-licenciatura-en-musica).",
         },
         { type: "h3", text: "Preguntas que debes responder antes de empezar a estudiar" },
         {
