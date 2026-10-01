@@ -1,8 +1,46 @@
 import type { NextConfig } from "next";
 import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
 
+// Teacher profiles renamed in #49 and #72. Google still had some old URLs
+// indexed (e.g. /profes/canto-autentico), so they redirect to the new slug.
+const RENAMED_TEACHER_SLUGS: Record<string, string> = {
+  niko: "niko-ferro",
+  luna: "luna-chavela",
+  mariana: "mariana-castro",
+  sergio: "sergio-ramirez",
+  david: "david-ardila",
+  jaider: "jaider-bohorquez",
+  "julian-divertido": "julian-perez",
+  "julian-chacon": "julian-perez",
+  "voz-serena": "laura-castellanos",
+  cesar: "cesar-avila",
+  fabian: "fabian-garzon",
+  jose: "jose-garcia",
+  alejandro: "alejandro-guzman",
+  carlos: "carlos-santamaria",
+  madeline: "madeline-castiblanco",
+  juank: "juank-chavez",
+  dara: "dara-cifuentes",
+  "canto-autentico": "natalia-bernal",
+  laura: "laura-bonilla",
+  jhony: "jhony-baez",
+  "contrabajo-teoria": "mateo-mancipe",
+  leila: "leila-fernandez",
+  diego: "diego-quiroga",
+  "julian-guitarra-electrica": "julian-cortes",
+  moises: "moises-clavijo",
+  "juan-david": "juan-david-ardila",
+};
+
 const nextConfig: NextConfig = {
   allowedDevOrigins: ["127.0.0.1"],
+  async redirects() {
+    return Object.entries(RENAMED_TEACHER_SLUGS).map(([from, to]) => ({
+      source: `/profes/${from}`,
+      destination: `/profes/${to}`,
+      permanent: true,
+    }));
+  },
   // No headers() here: cache headers for files in public/ live in
   // public/_headers, because Cloudflare serves static files before Next runs.
 
