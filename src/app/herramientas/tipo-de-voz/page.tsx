@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Footer } from "@/components/Footer";
 import { Breadcrumbs } from "@/components/editorial/Breadcrumbs";
 import { CtaBand } from "@/components/editorial/CtaBand";
@@ -23,16 +24,16 @@ import {
 } from "@/lib/seo";
 import { shareImage } from "@/lib/share-cards";
 
-const TITLE = "Test de voz: descubre tu tipo de voz";
+const TITLE = "¿Qué tipo de voz tengo? Test de tesitura online";
 const DESCRIPTION =
-  "Test de voz gratis con el micrófono: canta tu nota más grave y la más aguda y descubre si tu rango es de soprano, mezzo, contralto, tenor, barítono o bajo.";
+  "Test de tesitura gratis con micrófono: canta tu nota más grave y la más aguda y descubre si eres soprano, mezzo, contralto, tenor, barítono o bajo.";
 
 export const metadata: Metadata = createPageMetadata({
-  title: brandTitle("Test de voz online: ¿cuál es tu tipo de voz?"),
+  title: brandTitle(TITLE),
   description: DESCRIPTION,
   path: VOICE_TYPE_PATH,
   image: shareImage("tipo-de-voz"),
-  keywords: ["test de voz", "cómo saber mi tipo de voz", "tipo de voz", "tesitura vocal", "rango vocal", "soy soprano o contralto"],
+  keywords: ["qué tipo de voz tengo", "test de tesitura", "test de tesitura online", "test de voz", "cómo saber mi tipo de voz", "tesitura vocal", "rango vocal"],
 });
 
 const FAQS: FaqItem[] = [
@@ -56,6 +57,16 @@ const FAQS: FaqItem[] = [
     answer:
       "Las voces infantiles son más agudas y no se clasifican igual que las adultas. Para niños es mejor cantar en un rango cómodo y sin forzar; te contamos cómo en [canto para niños](/blog/canto-para-ninos-como-cuidar-su-voz).",
   },
+  {
+    question: "¿Cuenta el falsete?",
+    answer:
+      "El test registra cualquier nota estable que cantes. Para compararte con los rangos de la tabla, usa como nota aguda la más alta que logras con tu voz plena, la que se parece a tu voz hablada; el falsete amplía el rango, pero no define el tipo de voz. Lo explicamos en [voz de pecho, voz de cabeza y falsete](/blog/voz-de-pecho-voz-de-cabeza-y-falsete).",
+  },
+  {
+    question: "¿Qué diferencia hay entre soprano y mezzosoprano?",
+    answer:
+      "La soprano canta cómoda en una zona más aguda; la mezzosoprano, en una zona intermedia, con un color más oscuro. Sus rangos se superponen en buena parte, por eso el color y la comodidad pesan tanto como las notas extremas.",
+  },
 ];
 
 const RELATED = ["como-saber-mi-tipo-de-voz", "como-ampliar-el-registro-vocal", "ejercicios-de-calentamiento-vocal", "primeras-clases-de-canto-que-esperar"]
@@ -71,7 +82,7 @@ export default function VoiceTypePage() {
   const crumbs = [
     { name: "Inicio", path: "/" },
     { name: "Herramientas", path: TOOLS_PATH },
-    { name: "Test de voz", path: VOICE_TYPE_PATH },
+    { name: "Test de tipo de voz", path: VOICE_TYPE_PATH },
   ];
 
   return (
@@ -115,10 +126,30 @@ export default function VoiceTypePage() {
       <section className="block ed-section" style={{ ["--ed-accent" as string]: "var(--pink)" }}>
         <div className="container tool-content">
           <article className="prose">
+            <h2>Cómo funciona el test</h2>
+            <ol>
+              <li>
+                Toca <strong>Empezar el test</strong> y acepta el permiso del micrófono. El sonido se
+                analiza en tu dispositivo: no se graba ni se envía.
+              </li>
+              <li>
+                Baja poco a poco con una vocal abierta y sostén la nota más grave que puedas cantar
+                con comodidad. El test solo cuenta una nota cuando la mantienes estable cerca de medio
+                segundo, así que los ruidos y las notas sueltas no lo engañan.
+              </li>
+              <li>Repite hacia arriba: sube despacio y sostén la nota más aguda que cantes sin forzar.</li>
+              <li>
+                El test compara tu nota más grave y tu nota más aguda con los rangos típicos de cada
+                tipo de voz y te muestra el más cercano, junto con la extensión de tu rango en
+                semitonos.
+              </li>
+            </ol>
+
             <h2>Tipos de voz y sus rangos</h2>
             <p>
               Estos rangos son orientativos y corresponden a voces adultas con cierta práctica. Muchas
-              personas cantan con comodidad solo una parte de ellos, y está bien.
+              personas cantan con comodidad solo una parte de ellos, y está bien. El Do4 es el Do
+              central del piano.
             </p>
             <div className="prose-table-wrap" role="region" aria-label="Tipos de voz y rangos" tabIndex={0}>
               <table>
@@ -142,13 +173,70 @@ export default function VoiceTypePage() {
                 </tbody>
               </table>
             </div>
+
+            <h2>Rango, tesitura y tipo de voz no son lo mismo</h2>
+            <ul>
+              <li>
+                <strong>Rango:</strong> todas las notas que alcanzas, de la más grave a la más aguda,
+                aunque algunas suenen forzadas.
+              </li>
+              <li>
+                <strong>Tesitura:</strong> la zona donde cantas cómodo durante un buen rato, con buen
+                sonido. Es la que más pesa para clasificar una voz.
+              </li>
+              <li>
+                <strong>Tipo de voz:</strong> la clasificación (soprano, tenor, etc.), que combina la
+                tesitura con el color de la voz y con los puntos donde cambias de registro.
+              </li>
+            </ul>
+            <p>
+              Por eso dos personas con el mismo rango pueden tener tipos de voz distintos. Este test
+              mide el rango; para afinar la clasificación, fíjate en qué zona te sientes cómodo y
+              repite la prueba en días distintos.
+            </p>
+
+            <h2>Cómo saber tu tipo de voz sin micrófono</h2>
+            <p>
+              Con un piano, un teclado o una aplicación de piano: toca el Do central (Do4) y canta
+              esa nota. Baja tecla por tecla cantando cada nota hasta la más grave que suene limpia, y
+              luego sube hasta la más aguda que puedas sostener sin apretar la garganta. Anota las
+              dos y compáralas con la tabla. Si quieres comprobar que estás cantando la nota exacta,
+              usa el{" "}
+              <Link href={TUNER_PATH} prefetch={false}>
+                afinador
+              </Link>
+              : canta y mira si la aguja queda en el centro.
+            </p>
+
             <h2>Consejos para hacer el test</h2>
             <ul>
               <li>Calienta la voz antes: unos minutos de sirenas o vibración de labios bastan.</li>
               <li>Busca un lugar silencioso y acerca el micrófono a tu boca a un palmo de distancia.</li>
               <li>Canta con una vocal abierta y sostén cada nota; el test solo cuenta notas estables.</li>
               <li>No fuerces: la nota que cuenta es la que puedes cantar con sonido limpio.</li>
+              <li>Repite el test otro día: la voz cambia con el cansancio, la hora y la hidratación.</li>
             </ul>
+
+            <h2>Errores comunes</h2>
+            <ul>
+              <li>
+                <strong>Empujar las notas extremas:</strong> si la garganta aprieta o la voz se raspa,
+                esa nota no es parte de tu tesitura, aunque el test la registre.
+              </li>
+              <li>
+                <strong>Clasificarse por las canciones que te gustan:</strong> si tu voz es de
+                barítono y te encanta un tenor, puedes{" "}
+                <Link href="/blog/como-transportar-una-cancion" prefetch={false}>
+                  transportar la canción
+                </Link>{" "}
+                a tu tono.
+              </li>
+              <li>
+                <strong>Hacer el test sin calentar:</strong> la voz fría suele quedarse corta en los
+                agudos y da un rango menor al real.
+              </li>
+            </ul>
+
             <h2>Preguntas frecuentes</h2>
             <FaqList items={FAQS} openFirst={false} />
           </article>

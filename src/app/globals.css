@@ -8650,6 +8650,12 @@ section.block.ed-cta-section {
   font-size: 20px;
 }
 
+.tuner-octave {
+  max-width: 46ch;
+  margin: 4px auto 0;
+  font-size: 13px;
+}
+
 .tuner-strings {
   display: grid;
   gap: 10px;
@@ -8723,6 +8729,22 @@ section.block.ed-cta-section {
 
 .tuner-presets {
   margin-top: 48px;
+}
+
+/* Grouped hub lists: Instrumentos · Colombianos · Afinaciones de guitarra. */
+.tuner-presets-group + .tuner-presets-group {
+  margin-top: 32px;
+}
+
+.tuner-presets-group h3 {
+  margin: 0 0 4px;
+  font-size: 18px;
+}
+
+.tuner-presets-group > p {
+  margin: 0 0 14px;
+  color: var(--ink-soft);
+  font-size: 14px;
 }
 
 .tuner-presets ul {
@@ -8800,34 +8822,97 @@ section.block.ed-cta-section {
 
 .metronome-beats {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 12px;
+  gap: 2px;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.metronome-beats li {
+/* Each beat is a 40px button (tap to cycle its accent) drawing a 22px dot. */
+.metronome-beats button {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  cursor: pointer;
+}
+
+.metronome-beats button::before {
+  content: "";
   width: 22px;
   height: 22px;
+  box-sizing: border-box;
   border: 2px solid color-mix(in srgb, var(--ink) 30%, transparent);
   border-radius: 50%;
   transition: transform 0.08s ease, background-color 0.08s ease;
 }
 
-.metronome-beats li.is-accent {
-  border-color: var(--orange);
+.metronome-beats button:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 0;
 }
 
-.metronome-beats li.is-active {
+.metronome-beats button.is-accent::before {
+  border-color: var(--orange);
+  border-width: 3px;
+}
+
+.metronome-beats button.is-secondary::before {
+  border-color: color-mix(in srgb, var(--orange) 60%, transparent);
+  border-style: dashed;
+}
+
+.metronome-beats button.is-active::before {
   background: var(--ink);
   border-color: var(--ink);
+  border-style: solid;
   transform: scale(1.25);
 }
 
-.metronome-beats li.is-active.is-accent {
+.metronome-beats button.is-active.is-accent::before,
+.metronome-beats button.is-active.is-secondary::before {
   background: var(--orange);
   border-color: var(--orange);
+}
+
+/* Rhythm pages: switch between the meters a rhythm is written in (6/8 · 3/4). */
+.metronome-setups {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.metronome-setups button {
+  min-height: 44px;
+  padding: 8px 18px;
+  border: 1px solid color-mix(in srgb, var(--ink) 25%, transparent);
+  border-radius: var(--radius-pill);
+  background: var(--paper);
+  color: var(--ink);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+}
+
+.metronome-setups button.is-active {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.metronome-setup-note {
+  width: min(100%, 760px);
+  margin: 14px auto 0;
+  color: var(--ink-soft);
+  font-size: 14px;
+  text-align: center;
 }
 
 .metronome-tempo {

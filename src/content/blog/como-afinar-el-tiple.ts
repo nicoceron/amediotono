@@ -60,7 +60,7 @@ export const post: BlogPost = {
         {
           type: "ul",
           items: [
-            "**Un afinador cromático**, que reconozca cualquier nota. Puede ser el [afinador online](/herramientas/afinador) de la web, uno de pinza o una aplicación.",
+            "**Un afinador cromático**, que reconozca cualquier nota. Puede ser el [afinador de tiple](/herramientas/afinador/tiple) de la web, que separa las cuerdas en octava, uno de pinza o una aplicación.",
             "**Un lugar silencioso**, sobre todo si usas el micrófono del celular o del computador.",
             "**Saber qué clavija mueve cada cuerda.** Son 12 clavijas; sigue cada cuerda con el dedo desde el puente hasta su clavija antes de girar nada.",
             "**Opcional: una guitarra afinada**, que te da las notas de referencia Re, Sol, Si y Mi en sus cuatro primeras cuerdas.",

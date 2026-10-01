@@ -1,14 +1,15 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Mic, MicOff, Volume2 } from "lucide-react";
 import {
   frequencyToMidi,
   midiToFrequency,
   noteLabel,
   type TunerString,
-} from "@/lib/music-tools";
+} from "@/lib/music-core";
 import {
+  MIN_FREQUENCY,
   createAudioContext,
   detectPitch,
   median,
@@ -24,30 +25,67 @@ type Reading = {
   midi: number;
   cents: number;
   targetIndex: number | null;
+  /** Octaves between what sounds and the target (a harmonic, or a string an octave off). */
+  octaveShift: number;
 };
 
+const NO_STRINGS: TunerString[] = [];
+
+/** One button per distinct pitch: courses that share a note share a target. */
+type Target = { midi: number; label: string };
+
+function distinctTargets(strings: TunerString[]): Target[] {
+  const targets: Target[] = [];
+  for (const item of strings) {
+    const existing = targets.find((target) => target.midi === item.midi);
+    if (existing) existing.label = `${existing.label} y ${item.label}`;
+    else targets.push({ midi: item.midi, label: item.label });
+  }
+  return targets;
+}
+
+/**
+ * Distance in semitones to the target, folded to the nearest octave when the
+ * note sounds whole octaves away (e.g. the 12th-fret harmonic of a low string,
+ * which phone microphones pick up better than the fundamental).
+ */
+function offsetFrom(midiFloat: number, targetMidi: number) {
+  const offset = midiFloat - targetMidi;
+  const octaveShift = Math.round(offset / 12);
+  const folded = offset - octaveShift * 12;
+  return Math.abs(offset) > 1 && Math.abs(folded) < 0.5 ? { offset: folded, octaveShift } : { offset, octaveShift: 0 };
+}
+
 export function Tuner({
-  strings = [],
+  strings = NO_STRINGS,
   instrumentName,
+  flats = false,
 }: {
   strings?: TunerString[];
   instrumentName?: string;
+  /** Spell notes with flats (Mi♭) instead of sharps (Re♯). */
+  flats?: boolean;
 }) {
   const [status, setStatus] = useState<"idle" | "listening" | "error">("idle");
   const [error, setError] = useState("");
   const [reading, setReading] = useState<Reading | null>(null);
   const [a4, setA4] = useState(440);
   const [selected, setSelected] = useState<number | null>(null);
+  const targets = useMemo(() => distinctTargets(strings), [strings]);
+  // Lower the detector floor only for presets with very low strings (5-string bass).
+  const minFrequency = targets.length
+    ? Math.min(MIN_FREQUENCY, midiToFrequency(Math.min(...targets.map((target) => target.midi))) * 0.85)
+    : MIN_FREQUENCY;
 
   const contextRef = useRef<AudioContext | null>(null);
   const streamRef = useRef<MediaStream | null>(null);
   const frameRef = useRef<number | null>(null);
   const historyRef = useRef<number[]>([]);
-  const settingsRef = useRef({ a4, selected, strings });
+  const settingsRef = useRef({ a4, selected, targets, minFrequency });
 
   useEffect(() => {
-    settingsRef.current = { a4, selected, strings };
-  }, [a4, selected, strings]);
+    settingsRef.current = { a4, selected, targets, minFrequency };
+  }, [a4, selected, targets, minFrequency]);
 
   const stop = useCallback(() => {
     if (frameRef.current !== null) cancelAnimationFrame(frameRef.current);
@@ -89,7 +127,7 @@ export function Tuner({
         lastRun = time;
 
         analyser.getFloatTimeDomainData(buffer);
-        const frequency = detectPitch(buffer, context.sampleRate);
+        const frequency = detectPitch(buffer, context.sampleRate, settingsRef.current.minFrequency);
         if (!frequency) {
           historyRef.current = [];
           return;
@@ -100,22 +138,28 @@ export function Tuner({
         if (history.length > 5) history.shift();
         const smoothed = median(history);
 
-        const { a4: reference, selected: target, strings: targets } = settingsRef.current;
+        const { a4: reference, selected: chosen, targets: choices } = settingsRef.current;
         const midiFloat = frequencyToMidi(smoothed, reference);
-        let targetIndex: number | null = target;
-        if (targetIndex === null && targets.length) {
-          targetIndex = targets.reduce(
-            (best, item, index) =>
-              Math.abs(midiFloat - item.midi) < Math.abs(midiFloat - targets[best].midi) ? index : best,
-            0,
-          );
+        let targetIndex: number | null = chosen !== null && choices[chosen] ? chosen : null;
+        if (targetIndex === null && choices.length) {
+          const distance = (index: number) => Math.abs(midiFloat - choices[index].midi);
+          targetIndex = choices.reduce((best, _item, index) => (distance(index) < distance(best) ? index : best), 0);
+          // Nothing within a semitone: maybe a harmonic of a string an octave away.
+          if (distance(targetIndex) > 1) {
+            const octave = choices.findIndex((item) => offsetFrom(midiFloat, item.midi).octaveShift !== 0);
+            if (octave !== -1) targetIndex = octave;
+          }
         }
-        const targetMidi = targetIndex !== null && targets[targetIndex] ? targets[targetIndex].midi : Math.round(midiFloat);
+        const { offset, octaveShift } =
+          targetIndex !== null
+            ? offsetFrom(midiFloat, choices[targetIndex].midi)
+            : { offset: midiFloat - Math.round(midiFloat), octaveShift: 0 };
         setReading({
           frequency: smoothed,
           midi: Math.round(midiFloat),
-          cents: Math.max(-50, Math.min(50, (midiFloat - targetMidi) * 100)),
+          cents: Math.max(-50, Math.min(50, offset * 100)),
           targetIndex,
+          octaveShift,
         });
       };
       frameRef.current = requestAnimationFrame(tick);
@@ -140,11 +184,14 @@ export function Tuner({
     playTone(ensureContext(), midiToFrequency(midi, a4), undefined, 2.2, 0.35);
   };
 
-  const note = reading ? noteLabel(reading.midi) : null;
-  const target = reading?.targetIndex !== null && reading?.targetIndex !== undefined ? strings[reading.targetIndex] : undefined;
-  const targetNote = target ? noteLabel(target.midi) : note;
+  const note = reading ? noteLabel(reading.midi, flats) : null;
+  const target = reading?.targetIndex !== null && reading?.targetIndex !== undefined ? targets[reading.targetIndex] : undefined;
+  const targetNote = target ? noteLabel(target.midi, flats) : note;
   const inTune = reading ? Math.abs(reading.cents) <= IN_TUNE_CENTS : false;
   const direction = !reading ? "" : inTune ? "¡Afinado!" : reading.cents < 0 ? "Sube la afinación" : "Baja la afinación";
+  const octaveNote = reading?.octaveShift
+    ? `Suena ${Math.abs(reading.octaveShift) === 1 ? "una octava" : `${Math.abs(reading.octaveShift)} octavas`} ${reading.octaveShift > 0 ? "arriba" : "abajo"} de esta cuerda. Si es un armónico, está bien; si tocaste la cuerda al aire, revisa que no la hayas subido o bajado de más.`
+    : "";
 
   return (
     <div className="tool-card tuner" data-state={inTune ? "in-tune" : "off"}>
@@ -191,6 +238,7 @@ export function Tuner({
                 {reading.frequency.toFixed(1)} Hz · {reading.cents > 0 ? "+" : ""}
                 {Math.round(reading.cents)} cents
               </span>
+              {octaveNote && <span className="tuner-octave">{octaveNote}</span>}
             </>
           ) : (
             <span>
@@ -232,10 +280,10 @@ export function Tuner({
         </p>
       )}
 
-      {strings.length > 0 && (
+      {targets.length > 0 && (
         <div className="tuner-strings">
           <p className="tuner-strings-title">
-            Cuerda objetivo: {selected === null ? "detección automática" : strings[selected].label}
+            Cuerda objetivo: {selected === null || !targets[selected] ? "detección automática" : targets[selected].label}
           </p>
           <ul>
             <li>
@@ -248,17 +296,18 @@ export function Tuner({
                 Auto
               </button>
             </li>
-            {strings.map((item, index) => {
-              const label = noteLabel(item.midi);
+            {targets.map((item, index) => {
+              const label = noteLabel(item.midi, flats);
               const isTarget = reading?.targetIndex === index;
               return (
-                <li key={`${item.label}-${item.midi}`}>
+                <li key={item.midi}>
                   <button
                     type="button"
                     className={[selected === index ? "is-active" : "", isTarget ? "is-target" : ""].join(" ")}
                     onClick={() => setSelected(index)}
                     aria-pressed={selected === index}
                     aria-label={`${item.label}: ${label.es} (${label.scientific})`}
+                    title={item.label}
                   >
                     <strong>{label.es}</strong>
                     <span>{label.scientific}</span>

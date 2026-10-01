@@ -14,10 +14,12 @@ import { CHORDS, SCALES } from "@/lib/music-theory";
 import {
   EAR_TRAINING_PATH,
   METRONOME_PATH,
+  RHYTHM_PRESETS,
   TOOLS_PATH,
   TUNER_PATH,
   TUNER_PRESETS,
   VOICE_TYPE_PATH,
+  rhythmPresetPath,
   tunerPresetPath,
 } from "@/lib/music-tools";
 import { TEACHERS } from "@/lib/teachers";
@@ -74,6 +76,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry(EAR_TRAINING_PATH, SITE_CONTENT_UPDATED_AT, "monthly", 0.75),
     ...TUNER_PRESETS.map((preset) =>
       entry(tunerPresetPath(preset.slug), SITE_CONTENT_UPDATED_AT, "monthly", 0.75),
+    ),
+    ...RHYTHM_PRESETS.map((preset) =>
+      entry(rhythmPresetPath(preset.slug), SITE_CONTENT_UPDATED_AT, "monthly", 0.7),
     ),
     entry(CIRCLE_OF_FIFTHS_PATH, MUSIC_DICTIONARY_UPDATED_AT, "monthly", 0.8),
     entry(CHORDS_PATH, MUSIC_DICTIONARY_UPDATED_AT, "monthly", 0.85),

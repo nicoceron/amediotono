@@ -33,8 +33,10 @@ import { CHORDS_PATH, CIRCLE_OF_FIFTHS_PATH, SCALES_PATH } from "@/lib/music-pag
 import {
   EAR_TRAINING_PATH,
   METRONOME_PATH,
+  RHYTHM_PRESETS,
   TUNER_PATH,
   VOICE_TYPE_PATH,
+  rhythmPresetPath,
   tunerPresetForCourse,
   tunerPresetPath,
 } from "@/lib/music-tools";
@@ -123,6 +125,7 @@ export default async function CoursePage({
   const related = relatedCoursePages(guide);
   const posts = postsForCourse(course.id).slice(0, 12);
   const tuner = tunerPresetForCourse(course.id);
+  const rhythms = RHYTHM_PRESETS.filter((preset) => preset.courseId === course.id);
   const waUrl = whatsappHref(`¡Hola! Quiero información sobre clases de ${lowerLabel}.`);
   const crumbs = [
     { name: "Inicio", path: "/" },
@@ -378,6 +381,13 @@ export default async function CoursePage({
                     Metrónomo online
                   </Link>
                 </li>
+                {rhythms.map((rhythm) => (
+                  <li key={rhythm.slug}>
+                    <Link href={rhythmPresetPath(rhythm.slug)} prefetch={false}>
+                      {rhythm.headline}
+                    </Link>
+                  </li>
+                ))}
                 <li>
                   <Link href={EAR_TRAINING_PATH} prefetch={false}>
                     Entrenamiento auditivo

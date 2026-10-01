@@ -4,13 +4,16 @@ import { ArrowRight, CircleDot, Ear, Gauge, Guitar, Mic, Piano, Timer } from "lu
 import { Footer } from "@/components/Footer";
 import { Breadcrumbs } from "@/components/editorial/Breadcrumbs";
 import { JsonLdScript } from "@/components/editorial/JsonLdScript";
+import { RhythmPresetList, TunerPresetGroups } from "@/components/tools/ToolPresetLists";
 import {
   EAR_TRAINING_PATH,
   METRONOME_PATH,
+  RHYTHM_PRESETS,
   TOOLS_PATH,
   TUNER_PATH,
   TUNER_PRESETS,
   VOICE_TYPE_PATH,
+  rhythmPresetPath,
   tunerPresetPath,
 } from "@/lib/music-tools";
 import { CHORDS_PATH, CIRCLE_OF_FIFTHS_PATH, SCALES_PATH } from "@/lib/music-pages";
@@ -33,7 +36,7 @@ const TOOLS = [
   {
     href: METRONOME_PATH,
     title: "Metrónomo online",
-    text: "De 30 a 250 BPM, compases, subdivisiones, acento y tap tempo.",
+    text: "De 30 a 250 BPM, compases simples y compuestos, acentos y tap tempo.",
     cta: "Abrir metrónomo",
     accent: "var(--orange)",
     Icon: Timer,
@@ -48,8 +51,8 @@ const TOOLS = [
   },
   {
     href: VOICE_TYPE_PATH,
-    title: "Test de tipo de voz",
-    text: "Canta tu nota más grave y la más aguda y descubre tu rango.",
+    title: "¿Qué tipo de voz tengo?",
+    text: "Test de tesitura: canta tu nota más grave y la más aguda.",
     cta: "Hacer el test",
     accent: "var(--pink)",
     Icon: Mic,
@@ -119,6 +122,7 @@ export default function ToolsPage() {
             itemListElement: [
               ...TOOLS.map((tool) => tool.href),
               ...TUNER_PRESETS.map((preset) => tunerPresetPath(preset.slug)),
+              ...RHYTHM_PRESETS.map((preset) => rhythmPresetPath(preset.slug)),
             ].map((path, index) => ({ "@type": "ListItem", position: index + 1, url: absoluteUrl(path) })),
           },
         ]}
@@ -154,20 +158,8 @@ export default function ToolsPage() {
             ))}
           </ul>
 
-          <nav className="tuner-presets" aria-label="Afinadores por instrumento">
-            <h2 className="ed-h2">Afinadores por instrumento</h2>
-            <ul>
-              {TUNER_PRESETS.map((preset) => (
-                <li key={preset.slug}>
-                  <Link href={tunerPresetPath(preset.slug)} prefetch={false}>
-                    <strong>{preset.headline.replace(" online", "")}</strong>
-                    <span>{preset.tuningName}</span>
-                    <ArrowRight size={18} strokeWidth={2.4} aria-hidden="true" />
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
+          <TunerPresetGroups title="Afinadores por instrumento" detail="tuning" />
+          <RhythmPresetList />
         </div>
       </section>
       <Footer />
