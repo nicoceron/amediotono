@@ -1,64 +1,9 @@
 
-@font-face {
-  font-family: "Satoshi";
-  src: url("/fonts/satoshi-regular.woff2") format("woff2");
-  font-display: swap;
-  font-style: normal;
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: "Satoshi";
-  src: url("/fonts/satoshi-medium.woff2") format("woff2");
-  font-display: swap;
-  font-style: normal;
-  font-weight: 500;
-}
-
-@font-face {
-  font-family: "Satoshi";
-  src: url("/fonts/satoshi-bold.woff2") format("woff2");
-  font-display: swap;
-  font-style: normal;
-  font-weight: 700;
-}
-
-@font-face {
-  font-family: "Satoshi";
-  src: url("/fonts/satoshi-black.woff2") format("woff2");
-  font-display: swap;
-  font-style: normal;
-  font-weight: 900;
-}
-
-@font-face {
-  font-family: "Satoshi";
-  src: url("/fonts/satoshi-medium-italic.woff2") format("woff2");
-  font-display: swap;
-  font-style: italic;
-  font-weight: 500;
-}
-
-@font-face {
-  font-family: "Satoshi";
-  src: url("/fonts/satoshi-bold-italic.woff2") format("woff2");
-  font-display: swap;
-  font-style: italic;
-  font-weight: 700;
-}
-
-@font-face {
-  font-family: "Satoshi";
-  src: url("/fonts/satoshi-black-italic.woff2") format("woff2");
-  font-display: swap;
-  font-style: italic;
-  font-weight: 900;
-}
-
 /*
  * Satoshi has no ♭ ♮ ♯ 𝄪 𝄫, and the system fallback draws them a full em wide
  * ("B ♭ m7"). This 1 KB subset of Noto Music (SIL Open Font License 1.1) sits
- * right after Satoshi in the font stacks and only covers those characters.
+ * first in the font stacks and only covers those characters, so the generated
+ * Arial fallback cannot override the music glyphs.
  */
 @font-face {
   font-family: "Accidentals";
@@ -68,15 +13,6 @@
   font-weight: 100 900;
   size-adjust: 125%;
   unicode-range: U+266D-266F, U+1D12A-1D12B;
-}
-
-@font-face {
-  font-family: "Satoshi Placeholder";
-  src: local("Arial");
-  ascent-override: 102.23%;
-  descent-override: 24.29%;
-  line-gap-override: 10.12%;
-  size-adjust: 98.80%;
 }
 
 @font-face {
@@ -150,8 +86,8 @@
   --accent: var(--pink);
   --course-icon-filter: none;
 
-  --font-display: "Satoshi", "Accidentals", "Satoshi Placeholder", sans-serif;
-  --font-body:    "Satoshi", "Accidentals", "Satoshi Placeholder", sans-serif;
+  --font-display: "Accidentals", var(--font-satoshi), sans-serif;
+  --font-body:    "Accidentals", var(--font-satoshi), sans-serif;
   --font-hand:    "Satisfy", sans-serif;
   --font-hand-2:  "Satisfy", sans-serif;
   --font-mono:    ui-monospace, "SF Mono", Menlo, monospace;
@@ -510,6 +446,24 @@ body:has(#profes-page .profes-mobile-filters[open]) .float-actions {
 
 .nav-links a:focus-visible {
   outline: none;
+}
+
+/* Always reserve the same label box; pending feedback only paints an underline. */
+.nav-link-label {
+  position: relative;
+}
+
+.nav-link-label::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 -4px;
+  height: 2px;
+  background: currentColor;
+  opacity: 0;
+}
+
+.nav-link-label[data-pending]::after {
+  opacity: 1;
 }
 
 .nav-right {
