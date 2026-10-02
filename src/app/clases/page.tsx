@@ -10,7 +10,6 @@ import { JsonLdScript } from "@/components/editorial/JsonLdScript";
 import { whatsappHref } from "@/lib/contact";
 import { COURSE_FAMILY_ACCENTS, COURSE_PAGES, coursePagesByFamily } from "@/lib/course-pages";
 import type { FaqItem } from "@/lib/content-types";
-import { TEACHERS } from "@/lib/teachers";
 import {
   brandTitle,
   breadcrumbJsonLd,
@@ -94,7 +93,6 @@ export default function ClasesPage() {
           <Breadcrumbs items={crumbs} />
           <header className="ed-hero ed-hero--center">
             <div className="ed-hero-copy">
-              <span className="ed-eyebrow">{COURSE_PAGES.length} instrumentos · {TEACHERS.length} profes</span>
               <h1>{TITLE}</h1>
               <p className="ed-lead">
                 Elige tu instrumento y conoce a los profes que lo enseñan.{" "}

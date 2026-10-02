@@ -145,7 +145,6 @@ export default async function ChordPage({
           <Breadcrumbs items={crumbs} />
           <header className="ed-hero ed-hero--center">
             <div className="ed-hero-copy">
-              <span className="ed-eyebrow">Acorde {chord.type.name}</span>
               <h1>{title}</h1>
               <p className="ed-lead">
                 {chord.name} es un acorde {chord.type.name} de {chord.notes.length} notas: {chordNotesText(chord)}. Suena{" "}
@@ -153,7 +152,7 @@ export default async function ChordPage({
                 {enharmonic && ` También se llama ${enharmonic.name} (${enharmonic.symbol}).`}
               </p>
               <div className="ed-actions">
-                <PlayNotesButton midis={ascendingMidi(chord.notes, 3)} mode="chord" label={`Escuchar ${chord.displaySymbol}`} />
+                <PlayNotesButton key={chord.slug} midis={ascendingMidi(chord.notes, 3)} mode="chord" label={`Escuchar ${chord.displaySymbol}`} />
               </div>
             </div>
           </header>
@@ -444,4 +443,3 @@ export default async function ChordPage({
     </>
   );
 }
-

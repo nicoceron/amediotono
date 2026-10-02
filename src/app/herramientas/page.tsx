@@ -132,7 +132,6 @@ export default function ToolsPage() {
           <Breadcrumbs items={crumbs} />
           <header className="ed-hero ed-hero--center">
             <div className="ed-hero-copy">
-              <span className="ed-eyebrow">Gratis · sin descargas</span>
               <h1>{TITLE}</h1>
               <p className="ed-lead">
                 Herramientas para tu práctica diaria que funcionan en el navegador del celular o del

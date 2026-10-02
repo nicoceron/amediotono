@@ -151,7 +151,6 @@ export default async function TunerPresetPage({
           <Breadcrumbs items={crumbs} />
           <header className="ed-hero ed-hero--center">
             <div className="ed-hero-copy">
-              <span className="ed-eyebrow">{preset.tuningName}</span>
               <h1>{preset.headline}</h1>
               <p className="ed-lead">{preset.intro}</p>
             </div>

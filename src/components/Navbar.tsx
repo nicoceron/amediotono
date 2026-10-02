@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import type { MouseEvent } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import navLogo from "../../public/logo-nav.webp";
+import mobileLogo from "../../public/logo-mark-transparent.webp";
 import { usePathname, useRouter } from "next/navigation";
 
 const SMOOTH_SCROLL_TO_EVENT = "mediotono:smooth-scroll-to";
@@ -93,19 +95,21 @@ export function Navbar() {
           >
             <Image
               className="nav-logo-img logo-desktop-wordmark"
-              src="/logo-nav.webp"
+              src={navLogo}
               alt="A medio tono"
               width={1205}
               height={300}
               sizes="136px"
+              fetchPriority="high"
             />
             <Image
               className="nav-logo-img logo-mobile-mark"
-              src="/logo-mark-transparent.webp"
+              src={mobileLogo}
               alt="A medio tono"
               width={48}
               height={42}
               sizes="48px"
+              fetchPriority="high"
             />
           </Link>
 

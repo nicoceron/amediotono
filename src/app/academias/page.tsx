@@ -104,7 +104,6 @@ export default function AcademiasPage() {
           <Breadcrumbs items={crumbs} />
           <header className="ed-hero">
             <div className="ed-hero-copy">
-              <span className="ed-eyebrow">Para academias, colegios e instituciones</span>
               <h1>{TITLE}</h1>
               <p className="ed-lead">
                 Somos una escuela de música que evalúa a cada profe antes de su primera clase.

@@ -1,3 +1,5 @@
+import "@/components/music/music.css";
+import { MusicIndexTable } from "@/components/music/MusicIndexTable";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer } from "@/components/Footer";
@@ -89,7 +91,6 @@ export default function ScalesIndexPage() {
           <Breadcrumbs items={crumbs} />
           <header className="ed-hero ed-hero--center">
             <div className="ed-hero-copy">
-              <span className="ed-eyebrow">{SCALES.length} escalas · 12 tonalidades</span>
               <h1>{TITLE}</h1>
               <p className="ed-lead">
                 Elige una tónica y un tipo de escala para ver sus notas, su fórmula de tonos y semitonos, sus acordes, el
@@ -100,37 +101,19 @@ export default function ScalesIndexPage() {
 
           <div className="music-panel">
             <h2>Todas las escalas</h2>
-            <div className="prose-table-wrap music-index" role="region" aria-label="Tabla de escalas por tónica y tipo" tabIndex={0}>
-              <table>
-                <thead>
-                  <tr>
-                    <th scope="col">Tónica</th>
-                    {SCALE_TYPES.map((type) => (
-                      <th scope="col" key={type.id}>
-                        {type.name}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {Array.from({ length: 12 }, (_, pc) => {
-                    const row = SCALE_TYPES.map((type) => scaleFor(pc, type.id));
-                    return (
-                      <tr key={pc}>
-                        <th scope="row">{[...new Set(row.map((scale) => noteName(scale.root)))].join(" / ")}</th>
-                        {row.map((scale) => (
-                          <td key={scale.slug}>
-                            <Link href={scalePath(scale)} prefetch={false}>
-                              {scale.name}
-                            </Link>
-                          </td>
-                        ))}
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-            </div>
+            <MusicIndexTable
+              label="Tabla de escalas por tónica y tipo"
+              rootHeading="Tónica"
+              columns={SCALE_TYPES.map((type) => ({ id: type.id, label: type.name }))}
+              rows={Array.from({ length: 12 }, (_, pc) => {
+                const row = SCALE_TYPES.map((type) => scaleFor(pc, type.id));
+                return {
+                  id: pc,
+                  label: [...new Set(row.map((scale) => noteName(scale.root)))].join(" / "),
+                  cells: row.map((scale) => ({ id: scale.slug, label: scale.name, href: scalePath(scale) })),
+                };
+              })}
+            />
           </div>
         </div>
       </section>

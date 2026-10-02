@@ -99,7 +99,6 @@ export default async function B2BServicePage({
           <Breadcrumbs items={crumbs} />
           <header className="ed-hero ed-hero--center">
             <div className="ed-hero-copy">
-              <span className="ed-eyebrow">Para academias, colegios e instituciones</span>
               <h1>{service.headline}</h1>
               <p className="ed-lead">
                 <Inline text={service.intro} />
@@ -170,7 +169,7 @@ export default async function B2BServicePage({
               <FileCheck2 size={26} strokeWidth={2.4} aria-hidden="true" />
               {service.deliverable.title}
             </h2>
-            <ul className="ed-pill-list">
+            <ul className="ed-detail-list">
               {service.deliverable.items.map((item) => (
                 <li key={item}>{item}</li>
               ))}

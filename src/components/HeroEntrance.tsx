@@ -1,4 +1,5 @@
 import Image from "next/image";
+import heroLogo from "../../public/logo-hero-hd.webp";
 
 export function HeroEntrance() {
   return (
@@ -8,12 +9,12 @@ export function HeroEntrance() {
       </h1>
       <Image
         className="hero-logo-main"
-        src="/logo-hero-hd.webp"
+        src={heroLogo}
         alt="A medio tono (A ½ tono), escuela de artes"
         width={2276}
         height={1707}
-        loading="eager"
-        sizes="(max-width: 380px) 99vw, (max-width: 700px) 124vw, (max-width: 1100px) 64vw, 688px"
+        preload
+        sizes="(max-width: 380px) 99vw, (max-width: 700px) min(124vw, 660px), 853px"
       />
     </div>
   );

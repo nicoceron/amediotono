@@ -101,7 +101,6 @@ export default function EarTrainingPage() {
           <Breadcrumbs items={crumbs} />
           <header className="ed-hero ed-hero--center">
             <div className="ed-hero-copy">
-              <span className="ed-eyebrow">Herramienta gratis</span>
               <h1>{TITLE}</h1>
               <p className="ed-lead">
                 Escucha dos notas y elige qué intervalo forman. Practica unos minutos al día y verás

@@ -28,6 +28,20 @@ export const COURSE_FAMILY_ACCENTS: Record<CourseFamily, string> = {
   percusion: "var(--pink)",
 };
 
+/** Full-color hero artwork; smaller course cards keep their original line icons. */
+const COURSE_ARTWORK: Record<string, string> = {
+  "iniciacion-musical": "/instruments/musical-notes-illustrated.webp",
+  "teoria-musical": "/instruments/musical-notes-illustrated.webp",
+  piano: "/instruments/piano.webp",
+  "guitarra-acustica": "/instruments/guitar.webp",
+  violin: "/instruments/violin.webp",
+  "flauta-traversa": "/instruments/flute.webp",
+};
+
+export function courseHeroArtwork(course: Course) {
+  return COURSE_ARTWORK[course.id] ?? course.icon;
+}
+
 const GUIDE_BY_ID = new Map(COURSE_GUIDES.map((guide) => [guide.id, guide]));
 
 const TEACHERS_BY_COURSE = new Map<string, Teacher[]>();

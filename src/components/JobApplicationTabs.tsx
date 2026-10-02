@@ -17,7 +17,7 @@ export function JobApplicationTabs() {
         <a
           id={overviewTabId}
           role="tab"
-          href="#descripcion"
+          href={`#${overviewPanelId}`}
           aria-controls={overviewPanelId}
           aria-selected={activeTab === "overview"}
           aria-current={activeTab === "overview" ? "page" : undefined}
@@ -32,7 +32,7 @@ export function JobApplicationTabs() {
         <a
           id={applicationTabId}
           role="tab"
-          href="#aplicacion"
+          href={`#${applicationPanelId}`}
           aria-controls={applicationPanelId}
           aria-selected={activeTab === "application"}
           aria-current={activeTab === "application" ? "page" : undefined}

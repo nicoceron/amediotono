@@ -114,7 +114,6 @@ export default function TunerPage() {
           <Breadcrumbs items={crumbs} />
           <header className="ed-hero ed-hero--center">
             <div className="ed-hero-copy">
-              <span className="ed-eyebrow">Herramienta gratis</span>
               <h1>{TITLE}</h1>
               <p className="ed-lead">
                 Toca una nota y el afinador te dice cuál es y si debes subirla o bajarla. Sirve

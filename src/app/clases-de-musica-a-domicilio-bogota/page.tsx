@@ -103,9 +103,6 @@ export default function HomeClassesPage() {
           <Breadcrumbs items={crumbs} />
           <header className="ed-hero ed-hero--center">
             <div className="ed-hero-copy">
-              <span className="ed-eyebrow">
-                {homeTeachers.length} profes · {COURSE_PAGES.length} instrumentos · Bogotá
-              </span>
               <h1>{TITLE}</h1>
               <p className="ed-lead">{PAGE.lead}</p>
               <div className="ed-actions">

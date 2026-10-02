@@ -2,7 +2,7 @@
 
 import "./music.css";
 import Link from "next/link";
-import { useState, type KeyboardEvent } from "react";
+import { useRef, useState, type KeyboardEvent } from "react";
 
 export type CircleChord = { symbol: string; roman: string; href?: string };
 
@@ -27,7 +27,12 @@ const INNER = 112;
 
 function polar(radius: number, angle: number) {
   const rad = (angle * Math.PI) / 180;
-  return [CENTER + radius * Math.cos(rad), CENTER + radius * Math.sin(rad)];
+  // Native trig can differ in its last digits between Node and the browser.
+  // Subpixel precision keeps the server and client SVG attributes identical.
+  return [
+    Number((CENTER + radius * Math.cos(rad)).toFixed(3)),
+    Number((CENTER + radius * Math.sin(rad)).toFixed(3)),
+  ];
 }
 
 function wedge(index: number, inner: number, outer: number) {
@@ -69,6 +74,7 @@ function ChordChips({ chords }: { chords: CircleChord[] }) {
  */
 export function CircleOfFifths({ keys }: { keys: CircleKey[] }) {
   const [selected, setSelected] = useState(0);
+  const keyRefs = useRef<Array<SVGGElement | null>>([]);
   const current = keys[selected];
   const neighbours = new Set([(selected + 11) % 12, (selected + 1) % 12]);
 
@@ -82,15 +88,22 @@ export function CircleOfFifths({ keys }: { keys: CircleKey[] }) {
       .join(" ");
 
   const onKey = (event: KeyboardEvent, index: number) => {
+    const focusKey = (next: number) => {
+      setSelected(next);
+      keyRefs.current[next]?.focus();
+    };
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
       setSelected(index);
     } else if (event.key === "ArrowRight" || event.key === "ArrowDown") {
       event.preventDefault();
-      setSelected((index + 1) % 12);
+      focusKey((index + 1) % keys.length);
     } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
       event.preventDefault();
-      setSelected((index + 11) % 12);
+      focusKey((index + keys.length - 1) % keys.length);
+    } else if (event.key === "Home" || event.key === "End") {
+      event.preventDefault();
+      focusKey(event.key === "Home" ? 0 : keys.length - 1);
     }
   };
 
@@ -105,9 +118,10 @@ export function CircleOfFifths({ keys }: { keys: CircleKey[] }) {
           return (
             <g
               key={key.major.href}
+              ref={(node) => { keyRefs.current[index] = node; }}
               className="fifths-key"
               role="button"
-              tabIndex={0}
+              tabIndex={isSelected ? 0 : -1}
               aria-pressed={isSelected}
               aria-label={`${key.major.name} y ${key.minor.name}: ${key.signature}`}
               onClick={() => setSelected(index)}

@@ -23,8 +23,8 @@ import { postPath, postsForCourse } from "@/lib/blog";
 import { whatsappHref } from "@/lib/contact";
 import {
   COURSE_FAMILY_ACCENTS,
-  COURSE_FAMILY_LABELS,
   COURSE_PAGES,
+  courseHeroArtwork,
   getCoursePage,
   relatedCoursePages,
 } from "@/lib/course-pages";
@@ -166,7 +166,6 @@ export default async function CoursePage({
 
           <header className="ed-hero">
             <div className="ed-hero-copy">
-              <span className="ed-eyebrow">{COURSE_FAMILY_LABELS[guide.family]}</span>
               <h1>{guide.headline}</h1>
               <p className="ed-lead">
                 <Inline text={guide.intro} />
@@ -181,8 +180,8 @@ export default async function CoursePage({
                 </a>
               </div>
             </div>
-            <div className="ed-hero-art" aria-hidden="true">
-              <Image src={course.icon} alt="" width={220} height={220} loading="eager" />
+            <div className={`ed-hero-art${courseHeroArtwork(course) !== course.icon ? " ed-hero-art--illustrated" : ""}`} aria-hidden="true">
+              <Image src={courseHeroArtwork(course)} alt="" width={640} height={640} sizes="(max-width: 900px) 220px, 360px" loading="eager" />
             </div>
           </header>
 

@@ -111,7 +111,6 @@ export default function VoiceTypePage() {
           <Breadcrumbs items={crumbs} />
           <header className="ed-hero ed-hero--center">
             <div className="ed-hero-copy">
-              <span className="ed-eyebrow">Herramienta gratis</span>
               <h1>{TITLE}</h1>
               <p className="ed-lead">
                 Canta tu nota más grave y tu nota más aguda con el micrófono y compara tu rango con

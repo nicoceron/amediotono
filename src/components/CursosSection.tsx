@@ -4,6 +4,7 @@ import { ChevronRight, Minus, Plus } from "lucide-react";
 import { courseLandingHref } from "@/lib/course-pages";
 import { MAIN_COURSES, MORE_COURSES, type Course } from "@/lib/courses";
 import { TEACHERS } from "@/lib/teachers";
+import cloudSeparator from "../../public/hero-cloud-separator.webp";
 
 const COURSE_TEACHER_COUNTS = new Map<string, number>();
 
@@ -61,7 +62,7 @@ export function CursosSection() {
     >
       <div className="hero-cloud-separator" aria-hidden="true">
         <Image
-          src="/hero-cloud-separator.webp"
+          src={cloudSeparator}
           alt=""
           fill
           fetchPriority="low"

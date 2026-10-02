@@ -166,7 +166,6 @@ export default function Nosotros() {
           <Breadcrumbs items={crumbs} />
           <header className="ed-hero">
             <div className="ed-hero-copy">
-              <span className="ed-eyebrow">Nosotros</span>
               <h1>
                 <BrandText text={TITLE} />
               </h1>
