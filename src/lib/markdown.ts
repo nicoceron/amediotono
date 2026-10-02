@@ -1,7 +1,7 @@
 import type { ServicePage } from "@/content/service-pages";
 import type { B2BService } from "@/lib/b2b";
 import { BLOG_CATEGORIES, getPost, postAuthor, postPath, postsForCourse } from "@/lib/blog";
-import { CONTACT_EMAIL, INSTAGRAM_URL, WHATSAPP_DISPLAY, whatsappHref } from "@/lib/contact";
+import { CONTACT_EMAIL, INSTAGRAM_URL, TIKTOK_URL, WHATSAPP_DISPLAY, whatsappHref } from "@/lib/contact";
 import { resolveContentHref } from "@/lib/content-links";
 import type { BlogPost, FaqItem, RichBlock } from "@/lib/content-types";
 import { COURSE_PAGES, coursePagePath, type CoursePage } from "@/lib/course-pages";
@@ -90,6 +90,7 @@ export function contactMarkdown() {
     `- WhatsApp: ${WHATSAPP_DISPLAY} (${whatsappHref()})`,
     `- Correo: ${CONTACT_EMAIL}`,
     `- Instagram: ${INSTAGRAM_URL}`,
+    `- TikTok: ${TIKTOK_URL}`,
     `- Sitio web: ${absoluteUrl("/")}`,
     "",
   ];
@@ -379,7 +380,7 @@ export function siteFactsMarkdown() {
     "- Precios: dependen del formato, la duración y la frecuencia de las clases; se consultan por WhatsApp.",
     `- Herramientas gratis: metrónomo, afinador con micrófono, test de tipo de voz, entrenamiento auditivo, círculo de quintas y glosario musical: ${absoluteUrl("/herramientas")}. Diccionario de acordes para guitarra, piano y ukelele: ${absoluteUrl("/acordes")}. Escalas musicales: ${absoluteUrl("/escalas")}.`,
     `- Por dónde empezar: estudiantes y familias en ${absoluteUrl("/clases")}; instituciones en ${absoluteUrl("/academias")}; profes que quieren enseñar en ${absoluteUrl("/trabaja-con-nosotros")}.`,
-    `- Contacto: WhatsApp ${WHATSAPP_DISPLAY} (${whatsappHref()}), ${CONTACT_EMAIL}, Instagram ${INSTAGRAM_URL}.`,
+    `- Contacto: WhatsApp ${WHATSAPP_DISPLAY} (${whatsappHref()}), ${CONTACT_EMAIL}, Instagram ${INSTAGRAM_URL}, TikTok ${TIKTOK_URL}.`,
     "",
   ].filter((line, index, lines) => line !== "" || lines[index - 1] !== "");
 }
