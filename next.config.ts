@@ -46,7 +46,9 @@ const nextConfig: NextConfig = {
 
   // Markdown twins for AI assistants (https://llmstxt.org): /blog/<slug>.md,
   // /clases/<curso>.md, /academias/<servicio>.md, /profes.md,
-  // /profes/<slug>.md and the service pages (src/content/service-pages.ts).
+  // /profes/<slug>.md, chords, scales, tuner and rhythm presets, the glossary
+  // and the service pages (src/content/service-pages.ts). worker.ts also
+  // serves them for `Accept: text/markdown` requests to the HTML URL.
   async rewrites() {
     return [
       { source: "/blog/:slug\\.md", destination: "/md/blog/:slug" },
@@ -56,6 +58,9 @@ const nextConfig: NextConfig = {
       { source: "/profes/:slug\\.md", destination: "/md/profes/:slug" },
       { source: "/acordes/:acorde\\.md", destination: "/md/acordes/:acorde" },
       { source: "/escalas/:escala\\.md", destination: "/md/escalas/:escala" },
+      { source: "/herramientas/afinador/:instrumento\\.md", destination: "/md/herramientas/afinador/:instrumento" },
+      { source: "/herramientas/metronomo/:ritmo\\.md", destination: "/md/herramientas/metronomo/:ritmo" },
+      { source: "/glosario-musical\\.md", destination: "/md/glosario-musical" },
       {
         source:
           "/:servicio(clases-de-musica-a-domicilio-bogota|clases-de-musica-online|preuniversitario-musica)\\.md",

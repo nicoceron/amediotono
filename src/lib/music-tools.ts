@@ -72,6 +72,12 @@ export function tunerSubjectOf(preset: TunerPreset) {
   return `${preset.gender === "m" ? "del" : "de la"} ${tunerSubject(preset)}`;
 }
 
+/** "Drop D", "Medio tono abajo": the alternate tuning's name for table headers. */
+export function tunerVariantLabel(preset: TunerPreset) {
+  const label = (preset.variant ?? "").replace(/^en /, "");
+  return label.charAt(0).toUpperCase() + label.slice(1);
+}
+
 /** "Afinador de tiple", for cards, chips and breadcrumbs. */
 export function tunerPresetTitle(preset: TunerPreset) {
   return preset.headline.replace(/ online$/, "");

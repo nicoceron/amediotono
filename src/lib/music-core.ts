@@ -21,6 +21,11 @@ export function midiToFrequency(midi: number, a4 = 440) {
   return a4 * 2 ** ((midi - 69) / 12);
 }
 
+/** Hz with a decimal comma, as written in Colombia: "82,41 Hz". */
+export function formatHz(frequency: number) {
+  return `${frequency.toFixed(2).replace(".", ",")} Hz`;
+}
+
 export function frequencyToMidi(frequency: number, a4 = 440) {
   return 69 + 12 * Math.log2(frequency / a4);
 }
@@ -35,6 +40,16 @@ export function noteLabel(midi: number, flats = false) {
     octave,
     scientific: `${en}${octave}`,
   };
+}
+
+/** "Baja 1 tono", "Sube ½ tono", "Baja 1 ½ tonos", "No cambia" */
+export function semitoneChange(semitones: number) {
+  if (semitones === 0) return "No cambia";
+  const size = Math.abs(semitones);
+  const whole = Math.floor(size / 2);
+  const half = size % 2 === 1;
+  const amount = whole === 0 ? "½ tono" : `${whole}${half ? " ½" : ""} ${whole === 1 && !half ? "tono" : "tonos"}`;
+  return `${semitones < 0 ? "Baja" : "Sube"} ${amount}`;
 }
 
 export type TunerString = {
@@ -60,6 +75,9 @@ export function tempoMarking(bpm: number) {
 
 /** The note value the metronome's BPM counts. */
 export type PulseUnit = "negra" | "blanca" | "negra con puntillo";
+
+/** Eighth notes in one pulse, to turn a pulse BPM into eighths per minute. */
+export const EIGHTHS_PER_PULSE: Record<PulseUnit, number> = { negra: 2, blanca: 4, "negra con puntillo": 3 };
 
 export type MeterId = "2/4" | "3/4" | "4/4" | "5/4" | "6/4" | "7/4" | "2/2" | "6/8" | "9/8" | "12/8";
 

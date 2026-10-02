@@ -26,6 +26,7 @@ export const metadata: Metadata = createPageMetadata({
   title: brandTitle("Diccionario musical: glosario de términos"),
   description: DESCRIPTION,
   path: PATH,
+  markdownPath: `${PATH}.md`,
   image: shareImage("glosario-musical"),
   keywords: ["diccionario musical", "glosario musical", "términos musicales", "qué es un acorde", "qué es el compás"],
 });

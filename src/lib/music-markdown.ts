@@ -1,11 +1,17 @@
 import { guitarVoicings, ukuleleVoicings } from "@/lib/chord-voicings";
-import { markdownInline } from "@/lib/markdown";
+import { getCoursePage } from "@/lib/course-pages";
+import { blocksToMarkdown, markdownInline } from "@/lib/markdown";
 import {
   chordFaqs, chordFormula, chordNotesText, chordPath, chordProgressions,
   guitarInstructions, pianoVoicing, practiceTips, scaleDegrees, scaleFaqs,
   scaleNotesText, scalePath,
 } from "@/lib/music-pages";
 import { diatonicSevenths, diatonicTriads, stepPattern, type Chord, type Scale } from "@/lib/music-theory";
+import {
+  EIGHTHS_PER_PULSE, STANDARD_GUITAR_MIDI, formatHz, getMeter, midiToFrequency, noteLabel, rhythmPresetPath,
+  semitoneChange, tunerPresetPath, tunerSubject, tunerSubjectOf, tunerVariantLabel,
+  type RhythmPreset, type TunerPreset, type TunerSection,
+} from "@/lib/music-tools";
 import { SITE_NAME, absoluteUrl } from "@/lib/seo";
 import type { FaqItem } from "@/lib/content-types";
 
@@ -61,5 +67,65 @@ export function scaleMarkdown(scale: Scale) {
     ), ""] : []),
     "## Cómo practicar", "", ...practiceTips(scale).map((tip) => `- ${tip}`), "",
     ...faqsMarkdown(scaleFaqs(scale)),
+  ].join("\n");
+}
+
+function sectionsMarkdown(sections: TunerSection[]) {
+  return sections.flatMap((section) => [`## ${section.heading}`, "", ...blocksToMarkdown(section.blocks)]);
+}
+
+function courseLine(courseId?: string) {
+  const page = courseId ? getCoursePage(courseId) : undefined;
+  return page ? [`- Clases con profe: [Clases de ${page.course.label.toLowerCase()}](${absoluteUrl(`${page.path}.md`)})`] : [];
+}
+
+/** Same data as the tuner preset page; the in-browser tuner itself only exists in the HTML. */
+export function tunerPresetMarkdown(preset: TunerPreset) {
+  const note = (midi: number) => noteLabel(midi, preset.flats);
+  const variant = tunerVariantLabel(preset);
+  return [
+    `# ${preset.headline}`, "",
+    `- URL (afinador con micrófono): ${absoluteUrl(tunerPresetPath(preset.slug))}`, `- Escuela: ${SITE_NAME}`,
+    `- Afinación: ${preset.tuningName}`, ...courseLine(preset.courseId), "",
+    preset.intro, "",
+    `## Notas de las cuerdas ${tunerSubjectOf(preset)}`, "",
+    "Frecuencias calculadas con el La de referencia en 440 Hz.", "",
+    "| Cuerda | Nota | Cifrado | Frecuencia (La = 440 Hz) |", "| --- | --- | --- | --- |",
+    ...[...preset.strings].reverse().map((item) =>
+      `| ${item.label} | ${note(item.midi).es} | ${note(item.midi).scientific} | ${formatHz(midiToFrequency(item.midi))} |`,
+    ), "",
+    ...(preset.stringsNote ?? []).flatMap((paragraph) => [markdownInline(paragraph), ""]),
+    ...(preset.group === "guitarra" ? [
+      `## Cómo pasar de la afinación estándar a ${variant}`, "",
+      `| Cuerda | Estándar | ${variant} | Qué hacer |`, "| --- | --- | --- | --- |",
+      ...preset.strings.map((item, index) => {
+        const from = noteLabel(STANDARD_GUITAR_MIDI[index]);
+        return `| ${item.label} | ${from.es} (${from.scientific}) | ${note(item.midi).es} (${note(item.midi).scientific}) | ${semitoneChange(item.midi - STANDARD_GUITAR_MIDI[index])} |`;
+      }), "",
+    ] : []),
+    ...sectionsMarkdown(preset.sections),
+    `## Consejos para afinar tu ${tunerSubject(preset)}`, "", ...preset.tips.map((tip) => `- ${markdownInline(tip)}`), "",
+    ...faqsMarkdown(preset.faqs),
+  ].join("\n");
+}
+
+/** Same data as the rhythm preset page; the in-browser metronome itself only exists in the HTML. */
+export function rhythmPresetMarkdown(preset: RhythmPreset) {
+  const of = `${preset.gender === "m" ? "del" : "de la"} ${preset.name}`;
+  return [
+    `# ${preset.headline}`, "",
+    `- URL (metrónomo online): ${absoluteUrl(rhythmPresetPath(preset.slug))}`, `- Escuela: ${SITE_NAME}`,
+    `- Ritmo: ${preset.summary}`, ...courseLine(preset.courseId), "",
+    preset.intro, "", markdownInline(preset.setupNote), "",
+    `## Compás y tempo ${of}`, "", ...preset.facts.map(([label, detail]) => `- **${label}:** ${markdownInline(detail)}`), "",
+    ...sectionsMarkdown(preset.sections),
+    `## Cómo practicar ${preset.name} con el metrónomo`, "", ...preset.practice.map((step, index) => `${index + 1}. ${markdownInline(step)}`), "",
+    "## Tempos de esta página", "",
+    `Los BPM cuentan el pulso del compás: ${[...new Set(preset.setups.map((setup) => `${getMeter(setup.meter).pulse} en ${setup.meter}`))].join(", ")}.`, "",
+    ...preset.setups.map((setup) => {
+      const pulse = getMeter(setup.meter).pulse;
+      return `- ${setup.label}: ${setup.bpm} BPM de ${pulse}, es decir, ${setup.bpm * EIGHTHS_PER_PULSE[pulse]} corcheas por minuto.`;
+    }), "",
+    ...faqsMarkdown(preset.faqs),
   ].join("\n");
 }

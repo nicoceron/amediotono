@@ -14,6 +14,7 @@ import type { BlogPost } from "@/lib/content-types";
 import { whatsappHref } from "@/lib/contact";
 import { getCoursePage } from "@/lib/course-pages";
 import {
+  EIGHTHS_PER_PULSE,
   METRONOME_PATH,
   RHYTHM_PRESETS,
   TOOLS_PATH,
@@ -21,7 +22,6 @@ import {
   getMeter,
   getRhythmPreset,
   rhythmPresetPath,
-  type PulseUnit,
 } from "@/lib/music-tools";
 import {
   absoluteUrl,
@@ -36,8 +36,6 @@ import {
 import { shareImage } from "@/lib/share-cards";
 
 export const dynamicParams = false;
-
-const EIGHTHS_PER_PULSE: Record<PulseUnit, number> = { negra: 2, blanca: 4, "negra con puntillo": 3 };
 
 export function generateStaticParams() {
   return RHYTHM_PRESETS.map((preset) => ({ ritmo: preset.slug }));
@@ -56,6 +54,7 @@ export async function generateMetadata({
     title: brandTitle(preset.seoTitle),
     description: preset.metaDescription,
     path: rhythmPresetPath(preset.slug),
+    markdownPath: `${rhythmPresetPath(preset.slug)}.md`,
     image: shareImage(`metronomo-${preset.slug}`),
     keywords: [
       `metrónomo para ${preset.name}`,

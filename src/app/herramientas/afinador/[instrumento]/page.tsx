@@ -28,6 +28,7 @@ import {
   tunerPresetsInGroup,
   tunerSubject,
   tunerSubjectOf,
+  tunerVariantLabel,
   type TunerPreset,
 } from "@/lib/music-tools";
 import {
@@ -55,12 +56,6 @@ function withArticle(preset: TunerPreset) {
   return `${preset.gender === "m" ? "el" : "la"} ${tunerSubject(preset)}`;
 }
 
-/** "Drop D", "Medio tono abajo": the alternate tuning's name for table headers. */
-function variantLabel(preset: TunerPreset) {
-  const label = (preset.variant ?? "").replace(/^en /, "");
-  return label.charAt(0).toUpperCase() + label.slice(1);
-}
-
 /** True when a course's strings don't all sound at the same octave (tiple, charango). */
 function hasCourses(preset: TunerPreset) {
   return preset.strings.some((item) => /orden/.test(item.label));
@@ -80,6 +75,7 @@ export async function generateMetadata({
     title: brandTitle(preset.seoTitle ?? `${preset.headline} gratis con micrófono`),
     description: preset.metaDescription,
     path: tunerPresetPath(preset.slug),
+    markdownPath: `${tunerPresetPath(preset.slug)}.md`,
     image: shareImage(`afinador-${preset.slug}`),
     keywords: [
       `afinador de ${subject}`,
@@ -177,11 +173,11 @@ export default async function TunerPresetPage({
 
             {isGuitarVariant && (
               <>
-                <h2>Cómo pasar de la afinación estándar a {variantLabel(preset)}</h2>
+                <h2>Cómo pasar de la afinación estándar a {tunerVariantLabel(preset)}</h2>
                 <TuningChangesTable
                   standard={STANDARD_GUITAR_MIDI}
                   strings={preset.strings}
-                  tuningLabel={variantLabel(preset)}
+                  tuningLabel={tunerVariantLabel(preset)}
                   flats={preset.flats}
                 />
                 <p>
@@ -318,7 +314,7 @@ export default async function TunerPresetPage({
               {siblings.map((other) => (
                 <li key={other.slug}>
                   <Link href={tunerPresetPath(other.slug)} prefetch={false}>
-                    {other.group === "guitarra" ? variantLabel(other) : tunerPresetTitle(other).replace(/^Afinador de /, "")}
+                    {other.group === "guitarra" ? tunerVariantLabel(other) : tunerPresetTitle(other).replace(/^Afinador de /, "")}
                   </Link>
                 </li>
               ))}

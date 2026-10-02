@@ -63,10 +63,10 @@ export function rootAiMarkdown() {
     "## Guías y recursos gratuitos", "",
     ...linksMarkdown([
       { name: "Guías del blog por tema", path: "/blog/llms.txt", description: "Aprender música, niños, adultos, instrumentos, cuidado, técnica, admisiones, profes y academias." },
-      { name: "Herramientas musicales", path: "/herramientas/llms.txt", description: "Metrónomo, afinadores, entrenamiento auditivo, tipo de voz y círculo de quintas." },
+      { name: "Herramientas musicales", path: "/herramientas/llms.txt", description: "Metrónomo, afinadores con las notas y frecuencias de cada instrumento, tempos de ritmos colombianos, entrenamiento auditivo, tipo de voz y círculo de quintas." },
       { name: "Diccionario de acordes", path: `${CHORDS_PATH}/llms.txt`, description: `${CHORDS.length} acordes con notas y digitaciones en Markdown.` },
       { name: "Escalas musicales", path: `${SCALES_PATH}/llms.txt`, description: `${SCALES.length} escalas con notas, fórmula y práctica en Markdown.` },
-      { name: "Glosario musical", path: "/glosario-musical" },
+      { name: "Glosario musical", path: "/glosario-musical.md", description: "Términos de ritmo, armonía, lectura, técnica, instrumentos y estilos." },
     ]), "",
     "## Escuela y contacto", "",
     ...linksMarkdown([
@@ -99,8 +99,8 @@ export function sectionAiMarkdown(section: AiSection) {
     case "herramientas":
       return indexMarkdown("Herramientas para músicos", "Herramientas gratuitas que funcionan en el navegador; el audio del micrófono se analiza en el dispositivo.", [
         ...TOOLS,
-        ...TUNER_PRESETS.map((preset) => ({ name: preset.headline, path: tunerPresetPath(preset.slug), description: preset.tuningName })),
-        ...RHYTHM_PRESETS.map((preset) => ({ name: preset.headline, path: rhythmPresetPath(preset.slug), description: preset.summary })),
+        ...TUNER_PRESETS.map((preset) => ({ name: preset.headline, path: `${tunerPresetPath(preset.slug)}.md`, description: preset.tuningName })),
+        ...RHYTHM_PRESETS.map((preset) => ({ name: preset.headline, path: `${rhythmPresetPath(preset.slug)}.md`, description: preset.summary })),
       ]);
     case "acordes":
       return indexMarkdown("Diccionario de acordes", `${CHORDS.length} acordes para guitarra, piano y ukelele: notas, fórmula, posiciones, inversiones y progresiones.`,
