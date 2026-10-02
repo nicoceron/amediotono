@@ -83,6 +83,7 @@ export async function generateMetadata({
     title: brandTitle(scaleSeoTitle(scale)),
     description: scaleMetaDescription(scale),
     path: scalePath(scale),
+    markdownPath: `${scalePath(scale)}.md`,
     image: shareImage("escalas"),
     keywords: [
       `escala de ${scale.longName.toLowerCase()}`,

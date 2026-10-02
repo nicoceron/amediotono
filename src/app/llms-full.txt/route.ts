@@ -26,6 +26,7 @@ import {
 import { SITE_BRAND, SITE_DESCRIPTION, SITE_NAME, absoluteUrl } from "@/lib/seo";
 import { TEACHERS } from "@/lib/teachers";
 import { GLOSSARY, GLOSSARY_GROUPS } from "@/content/glossary";
+import { AI_SECTIONS } from "@/lib/ai-discovery";
 
 export const dynamic = "force-static";
 
@@ -47,6 +48,8 @@ export function GET() {
     `Este archivo reúne en Markdown el contenido de ${absoluteUrl("/")}: clases, profes, servicios para instituciones, herramientas, glosario y el índice de las guías del blog (cada guía está completa en Markdown agregando .md a su URL). Cada sección indica su URL original. Índice corto: ${absoluteUrl("/llms.txt")}.`,
     "",
     ...siteFactsMarkdown(),
+    "## Índices por sección", "",
+    ...AI_SECTIONS.map((section) => `- [${section}](${absoluteUrl(`/${section}/llms.txt`)}): consulta solo el tema que necesitas.`), "",
     "## Preguntas frecuentes",
     "",
     ...HOME_FAQS.flatMap((faq) => [`### ${faq.question}`, "", markdownInline(faq.answer), ""]),
@@ -125,6 +128,7 @@ export function GET() {
     headers: {
       "content-type": "text/markdown; charset=utf-8",
       "cache-control": "public, max-age=3600, s-maxage=86400",
+      link: `<${absoluteUrl("/llms.txt")}>; rel="describedby"; type="text/markdown"`,
     },
   });
 }

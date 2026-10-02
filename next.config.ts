@@ -54,6 +54,8 @@ const nextConfig: NextConfig = {
       { source: "/academias/:servicio\\.md", destination: "/md/academias/:servicio" },
       { source: "/profes\\.md", destination: "/md/profes" },
       { source: "/profes/:slug\\.md", destination: "/md/profes/:slug" },
+      { source: "/acordes/:acorde\\.md", destination: "/md/acordes/:acorde" },
+      { source: "/escalas/:escala\\.md", destination: "/md/escalas/:escala" },
       {
         source:
           "/:servicio(clases-de-musica-a-domicilio-bogota|clases-de-musica-online|preuniversitario-musica)\\.md",

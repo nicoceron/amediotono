@@ -7636,7 +7636,7 @@ section.block.ed-cta-section {
   text-decoration: none;
 }
 
-.blog-author span {
+.blog-author-role {
   display: block;
   color: var(--ink-soft);
   font-size: 14px;
