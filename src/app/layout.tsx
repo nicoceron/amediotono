@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import localFont from "next/font/local";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
@@ -26,6 +27,23 @@ import {
 // Cloudflare Web Analytics (cookieless). The token is public by design; the
 // site is managed in the Cloudflare dashboard under Analytics > Web Analytics.
 const CLOUDFLARE_WEB_ANALYTICS_TOKEN = "34f7314ed803427fa410404495e39475";
+
+// Preload the brand font and let Next derive fallback metrics from its files.
+// Optional display prevents a late download from reflowing article headers.
+const satoshi = localFont({
+  src: [
+    { path: "../../public/fonts/satoshi-regular.woff2", weight: "400", style: "normal" },
+    { path: "../../public/fonts/satoshi-medium.woff2", weight: "500", style: "normal" },
+    { path: "../../public/fonts/satoshi-bold.woff2", weight: "700", style: "normal" },
+    { path: "../../public/fonts/satoshi-black.woff2", weight: "900", style: "normal" },
+    { path: "../../public/fonts/satoshi-medium-italic.woff2", weight: "500", style: "italic" },
+    { path: "../../public/fonts/satoshi-bold-italic.woff2", weight: "700", style: "italic" },
+    { path: "../../public/fonts/satoshi-black-italic.woff2", weight: "900", style: "italic" },
+  ],
+  variable: "--font-satoshi",
+  display: "optional",
+  adjustFontFallback: "Arial",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -134,7 +152,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-      <html lang={SITE_LANGUAGE} className="antialiased" suppressHydrationWarning>
+      <html lang={SITE_LANGUAGE} className={`${satoshi.variable} antialiased`} suppressHydrationWarning>
       <head>
         <link rel="describedby" type="text/markdown" href={absoluteUrl("/llms.txt")} />
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
