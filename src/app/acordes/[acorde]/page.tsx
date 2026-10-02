@@ -71,6 +71,7 @@ export async function generateMetadata({
     title: brandTitle(chordSeoTitle(chord)),
     description: chordMetaDescription(chord, guitarVoicings(chord)[0]),
     path: chordPath(chord),
+    markdownPath: `${chordPath(chord)}.md`,
     image: shareImage("acordes"),
     keywords: [
       `acorde de ${chord.longName.toLowerCase()}`,

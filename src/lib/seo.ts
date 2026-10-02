@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { CONTACT_EMAIL, INSTAGRAM_URL, OTHER_PROFILE_URLS, WHATSAPP_DISPLAY } from "@/lib/contact";
 import indexNowConfig from "@/data/indexnow.json";
+import searchVerification from "@/data/search-verification.json";
 import type { BlogPost, CourseGuide, FaqItem } from "@/lib/content-types";
 import type { Course } from "@/lib/courses";
 import type { Teacher } from "@/lib/teachers";
@@ -100,10 +101,11 @@ export function indexNowKeyLocation() {
   return absoluteUrl(INDEXNOW_KEY_PATH);
 }
 
-/** Search Console / Bing Webmaster verification tokens, read from env. */
+/** Public ownership IDs; environment variables override configured defaults. */
 export function siteVerification(): Metadata["verification"] {
   const google = process.env.GOOGLE_SITE_VERIFICATION?.trim();
-  const bing = process.env.BING_SITE_VERIFICATION?.trim();
+  // Ownership verification IDs are public: Bing reads this tag from the HTML.
+  const bing = process.env.BING_SITE_VERIFICATION?.trim() || searchVerification.bing;
   const yandex = process.env.YANDEX_SITE_VERIFICATION?.trim();
 
   if (!google && !bing && !yandex) return undefined;

@@ -16,6 +16,7 @@ import {
   SITE_LOCALE,
   SITE_NAME,
   SITE_URL,
+  absoluteUrl,
   jsonLd,
   organizationJsonLd,
   siteVerification,
@@ -135,6 +136,7 @@ export default function RootLayout({
   return (
       <html lang={SITE_LANGUAGE} className="antialiased" suppressHydrationWarning>
       <head>
+        <link rel="describedby" type="text/markdown" href={absoluteUrl("/llms.txt")} />
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <script
           type="application/ld+json"

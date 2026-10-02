@@ -350,7 +350,7 @@ export function markdownResponse(body: string, canonicalPath: string) {
     headers: {
       "content-type": "text/markdown; charset=utf-8",
       "cache-control": "public, max-age=3600, s-maxage=86400",
-      link: `<${absoluteUrl(canonicalPath)}>; rel="canonical"`,
+      link: `<${absoluteUrl(canonicalPath)}>; rel="canonical", <${absoluteUrl("/llms.txt")}>; rel="describedby"; type="text/markdown"`,
     },
   });
 }

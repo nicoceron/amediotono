@@ -269,7 +269,7 @@ export default async function BlogPostPage({
                       {author.name}
                     </Link>
                   </strong>
-                  <span>{author.role}</span>
+                  <span className="blog-author-role">{author.role}</span>
                   <p>
                     A medio tono es una escuela de artes y música en Bogotá. Evaluamos a cada profe
                     en música, pedagogía y calidad humana antes de su primera clase, y damos clases
