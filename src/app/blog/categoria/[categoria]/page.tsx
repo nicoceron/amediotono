@@ -112,9 +112,6 @@ export default async function BlogCategoryPage({
           <Breadcrumbs items={crumbs} />
           <header className="ed-hero ed-hero--center">
             <div className="ed-hero-copy">
-              <span className="ed-eyebrow">
-                Blog · {posts.length} {posts.length === 1 ? "guía" : "guías"}
-              </span>
               <h1>{category.title}</h1>
               <p className="ed-lead">{category.description}</p>
             </div>

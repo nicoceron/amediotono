@@ -111,7 +111,6 @@ export default function MetronomePage() {
           <Breadcrumbs items={crumbs} />
           <header className="ed-hero ed-hero--center">
             <div className="ed-hero-copy">
-              <span className="ed-eyebrow">Herramienta gratis</span>
               <h1>{TITLE}</h1>
               <p className="ed-lead">
                 Un metrónomo preciso para practicar cualquier instrumento: elige el tempo, el

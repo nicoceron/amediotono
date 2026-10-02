@@ -161,7 +161,7 @@ export default async function BlogPostPage({
           <Breadcrumbs items={crumbs} />
 
           <header className="blog-header">
-            <Link className="ed-eyebrow" href={categoryPath(post.category)} prefetch={false}>
+            <Link className="ed-category-link" href={categoryPath(post.category)} prefetch={false}>
               {category.label}
             </Link>
             <h1>{post.title}</h1>

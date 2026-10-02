@@ -25,6 +25,40 @@ function withHeaders(response: Response, extra: Record<string, string>) {
   });
 }
 
+/**
+ * Static imports have content-hashed URLs, so optimized variants can safely
+ * live at the edge. Public filenames retain their existing shorter browser TTL.
+ * OpenNext's IMAGES adapter transforms each request; Cache-Control alone does
+ * not put that generated response into the Workers Cache API.
+ */
+async function optimizedStaticImage(request: Request, env: CloudflareEnv, ctx: ExecutionContext) {
+  const cache = await caches.open("next-static-images-v1");
+  const cacheUrl = new URL(request.url);
+  // Workers cache keys must distinguish Accept variants explicitly. Retain
+  // the whole value so negotiation stays owned by the installed adapter.
+  cacheUrl.searchParams.set("__accept", request.headers.get("Accept") ?? "");
+  const key = new Request(cacheUrl, { headers: { Accept: request.headers.get("Accept") ?? "" } });
+  const cached = await cache.match(key).catch(() => undefined);
+  if (cached) return cached;
+
+  const response = withHeaders(await handler.fetch(request, env, ctx), {
+    "Strict-Transport-Security": HSTS,
+  });
+  const cacheControl = response.headers.get("Cache-Control") ?? "";
+  if (
+    response.status === 200 &&
+    response.headers.get("Content-Type")?.startsWith("image/") &&
+    cacheControl.includes("immutable") &&
+    !/\b(private|no-store|no-cache)\b/.test(cacheControl) &&
+    !response.headers.has("Set-Cookie")
+  ) {
+    ctx.waitUntil(cache.put(key, response.clone()).catch(() => {
+      console.warn("Could not cache an optimized static image");
+    }));
+  }
+  return response;
+}
+
 async function teacherShareJpeg(request: Request, url: URL, env: CloudflareEnv, ctx: ExecutionContext) {
   const cache = await caches.open("teacher-share-jpeg");
   const cached = await cache.match(request);
@@ -65,6 +99,19 @@ export default {
     }
 
     const isRead = request.method === "GET" || request.method === "HEAD";
+
+    if (
+      request.method === "GET" &&
+      url.pathname === "/_next/image" &&
+      url.searchParams.getAll("url").length === 1 &&
+      url.searchParams.get("url")?.startsWith("/_next/static/media/") &&
+      !request.headers.has("Authorization") &&
+      !request.headers.has("Range") &&
+      !request.headers.has("If-None-Match") &&
+      !request.headers.has("If-Modified-Since")
+    ) {
+      return optimizedStaticImage(request, env, ctx);
+    }
 
     if (isRead && TEACHER_SHARE_JPEG.test(url.pathname)) {
       return teacherShareJpeg(request, url, env, ctx);

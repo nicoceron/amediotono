@@ -100,7 +100,6 @@ export default function BlogPage() {
           <Breadcrumbs items={crumbs} />
           <header className="ed-hero ed-hero--center">
             <div className="ed-hero-copy">
-              <span className="ed-eyebrow">Blog · {BLOG_POSTS.length} guías</span>
               <h1>{TITLE}</h1>
               <p className="ed-lead">
                 Guías claras sobre música para familias, estudiantes de todas las edades y

@@ -95,7 +95,6 @@ export default function GlossaryPage() {
           <Breadcrumbs items={crumbs} />
           <header className="ed-hero ed-hero--center">
             <div className="ed-hero-copy">
-              <span className="ed-eyebrow">{GLOSSARY.length} términos</span>
               <h1>{TITLE}</h1>
               <p className="ed-lead">
                 Las palabras que escuchas en clase, explicadas en pocas líneas: desde pulso y

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Fragment } from "react";
+import navLogo from "../../public/logo-nav.webp";
 
 /**
  * The hand-drawn "A ½ tono" wordmark, sized to the surrounding text. Its alt
@@ -10,7 +11,7 @@ export function BrandWordmark({ className }: { className?: string }) {
   return (
     <Image
       className={className ? `brand-wordmark ${className}` : "brand-wordmark"}
-      src="/logo-nav.webp"
+      src={navLogo}
       alt="A medio tono"
       width={1205}
       height={300}

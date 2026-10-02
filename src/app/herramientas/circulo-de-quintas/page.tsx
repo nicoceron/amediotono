@@ -144,7 +144,6 @@ export default function CircleOfFifthsPage() {
           <Breadcrumbs items={crumbs} />
           <header className="ed-hero ed-hero--center">
             <div className="ed-hero-copy">
-              <span className="ed-eyebrow">Herramienta gratis</span>
               <h1>{TITLE}</h1>
               <p className="ed-lead">
                 Toca cualquier tonalidad para ver su armadura, su relativa menor, sus notas y los acordes que la forman. Las

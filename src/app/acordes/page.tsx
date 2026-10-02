@@ -1,3 +1,5 @@
+import "@/components/music/music.css";
+import { MusicIndexTable } from "@/components/music/MusicIndexTable";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Footer } from "@/components/Footer";
@@ -132,7 +134,6 @@ export default function ChordsIndexPage() {
           <Breadcrumbs items={crumbs} />
           <header className="ed-hero ed-hero--center">
             <div className="ed-hero-copy">
-              <span className="ed-eyebrow">{CHORDS.length} acordes con diagramas</span>
               <h1>{TITLE}</h1>
               <p className="ed-lead">
                 Busca cualquier acorde y míralo en guitarra, piano y ukelele: notas, digitación paso a paso, inversiones,
@@ -169,37 +170,21 @@ export default function ChordsIndexPage() {
 
           <div className="music-panel">
             <h2>Todos los acordes</h2>
-            <div className="prose-table-wrap music-index" role="region" aria-label="Tabla de acordes por nota y tipo" tabIndex={0}>
-              <table>
-                <thead>
-                  <tr>
-                    <th scope="col">Nota</th>
-                    {CHORD_TYPES.map((type) => (
-                      <th scope="col" key={type.id}>
-                        {type.name}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {ROOT_ORDER.map((pc) => {
-                    const row = CHORD_TYPES.map((type) => chordFor(pc, type.id)!);
-                    return (
-                      <tr key={pc}>
-                        <th scope="row">{[...new Set(row.map((chord) => noteName(chord.root)))].join(" / ")}</th>
-                        {row.map((chord) => (
-                          <td key={chord.slug}>
-                            <Link href={chordPath(chord)} prefetch={false} title={`Acorde de ${chord.name}`}>
-                              {chord.displaySymbol}
-                            </Link>
-                          </td>
-                        ))}
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-            </div>
+            <MusicIndexTable
+              label="Tabla de acordes por nota y tipo"
+              rootHeading="Nota"
+              columns={CHORD_TYPES.map((type) => ({ id: type.id, label: type.name }))}
+              rows={ROOT_ORDER.map((pc) => {
+                const row = CHORD_TYPES.map((type) => chordFor(pc, type.id)!);
+                return {
+                  id: pc,
+                  label: [...new Set(row.map((chord) => noteName(chord.root)))].join(" / "),
+                  cells: row.map((chord) => ({
+                    id: chord.slug, label: chord.displaySymbol, href: chordPath(chord), name: `Acorde de ${chord.name}`,
+                  })),
+                };
+              })}
+            />
           </div>
         </div>
       </section>

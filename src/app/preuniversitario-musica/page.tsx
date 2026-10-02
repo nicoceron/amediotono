@@ -105,7 +105,6 @@ export default function PreuniversitarioPage() {
           <Breadcrumbs items={crumbs} />
           <header className="ed-hero ed-hero--center">
             <div className="ed-hero-copy">
-              <span className="ed-eyebrow">Preparación para pruebas de admisión</span>
               <h1>{TITLE}</h1>
               <p className="ed-lead">{PAGE.lead}</p>
               <div className="ed-actions">

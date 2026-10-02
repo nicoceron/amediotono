@@ -23,7 +23,6 @@ import { getPost, postPath } from "@/lib/blog";
 import type { BlogPost } from "@/lib/content-types";
 import { whatsappHref } from "@/lib/contact";
 import { COURSE_PAGES } from "@/lib/course-pages";
-import { TEACHERS } from "@/lib/teachers";
 import {
   absoluteUrl,
   brandTitle,
@@ -59,7 +58,6 @@ export const metadata: Metadata = createPageMetadata({
 });
 
 export default function OnlineClassesPage() {
-  const virtualTeachers = TEACHERS.filter((teacher) => teacher.classFormats?.includes("Virtual"));
   const guides = PAGE.guides.map((slug) => getPost(slug)).filter((post): post is BlogPost => Boolean(post));
   const waUrl = whatsappHref("¡Hola! Quiero información sobre clases de música online.");
   const crumbs = [
@@ -107,9 +105,6 @@ export default function OnlineClassesPage() {
           <Breadcrumbs items={crumbs} />
           <header className="ed-hero ed-hero--center">
             <div className="ed-hero-copy">
-              <span className="ed-eyebrow">
-                {virtualTeachers.length} profes · {COURSE_PAGES.length} instrumentos · en vivo
-              </span>
               <h1>{TITLE}</h1>
               <p className="ed-lead">{PAGE.lead}</p>
               <div className="ed-actions">

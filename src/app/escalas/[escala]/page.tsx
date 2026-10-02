@@ -174,14 +174,13 @@ export default async function ScalePage({
           <Breadcrumbs items={crumbs} />
           <header className="ed-hero ed-hero--center">
             <div className="ed-hero-copy">
-              <span className="ed-eyebrow">Escala {scale.type.name}</span>
               <h1>{title}</h1>
               <p className="ed-lead">
                 La escala de {scale.name} tiene {scale.notes.length} notas: {scaleNotesText(scale)}. Es una escala{" "}
                 {scale.type.sound}. {scale.type.usage}
               </p>
               <div className="ed-actions">
-                <PlayNotesButton midis={midis} mode="scale" label="Escuchar la escala" />
+                <PlayNotesButton key={scale.slug} midis={midis} mode="scale" label="Escuchar la escala" />
               </div>
             </div>
           </header>
@@ -220,7 +219,7 @@ export default async function ScalePage({
 
           <div className="music-panel" id="guitarra">
             <h2>Escala de {scale.name} en guitarra</h2>
-            <div className="fretboard-wrap">
+            <div className="fretboard-wrap" role="region" aria-label={`Mástil de guitarra: ${scale.name}`} tabIndex={0} data-lenis-prevent>
               <Fretboard
                 tuning={GUITAR_TUNING}
                 stringLabels={GUITAR_STRING_NAMES}
