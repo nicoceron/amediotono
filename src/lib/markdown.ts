@@ -1,4 +1,5 @@
 import type { ServicePage } from "@/content/service-pages";
+import { GLOSSARY, GLOSSARY_GROUPS } from "@/content/glossary";
 import type { B2BService } from "@/lib/b2b";
 import { BLOG_CATEGORIES, getPost, postAuthor, postPath, postsForCourse } from "@/lib/blog";
 import { CONTACT_EMAIL, INSTAGRAM_URL, TIKTOK_URL, WHATSAPP_DISPLAY, whatsappHref } from "@/lib/contact";
@@ -342,6 +343,25 @@ export function b2bServiceMarkdown(service: B2BService) {
     ...service.deliverable.items.map((item) => `- ${markdownInline(item)}`),
     "",
     ...faqMarkdown(service.faqs),
+  ]);
+}
+
+/** Same terms and order as /glosario-musical: alphabetical within each group. */
+export function glossaryMarkdown() {
+  return finish([
+    "# Glosario de términos musicales",
+    "",
+    `- URL: ${absoluteUrl("/glosario-musical")}`,
+    `- Escuela: ${SITE_NAME}`,
+    "",
+    ...GLOSSARY_GROUPS.flatMap((group) => [
+      `## ${group}`,
+      "",
+      ...GLOSSARY.filter((term) => term.group === group)
+        .sort((a, b) => a.term.localeCompare(b.term, "es"))
+        .map((term) => `- **${term.term}**: ${markdownInline(term.definition)}${term.example ? ` ${markdownInline(term.example)}` : ""}`),
+      "",
+    ]),
   ]);
 }
 

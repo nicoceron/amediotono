@@ -7,6 +7,7 @@ import {
   b2bServiceMarkdown,
   contactMarkdown,
   coursePageMarkdown,
+  glossaryMarkdown,
   markdownInline,
   serviceMarkdown,
   siteFactsMarkdown,
@@ -25,7 +26,6 @@ import {
 } from "@/lib/music-tools";
 import { SITE_BRAND, SITE_DESCRIPTION, SITE_NAME, absoluteUrl } from "@/lib/seo";
 import { TEACHERS } from "@/lib/teachers";
-import { GLOSSARY, GLOSSARY_GROUPS } from "@/content/glossary";
 import { AI_SECTIONS } from "@/lib/ai-discovery";
 
 export const dynamic = "force-static";
@@ -80,20 +80,6 @@ export function GET() {
     ),
   ].join("\n");
 
-  const glossary = [
-    `# Glosario musical (${absoluteUrl("/glosario-musical")})`,
-    "",
-    ...GLOSSARY_GROUPS.flatMap((group) => [
-      `## ${group}`,
-      "",
-      ...GLOSSARY.filter((term) => term.group === group).map(
-        (term) =>
-          `- **${term.term}**: ${markdownInline(term.definition)}${term.example ? ` ${markdownInline(term.example)}` : ""}`,
-      ),
-      "",
-    ]),
-  ].join("\n");
-
   const blog = [
     `# Guías del blog (${absoluteUrl("/blog")})`,
     "",
@@ -118,7 +104,7 @@ export function GET() {
     ...TEACHERS.map(teacherProfileMarkdown),
     ...B2B_SERVICES.map(b2bServiceMarkdown),
     tools,
-    glossary,
+    glossaryMarkdown(),
     blog,
   ]
     .map((part) => part.trim())

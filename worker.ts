@@ -15,6 +15,61 @@ const SHARE_IMAGE_CACHE = "public, max-age=86400, stale-while-revalidate=2592000
 // 300-500 KB, above what WhatsApp shows as a preview. Pages link this JPEG.
 const TEACHER_SHARE_JPEG = /^\/profes\/[a-z0-9-]+\/share-image\.jpg$/;
 
+/** Pages, not files or internal routes: the URLs that can answer in Markdown. */
+function isPagePath(pathname: string) {
+  return !/\.[a-z0-9]+$/i.test(pathname) && !/^\/(api|md|_next)\//.test(pathname);
+}
+
+/**
+ * True when the client ranks text/markdown at least as high as text/html.
+ * Some coding agents list text/markdown first in Accept; browsers never list
+ * it, so they always get HTML.
+ */
+function prefersMarkdown(accept: string | null) {
+  if (!accept) return false;
+  let markdown = 0;
+  let html = 0;
+  for (const range of accept.toLowerCase().split(",")) {
+    const [type, ...params] = range.split(";").map((part) => part.trim());
+    const q = Number(params.find((param) => param.startsWith("q="))?.slice(2) ?? 1);
+    if (type === "text/markdown") markdown = q;
+    else if (type === "text/html") html = q;
+  }
+  return markdown > 0 && markdown >= html;
+}
+
+function withVaryAccept(headers: Headers) {
+  const vary = headers.get("Vary");
+  return vary ? `${vary}, Accept` : "Accept";
+}
+
+/**
+ * Serves a page's Markdown twin (`<page>.md`, see next.config.ts) or, for the
+ * home page and section hubs, their llms.txt index. Undefined when the page
+ * has neither, so the caller falls back to HTML.
+ */
+async function negotiatedMarkdown(request: Request, url: URL, env: CloudflareEnv, ctx: ExecutionContext) {
+  const path = url.pathname.replace(/\/$/, "");
+  const candidates = path ? [`${path}.md`, `${path}/llms.txt`] : ["/llms.txt"];
+  for (const candidate of candidates) {
+    const markdownUrl = new URL(candidate, url);
+    const response: Response = await handler.fetch(
+      new Request(markdownUrl, { method: request.method, headers: request.headers }),
+      env,
+      ctx,
+    );
+    if (response.ok && response.headers.get("Content-Type")?.startsWith("text/markdown")) {
+      return withHeaders(response, {
+        "Strict-Transport-Security": HSTS,
+        "Content-Location": candidate,
+        Vary: withVaryAccept(response.headers),
+      });
+    }
+    await response.body?.cancel();
+  }
+  return undefined;
+}
+
 function withHeaders(response: Response, extra: Record<string, string>) {
   const headers = new Headers(response.headers);
   for (const [name, value] of Object.entries(extra)) headers.set(name, value);
@@ -117,6 +172,12 @@ export default {
       return teacherShareJpeg(request, url, env, ctx);
     }
 
+    const isPage = isRead && isPagePath(url.pathname);
+    if (isPage && prefersMarkdown(request.headers.get("Accept"))) {
+      const markdown = await negotiatedMarkdown(request, url, env, ctx);
+      if (markdown) return markdown;
+    }
+
     // Static files (public/ and /_next/static) as before; public/_headers sets
     // their headers. Anything else is a page or route for the Next server.
     if (isRead && env.ASSETS) {
@@ -126,6 +187,8 @@ export default {
 
     const response: Response = await handler.fetch(request, env, ctx);
     const extra: Record<string, string> = { "Strict-Transport-Security": HSTS };
+    // The same URL can answer in Markdown, so shared caches must key on Accept.
+    if (isPage) extra.Vary = withVaryAccept(response.headers);
     // OpenNext leaves /_next/image responses without Cache-Control for images
     // under public/, so browsers re-download them on every visit.
     if (url.pathname === "/_next/image" && response.ok && !response.headers.has("Cache-Control")) {

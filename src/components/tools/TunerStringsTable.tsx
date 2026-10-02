@@ -1,9 +1,4 @@
-import { midiToFrequency, noteLabel, type TunerString } from "@/lib/music-core";
-
-/** Hz with a decimal comma, as written in Colombia: "82,41 Hz". */
-export function formatHz(frequency: number) {
-  return `${frequency.toFixed(2).replace(".", ",")} Hz`;
-}
+import { formatHz, midiToFrequency, noteLabel, semitoneChange, type TunerString } from "@/lib/music-core";
 
 export function TunerStringsTable({
   strings,
@@ -42,16 +37,6 @@ export function TunerStringsTable({
       </table>
     </div>
   );
-}
-
-/** "Baja 1 tono", "Sube ½ tono", "Baja 1 ½ tonos", "No cambia" */
-export function semitoneChange(semitones: number) {
-  if (semitones === 0) return "No cambia";
-  const size = Math.abs(semitones);
-  const whole = Math.floor(size / 2);
-  const half = size % 2 === 1;
-  const amount = whole === 0 ? "½ tono" : `${whole}${half ? " ½" : ""} ${whole === 1 && !half ? "tono" : "tonos"}`;
-  return `${semitones < 0 ? "Baja" : "Sube"} ${amount}`;
 }
 
 /** How to get from standard guitar tuning to an alternate tuning, string by string. */

@@ -9,7 +9,6 @@ import { plainText } from "@/components/RichText";
 import { ToolLinks } from "@/components/tools/ToolLinks";
 import { TunerPresetGroups } from "@/components/tools/ToolPresetLists";
 import { Tuner } from "@/components/tools/Tuner";
-import { formatHz } from "@/components/tools/TunerStringsTable";
 import type { FaqItem } from "@/lib/content-types";
 import { whatsappHref } from "@/lib/contact";
 import {
@@ -19,6 +18,7 @@ import {
   TOOLS_PATH,
   TUNER_PATH,
   VOICE_TYPE_PATH,
+  formatHz,
   midiToFrequency,
 } from "@/lib/music-tools";
 import {
