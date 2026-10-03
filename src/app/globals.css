@@ -9490,8 +9490,3 @@ section.block.ed-cta-section {
 }
 .nav-dropdown-item[data-state="checked"] { font-weight: 700; }
 .nav-dropdown-item > span { display: inline-flex; }
-.nav-dropdown-separator {
-  height: 1px;
-  margin: 5px 4px;
-  background: color-mix(in srgb, var(--ink) 12%, transparent);
-}
