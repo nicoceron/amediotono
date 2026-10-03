@@ -146,6 +146,39 @@ const themeInitScript = `
   })();
 `;
 
+// WebMCP: browsers with in-page agents (navigator.modelContext) get the same
+// read-only tools as /mcp. Other browsers return on the first line.
+const webMcpScript = `
+  (function() {
+    var context = navigator.modelContext;
+    if (!context) return;
+    var rpc = function(method, params) {
+      return fetch('/mcp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ jsonrpc: '2.0', id: Date.now(), method: method, params: params })
+      }).then(function(response) { return response.json(); });
+    };
+    rpc('tools/list').then(function(message) {
+      var tools = ((message.result && message.result.tools) || []).map(function(tool) {
+        return {
+          name: tool.name,
+          description: tool.description,
+          inputSchema: tool.inputSchema,
+          annotations: tool.annotations,
+          execute: function(args) {
+            return rpc('tools/call', { name: tool.name, arguments: args || {} }).then(function(reply) {
+              return reply.result || { content: [{ type: 'text', text: (reply.error && reply.error.message) || 'Error' }], isError: true };
+            });
+          }
+        };
+      });
+      if (typeof context.provideContext === 'function') context.provideContext({ tools: tools });
+      else if (typeof context.registerTool === 'function') tools.forEach(function(tool) { context.registerTool(tool); });
+    }).catch(function() {});
+  })();
+`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -156,6 +189,7 @@ export default function RootLayout({
       <head>
         <link rel="describedby" type="text/markdown" href={absoluteUrl("/llms.txt")} />
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        <script dangerouslySetInnerHTML={{ __html: webMcpScript }} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: rootJsonLd }}
