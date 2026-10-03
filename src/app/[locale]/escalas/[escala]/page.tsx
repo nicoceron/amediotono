@@ -1,4 +1,5 @@
 import {localizeMetadata} from "@/i18n/server";
+import {getLocale} from "next-intl/server";
 import {useText} from "@/i18n/use-text";
 import {getText} from "@/i18n/server";
 import type { Metadata } from "next";
@@ -81,9 +82,11 @@ export async function generateMetadata({
   const { escala } = await params;
   const scale = getScale(escala);
   if (!scale) return await localizeMetadata({});
+  const [tx, locale] = await Promise.all([getText(), getLocale()]);
+  const title = locale === "es" ? scaleSeoTitle(scale) : tx.template("Escala de {p0}", {p0: tx(scale.longName)});
 
   return await localizeMetadata(createPageMetadata({
-    title: brandTitle(scaleSeoTitle(scale)),
+    title: brandTitle(title),
     description: scaleMetaDescription(scale),
     path: scalePath(scale),
     markdownPath: `${scalePath(scale)}.md`,
@@ -153,7 +156,7 @@ export default async function ScalePage({
     .map((slug) => getPost(slug))
     .filter((post): post is BlogPost => Boolean(post));
   const courses = ["piano", "guitarra-acustica", "teoria-musical"].map((id) => getCourseById(id)).filter(Boolean);
-  const title = `Escala de ${scale.name}`;
+  const title = tx.template("Escala de {p0}", {p0: tx(scale.name)});
   const crumbs = [
     { name: "Inicio", path: "/" },
     { name: "Escalas", path: SCALES_PATH },
@@ -180,7 +183,7 @@ export default async function ScalePage({
           <Breadcrumbs items={crumbs} />
           <header className="ed-hero ed-hero--center">
             <div className="ed-hero-copy">
-              <h1>{tx(title)}</h1>
+              <h1>{title}</h1>
               <p className="ed-lead">
                 {tx("La escala de ")}{tx(scale.name)} {tx(" tiene ")}{tx(scale.notes.length)} {tx(" notas: ")}{tx(scaleNotesText(scale))}{tx(". Es una escala")}{tx(" ")}
                 {tx(scale.type.sound)}{tx(". ")}{tx(scale.type.usage)}

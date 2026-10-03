@@ -1,5 +1,6 @@
 import {localizeMetadata} from "@/i18n/server";
 import {getText} from "@/i18n/server";
+import {getLocale} from "next-intl/server";
 import type { Metadata } from "next";
 import Link from "@/i18n/navigation";
 import { notFound } from "next/navigation";
@@ -68,9 +69,11 @@ export async function generateMetadata({
   const chord = getChord(acorde);
   if (!chord) return await localizeMetadata({});
   const enharmonic = chordEnharmonic(chord);
+  const [tx, locale] = await Promise.all([getText(), getLocale()]);
+  const title = locale === "es" ? chordSeoTitle(chord) : tx.template("Acorde de {p0} ({p1})", {p0: tx(chord.longName), p1: chord.symbol});
 
   return await localizeMetadata(createPageMetadata({
-    title: brandTitle(chordSeoTitle(chord)),
+    title: brandTitle(title),
     description: chordMetaDescription(chord, guitarVoicings(chord)[0]),
     path: chordPath(chord),
     markdownPath: `${chordPath(chord)}.md`,
@@ -122,7 +125,7 @@ export default async function ChordPage({
     .slice(0, 4);
   const guitarCourse = getCourseById("guitarra-acustica");
   const pianoCourse = getCourseById("piano");
-  const title = `Acorde de ${chord.name} (${chord.displaySymbol})`;
+  const title = tx.template("Acorde de {p0} ({p1})", {p0: tx(chord.name), p1: chord.displaySymbol});
   const crumbs = [
     { name: "Inicio", path: "/" },
     { name: "Acordes", path: CHORDS_PATH },
@@ -149,7 +152,7 @@ export default async function ChordPage({
           <Breadcrumbs items={crumbs} />
           <header className="ed-hero ed-hero--center">
             <div className="ed-hero-copy">
-              <h1>{tx(title)}</h1>
+              <h1>{title}</h1>
               <p className="ed-lead">
                 {tx(chord.name)} {tx(" es un acorde ")}{tx(chord.type.name)} {tx(" de ")}{tx(chord.notes.length)} {tx(" notas: ")}{tx(chordNotesText(chord))}{tx(". Suena")}{tx(" ")}
                 {tx(chord.type.sound)}{tx(". Aquí lo tienes en guitarra, piano y ukelele, con digitación y sonido.")}{tx(enharmonic && tx.template(" También se llama {p0} ({p1}).", {p0: tx(enharmonic.name), p1: tx(enharmonic.symbol)}))}

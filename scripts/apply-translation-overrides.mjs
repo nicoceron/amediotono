@@ -25,6 +25,13 @@ for (const item of [...CHORDS, ...SCALES]) {
     }
   }
 }
+// Chord breadcrumbs keep the reviewed note/type name and exact notation.
+for (const chord of CHORDS) {
+  const source = `${chord.name} (${chord.displaySymbol})`;
+  overrides[source] = Object.fromEntries(['en', 'pt', 'fr'].map(locale => [
+    locale, `${overrides[chord.name][locale]} (${chord.displaySymbol})`,
+  ]));
+}
 for (const locale of (process.argv.slice(2).length ? process.argv.slice(2) : ['en', 'pt', 'fr'])) {
   const file = `messages/${locale}.json`;
   const catalog = JSON.parse(fs.readFileSync(file, 'utf8'));

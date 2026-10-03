@@ -3,6 +3,7 @@
   "name": "amediotono",
   "account_id": "290e6974d5ab11e9b3563b1c6f9b4584",
   "main": "worker.ts",
+  "minify": true,
   "compatibility_date": "2026-09-30",
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
   // Serve only on the real domain, so search engines don't index a

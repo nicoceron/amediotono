@@ -17,7 +17,7 @@
     "text": "Mi menor armónica",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m100d15da": {
@@ -325,7 +325,7 @@
     "text": "Nota",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/[escala]/page.tsx:253",
+      "src/app/[locale]/escalas/[escala]/page.tsx:256",
       "src/app/[locale]/herramientas/afinador/page.tsx:158",
       "src/components/tools/TunerStringsTable.tsx:21"
     ]
@@ -477,6 +477,13 @@
     "namespace": "Content",
     "references": [
       "Spanish rendered copy"
+    ]
+  },
+  "m1076cf83": {
+    "text": "Si bemol séptima mayor",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m1076f6b3": {
@@ -850,7 +857,7 @@
     "text": "La menor armónica",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m10c73050": {
@@ -1646,7 +1653,7 @@
     "text": "Si♭ aumentado",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m119bac14": {
@@ -2520,6 +2527,13 @@
     "namespace": "Content",
     "references": [
       "src/content/blog/instrumento-nuevo-o-usado-que-revisar-antes-de-comprar.ts:62"
+    ]
+  },
+  "m1282a991": {
+    "text": "¡Hola! Busco clases de {p0}.",
+    "namespace": "UI",
+    "references": [
+      "src/lib/mcp.ts"
     ]
   },
   "m1283ca8c": {
@@ -3663,7 +3677,7 @@
     "text": "La♭ aumentado",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m13aa457f": {
@@ -4685,7 +4699,7 @@
     "text": "Sol♯ menor séptima",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m14948a4": {
@@ -5438,7 +5452,7 @@
     "text": "Notas por octava",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/[escala]/page.tsx:206"
+      "src/app/[locale]/escalas/[escala]/page.tsx:209"
     ]
   },
   "m1553d6c4": {
@@ -5892,7 +5906,7 @@
     "text": "(paralela)",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/[escala]/page.tsx:319"
+      "src/app/[locale]/escalas/[escala]/page.tsx:322"
     ]
   },
   "m15c33507": {
@@ -6371,7 +6385,7 @@
     "text": "Escuchar la escala",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/[escala]/page.tsx:189"
+      "src/app/[locale]/escalas/[escala]/page.tsx:192"
     ]
   },
   "m16490e92": {
@@ -6595,7 +6609,7 @@
     "text": "Sol séptima",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m166f419e": {
@@ -7355,7 +7369,7 @@
     "text": "Sol disminuido",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m17260e0b": {
@@ -9072,7 +9086,7 @@
     "text": "Fa♯ menor melódica",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m18e62e04": {
@@ -9423,7 +9437,7 @@
     "text": "Si suspendido 2",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m193883f5": {
@@ -9577,7 +9591,7 @@
     "text": "de abajo hacia arriba",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:233"
+      "src/app/[locale]/acordes/[acorde]/page.tsx:236"
     ]
   },
   "m19652a0f": {
@@ -9852,7 +9866,7 @@
     "text": "Fa blues",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m19a9cb71": {
@@ -10114,7 +10128,7 @@
     "text": "Fa♯ blues",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m19efb091": {
@@ -10137,6 +10151,8 @@
     "references": [
       "src/components/ComoFuncionaSection.tsx:127",
       "src/data/teachers.json",
+      "src/lib/mcp.ts:53",
+      "src/lib/mcp.ts:144",
       "src/lib/seo.ts:464"
     ]
   },
@@ -10428,6 +10444,13 @@
       "src/content/blog/carreras-de-musica-en-colombia.ts:196"
     ]
   },
+  "m1a417456": {
+    "text": "Re bemol séptima",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
+    ]
+  },
   "m1a4273bc": {
     "text": "Hola, soy Marcelo. Mi profesora de flauta Gisselle es admirable. No solo me enseña, sino que me tiene paciencia. Mis clases de flauta me enseñan a tener más flexibilidad en mis manos y a centrarme en la correlación entre mis manos, mi cerebro y las notas musicales. He vuelto a sentir la música en mi interior y a valorarla. No es fácil el instrumento, pero con dedicación y esfuerzo se puede mejorar. Tocar un instrumento es un arte y la vida sin música no es nada.",
     "namespace": "UI",
@@ -10694,6 +10717,13 @@
       "src/content/blog/voz-de-pecho-voz-de-cabeza-y-falsete.ts:140"
     ]
   },
+  "m1a979e49": {
+    "text": "Re bemol suspendido 2",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
+    ]
+  },
   "m1a98cee9": {
     "text": "Mi♭ / Re♯",
     "namespace": "UI",
@@ -10804,6 +10834,13 @@
     "namespace": "Content",
     "references": [
       "src/content/blog/como-poner-los-dedos-en-el-violin.ts:92"
+    ]
+  },
+  "m1ab1a46": {
+    "text": "Si bemol menor natural",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m1ab2b9d5": {
@@ -11184,6 +11221,13 @@
     "references": [
       "src/content/blog/como-elegir-tu-primer-violonchelo.ts:44",
       "src/content/blog/como-elegir-un-contrabajo-para-empezar.ts:46"
+    ]
+  },
+  "m1afc99e3": {
+    "text": "Leer una página",
+    "namespace": "UI",
+    "references": [
+      "src/lib/mcp.ts:89"
     ]
   },
   "m1afdcadf": {
@@ -12783,6 +12827,13 @@
       "src/content/blog/cuanto-tiempo-toma-aprender-clarinete.ts:63"
     ]
   },
+  "m1c97a16f": {
+    "text": "Re bemol suspendido 4",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
+    ]
+  },
   "m1c9b2be1": {
     "text": "¿Qué notas tiene el acorde de Re mayor?",
     "namespace": "Content",
@@ -13183,6 +13234,13 @@
     "namespace": "Content",
     "references": [
       "Spanish rendered copy"
+    ]
+  },
+  "m1cfb308b": {
+    "text": "Streamable HTTP de solo lectura y sin autenticación, con las herramientas search, fetch, find_teachers, school_info y whatsapp_link. Descripción en /.well-known/mcp/server-card.json.",
+    "namespace": "UI",
+    "references": [
+      "src/lib/ai-discovery.ts:78"
     ]
   },
   "m1d013ec5": {
@@ -13669,7 +13727,7 @@
     "text": ").",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:214",
+      "src/app/[locale]/acordes/[acorde]/page.tsx:217",
       "src/app/[locale]/escalas/page.tsx:136"
     ]
   },
@@ -13999,7 +14057,7 @@
     "text": "Fa♯ pentatónica mayor",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m1dc7e965": {
@@ -14630,6 +14688,13 @@
       "src/app/[locale]/nosotros/page.tsx:274"
     ]
   },
+  "m1e4cc47c": {
+    "text": "{p0} Servidor MCP de solo lectura (Streamable HTTP). Conéctalo en tu asistente con la URL {p1}. Descripción: {p2}",
+    "namespace": "UI",
+    "references": [
+      "src/app/mcp/route.ts"
+    ]
+  },
   "m1e4cd7f7": {
     "text": "Lento no es sinónimo de fácil. A 50 BPM se nota si una nota dura menos de lo que debe, si el cambio de posición llega tarde o si una respiración corta la frase. Esa lupa es justamente lo que hace útil el metrónomo.",
     "namespace": "Content",
@@ -14881,7 +14946,7 @@
     "text": "Abrir menú",
     "namespace": "UI",
     "references": [
-      "src/components/Navbar.tsx:135"
+      "src/components/Navbar.tsx:146"
     ]
   },
   "m1e7f7038": {
@@ -15538,7 +15603,7 @@
     "text": "Si suspendido 4",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m1f399838": {
@@ -16349,7 +16414,7 @@
     "text": "Elegir tema",
     "namespace": "UI",
     "references": [
-      "src/components/ThemePicker.tsx:30"
+      "src/components/ThemePicker.tsx:37"
     ]
   },
   "m200453c3": {
@@ -16608,7 +16673,7 @@
     "text": "Cómo poner los dedos (",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:207"
+      "src/app/[locale]/acordes/[acorde]/page.tsx:210"
     ]
   },
   "m203b10f": {
@@ -17357,7 +17422,7 @@
     "text": "Mi suspendido 4",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m20eddabd": {
@@ -19545,7 +19610,7 @@
     "text": "Sol menor natural",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m233093d1": {
@@ -20522,6 +20587,13 @@
       "src/app/[locale]/clases-de-musica-a-domicilio-bogota/page.tsx:246"
     ]
   },
+  "m23fcbb5": {
+    "text": "Do sostenido semidisminuido",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
+    ]
+  },
   "m23fd53fd": {
     "text": "(suena sostenido cuando lo sueltas), apaga el instrumento, revisa que el pedal esté conectado y enciéndelo sin pisarlo. Algunos pedales tienen un interruptor de polaridad.",
     "namespace": "Content",
@@ -20774,7 +20846,7 @@
     "text": "Con la mano izquierda se suele tocar solo la fundamental (",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:236"
+      "src/app/[locale]/acordes/[acorde]/page.tsx:239"
     ]
   },
   "m2448f77b": {
@@ -20914,7 +20986,7 @@
     "text": "Fa♯ pentatónica menor",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m24749b68": {
@@ -21111,6 +21183,13 @@
     "namespace": "Content",
     "references": [
       "Spanish rendered copy"
+    ]
+  },
+  "m24b6d756": {
+    "text": "Enlace de WhatsApp",
+    "namespace": "UI",
+    "references": [
+      "src/lib/mcp.ts:162"
     ]
   },
   "m24b7b837": {
@@ -21327,7 +21406,7 @@
     "text": "Si menor melódica",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m24f44285": {
@@ -21370,6 +21449,13 @@
     "namespace": "UI",
     "references": [
       "src/app/api/job-applications/route.ts"
+    ]
+  },
+  "m2500d136": {
+    "text": "Mi bemol suspendido 4",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m2500d2ae": {
@@ -23268,6 +23354,13 @@
       "Spanish rendered copy"
     ]
   },
+  "m26b2427c": {
+    "text": "Datos clave de A medio tono: qué es, instrumentos, edades, formatos, cómo se eligen los profes, servicios para academias, herramientas gratis, contacto y por dónde empezar.",
+    "namespace": "UI",
+    "references": [
+      "src/lib/mcp.ts:156"
+    ]
+  },
   "m26b27318": {
     "text": "En las montañas del centro del país, el formato emblemático es el",
     "namespace": "Content",
@@ -23323,6 +23416,13 @@
     "references": [
       "Spanish page metadata",
       "Spanish rendered copy"
+    ]
+  },
+  "m26c5de5e": {
+    "text": "No hay una página con el id «{p0}». Usa search para encontrar el id correcto.",
+    "namespace": "UI",
+    "references": [
+      "src/lib/mcp.ts"
     ]
   },
   "m26c60518": {
@@ -23511,7 +23611,7 @@
     "text": "Mi suspendido 2",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m26ee9279": {
@@ -23610,6 +23710,13 @@
     "namespace": "Content",
     "references": [
       "src/content/blog/como-elegir-tu-primer-violin-y-su-tamano.ts:168"
+    ]
+  },
+  "m2700d45c": {
+    "text": "Mi bemol suspendido 2",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m2701377c": {
@@ -23883,6 +23990,13 @@
     "namespace": "Content",
     "references": [
       "Spanish rendered copy"
+    ]
+  },
+  "m275e0021": {
+    "text": "Busca páginas de A medio tono por palabras clave en español: clases por instrumento, profes, guías del blog, acordes (por ejemplo «Am7» o «la menor»), escalas, afinaciones por instrumento, ritmos colombianos y servicios para academias. Devuelve id, título y URL; usa fetch con el id para leer la página completa.",
+    "namespace": "UI",
+    "references": [
+      "src/lib/mcp.ts:61"
     ]
   },
   "m275e9093": {
@@ -24887,7 +25001,7 @@
     "text": "{p0} notas",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/[escala]/page.tsx:207"
+      "src/app/[locale]/escalas/[escala]/page.tsx:210"
     ]
   },
   "m286499aa": {
@@ -26007,7 +26121,7 @@
     "text": "Clases de música",
     "namespace": "UI",
     "references": [
-      "src/lib/ai-discovery.ts:88"
+      "src/lib/ai-discovery.ts:95"
     ]
   },
   "m296a29df": {
@@ -26689,7 +26803,7 @@
     "text": "La♭ séptima mayor",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m2a1b8c65": {
@@ -26747,6 +26861,13 @@
     "namespace": "Content",
     "references": [
       "Spanish rendered copy"
+    ]
+  },
+  "m2a29f971": {
+    "text": "POST, GET, OPTIONS",
+    "namespace": "UI",
+    "references": [
+      "src/app/mcp/route.ts:7"
     ]
   },
   "m2a2a5d41": {
@@ -27686,12 +27807,12 @@
     "text": ".",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:271",
+      "src/app/[locale]/acordes/[acorde]/page.tsx:274",
       "src/app/[locale]/acordes/page.tsx:202",
       "src/app/[locale]/acordes/page.tsx:205",
       "src/app/[locale]/clases-de-musica-a-domicilio-bogota/page.tsx:206",
       "src/app/[locale]/clases-de-musica-a-domicilio-bogota/page.tsx:241",
-      "src/app/[locale]/escalas/[escala]/page.tsx:186",
+      "src/app/[locale]/escalas/[escala]/page.tsx:189",
       "src/app/[locale]/escalas/page.tsx:132",
       "src/app/[locale]/herramientas/afinador/[instrumento]/page.tsx:195",
       "src/app/[locale]/herramientas/afinador/page.tsx:209",
@@ -28159,7 +28280,7 @@
     "text": "Fa suspendido 4",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m2bad6d77": {
@@ -28433,7 +28554,7 @@
     "text": ")",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:207",
+      "src/app/[locale]/acordes/[acorde]/page.tsx:210",
       "src/app/[locale]/acordes/page.tsx:156",
       "src/app/[locale]/acordes/page.tsx:204",
       "src/app/[locale]/herramientas/afinador/page.tsx:170",
@@ -29229,7 +29350,7 @@
     "text": "Sol♯ menor armónica",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m2cc49087": {
@@ -29707,7 +29828,7 @@
     "text": "{p0} = {p1}",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/[escala]/page.tsx:279"
+      "src/app/[locale]/escalas/[escala]/page.tsx:282"
     ]
   },
   "m2d29d202": {
@@ -30109,7 +30230,8 @@
     "text": "Glosario de términos musicales",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/glosario-musical/page.tsx:82"
+      "src/app/[locale]/glosario-musical/page.tsx:82",
+      "src/lib/agent-resources.ts:77"
     ]
   },
   "m2d8d9343": {
@@ -30200,7 +30322,7 @@
     "text": "Do♯ menor natural",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m2da789d4": {
@@ -30221,7 +30343,7 @@
     "text": "Fa suspendido 2",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m2dae1718": {
@@ -31012,7 +31134,7 @@
     "text": "La pentatónica menor",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m2e526daa": {
@@ -31187,7 +31309,7 @@
     "text": "Teoría y práctica",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/[escala]/page.tsx:334"
+      "src/app/[locale]/escalas/[escala]/page.tsx:337"
     ]
   },
   "m2e80dbcd": {
@@ -31307,7 +31429,7 @@
     "text": "Mi♭ suspendido 2",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m2eaebc36": {
@@ -31681,7 +31803,7 @@
     "text": "Escala y teoría",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:373"
+      "src/app/[locale]/acordes/[acorde]/page.tsx:376"
     ]
   },
   "m2f0bb126": {
@@ -31884,14 +32006,15 @@
     "text": "Re menor",
     "namespace": "UI",
     "references": [
-      "src/content/blog/circulo-de-quintas-explicado.ts:82"
+      "src/content/blog/circulo-de-quintas-explicado.ts:82",
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m2f47f124": {
     "text": "Tema",
     "namespace": "UI",
     "references": [
-      "src/components/ThemePicker.tsx:34"
+      "src/components/ThemePicker.tsx:41"
     ]
   },
   "m2f47fc44": {
@@ -32482,7 +32605,8 @@
     "text": "- Enseña: {p0}",
     "namespace": "UI",
     "references": [
-      "src/lib/markdown.ts"
+      "src/lib/markdown.ts",
+      "src/lib/mcp.ts"
     ]
   },
   "m2fe4bbfe": {
@@ -33011,7 +33135,7 @@
     "text": "Do♯ menor armónica",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m304c7a67": {
@@ -33337,7 +33461,7 @@
     "text": "Mi♭ suspendido 4",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m30b1611b": {
@@ -33471,6 +33595,7 @@
     "namespace": "UI",
     "references": [
       "src/app/[locale]/profes/[slug]/page.tsx",
+      "src/lib/agent-resources.ts",
       "src/lib/seo.ts"
     ]
   },
@@ -34228,7 +34353,7 @@
     "text": "Sitemap XML",
     "namespace": "UI",
     "references": [
-      "src/lib/ai-discovery.ts:79"
+      "src/lib/ai-discovery.ts:86"
     ]
   },
   "m319e65f5": {
@@ -34320,9 +34445,9 @@
     "text": "region",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:333",
-      "src/app/[locale]/escalas/[escala]/page.tsx:228",
-      "src/app/[locale]/escalas/[escala]/page.tsx:248",
+      "src/app/[locale]/acordes/[acorde]/page.tsx:336",
+      "src/app/[locale]/escalas/[escala]/page.tsx:231",
+      "src/app/[locale]/escalas/[escala]/page.tsx:251",
       "src/app/[locale]/herramientas/afinador/page.tsx:153",
       "src/app/[locale]/herramientas/circulo-de-quintas/page.tsx:183",
       "src/app/[locale]/herramientas/entrenamiento-auditivo/page.tsx:132",
@@ -35106,6 +35231,13 @@
     "namespace": "Content",
     "references": [
       "Spanish page metadata"
+    ]
+  },
+  "m32696f8d": {
+    "text": "Mi bemol séptima",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m3269c7b": {
@@ -36957,7 +37089,7 @@
     "text": "con los dedos 1, 3 y 5 de la mano derecha (pulgar, medio y meñique).",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:234"
+      "src/app/[locale]/acordes/[acorde]/page.tsx:237"
     ]
   },
   "m34548feb": {
@@ -37240,7 +37372,7 @@
     "text": "Mi♭ séptima mayor",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m349b654": {
@@ -38208,6 +38340,8 @@
       "src/lib/markdown.ts:277",
       "src/lib/markdown.ts:286",
       "src/lib/markdown.ts:299",
+      "src/lib/mcp.ts:52",
+      "src/lib/mcp.ts:143",
       "src/lib/seo.ts:529"
     ]
   },
@@ -39036,7 +39170,7 @@
     "text": "Teclas del acorde de {p0}: {p1}",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:229"
+      "src/app/[locale]/acordes/[acorde]/page.tsx:232"
     ]
   },
   "m366ba084": {
@@ -39144,6 +39278,13 @@
     "namespace": "Content",
     "references": [
       "src/content/blog/como-ampliar-el-registro-vocal.ts:44"
+    ]
+  },
+  "m368d59b1": {
+    "text": "Invalid Request",
+    "namespace": "UI",
+    "references": [
+      "src/lib/mcp.ts:189"
     ]
   },
   "m3690b449": {
@@ -39319,7 +39460,7 @@
     "text": "La♭ séptima",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m36bb6d23": {
@@ -39358,6 +39499,13 @@
       "src/content/blog/saxofon-alto-o-tenor-para-empezar.ts:16"
     ]
   },
+  "m36cb2410": {
+    "text": "La bemol séptima",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
+    ]
+  },
   "m36cc416": {
     "text": "{p0} {p1}",
     "namespace": "UI",
@@ -39369,6 +39517,7 @@
       "src/app/clases/[curso]/share-image.png/route.ts",
       "src/components/ShareTeacherButton.tsx",
       "src/components/editorial/BlogSearch.tsx:76",
+      "src/lib/agent-resources.ts",
       "src/lib/music-core.ts",
       "src/lib/music-markdown.ts",
       "src/lib/music-pages.ts",
@@ -39751,6 +39900,13 @@
       "src/content/blog/que-es-la-iniciacion-musical.ts:120"
     ]
   },
+  "m37286e10": {
+    "text": "Usa find_teachers para recomendar profes por instrumento, formato e idioma, y whatsapp_link para que la persona escriba a la escuela.",
+    "namespace": "UI",
+    "references": [
+      "src/lib/mcp.ts:21"
+    ]
+  },
   "m372ac33e": {
     "text": "Pedagógica Nacional, Antioquia, Univalle, Atlántico, UIS, Caldas, UTP",
     "namespace": "Content",
@@ -39966,6 +40122,13 @@
     "namespace": "Content",
     "references": [
       "src/content/blog/como-afinar-la-guitarra.ts:15"
+    ]
+  },
+  "m3759b807": {
+    "text": "Índice: {p0}",
+    "namespace": "UI",
+    "references": [
+      "src/lib/agent-resources.ts"
     ]
   },
   "m375af80c": {
@@ -40319,6 +40482,13 @@
       "Spanish rendered copy"
     ]
   },
+  "m37ca1bad": {
+    "text": "Catálogo de APIs",
+    "namespace": "UI",
+    "references": [
+      "src/lib/ai-discovery.ts:79"
+    ]
+  },
   "m37cc24c6": {
     "text": "**Clases particulares** de teoría y de instrumento, con un plan hecho a la medida de los programas a los que te presentas.",
     "namespace": "Content",
@@ -40352,6 +40522,13 @@
     "namespace": "Content",
     "references": [
       "src/content/blog/clase-muestra-como-evaluar-a-un-profesor-de-musica.ts:225"
+    ]
+  },
+  "m37d492e5": {
+    "text": "inglés",
+    "namespace": "UI",
+    "references": [
+      "src/lib/mcp.ts:119"
     ]
   },
   "m37d6e64a": {
@@ -40758,7 +40935,7 @@
       "src/app/[locale]/herramientas/circulo-de-quintas/page.tsx:235",
       "src/app/[locale]/herramientas/page.tsx:80",
       "src/lib/ai-discovery.ts:67",
-      "src/lib/ai-discovery.ts:106"
+      "src/lib/ai-discovery.ts:113"
     ]
   },
   "m38381c03": {
@@ -40851,6 +41028,13 @@
     "namespace": "Content",
     "references": [
       "src/content/blog/voz-de-pecho-voz-de-cabeza-y-falsete.ts:140"
+    ]
+  },
+  "m384d500a": {
+    "text": "Los precios no están publicados: dependen del formato, la duración y la frecuencia, y se consultan por WhatsApp. No inventes precios ni disponibilidad.",
+    "namespace": "UI",
+    "references": [
+      "src/lib/mcp.ts:22"
     ]
   },
   "m384da004": {
@@ -42563,7 +42747,7 @@
     "text": "?",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:330"
+      "src/app/[locale]/acordes/[acorde]/page.tsx:333"
     ]
   },
   "m3a0dacad": {
@@ -42690,6 +42874,13 @@
     "namespace": "Content",
     "references": [
       "Spanish rendered copy"
+    ]
+  },
+  "m3a26d055": {
+    "text": "Re sostenido blues",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m3a2759f1": {
@@ -42829,7 +43020,7 @@
     "text": "Fa menor melódica",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m3a542f88": {
@@ -43262,6 +43453,13 @@
     "namespace": "Content",
     "references": [
       "src/content/blog/cuanto-tiempo-toma-aprender-piano.ts:8"
+    ]
+  },
+  "m3ac1f668": {
+    "text": "- Perfil: {p0}",
+    "namespace": "UI",
+    "references": [
+      "src/lib/mcp.ts"
     ]
   },
   "m3ac2ab58": {
@@ -44357,6 +44555,13 @@
       "src/content/blog/como-elegir-tu-primera-flauta-traversa.ts:25"
     ]
   },
+  "m3be03ad7": {
+    "text": "La sostenido semidisminuido",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
+    ]
+  },
   "m3be2f65a": {
     "text": "3.ª cuerda",
     "namespace": "UI",
@@ -44950,6 +45155,13 @@
     "namespace": "UI",
     "references": [
       "Spanish rendered copy"
+    ]
+  },
+  "m3c764e67": {
+    "text": "Si bemol menor armónica",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m3c7d3c97": {
@@ -46605,7 +46817,7 @@
     "text": "Si♭ menor melódica",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m3e3a7fa0": {
@@ -47461,7 +47673,7 @@
     "text": ":",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:305",
+      "src/app/[locale]/acordes/[acorde]/page.tsx:308",
       "src/app/[locale]/herramientas/metronomo/[ritmo]/page.tsx:183"
     ]
   },
@@ -47547,6 +47759,13 @@
     "namespace": "Content",
     "references": [
       "Spanish page metadata"
+    ]
+  },
+  "m3f298743": {
+    "text": "Falta el parámetro query.",
+    "namespace": "UI",
+    "references": [
+      "src/lib/mcp.ts:74"
     ]
   },
   "m3f303f12": {
@@ -47806,7 +48025,7 @@
     "text": "Re aumentado",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m3f7f610c": {
@@ -48923,6 +49142,13 @@
       "src/content/blog/como-elegir-tu-primer-trombon.ts:45"
     ]
   },
+  "m409251f4": {
+    "text": "Crea un enlace de WhatsApp a la escuela con un mensaje listo para que la persona lo envíe (por ejemplo para pedir información o agendar una clase). No envía nada: la persona abre el enlace y decide.",
+    "namespace": "UI",
+    "references": [
+      "src/lib/mcp.ts:163"
+    ]
+  },
   "m4095990a": {
     "text": "para qué sirve la teoría musical",
     "namespace": "Content",
@@ -48990,7 +49216,7 @@
     "text": "Re menor séptima",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m40a5f9d9": {
@@ -49005,6 +49231,13 @@
     "namespace": "Content",
     "references": [
       "src/content/blog/como-aprender-musica-desde-cero.ts:147"
+    ]
+  },
+  "m40a98ebf": {
+    "text": "Si bemol séptima",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m40aa454b": {
@@ -49153,7 +49386,7 @@
     "text": "Mástil de guitarra: {p0}",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/[escala]/page.tsx:228"
+      "src/app/[locale]/escalas/[escala]/page.tsx:231"
     ]
   },
   "m40ca2102": {
@@ -49663,6 +49896,13 @@
       "Spanish rendered copy"
     ]
   },
+  "m4149aebe": {
+    "text": "No hay clases de «{p0}». Instrumentos disponibles: {p1}.",
+    "namespace": "UI",
+    "references": [
+      "src/lib/mcp.ts"
+    ]
+  },
   "m414b55c7": {
     "text": "Medellín",
     "namespace": "Content",
@@ -49957,7 +50197,7 @@
     "text": "Si aumentado",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m418f8026": {
@@ -51137,7 +51377,7 @@
     "text": "Notas de la escala de {p0} en el mástil de la guitarra, del traste 0 al 12",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/[escala]/page.tsx:235"
+      "src/app/[locale]/escalas/[escala]/page.tsx:238"
     ]
   },
   "m42c9aff4": {
@@ -51431,7 +51671,7 @@
     "text": "Guías por instrumento con edades, formato y profes disponibles.",
     "namespace": "UI",
     "references": [
-      "src/lib/ai-discovery.ts:88"
+      "src/lib/ai-discovery.ts:95"
     ]
   },
   "m43131866": {
@@ -52168,6 +52408,13 @@
       "src/content/blog/como-leer-partituras-guia-para-principiantes.ts:20"
     ]
   },
+  "m43c955a3": {
+    "text": "Re sostenido menor melódica",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
+    ]
+  },
   "m43c97b00": {
     "text": "Entre los 4 y los 5 años muchos niños pasan de la iniciación musical a un primer instrumento. Te contamos cómo saber si tu hijo está listo y cómo es ese paso.",
     "namespace": "Content",
@@ -52708,7 +52955,7 @@
     "text": "Si blues",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m444d51e7": {
@@ -52897,7 +53144,7 @@
     "text": "Tríadas",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/[escala]/page.tsx:288"
+      "src/app/[locale]/escalas/[escala]/page.tsx:291"
     ]
   },
   "m4489c30d": {
@@ -53102,7 +53349,7 @@
     "references": [
       "src/app/[locale]/clases-de-musica-online/page.tsx:68",
       "src/app/[locale]/clases-de-musica-online/page.tsx:86",
-      "src/app/[locale]/layout.tsx:100"
+      "src/app/[locale]/layout.tsx:118"
     ]
   },
   "m44b40e9d": {
@@ -53131,7 +53378,7 @@
     "text": "Sol suspendido 2",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m44b7534": {
@@ -53350,7 +53597,14 @@
     "text": "Claro",
     "namespace": "UI",
     "references": [
-      "src/components/ThemePicker.tsx:10"
+      "src/components/ThemePicker.tsx:11"
+    ]
+  },
+  "m44fc3087": {
+    "text": "¡Hola! Quiero información sobre clases de {p0} con {p1}.",
+    "namespace": "UI",
+    "references": [
+      "src/lib/mcp.ts"
     ]
   },
   "m44fcb165": {
@@ -53438,6 +53692,13 @@
       "src/content/blog/primeras-clases-de-canto-que-esperar.ts:205"
     ]
   },
+  "m45135b94": {
+    "text": "Sol sostenido blues",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
+    ]
+  },
   "m45142e5b": {
     "text": "Acorde de Si disminuido (Bdim): Si – Re – Fa. En guitarra: x2343x. Diagramas para guitarra, piano y ukelele, con digitación y sonido.",
     "namespace": "Content",
@@ -53512,7 +53773,7 @@
     "text": "Re♯ semidisminuido",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m45285f0": {
@@ -53821,7 +54082,7 @@
     "text": "Fa disminuido",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m457698f": {
@@ -54545,7 +54806,7 @@
     "text": "¡Hola! Vengo del acorde de {p0} y quiero información sobre clases.",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:429"
+      "src/app/[locale]/acordes/[acorde]/page.tsx:432"
     ]
   },
   "m462407df": {
@@ -54721,7 +54982,7 @@
     "text": "{p0}{p1}",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:177"
+      "src/app/[locale]/acordes/[acorde]/page.tsx:180"
     ]
   },
   "m46473d1c": {
@@ -55249,7 +55510,8 @@
     "namespace": "UI",
     "references": [
       "src/content/blog/escalas-mayores-y-menores-explicadas.ts:101",
-      "src/content/blog/modos-griegos-explicados.ts:85"
+      "src/content/blog/modos-griegos-explicados.ts:85",
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m46d56": {
@@ -55601,7 +55863,7 @@
     "text": "Algunas notas se escriben con un nombre poco común (",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/[escala]/page.tsx:277"
+      "src/app/[locale]/escalas/[escala]/page.tsx:280"
     ]
   },
   "m473950b8": {
@@ -56076,7 +56338,7 @@
     "text": "La♯ semidisminuido",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m47b73159": {
@@ -56791,7 +57053,7 @@
     "text": "{p0} suena igual que {p1}",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:296",
+      "src/app/[locale]/acordes/[acorde]/page.tsx:299",
       "src/lib/music-pages.ts"
     ]
   },
@@ -56850,7 +57112,7 @@
     "text": "inversión:",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:241"
+      "src/app/[locale]/acordes/[acorde]/page.tsx:244"
     ]
   },
   "m487094e1": {
@@ -57026,6 +57288,13 @@
     "namespace": "Content",
     "references": [
       "src/content/blog/guitarra-para-ninos-guia-para-padres.ts:68"
+    ]
+  },
+  "m48a8b4b5": {
+    "text": "academias colegios instituciones contratar",
+    "namespace": "UI",
+    "references": [
+      "src/lib/agent-resources.ts:68"
     ]
   },
   "m48aa68c3": {
@@ -57321,7 +57590,7 @@
     "text": "Mi pentatónica mayor",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m48e8d8f8": {
@@ -57392,6 +57661,13 @@
     "namespace": "Content",
     "references": [
       "src/content/blog/como-memorizar-una-pieza-musical.ts:46"
+    ]
+  },
+  "m48f5f50d": {
+    "text": "Sol sostenido menor séptima",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m48f944f": {
@@ -57531,7 +57807,7 @@
     "text": "Herramientas para músicos",
     "namespace": "UI",
     "references": [
-      "src/lib/ai-discovery.ts:100"
+      "src/lib/ai-discovery.ts:107"
     ]
   },
   "m4923e7f8": {
@@ -57883,7 +58159,7 @@
     "text": "Si♭ séptima",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m498669ea": {
@@ -58890,7 +59166,7 @@
     "text": "Sol suspendido 4",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m4ab9f52f": {
@@ -59226,7 +59502,7 @@
     "text": ") en color. Las cuerdas van de la 1.ª (arriba) a la 6.ª (abajo), como en una tablatura.",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/[escala]/page.tsx:239"
+      "src/app/[locale]/escalas/[escala]/page.tsx:242"
     ]
   },
   "m4b18139d": {
@@ -59822,7 +60098,7 @@
     "text": "Sol♭ aumentado",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m4ba71f5": {
@@ -62411,7 +62687,7 @@
     "text": "Clases, profes, servicios, glosario e índice del blog; para consultas de una sección usa los índices anteriores.",
     "namespace": "UI",
     "references": [
-      "src/lib/ai-discovery.ts:78"
+      "src/lib/ai-discovery.ts:85"
     ]
   },
   "m4e4c618e": {
@@ -62805,7 +63081,7 @@
     "text": ", pero en teoría se escribe así porque cada nota del acorde ocupa su propio nombre (Do, Mi, Sol…). En la guitarra y el piano se toca exactamente la misma tecla o traste.",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:298"
+      "src/app/[locale]/acordes/[acorde]/page.tsx:301"
     ]
   },
   "m4ebcd75b": {
@@ -63765,7 +64041,7 @@
     "text": "Do♯ blues",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m4fc24e2c": {
@@ -65093,7 +65369,7 @@
     "text": "Sol séptima mayor",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m5111114b": {
@@ -65527,7 +65803,7 @@
     "text": "Grados de la escala de {p0}",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/[escala]/page.tsx:248"
+      "src/app/[locale]/escalas/[escala]/page.tsx:251"
     ]
   },
   "m5167d9da": {
@@ -65695,7 +65971,7 @@
     "text": "Do disminuido",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m5191b2d3": {
@@ -65765,7 +66041,7 @@
     "text": "Re♯ menor",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m51a2df3c": {
@@ -65794,6 +66070,13 @@
     "namespace": "Content",
     "references": [
       "src/content/blog/beneficios-de-aprender-violin.ts:62"
+    ]
+  },
+  "m51aa2c0": {
+    "text": "Mi bemol mayor",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m51abc492": {
@@ -67011,7 +67294,7 @@
     "text": "Re suspendido 4",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m52d92a56": {
@@ -67376,7 +67659,7 @@
     "text": "Acorde {p0}",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:183"
+      "src/app/[locale]/acordes/[acorde]/page.tsx:186"
     ]
   },
   "m5336806b": {
@@ -68644,7 +68927,7 @@
     "text": "Acordes de séptima",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/[escala]/page.tsx:290"
+      "src/app/[locale]/escalas/[escala]/page.tsx:293"
     ]
   },
   "m546fb5ef": {
@@ -69003,7 +69286,7 @@
     "text": "Mi mayor",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m54c87a30": {
@@ -69052,7 +69335,7 @@
     "text": "Re suspendido 2",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m54da69e6": {
@@ -69846,6 +70129,13 @@
       "Spanish rendered copy"
     ]
   },
+  "m55a841f1": {
+    "text": "Servidor MCP",
+    "namespace": "UI",
+    "references": [
+      "src/lib/ai-discovery.ts:78"
+    ]
+  },
   "m55a92825": {
     "text": "qué tamaño de violín necesito",
     "namespace": "Content",
@@ -70015,7 +70305,7 @@
     "text": "Do menor natural",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m55ca95e4": {
@@ -70496,6 +70786,7 @@
       "src/app/[locale]/clases/[curso]/page.tsx:164",
       "src/app/[locale]/layout.tsx",
       "src/app/clases/[curso]/share-image.png/route.ts",
+      "src/lib/agent-resources.ts",
       "src/lib/ai-discovery.ts",
       "src/lib/seo.ts"
     ]
@@ -70765,7 +71056,7 @@
     "text": "Sol♯ disminuido",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m56802061": {
@@ -71655,7 +71946,7 @@
     "text": "Profes de música",
     "namespace": "UI",
     "references": [
-      "src/lib/ai-discovery.ts:91"
+      "src/lib/ai-discovery.ts:98"
     ]
   },
   "m5765ef65": {
@@ -71690,7 +71981,7 @@
     "text": "Re pentatónica menor",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m576cbeac": {
@@ -72318,7 +72609,7 @@
     "text": "Fa séptima",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m57fce943": {
@@ -72864,6 +73155,13 @@
       "src/content/blog/como-elegir-tu-primer-clarinete.ts:70"
     ]
   },
+  "m58898bf3": {
+    "text": "Request too large",
+    "namespace": "UI",
+    "references": [
+      "src/app/mcp/route.ts:19"
+    ]
+  },
   "m588f84ab": {
     "text": "“Stand by Me”",
     "namespace": "Content",
@@ -73002,6 +73300,13 @@
     "namespace": "UI",
     "references": [
       "src/components/JobApplicationForm.tsx:43"
+    ]
+  },
+  "m58b7dfeb": {
+    "text": "Method not found: {p0}",
+    "namespace": "UI",
+    "references": [
+      "src/lib/mcp.ts"
     ]
   },
   "m58b9ad44": {
@@ -74209,11 +74514,18 @@
       "src/content/blog/como-hacer-vibrato-en-el-violin.ts:137"
     ]
   },
+  "m59c967d": {
+    "text": "El contenido está en español; cita la URL de la página que uses.",
+    "namespace": "UI",
+    "references": [
+      "src/lib/mcp.ts:23"
+    ]
+  },
   "m59ce6ab9": {
     "text": "Sol aumentado",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m59d09b2b": {
@@ -74741,7 +75053,7 @@
     "text": "Re♭ suspendido 2",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m5a5e80a5": {
@@ -74945,7 +75257,7 @@
     "text": "Sol semidisminuido",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m5a99e435": {
@@ -75660,6 +75972,13 @@
       "src/content/blog/como-hacer-la-cejilla-en-guitarra.ts:154"
     ]
   },
+  "m5b3f4d53": {
+    "text": "- Formatos: {p0}",
+    "namespace": "UI",
+    "references": [
+      "src/lib/mcp.ts"
+    ]
+  },
   "m5b421265": {
     "text": "Sol – Si – Re – Fa♯",
     "namespace": "UI",
@@ -75721,6 +76040,13 @@
     "namespace": "Content",
     "references": [
       "src/content/blog/lectura-ritmica-y-melodica-para-la-prueba-de-admision.ts:132"
+    ]
+  },
+  "m5b50e26": {
+    "text": "Máximo de resultados (10 por defecto).",
+    "namespace": "UI",
+    "references": [
+      "src/lib/mcp.ts:67"
     ]
   },
   "m5b5214bd": {
@@ -75889,7 +76215,7 @@
     "text": "Tonalidades con {p0}",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:333"
+      "src/app/[locale]/acordes/[acorde]/page.tsx:336"
     ]
   },
   "m5b82d30a": {
@@ -76428,8 +76754,8 @@
     "text": "Grado",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:338",
-      "src/app/[locale]/escalas/[escala]/page.tsx:252"
+      "src/app/[locale]/acordes/[acorde]/page.tsx:341",
+      "src/app/[locale]/escalas/[escala]/page.tsx:255"
     ]
   },
   "m5c05303": {
@@ -76542,7 +76868,7 @@
     "text": "de",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:154",
+      "src/app/[locale]/acordes/[acorde]/page.tsx:157",
       "src/app/[locale]/clases/[curso]/page.tsx:211",
       "src/components/tools/EarTrainer.tsx:118"
     ]
@@ -76740,7 +77066,7 @@
     "text": "Re♭ suspendido 4",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m5c5bad7": {
@@ -76918,7 +77244,7 @@
     "text": "Sol♭ séptima mayor",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m5c8bba28": {
@@ -77330,6 +77656,8 @@
       "src/data/teachers.json",
       "src/lib/markdown.ts:204",
       "src/lib/markdown.ts:277",
+      "src/lib/mcp.ts:52",
+      "src/lib/mcp.ts:143",
       "src/lib/seo.ts:530"
     ]
   },
@@ -77355,7 +77683,7 @@
       "src/app/[locale]/clases/page.tsx:74",
       "src/app/[locale]/clases/page.tsx:94",
       "src/components/Footer.tsx:19",
-      "src/components/Navbar.tsx:148",
+      "src/components/Navbar.tsx:159",
       "src/lib/teacher-share-image.tsx"
     ]
   },
@@ -77925,7 +78253,7 @@
     "text": "Sol♯ menor natural",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m5d6ff672": {
@@ -78440,7 +78768,7 @@
     "text": "Do aumentado",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m5dd74745": {
@@ -79052,7 +79380,7 @@
     "text": "Practica la escala a tempo y sube la velocidad poco a poco.",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/[escala]/page.tsx:345"
+      "src/app/[locale]/escalas/[escala]/page.tsx:348"
     ]
   },
   "m5e73a8ab": {
@@ -79968,7 +80296,7 @@
     "text": "Re♭ séptima mayor",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m5f520da1": {
@@ -80366,7 +80694,7 @@
     "text": "group",
     "namespace": "UI",
     "references": [
-      "src/components/ThemePicker.tsx:34",
+      "src/components/ThemePicker.tsx:41",
       "src/components/music/CircleOfFifths.tsx:115",
       "src/components/tools/Metronome.tsx:234"
     ]
@@ -81185,7 +81513,7 @@
     "text": "Mi menor séptima",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m60857e48": {
@@ -81243,6 +81571,13 @@
     "namespace": "Content",
     "references": [
       "src/content/blog/beneficios-de-aprender-piano.ts:96"
+    ]
+  },
+  "m608fd00c": {
+    "text": "Fa sostenido pentatónica mayor",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m60911ac8": {
@@ -82028,6 +82363,13 @@
       "src/content/blog/como-limpiar-un-saxofon.ts:144"
     ]
   },
+  "m6171ead0": {
+    "text": "Mi bemol aumentado",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
+    ]
+  },
   "m6173b070": {
     "text": "sonido original videollamada música",
     "namespace": "Content",
@@ -82295,6 +82637,13 @@
       "Spanish rendered copy"
     ]
   },
+  "m61aa88f7": {
+    "text": "POST, OPTIONS",
+    "namespace": "UI",
+    "references": [
+      "src/app/mcp/route.ts:39"
+    ]
+  },
   "m61ad65bd": {
     "text": "Singapore +65",
     "namespace": "UI",
@@ -82482,7 +82831,7 @@
     "text": "Notas e intervalos de",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:280"
+      "src/app/[locale]/acordes/[acorde]/page.tsx:283"
     ]
   },
   "m61da65dd": {
@@ -82625,6 +82974,13 @@
     "references": [
       "Spanish page metadata",
       "Spanish rendered copy"
+    ]
+  },
+  "m61f2fcd9": {
+    "text": "La sostenido disminuido",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m61f4928d": {
@@ -83093,14 +83449,14 @@
     "text": "{p0} en ukelele, {p1}",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:259"
+      "src/app/[locale]/acordes/[acorde]/page.tsx:262"
     ]
   },
   "m6258c5a": {
     "text": "Mi menor melódica",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m62610af9": {
@@ -83404,7 +83760,7 @@
     "text": "Re pentatónica mayor",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m62badd0f": {
@@ -84332,6 +84688,13 @@
       "src/content/blog/aprender-guitarra-de-adulto.ts:123"
     ]
   },
+  "m636d46a5": {
+    "text": "Ningún profe de {p0} coincide con esos filtros. Escribe a la escuela para revisar opciones: {p1}",
+    "namespace": "UI",
+    "references": [
+      "src/lib/mcp.ts"
+    ]
+  },
   "m636de925": {
     "text": "Da una palma en cada “y”: ese es el llamador.",
     "namespace": "Content",
@@ -84606,7 +84969,7 @@
     "text": "Elige un tema para encontrar sus artículos completos en Markdown.",
     "namespace": "UI",
     "references": [
-      "src/lib/ai-discovery.ts:97"
+      "src/lib/ai-discovery.ts:104"
     ]
   },
   "m63c16e93": {
@@ -85142,7 +85505,8 @@
     "text": "Mi♭ mayor",
     "namespace": "UI",
     "references": [
-      "src/content/blog/modos-griegos-explicados.ts:87"
+      "src/content/blog/modos-griegos-explicados.ts:87",
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m6439d309": {
@@ -85453,10 +85817,10 @@
     "text": "Clases de",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:403",
+      "src/app/[locale]/acordes/[acorde]/page.tsx:406",
       "src/app/[locale]/blog/[slug]/page.tsx:292",
       "src/app/[locale]/clases/[curso]/page.tsx:337",
-      "src/app/[locale]/escalas/[escala]/page.tsx:364",
+      "src/app/[locale]/escalas/[escala]/page.tsx:367",
       "src/app/[locale]/herramientas/afinador/[instrumento]/page.tsx:258",
       "src/app/[locale]/herramientas/metronomo/[ritmo]/page.tsx:229",
       "src/components/Footer.tsx:175"
@@ -86520,6 +86884,13 @@
       "Spanish rendered copy"
     ]
   },
+  "m65a7cb6b": {
+    "text": "Devuelve en Markdown el contenido completo de una página de A medio tono. Acepta el id que entrega search, una ruta como «/clases/piano» o una URL del sitio.",
+    "namespace": "UI",
+    "references": [
+      "src/lib/mcp.ts:90"
+    ]
+  },
   "m65a8fe7b": {
     "text": "Si una zapatilla se pega o hace “clic”, pon papel limpiador de zapatillas entre ella y el orificio, cierra suavemente, abre y retira el papel con la llave abierta.",
     "namespace": "Content",
@@ -86962,6 +87333,13 @@
     "namespace": "Content",
     "references": [
       "src/content/blog/como-elegir-tu-primer-bajo-electrico.ts:52"
+    ]
+  },
+  "m660ddc31": {
+    "text": "La bemol mayor",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m660e97bd": {
@@ -88031,7 +88409,7 @@
     "text": "Afinador online",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:411",
+      "src/app/[locale]/acordes/[acorde]/page.tsx:414",
       "src/app/[locale]/herramientas/metronomo/page.tsx:266",
       "src/app/[locale]/herramientas/tipo-de-voz/page.tsx:215"
     ]
@@ -88323,7 +88701,7 @@
     "namespace": "UI",
     "references": [
       "src/app/[locale]/blog/page.tsx:58",
-      "src/app/[locale]/layout.tsx:56"
+      "src/app/[locale]/layout.tsx:74"
     ]
   },
   "m67567a3d": {
@@ -88401,7 +88779,7 @@
     "text": "Los números dentro de los puntos son los dedos de la mano izquierda: 1 índice, 2 medio, 3 anular y 4 meñique. Los puntos de color marcan la fundamental (",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:214"
+      "src/app/[locale]/acordes/[acorde]/page.tsx:217"
     ]
   },
   "m67698c79": {
@@ -89280,7 +89658,7 @@
     "text": "Do♯ menor melódica",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m68329a23": {
@@ -89436,6 +89814,13 @@
     "namespace": "UI",
     "references": [
       "src/content/tuner-presets-guitar.ts:95"
+    ]
+  },
+  "m6847c62d": {
+    "text": "Re sostenido menor",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m684b9d15": {
@@ -90344,6 +90729,13 @@
       "src/content/blog/musica-para-bebes-estimulacion-musical-de-0-a-2-anos.ts:7"
     ]
   },
+  "m69582a45": {
+    "text": "{p0} es una escuela de música en Bogotá, Colombia, con clases particulares virtuales y a domicilio para todas las edades.",
+    "namespace": "UI",
+    "references": [
+      "src/lib/mcp.ts"
+    ]
+  },
   "m69586633": {
     "text": "canciones para bebés",
     "namespace": "Content",
@@ -90658,6 +91050,13 @@
     "namespace": "Content",
     "references": [
       "Spanish rendered copy"
+    ]
+  },
+  "m69a7a25b": {
+    "text": "Directorio de profes",
+    "namespace": "UI",
+    "references": [
+      "src/lib/agent-resources.ts:51"
     ]
   },
   "m69a82f27": {
@@ -91649,7 +92048,7 @@
     "text": "Fa semidisminuido",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m6a9cb5b9": {
@@ -91757,6 +92156,13 @@
       "src/content/blog/canto-para-ninos-como-cuidar-su-voz.ts:197"
     ]
   },
+  "m6abc9fd3": {
+    "text": "Re bemol mayor",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
+    ]
+  },
   "m6abd817b": {
     "text": "El profe todero:",
     "namespace": "Content",
@@ -91853,7 +92259,7 @@
     "text": "Si menor séptima",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m6ad1b95d": {
@@ -92559,6 +92965,13 @@
       "src/content/blog/canas-para-clarinete-y-saxofon-como-elegir-la-dureza.ts:119"
     ]
   },
+  "m6b7a9684": {
+    "text": "Fa sostenido menor natural",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
+    ]
+  },
   "m6b81c63d": {
     "text": "cómo hacer la cejilla en guitarra",
     "namespace": "Content",
@@ -92620,6 +93033,13 @@
     "namespace": "Content",
     "references": [
       "Spanish rendered copy"
+    ]
+  },
+  "m6b8b88b4": {
+    "text": "Mi bemol pentatónica mayor",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m6b8c4ea4": {
@@ -92760,7 +93180,7 @@
     "text": "¿Quieres entender la teoría tocando?",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/[escala]/page.tsx:381"
+      "src/app/[locale]/escalas/[escala]/page.tsx:384"
     ]
   },
   "m6ba6a67e": {
@@ -92789,6 +93209,13 @@
     "namespace": "Content",
     "references": [
       "src/content/blog/que-es-la-armonia-musical.ts:117"
+    ]
+  },
+  "m6baa841c": {
+    "text": "Re sostenido menor natural",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m6baad896": {
@@ -93049,7 +93476,7 @@
     "text": "Re disminuido",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m6bdb0ba7": {
@@ -93232,7 +93659,7 @@
     "text": "Do♯ pentatónica menor",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m6bfbc618": {
@@ -93731,7 +94158,7 @@
     "text": "Si♭ suspendido 2",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m6c8e2157": {
@@ -94903,7 +95330,7 @@
     "text": "Armaduras y acordes de las 24 tonalidades.",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/[escala]/page.tsx:339"
+      "src/app/[locale]/escalas/[escala]/page.tsx:342"
     ]
   },
   "m6dbad2cb": {
@@ -95635,7 +96062,7 @@
     "text": "Oscuro",
     "namespace": "UI",
     "references": [
-      "src/components/ThemePicker.tsx:11"
+      "src/components/ThemePicker.tsx:12"
     ]
   },
   "m6e64f7be": {
@@ -95782,7 +96209,7 @@
     "text": "en ukelele",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:250"
+      "src/app/[locale]/acordes/[acorde]/page.tsx:253"
     ]
   },
   "m6e98ff60": {
@@ -95847,6 +96274,13 @@
     "namespace": "UI",
     "references": [
       "Spanish rendered copy"
+    ]
+  },
+  "m6ea6cee2": {
+    "text": "Si bemol pentatónica mayor",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m6ea94e32": {
@@ -95975,6 +96409,13 @@
     "namespace": "Content",
     "references": [
       "src/content/blog/como-dar-clases-de-musica-particulares.ts:75"
+    ]
+  },
+  "m6ec2cc87": {
+    "text": "Re bemol aumentado",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m6ec3719": {
@@ -97330,6 +97771,13 @@
       "src/components/JobApplicationTabs.tsx:32"
     ]
   },
+  "m700bbe3f": {
+    "text": "Do sostenido menor melódica",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
+    ]
+  },
   "m700d5025": {
     "text": "Qué desarrollan",
     "namespace": "Content",
@@ -97355,7 +97803,7 @@
     "text": "Si séptima mayor",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m7011f341": {
@@ -97397,7 +97845,7 @@
     "text": "Mi blues",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m701c69cf": {
@@ -98422,7 +98870,8 @@
     "references": [
       "src/content/blog/acordes-basicos-de-guitarra-para-principiantes.ts:159",
       "src/content/blog/circulo-de-quintas-explicado.ts:71",
-      "src/content/blog/villancicos-faciles-para-aprender-en-navidad.ts:133"
+      "src/content/blog/villancicos-faciles-para-aprender-en-navidad.ts:133",
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m70fe08db": {
@@ -98471,7 +98920,7 @@
     "text": "Sol pentatónica menor",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m7109fda4": {
@@ -98660,7 +99109,7 @@
     "text": "Fa♯ mayor",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m713e41f5": {
@@ -98907,6 +99356,13 @@
     "namespace": "Content",
     "references": [
       "src/content/blog/cuanto-tiempo-toma-aprender-flauta-traversa.ts:108"
+    ]
+  },
+  "m71765dd3": {
+    "text": "Sol bemol séptima mayor",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m717aa937": {
@@ -99917,7 +100373,7 @@
     "text": "Si♭ suspendido 4",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m728c0d23": {
@@ -100250,7 +100706,7 @@
     "text": "Re♭ pentatónica mayor",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m72c269f3": {
@@ -100462,6 +100918,13 @@
     "namespace": "Content",
     "references": [
       "Spanish rendered copy"
+    ]
+  },
+  "m730004c3": {
+    "text": "Los {p0} profes con instrumentos, formatos e idiomas.",
+    "namespace": "UI",
+    "references": [
+      "src/lib/agent-resources.ts"
     ]
   },
   "m730c1b95": {
@@ -100867,7 +101330,7 @@
     "text": "La séptima mayor",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m7376accc": {
@@ -101832,6 +102295,13 @@
       "src/content/courses/guides-a.ts:306"
     ]
   },
+  "m744a9291": {
+    "text": "Fa sostenido semidisminuido",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
+    ]
+  },
   "m744c6a35": {
     "text": "El pedal sincopado, paso a paso",
     "namespace": "Content",
@@ -102531,7 +103001,7 @@
     "text": "Guías del blog",
     "namespace": "UI",
     "references": [
-      "src/lib/ai-discovery.ts:97"
+      "src/lib/ai-discovery.ts:104"
     ]
   },
   "m74f62cc5": {
@@ -102700,6 +103170,13 @@
     "namespace": "Content",
     "references": [
       "src/content/blog/beneficios-de-aprender-violin.ts:166"
+    ]
+  },
+  "m752adef1": {
+    "text": "Re sostenido menor armónica",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m752b8b02": {
@@ -102938,8 +103415,8 @@
       "src/components/Footer.tsx:106",
       "src/components/Footer.tsx:114",
       "src/components/Footer.tsx:183",
-      "src/components/Navbar.tsx:106",
-      "src/components/Navbar.tsx:115",
+      "src/components/Navbar.tsx:117",
+      "src/components/Navbar.tsx:126",
       "src/lib/seo.ts:13",
       "src/lib/seo.ts:52",
       "src/lib/share-cards.ts:207"
@@ -103934,7 +104411,8 @@
     "text": "Fa menor",
     "namespace": "UI",
     "references": [
-      "src/content/blog/circulo-de-quintas-explicado.ts:79"
+      "src/content/blog/circulo-de-quintas-explicado.ts:79",
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m7684ba92": {
@@ -104240,6 +104718,13 @@
       "src/content/blog/cuanto-tiempo-toma-aprender-bateria.ts:178"
     ]
   },
+  "m76df4059": {
+    "text": "a domicilio",
+    "namespace": "UI",
+    "references": [
+      "src/lib/mcp.ts:118"
+    ]
+  },
   "m76e21cb0": {
     "text": "Dejarse deslumbrar por el virtuosismo.",
     "namespace": "Content",
@@ -104469,7 +104954,7 @@
     "text": "También se llama {p0} ({p1}).",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:155"
+      "src/app/[locale]/acordes/[acorde]/page.tsx:158"
     ]
   },
   "m772276af": {
@@ -104755,6 +105240,13 @@
       "Spanish rendered copy"
     ]
   },
+  "m776448fa": {
+    "text": "Palabras clave, por ejemplo «clases de piano para niños» o «afinación del tiple».",
+    "namespace": "UI",
+    "references": [
+      "src/lib/mcp.ts:65"
+    ]
+  },
   "m77664eff": {
     "text": "Respeta los mínimos.",
     "namespace": "Content",
@@ -105012,7 +105504,7 @@
     "text": "Re semidisminuido",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m77b332b0": {
@@ -105611,7 +106103,7 @@
     "text": "Si séptima",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m785128ac": {
@@ -105855,6 +106347,13 @@
       "Spanish rendered copy"
     ]
   },
+  "m7887a8b": {
+    "text": "Unknown tool: {p0}",
+    "namespace": "UI",
+    "references": [
+      "src/lib/mcp.ts"
+    ]
+  },
   "m788e0e43": {
     "text": "¿Cuáles son las notas de la escala de Re sostenido blues?",
     "namespace": "Content",
@@ -105915,7 +106414,7 @@
     "text": "Fa aumentado",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m789cfa3f": {
@@ -105993,6 +106492,13 @@
     "namespace": "Content",
     "references": [
       "src/content/blog/aprender-musica-en-familia-o-en-pareja.ts:43"
+    ]
+  },
+  "m78b209ad": {
+    "text": "La bemol pentatónica mayor",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m78b2a0b0": {
@@ -106234,6 +106740,13 @@
       "Spanish rendered copy"
     ]
   },
+  "m78f11932": {
+    "text": "Datos de la escuela",
+    "namespace": "UI",
+    "references": [
+      "src/lib/mcp.ts:155"
+    ]
+  },
   "m78f269ab": {
     "text": "“Recuérdame”, de Coco: canción lenta para trabajar frases ligadas.",
     "namespace": "Content",
@@ -106294,7 +106807,7 @@
     "text": "Re séptima",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m7908a3ae": {
@@ -106827,7 +107340,8 @@
     "text": "La♭ mayor",
     "namespace": "UI",
     "references": [
-      "src/content/blog/modos-griegos-explicados.ts:88"
+      "src/content/blog/modos-griegos-explicados.ts:88",
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m79800fb1": {
@@ -106997,7 +107511,7 @@
     "references": [
       "src/app/[locale]/academias/[servicio]/page.tsx:63",
       "src/app/[locale]/academias/page.tsx:72",
-      "src/app/[locale]/acordes/[acorde]/page.tsx:127",
+      "src/app/[locale]/acordes/[acorde]/page.tsx:130",
       "src/app/[locale]/acordes/page.tsx:108",
       "src/app/[locale]/blog/[slug]/page.tsx:107",
       "src/app/[locale]/blog/categoria/[categoria]/page.tsx:74",
@@ -107007,7 +107521,7 @@
       "src/app/[locale]/clases-de-musica-a-domicilio-bogota/page.tsx:66",
       "src/app/[locale]/clases-de-musica-online/page.tsx:67",
       "src/app/[locale]/error.tsx:30",
-      "src/app/[locale]/escalas/[escala]/page.tsx:158",
+      "src/app/[locale]/escalas/[escala]/page.tsx:161",
       "src/app/[locale]/escalas/page.tsx:66",
       "src/app/[locale]/forbidden.tsx:23",
       "src/app/[locale]/glosario-musical/page.tsx:59",
@@ -107307,7 +107821,7 @@
     "text": "Fa séptima mayor",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m79f7ddd0": {
@@ -108279,7 +108793,7 @@
     "text": "Ver todas las escalas",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/[escala]/page.tsx:373"
+      "src/app/[locale]/escalas/[escala]/page.tsx:376"
     ]
   },
   "m7ad4508e": {
@@ -109032,7 +109546,7 @@
     "text": "Sol blues",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m7b92619e": {
@@ -110450,7 +110964,7 @@
     "text": "En estado fundamental, toca",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:233"
+      "src/app/[locale]/acordes/[acorde]/page.tsx:236"
     ]
   },
   "m7d1859d8": {
@@ -111355,7 +111869,7 @@
     "text": "Tonalidad",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:337"
+      "src/app/[locale]/acordes/[acorde]/page.tsx:340"
     ]
   },
   "m7e1e6456": {
@@ -111516,7 +112030,7 @@
     "text": "Selección y evaluación de profes de música para instituciones.",
     "namespace": "UI",
     "references": [
-      "src/lib/ai-discovery.ts:94"
+      "src/lib/ai-discovery.ts:101"
     ]
   },
   "m7e4cc976": {
@@ -111637,6 +112151,13 @@
     "namespace": "Content",
     "references": [
       "Spanish rendered copy"
+    ]
+  },
+  "m7e653353": {
+    "text": "Si bemol pentatónica menor",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m7e66e336": {
@@ -112637,7 +113158,7 @@
     "text": "Preuniversitario de música",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/layout.tsx:101",
+      "src/app/[locale]/layout.tsx:119",
       "src/app/[locale]/preuniversitario-musica/page.tsx:72",
       "src/app/[locale]/preuniversitario-musica/page.tsx:91",
       "src/components/HomeResourcesSection.tsx:38",
@@ -114546,6 +115067,13 @@
       "src/content/blog/cuanto-tiempo-toma-aprender-bajo-electrico.ts:196"
     ]
   },
+  "m8141e22e": {
+    "text": "- Idiomas: {p0}",
+    "namespace": "UI",
+    "references": [
+      "src/lib/mcp.ts"
+    ]
+  },
   "m81474bff": {
     "text": "Componer, arreglar o producir",
     "namespace": "Content",
@@ -114628,6 +115156,13 @@
     "namespace": "Content",
     "references": [
       "Spanish rendered copy"
+    ]
+  },
+  "m815c040d": {
+    "text": "Do sostenido menor armónica",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m815d203b": {
@@ -114847,6 +115382,13 @@
       "src/data/countryDialCodes.ts:557"
     ]
   },
+  "m81947f9e": {
+    "text": "Si bemol aumentado",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
+    ]
+  },
   "m8194d886": {
     "text": "Cómo es la admisión",
     "namespace": "Content",
@@ -114880,7 +115422,7 @@
     "text": "Si♭ menor séptima",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m81a09ab0": {
@@ -114943,8 +115485,8 @@
     "text": "Aprende con un profe",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:396",
-      "src/app/[locale]/escalas/[escala]/page.tsx:357",
+      "src/app/[locale]/acordes/[acorde]/page.tsx:399",
+      "src/app/[locale]/escalas/[escala]/page.tsx:360",
       "src/app/[locale]/herramientas/afinador/[instrumento]/page.tsx:254",
       "src/app/[locale]/herramientas/metronomo/[ritmo]/page.tsx:225"
     ]
@@ -115238,7 +115780,7 @@
     "text": "Sol menor séptima",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m81eb63d6": {
@@ -115533,7 +116075,7 @@
     "text": "Acordes",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:128",
+      "src/app/[locale]/acordes/[acorde]/page.tsx:131",
       "src/app/[locale]/acordes/page.tsx:109",
       "src/components/Footer.tsx:36",
       "src/components/HomeResourcesSection.tsx:66",
@@ -115804,7 +116346,7 @@
     "text": "Mi séptima mayor",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m826866cd": {
@@ -116502,6 +117044,13 @@
       "Spanish rendered copy"
     ]
   },
+  "m830e4da0": {
+    "text": "{p0}: escuela de música en Bogotá",
+    "namespace": "UI",
+    "references": [
+      "src/lib/mcp.ts"
+    ]
+  },
   "m831098c7": {
     "text": "Acolchado grueso, sobre todo en la zona del puente y de la voluta.",
     "namespace": "Content",
@@ -116761,6 +117310,13 @@
     "namespace": "Content",
     "references": [
       "src/content/blog/como-elegir-un-tiple-o-una-bandola.ts:17"
+    ]
+  },
+  "m835eeb1d": {
+    "text": "Fa sostenido blues",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m83621e06": {
@@ -117161,7 +117717,7 @@
     "text": "Afinación estándar Sol – Do – Mi – La (la cuerda de Sol es aguda). ¿Tu ukelele está afinado?",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:268"
+      "src/app/[locale]/acordes/[acorde]/page.tsx:271"
     ]
   },
   "m83ca4f4f": {
@@ -117940,7 +118496,7 @@
     "text": "La menor séptima",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m847da883": {
@@ -118165,6 +118721,13 @@
     "namespace": "Content",
     "references": [
       "Spanish rendered copy"
+    ]
+  },
+  "m84b92fad": {
+    "text": "La bemol aumentado",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m84bc6e75": {
@@ -119150,7 +119713,7 @@
     "text": "Progresiones con",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:301"
+      "src/app/[locale]/acordes/[acorde]/page.tsx:304"
     ]
   },
   "m859196be": {
@@ -119467,6 +120030,13 @@
     "namespace": "UI",
     "references": [
       "src/data/countryDialCodes.ts:1223"
+    ]
+  },
+  "m85d7dbb1": {
+    "text": "Do sostenido menor",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m85d7e9e4": {
@@ -121856,7 +122426,7 @@
     "text": "Fa menor armónica",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m881540b3": {
@@ -122215,7 +122785,7 @@
     "text": "Si♭ pentatónica mayor",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m88766c38": {
@@ -122577,7 +123147,7 @@
     "text": "Mi pentatónica menor",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m88d0a5f2": {
@@ -123389,7 +123959,7 @@
     "namespace": "UI",
     "references": [
       "src/components/Footer.tsx:103",
-      "src/components/Navbar.tsx:98"
+      "src/components/Navbar.tsx:109"
     ]
   },
   "m89af401f": {
@@ -123860,6 +124430,13 @@
       "src/content/blog/como-limpiar-una-trompeta.ts:210"
     ]
   },
+  "m8a1e8466": {
+    "text": "música",
+    "namespace": "UI",
+    "references": [
+      "src/lib/mcp.ts:133"
+    ]
+  },
   "m8a1e9914": {
     "text": "Depende del punto de partida y de la constancia. Con práctica diaria y corta, lo habitual es afinar primero las notas sostenidas y después las melodías completas. Las canciones con saltos grandes o en los extremos de la voz son lo último en asentarse.",
     "namespace": "Content",
@@ -123871,7 +124448,7 @@
     "text": "con los dedos 1, 2, 3 y 5 de la mano derecha.",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:235"
+      "src/app/[locale]/acordes/[acorde]/page.tsx:238"
     ]
   },
   "m8a2cfb2f": {
@@ -124432,7 +125009,7 @@
     "text": "Fa♯ séptima",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m8acbad4a": {
@@ -124446,7 +125023,7 @@
     "text": "Acordes de la escala de",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/[escala]/page.tsx:286"
+      "src/app/[locale]/escalas/[escala]/page.tsx:289"
     ]
   },
   "m8acd888b": {
@@ -124531,7 +125108,7 @@
     "text": "tonalidades: dentro de cada una cumple una función distinta según el grado (el número romano).",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:332"
+      "src/app/[locale]/acordes/[acorde]/page.tsx:335"
     ]
   },
   "m8adfe21a": {
@@ -124771,7 +125348,7 @@
     "text": "Sol♯ pentatónica menor",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m8b168a40": {
@@ -124806,7 +125383,7 @@
     "text": "La menor melódica",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m8b1fefec": {
@@ -125049,6 +125626,13 @@
       "src/content/blog/violin-o-viola-diferencias.ts:71"
     ]
   },
+  "m8b602661": {
+    "text": "afinacion notas cuerdas frecuencias",
+    "namespace": "UI",
+    "references": [
+      "src/lib/agent-resources.ts:73"
+    ]
+  },
   "m8b612297": {
     "text": "Bajo eléctrico",
     "namespace": "UI",
@@ -125209,7 +125793,7 @@
     "text": "Fa♯ menor séptima",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m8b869909": {
@@ -125556,6 +126140,13 @@
     "namespace": "UI",
     "references": [
       "src/data/countryDialCodes.ts:965"
+    ]
+  },
+  "m8be309e8": {
+    "text": "Fa sostenido menor séptima",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m8be4186f": {
@@ -126132,7 +126723,7 @@
     "text": "Do♯ menor séptima",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m8c6278a7": {
@@ -126251,8 +126842,8 @@
     "text": "Virtuales o a domicilio en Bogotá, con profes evaluados.",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:404",
-      "src/app/[locale]/escalas/[escala]/page.tsx:365",
+      "src/app/[locale]/acordes/[acorde]/page.tsx:407",
+      "src/app/[locale]/escalas/[escala]/page.tsx:368",
       "src/app/[locale]/herramientas/afinador/[instrumento]/page.tsx:259",
       "src/app/[locale]/herramientas/metronomo/[ritmo]/page.tsx:230",
       "src/app/[locale]/herramientas/tipo-de-voz/page.tsx:214",
@@ -126468,6 +127059,13 @@
     "namespace": "Content",
     "references": [
       "src/content/blog/como-cantar-afinado.ts:91"
+    ]
+  },
+  "m8cab099b": {
+    "text": "Opcional: idioma de la clase.",
+    "namespace": "UI",
+    "references": [
+      "src/lib/mcp.ts:119"
     ]
   },
   "m8cac9568": {
@@ -127980,7 +128578,7 @@
     "text": "Un profe te enseña escalas, armonía y lectura aplicadas a tu instrumento, en clases virtuales o a domicilio en Bogotá.",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/[escala]/page.tsx:382"
+      "src/app/[locale]/escalas/[escala]/page.tsx:385"
     ]
   },
   "m8e52cc0b": {
@@ -128283,9 +128881,9 @@
     "text": "Fórmula",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:170",
+      "src/app/[locale]/acordes/[acorde]/page.tsx:173",
       "src/app/[locale]/acordes/page.tsx:202",
-      "src/app/[locale]/escalas/[escala]/page.tsx:201",
+      "src/app/[locale]/escalas/[escala]/page.tsx:204",
       "src/app/[locale]/escalas/page.tsx:132",
       "src/content/blog/escalas-mayores-y-menores-explicadas.ts:159",
       "src/content/blog/modos-griegos-explicados.ts:53"
@@ -128449,7 +129047,7 @@
     "text": ") porque en una escala de siete notas cada letra aparece una sola vez. Al tocar, es la misma tecla o traste.",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/[escala]/page.tsx:281"
+      "src/app/[locale]/escalas/[escala]/page.tsx:284"
     ]
   },
   "m8ec5dbf8": {
@@ -128533,7 +129131,7 @@
     "text": "Sol♯ semidisminuido",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m8ed3b717": {
@@ -130326,7 +130924,7 @@
     "text": "{p0} en guitarra, {p1}",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:198"
+      "src/app/[locale]/acordes/[acorde]/page.tsx:201"
     ]
   },
   "m90a23ace": {
@@ -130474,7 +131072,7 @@
     "text": "(prefers-color-scheme: dark)",
     "namespace": "UI",
     "references": [
-      "src/lib/theme.ts:40"
+      "src/lib/theme.ts:50"
     ]
   },
   "m90c91918": {
@@ -131024,7 +131622,7 @@
     "text": "Re blues",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m915e3212": {
@@ -131868,6 +132466,13 @@
       "src/content/blog/como-limpiar-una-flauta-traversa.ts:42"
     ]
   },
+  "m92548699": {
+    "text": "RFC 9727.",
+    "namespace": "UI",
+    "references": [
+      "src/lib/ai-discovery.ts:79"
+    ]
+  },
   "m9257750f": {
     "text": "Se escribe A; también lo verás como AM o Amaj. En el cifrado americano las notas son letras: C = Do, D = Re, E = Mi, F = Fa, G = Sol, A = La y B = Si.",
     "namespace": "Content",
@@ -132036,6 +132641,13 @@
       "src/content/blog/guitarra-o-bajo-cual-aprender.ts:206"
     ]
   },
+  "m92895c81": {
+    "text": "Opcional: limita la búsqueda a un tipo de página.",
+    "namespace": "UI",
+    "references": [
+      "src/lib/mcp.ts:66"
+    ]
+  },
   "m9289811": {
     "text": "Suelta el aire en impulsos cortos: “f, f, f, f”, ocho veces, y luego “ts, ts, ts, ts”. Pon una mano en el abdomen: notarás que reacciona hacia adentro en cada pulso. Relájalo entre series.",
     "namespace": "Content",
@@ -132201,7 +132813,7 @@
     "text": "Si pentatónica mayor",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m92b2ae2e": {
@@ -132314,7 +132926,7 @@
     "text": "Do menor armónica",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m92e48c2b": {
@@ -132322,7 +132934,7 @@
     "namespace": "UI",
     "references": [
       "src/app/[locale]/acordes/[acorde]/page.tsx",
-      "src/app/[locale]/acordes/[acorde]/page.tsx:183",
+      "src/app/[locale]/acordes/[acorde]/page.tsx:186",
       "src/lib/ai-discovery.ts",
       "src/lib/music-pages.ts"
     ]
@@ -132940,6 +133552,13 @@
       "Spanish rendered copy"
     ]
   },
+  "m93797fb0": {
+    "text": "Si bemol suspendido 4",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
+    ]
+  },
   "m937a30b0": {
     "text": "Las clases de [iniciación musical](/clases/iniciacion-musical) suelen empezar hacia los 3 años, cuando el niño ya puede seguir juegos y consignas sencillas durante un rato. Estas señales indican que se acerca ese momento:",
     "namespace": "Content",
@@ -133064,6 +133683,13 @@
     "namespace": "Content",
     "references": [
       "src/content/blog/equipo-para-clases-virtuales-de-musica-camara-microfono.ts:25"
+    ]
+  },
+  "m939e6752": {
+    "text": "Parse error",
+    "namespace": "UI",
+    "references": [
+      "src/app/mcp/route.ts:25"
     ]
   },
   "m939ea2bb": {
@@ -133568,6 +134194,13 @@
     "namespace": "Content",
     "references": [
       "Spanish rendered copy"
+    ]
+  },
+  "m9422c90b": {
+    "text": "Fa sostenido menor melódica",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m9423566b": {
@@ -136551,6 +137184,13 @@
       "src/content/blog/admision-musica-universidad-el-bosque.ts:218"
     ]
   },
+  "m971d92ae": {
+    "text": "Qué es, clases, formatos, profes, contacto y por dónde empezar.",
+    "namespace": "UI",
+    "references": [
+      "src/lib/agent-resources.ts:50"
+    ]
+  },
   "m971e231e": {
     "text": "Cursos disponibles",
     "namespace": "UI",
@@ -137165,7 +137805,7 @@
     "text": "Si♭ pentatónica menor",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m97c7f2": {
@@ -137637,7 +138277,7 @@
     "text": "Notas, acordes de la tonalidad y mástil de guitarra.",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:378"
+      "src/app/[locale]/acordes/[acorde]/page.tsx:381"
     ]
   },
   "m98496501": {
@@ -137850,6 +138490,13 @@
     "references": [
       "src/content/blog/como-practicar-musica-en-casa.ts:191",
       "src/content/blog/posicion-correcta-de-las-manos-en-el-piano.ts:179"
+    ]
+  },
+  "m9871f237": {
+    "text": "Si bemol menor",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m9872316e": {
@@ -138396,7 +139043,7 @@
     "text": "La♯ disminuido",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m990649b": {
@@ -138644,6 +139291,13 @@
       "src/content/blog/como-leer-partituras-guia-para-principiantes.ts:192"
     ]
   },
+  "m99442e7a": {
+    "text": "Sol sostenido semidisminuido",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
+    ]
+  },
   "m99444538": {
     "text": "Quieres leer partituras, entender lo que tocas o prepararte para una audición.",
     "namespace": "Content",
@@ -138806,6 +139460,13 @@
     "namespace": "Content",
     "references": [
       "Spanish rendered copy"
+    ]
+  },
+  "m99798922": {
+    "text": "Si bemol suspendido 2",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m997abc78": {
@@ -139198,6 +139859,13 @@
     "namespace": "Content",
     "references": [
       "Spanish rendered copy"
+    ]
+  },
+  "m99dc0671": {
+    "text": "La bemol suspendido 4",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m99ddd13f": {
@@ -139829,7 +140497,7 @@
     "text": "Mi♭ pentatónica mayor",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m9a917e06": {
@@ -140456,7 +141124,7 @@
     "text": "La escala de",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/[escala]/page.tsx:185"
+      "src/app/[locale]/escalas/[escala]/page.tsx:188"
     ]
   },
   "m9b5387fb": {
@@ -140946,6 +141614,13 @@
       "src/content/blog/admision-musica-universidad-distrital-asab.ts:26"
     ]
   },
+  "m9bc70c1e": {
+    "text": "Sol sostenido menor armónica",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
+    ]
+  },
   "m9bc78cd9": {
     "text": "cómo rasguear la guitarra",
     "namespace": "Content",
@@ -141057,6 +141732,13 @@
     "namespace": "Content",
     "references": [
       "src/content/blog/es-tarde-para-aprender-musica-a-los-30-40-o-50.ts:85"
+    ]
+  },
+  "m9bdc0997": {
+    "text": "La bemol suspendido 2",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m9bde4fd6": {
@@ -141598,7 +142280,8 @@
     "text": "Si menor",
     "namespace": "UI",
     "references": [
-      "src/content/blog/circulo-de-quintas-explicado.ts:73"
+      "src/content/blog/circulo-de-quintas-explicado.ts:73",
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m9c616588": {
@@ -141648,7 +142331,7 @@
     "text": "Sol♯ menor melódica",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m9c6b3c21": {
@@ -141830,7 +142513,7 @@
     "text": "Si♭ blues",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m9c9c136e": {
@@ -141928,7 +142611,7 @@
     "text": "Mi disminuido",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m9cb42709": {
@@ -142787,6 +143470,13 @@
       "Spanish rendered copy"
     ]
   },
+  "m9d92d590": {
+    "text": "{p0} {p1}. Cada profe pasa una evaluación de música, pedagogía y calidad humana antes de su primera clase. Precios y horarios se consultan por WhatsApp.",
+    "namespace": "UI",
+    "references": [
+      "src/lib/mcp.ts"
+    ]
+  },
   "m9d943958": {
     "text": "Coros infantiles: una gran escuela",
     "namespace": "Content",
@@ -143154,7 +143844,10 @@
       "src/app/[locale]/clases/page.tsx:144",
       "src/app/[locale]/clases-de-musica-a-domicilio-bogota/page.tsx:158",
       "src/app/[locale]/clases-de-musica-online/page.tsx:160",
-      "src/lib/markdown.ts:290"
+      "src/lib/agent-resources.ts:31",
+      "src/lib/agent-resources.ts:64",
+      "src/lib/markdown.ts:290",
+      "src/lib/mcp.ts:139"
     ]
   },
   "m9ded7d89": {
@@ -143383,6 +144076,13 @@
       "src/content/blog/como-afinar-el-violonchelo.ts:151"
     ]
   },
+  "m9e1bc179": {
+    "text": "Fa sostenido menor armónica",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
+    ]
+  },
   "m9e1cf3a5": {
     "text": "¿Flauta traversa o clarinete? Cuál elegir para empezar | A ½ tono",
     "namespace": "Content",
@@ -143510,6 +144210,13 @@
       "src/content/blog/rubrica-de-evaluacion-docente-para-profesores-de-musica.ts:97"
     ]
   },
+  "m9e38036": {
+    "text": "{p0} compas tempo bpm",
+    "namespace": "UI",
+    "references": [
+      "src/lib/agent-resources.ts"
+    ]
+  },
   "m9e39cb40": {
     "text": "Si tienes en mente una carrera de música, revisa el [preuniversitario de música](/preuniversitario-musica): llegar con piano, lectura y armonía hace la preparación mucho más llevadera.",
     "namespace": "Content",
@@ -143529,6 +144236,13 @@
     "namespace": "Content",
     "references": [
       "src/content/blog/instrumentos-tipicos-de-colombia.ts:43"
+    ]
+  },
+  "m9e3bb7d5": {
+    "text": "Fa sostenido séptima",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m9e3c449a": {
@@ -143578,6 +144292,13 @@
     "namespace": "UI",
     "references": [
       "Spanish rendered copy"
+    ]
+  },
+  "m9e486cdb": {
+    "text": "Si bemol blues",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m9e4f1e7": {
@@ -143669,7 +144390,7 @@
     "text": "La suspendido 4",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m9e64662b": {
@@ -143839,7 +144560,7 @@
     "text": "Si mayor",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "m9e970091": {
@@ -145215,7 +145936,7 @@
     "text": "pertenece a",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:332"
+      "src/app/[locale]/acordes/[acorde]/page.tsx:335"
     ]
   },
   "ma000acdb": {
@@ -146090,7 +146811,7 @@
     "text": "Re séptima mayor",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "ma0db756d": {
@@ -146400,7 +147121,7 @@
     "text": "Re menor armónica",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "ma130845d": {
@@ -147243,7 +147964,7 @@
     "text": "desde cualquier nota.",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/[escala]/page.tsx:274"
+      "src/app/[locale]/escalas/[escala]/page.tsx:277"
     ]
   },
   "ma20a1417": {
@@ -147411,7 +148132,7 @@
     "text": "Si♭ séptima mayor",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "ma235e0c7": {
@@ -148858,6 +149579,13 @@
       "Spanish rendered copy"
     ]
   },
+  "ma3951e88": {
+    "text": "Sol sostenido menor",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
+    ]
+  },
   "ma39570bc": {
     "text": "Pasar a posiciones altas sin afinación firme en primera posición.",
     "namespace": "Content",
@@ -148883,7 +149611,7 @@
     "text": "Afina antes de practicar: guitarra, ukelele y más.",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:412"
+      "src/app/[locale]/acordes/[acorde]/page.tsx:415"
     ]
   },
   "ma39d68a3": {
@@ -148918,7 +149646,7 @@
     "text": "Encuentra los acordes de cualquier tonalidad.",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:384"
+      "src/app/[locale]/acordes/[acorde]/page.tsx:387"
     ]
   },
   "ma3a4a9ad": {
@@ -149177,7 +149905,7 @@
     "text": "Cifrado",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:175",
+      "src/app/[locale]/acordes/[acorde]/page.tsx:178",
       "src/components/tools/TunerStringsTable.tsx:22"
     ]
   },
@@ -149597,6 +150325,13 @@
       "Spanish rendered copy"
     ]
   },
+  "ma45ef853": {
+    "text": "Mensaje en español, por ejemplo «¡Hola! Quiero clases de guitarra para mi hijo de 8 años, virtuales».",
+    "namespace": "UI",
+    "references": [
+      "src/lib/mcp.ts:166"
+    ]
+  },
   "ma4606025": {
     "text": "Una trompeta se mantiene en casa con tres cuidados: aceite en los pistones cuando se sienten lentos, grasa en las bombas cuando se endurecen y un baño completo con agua tibia y jabón suave más o menos una vez al mes si tocas a diario. Al terminar cada práctica basta con vaciar el agua, secar el exterior y guardar la boquilla aparte.",
     "namespace": "Content",
@@ -149615,7 +150350,7 @@
     "text": "La suspendido 2",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "ma466a5db": {
@@ -149984,6 +150719,13 @@
     "namespace": "Content",
     "references": [
       "src/content/blog/verificaciones-antes-de-contratar-profesores-colombia.ts:147"
+    ]
+  },
+  "ma4e852a1": {
+    "text": "Do sostenido blues",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "ma4e8dd89": {
@@ -150360,7 +151102,8 @@
     "references": [
       "src/app/api/whatsapp/webhook/route.ts:15",
       "src/app/indexnow-key.txt/route.ts:12",
-      "src/app/indexnow-key.txt/route.ts:20"
+      "src/app/indexnow-key.txt/route.ts:20",
+      "src/app/mcp/route.ts:39"
     ]
   },
   "ma5479f3b": {
@@ -151146,7 +151889,7 @@
     "text": "Otras escalas de",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/[escala]/page.tsx:324"
+      "src/app/[locale]/escalas/[escala]/page.tsx:327"
     ]
   },
   "ma6123dec": {
@@ -152045,7 +152788,7 @@
     "text": "Re menor melódica",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "ma6fc7857": {
@@ -152202,6 +152945,13 @@
     "namespace": "UI",
     "references": [
       "src/data/countryDialCodes.ts:671"
+    ]
+  },
+  "ma720bc46": {
+    "text": "Guías: {p0}",
+    "namespace": "UI",
+    "references": [
+      "src/lib/agent-resources.ts"
     ]
   },
   "ma7222daa": {
@@ -152838,6 +153588,13 @@
       "src/content/blog/embocadura-de-trompeta-como-empezar.ts:72"
     ]
   },
+  "ma7c43e7e": {
+    "text": "Usa search para encontrar clases, profes, guías, acordes, escalas, afinaciones y ritmos, y fetch para leer cualquiera en Markdown.",
+    "namespace": "UI",
+    "references": [
+      "src/lib/mcp.ts:20"
+    ]
+  },
   "ma7cfc411": {
     "text": "Octava",
     "namespace": "UI",
@@ -153185,8 +153942,8 @@
       "src/app/[locale]/profes/[slug]/page.tsx:195",
       "src/app/[locale]/profes/page.tsx:32",
       "src/components/Footer.tsx:23",
-      "src/components/Navbar.tsx:130",
-      "src/components/Navbar.tsx:155",
+      "src/components/Navbar.tsx:141",
+      "src/components/Navbar.tsx:166",
       "src/lib/seo.ts:502"
     ]
   },
@@ -153542,7 +154299,7 @@
     "text": "Escalas",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/[escala]/page.tsx:159",
+      "src/app/[locale]/escalas/[escala]/page.tsx:162",
       "src/app/[locale]/escalas/page.tsx:67",
       "src/content/blog/repertorio-para-la-audicion-de-admision.ts:99"
     ]
@@ -153693,7 +154450,8 @@
       "src/content/blog/como-hacer-la-cejilla-en-guitarra.ts:46",
       "src/content/blog/escalas-mayores-y-menores-explicadas.ts:99",
       "src/content/blog/modos-griegos-explicados.ts:83",
-      "src/content/blog/villancicos-faciles-para-aprender-en-navidad.ts:132"
+      "src/content/blog/villancicos-faciles-para-aprender-en-navidad.ts:132",
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "ma8a4d936": {
@@ -154123,6 +154881,13 @@
     "namespace": "UI",
     "references": [
       "src/lib/b2b.ts:178"
+    ]
+  },
+  "ma9142be5": {
+    "text": "a domicilio en Bogotá y alrededores",
+    "namespace": "UI",
+    "references": [
+      "src/lib/mcp.ts:143"
     ]
   },
   "ma9151fc9": {
@@ -155059,14 +155824,14 @@
     "references": [
       "src/app/[locale]/academias/[servicio]/page.tsx:184",
       "src/app/[locale]/academias/page.tsx:268",
-      "src/app/[locale]/acordes/[acorde]/page.tsx:358",
+      "src/app/[locale]/acordes/[acorde]/page.tsx:361",
       "src/app/[locale]/acordes/page.tsx:209",
       "src/app/[locale]/blog/[slug]/page.tsx:218",
       "src/app/[locale]/blog/[slug]/page.tsx:253",
       "src/app/[locale]/clases/page.tsx:160",
       "src/app/[locale]/clases-de-musica-a-domicilio-bogota/page.tsx:234",
       "src/app/[locale]/clases-de-musica-online/page.tsx:211",
-      "src/app/[locale]/escalas/[escala]/page.tsx:302",
+      "src/app/[locale]/escalas/[escala]/page.tsx:305",
       "src/app/[locale]/escalas/page.tsx:140",
       "src/app/[locale]/herramientas/afinador/[instrumento]/page.tsx:248",
       "src/app/[locale]/herramientas/afinador/page.tsx:211",
@@ -155928,6 +156693,13 @@
       "Spanish rendered copy"
     ]
   },
+  "mab05e967": {
+    "text": "Re bemol pentatónica mayor",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
+    ]
+  },
   "mab0b42fd": {
     "text": "Baja por semitonos.",
     "namespace": "Content",
@@ -156528,7 +157300,7 @@
     "text": "La disminuido",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mabb08426": {
@@ -158080,7 +158852,7 @@
     "text": "Fa♯ suspendido 4",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mad0fb042": {
@@ -158454,7 +159226,7 @@
     "text": "Re♯ pentatónica menor",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mad62a326": {
@@ -158616,7 +159388,7 @@
     "text": "Teclas de la escala de {p0}: {p1}",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/[escala]/page.tsx:222"
+      "src/app/[locale]/escalas/[escala]/page.tsx:225"
     ]
   },
   "mad9d0738": {
@@ -158701,7 +159473,7 @@
     "text": "Re♯ disminuido",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "madae9bae": {
@@ -158877,6 +159649,13 @@
     "namespace": "Content",
     "references": [
       "src/content/blog/clases-de-musica-para-ninos-de-3-anos.ts:74"
+    ]
+  },
+  "madd2ae70": {
+    "text": "Re sostenido menor séptima",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "madd2ba2": {
@@ -159350,7 +160129,7 @@
     "text": ". Aquí lo tienes en guitarra, piano y ukelele, con digitación y sonido.",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:155"
+      "src/app/[locale]/acordes/[acorde]/page.tsx:158"
     ]
   },
   "mae40aecb": {
@@ -159415,6 +160194,13 @@
     "namespace": "Content",
     "references": [
       "Spanish rendered copy"
+    ]
+  },
+  "mae52b3b4": {
+    "text": "Do sostenido menor séptima",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mae538d71": {
@@ -160184,7 +160970,7 @@
     "text": "Fa♯ suspendido 2",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "maf0fb196": {
@@ -160247,7 +161033,7 @@
     "text": "Sistema",
     "namespace": "UI",
     "references": [
-      "src/components/ThemePicker.tsx:9",
+      "src/components/ThemePicker.tsx:10",
       "src/content/blog/como-limpiar-un-trombon.ts:65",
       "src/content/blog/cuanto-tiempo-toma-aprender-bajo-electrico.ts:114"
     ]
@@ -162040,6 +162826,13 @@
       "Spanish rendered copy"
     ]
   },
+  "mb0e85800": {
+    "text": "Sol sostenido menor melódica",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
+    ]
+  },
   "mb0e9e0c": {
     "text": "Y, si puedes, ubícate cerca del router o donde llegue un cable de red.",
     "namespace": "Content",
@@ -162487,7 +163280,7 @@
     "text": "Servicios para academias y colegios",
     "namespace": "UI",
     "references": [
-      "src/lib/ai-discovery.ts:94"
+      "src/lib/ai-discovery.ts:101"
     ]
   },
   "mb159fa2c": {
@@ -162582,6 +163375,13 @@
     "namespace": "UI",
     "references": [
       "src/lib/music-pages.ts:231"
+    ]
+  },
+  "mb1725853": {
+    "text": "application/linkset+json; profile=\"https://www.rfc-editor.org/info/rfc9727\"",
+    "namespace": "UI",
+    "references": [
+      "src/app/.well-known/api-catalog/route.ts:28"
     ]
   },
   "mb172d3e5": {
@@ -163191,6 +163991,13 @@
       "src/data/countryDialCodes.ts:1187"
     ]
   },
+  "mb1f74eee": {
+    "text": "Si bemol menor séptima",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
+    ]
+  },
   "mb1f79097": {
     "text": "Un pulso sólido.",
     "namespace": "Content",
@@ -163237,7 +164044,7 @@
     "text": "¡Hola! Vengo de la escala de {p0} y quiero información sobre clases.",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/[escala]/page.tsx:384"
+      "src/app/[locale]/escalas/[escala]/page.tsx:387"
     ]
   },
   "mb207a3b3": {
@@ -163265,7 +164072,7 @@
     "text": "·",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:286",
+      "src/app/[locale]/acordes/[acorde]/page.tsx:289",
       "src/app/[locale]/clases/page.tsx:143",
       "src/app/[locale]/clases-de-musica-a-domicilio-bogota/page.tsx:187",
       "src/components/music/CircleOfFifths.tsx:190",
@@ -163439,9 +164246,9 @@
     "text": "Círculo de quintas interactivo",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:383",
+      "src/app/[locale]/acordes/[acorde]/page.tsx:386",
       "src/app/[locale]/acordes/page.tsx:223",
-      "src/app/[locale]/escalas/[escala]/page.tsx:338",
+      "src/app/[locale]/escalas/[escala]/page.tsx:341",
       "src/app/[locale]/escalas/page.tsx:148",
       "src/app/[locale]/herramientas/circulo-de-quintas/page.tsx:37",
       "src/lib/share-cards.ts:118"
@@ -164497,7 +165304,7 @@
     "text": "Re♭ séptima",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mb32c8f31": {
@@ -166493,6 +167300,13 @@
       "Spanish rendered copy"
     ]
   },
+  "mb505986f": {
+    "text": "Las páginas HTML también responden en Markdown cuando la solicitud prefiere `Accept: text/markdown`.",
+    "namespace": "UI",
+    "references": [
+      "src/lib/ai-discovery.ts:81"
+    ]
+  },
   "mb506addc": {
     "text": "Cómo retener a los profesores de tu academia de música | A ½ tono",
     "namespace": "Content",
@@ -166554,7 +167368,8 @@
     "text": "Re♭ mayor",
     "namespace": "UI",
     "references": [
-      "src/content/blog/modos-griegos-explicados.ts:89"
+      "src/content/blog/modos-griegos-explicados.ts:89",
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mb520641a": {
@@ -166683,6 +167498,13 @@
       "src/content/blog/repertorio-para-la-audicion-de-admision.ts:73"
     ]
   },
+  "mb54b23f3": {
+    "text": "Do sostenido disminuido",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
+    ]
+  },
   "mb54cafd1": {
     "text": "Contrabajo o bajo eléctrico: en qué se diferencian",
     "namespace": "Content",
@@ -166750,7 +167572,7 @@
     "text": "Do blues",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mb560b399": {
@@ -166976,7 +167798,7 @@
     "text": "(suena como {p0})",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/[escala]/page.tsx:264"
+      "src/app/[locale]/escalas/[escala]/page.tsx:267"
     ]
   },
   "mb58db7c4": {
@@ -168289,7 +169111,7 @@
     "text": "Re♯ menor séptima",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mb6ce7a9d": {
@@ -169010,7 +169832,7 @@
     "text": "Sol menor armónica",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mb7767a4": {
@@ -169372,7 +170194,7 @@
     "namespace": "UI",
     "references": [
       "src/app/llms-full.txt/route.ts:115",
-      "src/lib/ai-discovery.ts:121",
+      "src/lib/ai-discovery.ts:128",
       "src/lib/markdown.ts:372"
     ]
   },
@@ -169977,6 +170799,13 @@
     "namespace": "Content",
     "references": [
       "Spanish rendered copy"
+    ]
+  },
+  "mb88b2a94": {
+    "text": "Sol sostenido disminuido",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mb88db647": {
@@ -170968,7 +171797,7 @@
     "text": "Si♭ menor natural",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mb9674279": {
@@ -171179,7 +172008,14 @@
     "text": "Si semidisminuido",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
+    ]
+  },
+  "mb9a893b9": {
+    "text": "Fa sostenido pentatónica menor",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mb9a9f105": {
@@ -172113,7 +172949,7 @@
     "text": "Fa♯ disminuido",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mba8ab265": {
@@ -172310,9 +173146,11 @@
       "src/app/[locale]/profes/page.tsx:24",
       "src/app/profes/llms.txt/route.ts:6",
       "src/components/ProfesDirectory.tsx:579",
+      "src/lib/agent-resources.ts:52",
       "src/lib/ai-discovery.ts:26",
-      "src/lib/ai-discovery.ts:90",
-      "src/lib/markdown.ts:290"
+      "src/lib/ai-discovery.ts:97",
+      "src/lib/markdown.ts:290",
+      "src/lib/mcp.ts:139"
     ]
   },
   "mbac5f4cc": {
@@ -172383,6 +173221,13 @@
     "namespace": "Content",
     "references": [
       "src/content/blog/canciones-faciles-para-piano-principiantes.ts:21"
+    ]
+  },
+  "mbad25aa1": {
+    "text": "search=yes, ai-input=yes, ai-train=yes",
+    "namespace": "UI",
+    "references": [
+      "src/app/robots.ts:64"
     ]
   },
   "mbad80be0": {
@@ -173558,7 +174403,7 @@
     "text": "La pentatónica mayor",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mbc09872e": {
@@ -174868,7 +175713,8 @@
       "src/content/blog/circulo-de-quintas-explicado.ts:136",
       "src/content/blog/como-hacer-la-cejilla-en-guitarra.ts:47",
       "src/content/blog/escalas-mayores-y-menores-explicadas.ts:100",
-      "src/content/blog/villancicos-faciles-para-aprender-en-navidad.ts:135"
+      "src/content/blog/villancicos-faciles-para-aprender-en-navidad.ts:135",
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mbd5b183a": {
@@ -175831,6 +176677,13 @@
       "Spanish rendered copy"
     ]
   },
+  "mbe45bd39": {
+    "text": "Buscar en el sitio",
+    "namespace": "UI",
+    "references": [
+      "src/lib/mcp.ts:60"
+    ]
+  },
   "mbe483171": {
     "text": "Con tríadas: B♭ (I), Cm (ii), Dm (iii), E♭ (IV), F (V), Gm (vi), Adim (vii°).",
     "namespace": "Content",
@@ -176182,7 +177035,7 @@
     "text": "Sol pentatónica mayor",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mbea58101": {
@@ -176401,7 +177254,7 @@
     "text": "¿Quieres tocar canciones completas?",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:426"
+      "src/app/[locale]/acordes/[acorde]/page.tsx:429"
     ]
   },
   "mbedfe5f8": {
@@ -177210,6 +178063,13 @@
       "src/content/blog/preuniversitario-de-musica-que-es.ts:121"
     ]
   },
+  "mbf93f859": {
+    "text": "Id de search, ruta o URL de amediotonomusic.com.",
+    "namespace": "UI",
+    "references": [
+      "src/lib/mcp.ts:93"
+    ]
+  },
   "mbf992bc2": {
     "text": "Qué hace variar el precio de las clases de música: formato, duración, frecuencia, perfil del profe y desplazamiento, y cómo comparar ofertas con criterio.",
     "namespace": "Content",
@@ -177426,6 +178286,13 @@
     "namespace": "Content",
     "references": [
       "src/content/blog/como-elegir-tu-primera-flauta-traversa.ts:138"
+    ]
+  },
+  "mbfc415ec": {
+    "text": "<{p0}>; rel=\"api-catalog\"",
+    "namespace": "UI",
+    "references": [
+      "src/app/.well-known/api-catalog/route.ts"
     ]
   },
   "mbfc50635": {
@@ -178678,7 +179545,8 @@
     "text": "Sol menor",
     "namespace": "UI",
     "references": [
-      "src/content/blog/circulo-de-quintas-explicado.ts:81"
+      "src/content/blog/circulo-de-quintas-explicado.ts:81",
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mc10b6a5a": {
@@ -179818,7 +180686,7 @@
     "text": "Escribir por WhatsApp",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:430",
+      "src/app/[locale]/acordes/[acorde]/page.tsx:433",
       "src/app/[locale]/acordes/page.tsx:247",
       "src/app/[locale]/blog/[slug]/page.tsx:384",
       "src/app/[locale]/blog/categoria/[categoria]/page.tsx:158",
@@ -179826,7 +180694,7 @@
       "src/app/[locale]/clases/page.tsx:171",
       "src/app/[locale]/clases-de-musica-a-domicilio-bogota/page.tsx:248",
       "src/app/[locale]/clases-de-musica-online/page.tsx:220",
-      "src/app/[locale]/escalas/[escala]/page.tsx:385",
+      "src/app/[locale]/escalas/[escala]/page.tsx:388",
       "src/app/[locale]/escalas/page.tsx:178",
       "src/app/[locale]/glosario-musical/page.tsx:163",
       "src/app/[locale]/herramientas/afinador/[instrumento]/page.tsx:315",
@@ -179984,7 +180852,8 @@
     "text": "Mi menor",
     "namespace": "UI",
     "references": [
-      "src/content/blog/circulo-de-quintas-explicado.ts:72"
+      "src/content/blog/circulo-de-quintas-explicado.ts:72",
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mc22fa655": {
@@ -180724,7 +181593,7 @@
     "text": "La blues",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mc2e6b84": {
@@ -182534,7 +183403,7 @@
     "references": [
       "src/app/[locale]/forbidden.tsx:24",
       "src/components/ContactoSection.tsx:153",
-      "src/components/Navbar.tsx:162"
+      "src/components/Navbar.tsx:173"
     ]
   },
   "mc4aff823": {
@@ -182985,7 +183854,7 @@
     "namespace": "UI",
     "references": [
       "src/app/[locale]/academias/page.tsx:103",
-      "src/components/Navbar.tsx:156"
+      "src/components/Navbar.tsx:167"
     ]
   },
   "mc5196f4a": {
@@ -183128,6 +183997,13 @@
     "namespace": "UI",
     "references": [
       "src/app/[locale]/herramientas/entrenamiento-auditivo/page.tsx:64"
+    ]
+  },
+  "mc53899e8": {
+    "text": "Fa sostenido mayor",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mc53bf797": {
@@ -183338,7 +184214,7 @@
     "text": "La menor natural",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mc56b6e3c": {
@@ -183479,7 +184355,7 @@
     "text": "Mi aumentado",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mc5896f0": {
@@ -183634,7 +184510,7 @@
     "text": "Fa♯ menor natural",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mc5aea8b2": {
@@ -184340,7 +185216,7 @@
     "text": "Función",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/[escala]/page.tsx:255",
+      "src/app/[locale]/escalas/[escala]/page.tsx:258",
       "src/content/blog/como-componer-una-cancion-desde-cero.ts:53",
       "src/content/blog/que-es-la-armonia-musical.ts:83",
       "src/content/blog/ritmos-colombianos-bambuco-pasillo-y-cumbia-explicados.ts:94",
@@ -184593,7 +185469,7 @@
     "text": "(relativa)",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/[escala]/page.tsx:312"
+      "src/app/[locale]/escalas/[escala]/page.tsx:315"
     ]
   },
   "mc6a0fd10": {
@@ -185110,7 +185986,8 @@
     "text": "Sol♯ menor",
     "namespace": "UI",
     "references": [
-      "src/content/blog/circulo-de-quintas-explicado.ts:76"
+      "src/content/blog/circulo-de-quintas-explicado.ts:76",
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mc733cfea": {
@@ -185145,7 +186022,7 @@
     "text": "Inversiones",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:237"
+      "src/app/[locale]/acordes/[acorde]/page.tsx:240"
     ]
   },
   "mc737e452": {
@@ -185166,7 +186043,7 @@
     "text": "Intervalo desde la tónica",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/[escala]/page.tsx:254"
+      "src/app/[locale]/escalas/[escala]/page.tsx:257"
     ]
   },
   "mc73d1a13": {
@@ -185266,6 +186143,13 @@
     "namespace": "Content",
     "references": [
       "src/content/blog/saxofon-alto-o-tenor-para-empezar.ts:183"
+    ]
+  },
+  "mc75a8792": {
+    "text": "Encontrar profes",
+    "namespace": "UI",
+    "references": [
+      "src/lib/mcp.ts:112"
     ]
   },
   "mc75b3461": {
@@ -185552,7 +186436,7 @@
       "src/app/[locale]/blog/page.tsx:67",
       "src/app/[locale]/blog/page.tsx:101",
       "src/components/Footer.tsx:34",
-      "src/components/Navbar.tsx:157",
+      "src/components/Navbar.tsx:168",
       "src/lib/seo.ts:734"
     ]
   },
@@ -185821,8 +186705,8 @@
     "text": "notas:",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:154",
-      "src/app/[locale]/escalas/[escala]/page.tsx:185"
+      "src/app/[locale]/acordes/[acorde]/page.tsx:157",
+      "src/app/[locale]/escalas/[escala]/page.tsx:188"
     ]
   },
   "mc7d2731f": {
@@ -187837,7 +188721,8 @@
     "text": "Si♭ mayor",
     "namespace": "UI",
     "references": [
-      "src/content/blog/modos-griegos-explicados.ts:86"
+      "src/content/blog/modos-griegos-explicados.ts:86",
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mc9e594f0": {
@@ -188762,7 +189647,7 @@
     "text": "Fa menor natural",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mcacf646": {
@@ -189895,7 +190780,7 @@
     "text": "Un profe te enseña a cambiar de acorde con fluidez, a rasguear y a acompañar tus canciones favoritas, en clases virtuales o a domicilio en Bogotá.",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:427"
+      "src/app/[locale]/acordes/[acorde]/page.tsx:430"
     ]
   },
   "mcc0a846b": {
@@ -189986,7 +190871,7 @@
     "text": "Ver todos los acordes",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:418"
+      "src/app/[locale]/acordes/[acorde]/page.tsx:421"
     ]
   },
   "mcc1dd441": {
@@ -189994,6 +190879,13 @@
     "namespace": "Content",
     "references": [
       "Spanish rendered copy"
+    ]
+  },
+  "mcc1f9740": {
+    "text": "Lista los profes de A medio tono que enseñan un instrumento, con formato (virtual o a domicilio en Bogotá) e idioma, su perfil y un enlace de WhatsApp para pedir la clase. Sin filtros devuelve todos.",
+    "namespace": "UI",
+    "references": [
+      "src/lib/mcp.ts:113"
     ]
   },
   "mcc209e1e": {
@@ -190203,7 +191095,7 @@
     "text": "Re♯ menor melódica",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mcc5f63d2": {
@@ -190646,7 +191538,8 @@
     "text": "Fa♯ menor",
     "namespace": "UI",
     "references": [
-      "src/content/blog/circulo-de-quintas-explicado.ts:74"
+      "src/content/blog/circulo-de-quintas-explicado.ts:74",
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mccd72349": {
@@ -190828,7 +191721,7 @@
     "text": "Fa pentatónica menor",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mcd05b7d5": {
@@ -190956,7 +191849,7 @@
     "text": "Re♯ menor armónica",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mcd24ec11": {
@@ -191478,7 +192371,7 @@
     "text": "Do menor séptima",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mcd98fb87": {
@@ -191704,7 +192597,7 @@
     "text": "Fa menor séptima",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mcdd528fd": {
@@ -192550,6 +193443,13 @@
     "namespace": "Content",
     "references": [
       "Spanish rendered copy"
+    ]
+  },
+  "mcec7cd54": {
+    "text": "{p0} antialiased",
+    "namespace": "UI",
+    "references": [
+      "src/app/[locale]/layout.tsx"
     ]
   },
   "mcece940f": {
@@ -193700,6 +194600,13 @@
       "src/content/blog/como-leer-la-clave-de-fa.ts:114"
     ]
   },
+  "md01ee32e": {
+    "text": "Fa sostenido suspendido 4",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
+    ]
+  },
   "md0212dfe": {
     "text": "Apretar el arco para “sacar más sonido”.",
     "namespace": "Content",
@@ -193866,7 +194773,7 @@
     "text": "Las otras posiciones sirven para cambiar de acorde sin saltar por el mástil o para un sonido más agudo.",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:214"
+      "src/app/[locale]/acordes/[acorde]/page.tsx:217"
     ]
   },
   "md04e481c": {
@@ -195765,6 +196672,13 @@
       "src/content/blog/clase-muestra-como-evaluar-a-un-profesor-de-musica.ts:180"
     ]
   },
+  "md21ee654": {
+    "text": "Fa sostenido suspendido 2",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
+    ]
+  },
   "md21f9963": {
     "text": "Cómo se nota cuando falla",
     "namespace": "Content",
@@ -196687,7 +197601,7 @@
     "text": "Mi♭ séptima",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "md3067a80": {
@@ -196873,7 +197787,7 @@
     "text": "Entre nota y nota la escala avanza así:",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/[escala]/page.tsx:274"
+      "src/app/[locale]/escalas/[escala]/page.tsx:277"
     ]
   },
   "md32d2645": {
@@ -197050,7 +197964,7 @@
     "text": "Do♯ semidisminuido",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "md36a78d2": {
@@ -197212,6 +198126,13 @@
     "namespace": "Content",
     "references": [
       "src/content/blog/como-saber-mi-tipo-de-voz.ts:46"
+    ]
+  },
+  "md39c97e7": {
+    "text": "Re sostenido disminuido",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "md39e4a64": {
@@ -197775,7 +198696,7 @@
     "text": "Do menor melódica",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "md413a914": {
@@ -197903,6 +198824,13 @@
     "namespace": "Content",
     "references": [
       "src/content/blog/clases-de-musica-para-ninos-de-3-anos.ts:192"
+    ]
+  },
+  "md437cf3": {
+    "text": "A medio tono: datos de la escuela",
+    "namespace": "UI",
+    "references": [
+      "src/lib/agent-resources.ts:50"
     ]
   },
   "md4381ad": {
@@ -198097,6 +199025,13 @@
       "src/content/blog/entrevista-de-admision-en-musica.ts:48"
     ]
   },
+  "md46c6d96": {
+    "text": "Si bemol mayor",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
+    ]
+  },
   "md46da6be": {
     "text": "Acorde de Sol sostenido disminuido (G#dim) | A ½ tono",
     "namespace": "Content",
@@ -198237,6 +199172,13 @@
     "references": [
       "src/components/ProfesDirectory.tsx:530",
       "src/components/ProfesDirectory.tsx:624"
+    ]
+  },
+  "md49b6fb5": {
+    "text": "Fa sostenido menor",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "md49d1b72": {
@@ -198621,7 +199563,7 @@
     "text": "Sol♯ blues",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "md5095433": {
@@ -198911,6 +199853,13 @@
     "namespace": "Content",
     "references": [
       "src/content/blog/cuanto-cuestan-las-clases-de-musica-que-influye-en-el-precio.ts:140"
+    ]
+  },
+  "md541cc81": {
+    "text": "Re sostenido pentatónica menor",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "md5445bf1": {
@@ -199705,8 +200654,8 @@
     "text": "en piano",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:223",
-      "src/app/[locale]/escalas/[escala]/page.tsx:217"
+      "src/app/[locale]/acordes/[acorde]/page.tsx:226",
+      "src/app/[locale]/escalas/[escala]/page.tsx:220"
     ]
   },
   "md6147316": {
@@ -200119,8 +201068,8 @@
     "text": "en guitarra",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:188",
-      "src/app/[locale]/escalas/[escala]/page.tsx:227"
+      "src/app/[locale]/acordes/[acorde]/page.tsx:191",
+      "src/app/[locale]/escalas/[escala]/page.tsx:230"
     ]
   },
   "md680bab": {
@@ -200321,7 +201270,14 @@
       "src/app/[locale]/nosotros/page.tsx:140",
       "src/app/[locale]/nosotros/page.tsx:165",
       "src/components/Footer.tsx:24",
-      "src/components/Navbar.tsx:158"
+      "src/components/Navbar.tsx:169"
+    ]
+  },
+  "md6ae5264": {
+    "text": "Instrumento o clase, por ejemplo «piano», «canto», «violonchelo» o «teoría musical».",
+    "namespace": "UI",
+    "references": [
+      "src/lib/mcp.ts:117"
     ]
   },
   "md6b020f7": {
@@ -200766,7 +201722,7 @@
     "text": "Grados e intervalos",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/[escala]/page.tsx:247"
+      "src/app/[locale]/escalas/[escala]/page.tsx:250"
     ]
   },
   "md71e7039": {
@@ -201040,7 +201996,7 @@
     "text": "Enarmónico",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:182"
+      "src/app/[locale]/acordes/[acorde]/page.tsx:185"
     ]
   },
   "md7696cf": {
@@ -201061,7 +202017,7 @@
     "text": "RSS del blog",
     "namespace": "UI",
     "references": [
-      "src/lib/ai-discovery.ts:80"
+      "src/lib/ai-discovery.ts:87"
     ]
   },
   "md773228c": {
@@ -201180,7 +202136,7 @@
     "text": "¿En qué tonalidades aparece",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:330"
+      "src/app/[locale]/acordes/[acorde]/page.tsx:333"
     ]
   },
   "md79330e4": {
@@ -201237,6 +202193,13 @@
     "namespace": "Content",
     "references": [
       "src/content/blog/guitarra-para-ninos-guia-para-padres.ts:110"
+    ]
+  },
+  "md7a73f08": {
+    "text": "Definiciones de ritmo, armonía, lectura, técnica, instrumentos y estilos.",
+    "namespace": "UI",
+    "references": [
+      "src/lib/agent-resources.ts:77"
     ]
   },
   "md7a95413": {
@@ -201483,7 +202446,8 @@
     "text": "Si♭ menor",
     "namespace": "UI",
     "references": [
-      "src/content/blog/circulo-de-quintas-explicado.ts:78"
+      "src/content/blog/circulo-de-quintas-explicado.ts:78",
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "md7eb82ab": {
@@ -202189,7 +203153,7 @@
     "text": "Fa pentatónica mayor",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "md8a21017": {
@@ -202436,9 +203400,9 @@
     "text": "Escala de",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:377",
-      "src/app/[locale]/escalas/[escala]/page.tsx:217",
-      "src/app/[locale]/escalas/[escala]/page.tsx:227",
+      "src/app/[locale]/acordes/[acorde]/page.tsx:380",
+      "src/app/[locale]/escalas/[escala]/page.tsx:220",
+      "src/app/[locale]/escalas/[escala]/page.tsx:230",
       "src/components/music/CircleOfFifths.tsx:188",
       "src/components/music/CircleOfFifths.tsx:192"
     ]
@@ -202828,6 +203792,13 @@
     "namespace": "Content",
     "references": [
       "Spanish page metadata"
+    ]
+  },
+  "md933508c": {
+    "text": "Sol sostenido pentatónica menor",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "md93360b4": {
@@ -203329,7 +204300,7 @@
     "text": "Si menor natural",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "md99642a5": {
@@ -203629,6 +204600,13 @@
     "namespace": "Content",
     "references": [
       "Spanish rendered copy"
+    ]
+  },
+  "md9ecbba0": {
+    "text": "Do sostenido menor natural",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "md9ede90e": {
@@ -204464,6 +205442,13 @@
       "Spanish rendered copy"
     ]
   },
+  "mdaa76e29": {
+    "text": "Re sostenido semidisminuido",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
+    ]
+  },
   "mdaa8c7fd": {
     "text": "sexta menor",
     "namespace": "UI",
@@ -205146,6 +206131,13 @@
       "src/content/blog/estudiar-musica-en-medellin-cali-y-otras-ciudades.ts:57"
     ]
   },
+  "mdb57c7d1": {
+    "text": "Si bemol menor melódica",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
+    ]
+  },
   "mdb59665e": {
     "text": "No mencionar el proceso:",
     "namespace": "Content",
@@ -205243,7 +206235,7 @@
     "text": "Fa♯ semidisminuido",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mdb6c87f6": {
@@ -205749,7 +206741,7 @@
     "text": "Do suspendido 2",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mdbe6cf0c": {
@@ -206027,6 +207019,13 @@
     "namespace": "Content",
     "references": [
       "Spanish page metadata"
+    ]
+  },
+  "mdc2c23ee": {
+    "text": "Re bemol séptima mayor",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mdc320e6": {
@@ -207438,7 +208437,7 @@
     "text": ") o la fundamental y la quinta.",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:236"
+      "src/app/[locale]/acordes/[acorde]/page.tsx:239"
     ]
   },
   "mdda652c2": {
@@ -207690,7 +208689,7 @@
     "text": "Herramientas gratuitas que funcionan en el navegador; el audio del micrófono se analiza en el dispositivo.",
     "namespace": "UI",
     "references": [
-      "src/lib/ai-discovery.ts:100"
+      "src/lib/ai-discovery.ts:107"
     ]
   },
   "mddd6426c": {
@@ -207840,7 +208839,7 @@
     "text": "Todas las páginas HTML publicadas.",
     "namespace": "UI",
     "references": [
-      "src/lib/ai-discovery.ts:79"
+      "src/lib/ai-discovery.ts:86"
     ]
   },
   "mddfa1165": {
@@ -209410,7 +210409,7 @@
     "text": "Fa♯ menor armónica",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mdf78e6ed": {
@@ -210236,7 +211235,8 @@
     "text": "Do♯ menor",
     "namespace": "UI",
     "references": [
-      "src/content/blog/circulo-de-quintas-explicado.ts:75"
+      "src/content/blog/circulo-de-quintas-explicado.ts:75",
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "me03cfb1f": {
@@ -210602,7 +211602,7 @@
     "text": "tiene",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/[escala]/page.tsx:185"
+      "src/app/[locale]/escalas/[escala]/page.tsx:188"
     ]
   },
   "me096f8e5": {
@@ -211497,7 +212497,7 @@
     "text": "Do pentatónica mayor",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "me18b141e": {
@@ -211947,7 +212947,7 @@
     "text": "Do suspendido 4",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "me1e5565": {
@@ -212284,7 +213284,7 @@
     "text": "Re♭ aumentado",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "me23f4b52": {
@@ -212590,7 +213590,7 @@
     "text": "Si pentatónica menor",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "me2893deb": {
@@ -212735,7 +213735,8 @@
       "src/content/blog/circulo-de-quintas-explicado.ts:134",
       "src/content/blog/como-hacer-la-cejilla-en-guitarra.ts:45",
       "src/content/blog/escalas-mayores-y-menores-explicadas.ts:98",
-      "src/content/blog/modos-griegos-explicados.ts:84"
+      "src/content/blog/modos-griegos-explicados.ts:84",
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "me2addc06": {
@@ -212800,7 +213801,7 @@
     "text": "La semidisminuido",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "me2c69d91": {
@@ -212863,7 +213864,7 @@
     "text": "Si disminuido",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "me2d31d97": {
@@ -213146,7 +214147,7 @@
     "text": "La aumentado",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "me30cf21a": {
@@ -214002,14 +215003,14 @@
     "text": "Cerrar menú",
     "namespace": "UI",
     "references": [
-      "src/components/Navbar.tsx:135"
+      "src/components/Navbar.tsx:146"
     ]
   },
   "me3ebec7c": {
     "text": "Do♯ disminuido",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "me3f1b3a8": {
@@ -215276,6 +216277,13 @@
     "namespace": "Content",
     "references": [
       "Spanish rendered copy"
+    ]
+  },
+  "me52e8ed0": {
+    "text": "escuela de musica bogota contacto whatsapp precios",
+    "namespace": "UI",
+    "references": [
+      "src/lib/agent-resources.ts:50"
     ]
   },
   "me5333d0d": {
@@ -216840,7 +217848,7 @@
     "text": "private, no-store",
     "namespace": "UI",
     "references": [
-      "src/proxy.ts:16"
+      "src/middleware.ts:19"
     ]
   },
   "me6af16e9": {
@@ -218236,7 +219244,7 @@
     "text": "Contenido ampliado",
     "namespace": "UI",
     "references": [
-      "src/lib/ai-discovery.ts:78"
+      "src/lib/ai-discovery.ts:85"
     ]
   },
   "me815d862": {
@@ -218407,7 +219415,7 @@
     "text": "Do séptima",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "me8447e6a": {
@@ -218769,6 +219777,13 @@
       "src/content/blog/por-que-aprender-clarinete-u-oboe.ts:169"
     ]
   },
+  "me8b2a2ca": {
+    "text": "Opcional: formato de la clase.",
+    "namespace": "UI",
+    "references": [
+      "src/lib/mcp.ts:118"
+    ]
+  },
   "me8b49115": {
     "text": "cuánto cuestan las clases de guitarra",
     "namespace": "Content",
@@ -219077,7 +220092,7 @@
     "text": "Re menor natural",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "me91415c1": {
@@ -219085,6 +220100,13 @@
     "namespace": "UI",
     "references": [
       "src/content/tuner-presets.ts:1031"
+    ]
+  },
+  "me915cb8e": {
+    "text": "Sol bemol aumentado",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "me9161cc7": {
@@ -219140,7 +220162,7 @@
     "text": "Escalas relacionadas",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/[escala]/page.tsx:307"
+      "src/app/[locale]/escalas/[escala]/page.tsx:310"
     ]
   },
   "me9251062": {
@@ -221896,9 +222918,11 @@
     "text": "public, max-age=3600, s-maxage=86400",
     "namespace": "UI",
     "references": [
+      "src/app/.well-known/api-catalog/route.ts:31",
+      "src/app/.well-known/mcp/server-card.json/route.ts:25",
       "src/app/blog/rss.xml/route.ts:51",
       "src/app/llms-full.txt/route.ts:116",
-      "src/lib/ai-discovery.ts:122",
+      "src/lib/ai-discovery.ts:129",
       "src/lib/markdown.ts:373"
     ]
   },
@@ -222012,7 +223036,8 @@
     "namespace": "UI",
     "references": [
       "src/app/[locale]/profes/[slug]/page.tsx:47",
-      "src/lib/markdown.ts:191"
+      "src/lib/markdown.ts:191",
+      "src/lib/mcp.ts:119"
     ]
   },
   "mec06b8af": {
@@ -222133,7 +223158,7 @@
     "text": "La♭ pentatónica mayor",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mec1c804c": {
@@ -222310,7 +223335,7 @@
     "text": "Re♯ menor natural",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mec49f71": {
@@ -222824,7 +223849,7 @@
     "text": "Cómo practicar esta escala",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/[escala]/page.tsx:295"
+      "src/app/[locale]/escalas/[escala]/page.tsx:298"
     ]
   },
   "mecd6a336": {
@@ -223099,9 +224124,9 @@
     "text": "Ver clases",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:433",
+      "src/app/[locale]/acordes/[acorde]/page.tsx:436",
       "src/app/[locale]/acordes/page.tsx:248",
-      "src/app/[locale]/escalas/[escala]/page.tsx:388",
+      "src/app/[locale]/escalas/[escala]/page.tsx:391",
       "src/app/[locale]/escalas/page.tsx:179",
       "src/app/[locale]/herramientas/afinador/[instrumento]/page.tsx:318",
       "src/app/[locale]/herramientas/afinador/page.tsx:236",
@@ -223361,6 +224386,13 @@
     "namespace": "Content",
     "references": [
       "src/content/blog/admision-musica-universidad-de-antioquia.ts:18"
+    ]
+  },
+  "med5bd88f": {
+    "text": "Fa sostenido disminuido",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "med667203": {
@@ -223633,7 +224665,7 @@
     "text": "Mi menor natural",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "meda17d42": {
@@ -224031,6 +225063,13 @@
       "src/content/blog/como-elegir-tu-primera-guitarra-acustica.ts:170"
     ]
   },
+  "medffedf1": {
+    "text": "Mi bemol séptima mayor",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
+    ]
+  },
   "mee01f326": {
     "text": "Re♭ – Mi♭ – Fa – La♭ – Si♭",
     "namespace": "UI",
@@ -224227,7 +225266,7 @@
     "text": "Do séptima mayor",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mee2da588": {
@@ -224353,8 +225392,11 @@
     "text": "Escala de {p0}",
     "namespace": "UI",
     "references": [
+      "src/app/[locale]/escalas/[escala]/page.tsx:86",
+      "src/app/[locale]/escalas/[escala]/page.tsx:159",
       "src/app/[locale]/escalas/[escala]/page.tsx",
       "src/app/[locale]/escalas/page.tsx",
+      "src/lib/agent-resources.ts",
       "src/lib/music-pages.ts"
     ]
   },
@@ -224433,6 +225475,13 @@
     "namespace": "Content",
     "references": [
       "src/content/blog/repertorio-para-la-audicion-de-admision.ts:167"
+    ]
+  },
+  "mee5a18ad": {
+    "text": "Do sostenido pentatónica menor",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mee5cbfeb": {
@@ -225076,7 +226125,7 @@
     "text": "Si menor armónica",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mef268165": {
@@ -225315,7 +226364,7 @@
     "text": "Sol menor melódica",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mef5b1a27": {
@@ -225505,6 +226554,13 @@
     "namespace": "Content",
     "references": [
       "src/content/blog/como-acompanar-a-tu-hijo-en-clases-virtuales-de-musica.ts:115"
+    ]
+  },
+  "mef78bf75": {
+    "text": "diccionario musical {p0}",
+    "namespace": "UI",
+    "references": [
+      "src/lib/agent-resources.ts"
     ]
   },
   "mef7981b7": {
@@ -225839,6 +226895,13 @@
     "namespace": "Content",
     "references": [
       "src/content/blog/ejercicios-de-respiracion-para-cantar.ts:107"
+    ]
+  },
+  "mefdb168b": {
+    "text": "Lista de todas las páginas de /{p0}.",
+    "namespace": "UI",
+    "references": [
+      "src/lib/agent-resources.ts"
     ]
   },
   "mefdd5caa": {
@@ -226267,7 +227330,7 @@
     "text": "La séptima",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mf0414e0b": {
@@ -226633,7 +227696,8 @@
     "text": "Do menor",
     "namespace": "UI",
     "references": [
-      "src/content/blog/circulo-de-quintas-explicado.ts:80"
+      "src/content/blog/circulo-de-quintas-explicado.ts:80",
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mf0af819": {
@@ -226888,7 +227952,7 @@
     "text": "Do pentatónica menor",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mf0eb5b02": {
@@ -227100,7 +228164,7 @@
     "text": "La♭ suspendido 2",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mf126966a": {
@@ -227450,6 +228514,13 @@
       "src/content/blog/beneficios-de-aprender-guitarra.ts:42"
     ]
   },
+  "mf17b249a": {
+    "text": "Notas: {p0}.",
+    "namespace": "UI",
+    "references": [
+      "src/lib/agent-resources.ts"
+    ]
+  },
   "mf1815d22": {
     "text": "{p0}. {p1}",
     "namespace": "UI",
@@ -227463,7 +228534,7 @@
     "text": "Al apilar terceras sobre cada grado salen estos acordes. Son los que más vas a encontrar en canciones en esta tonalidad.",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/[escala]/page.tsx:287"
+      "src/app/[locale]/escalas/[escala]/page.tsx:290"
     ]
   },
   "mf18a4a88": {
@@ -227564,7 +228635,7 @@
     "text": "Mi semidisminuido",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mf1a265cd": {
@@ -228443,7 +229514,7 @@
     "text": ", T½ = tono y medio",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/[escala]/page.tsx:274",
+      "src/app/[locale]/escalas/[escala]/page.tsx:277",
       "src/lib/music-pages.ts:393"
     ]
   },
@@ -228894,7 +229965,7 @@
     "text": "Do semidisminuido",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mf2f4f546": {
@@ -229104,7 +230175,7 @@
     "text": ". Suena",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:154",
+      "src/app/[locale]/acordes/[acorde]/page.tsx:157",
       "src/app/[locale]/acordes/page.tsx:202"
     ]
   },
@@ -229891,7 +230962,7 @@
     "text": "Mi♭ aumentado",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mf3f059c2": {
@@ -230658,7 +231729,7 @@
     "text": ". Es una escala",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/[escala]/page.tsx:185",
+      "src/app/[locale]/escalas/[escala]/page.tsx:188",
       "src/app/[locale]/escalas/page.tsx:132"
     ]
   },
@@ -230799,7 +231870,7 @@
     "text": "Todas las notas de la escala del traste 0 al 12, con la tónica (",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/[escala]/page.tsx:239"
+      "src/app/[locale]/escalas/[escala]/page.tsx:242"
     ]
   },
   "mf4c6ceda": {
@@ -231163,7 +232234,7 @@
     "text": "Usa el afinador de ukelele",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:270"
+      "src/app/[locale]/acordes/[acorde]/page.tsx:273"
     ]
   },
   "mf51ba405": {
@@ -231576,7 +232647,7 @@
     "text": "(T = tono, S = semitono",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/[escala]/page.tsx:274"
+      "src/app/[locale]/escalas/[escala]/page.tsx:277"
     ]
   },
   "mf58aded0": {
@@ -231661,6 +232732,13 @@
     "namespace": "UI",
     "references": [
       "src/app/[locale]/herramientas/page.tsx:140"
+    ]
+  },
+  "mf5a2ffd1": {
+    "text": "Sol sostenido menor natural",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mf5a4d9d8": {
@@ -231759,7 +232837,7 @@
     "namespace": "UI",
     "references": [
       "src/app/[locale]/clases/[curso]/page.tsx:375",
-      "src/app/[locale]/escalas/[escala]/page.tsx:344",
+      "src/app/[locale]/escalas/[escala]/page.tsx:347",
       "src/app/[locale]/herramientas/afinador/page.tsx:218",
       "src/app/[locale]/herramientas/page.tsx:40",
       "src/lib/ai-discovery.ts:18",
@@ -232033,7 +233111,7 @@
       "src/components/Footer.tsx:37",
       "src/components/HomeResourcesSection.tsx:73",
       "src/lib/ai-discovery.ts:68",
-      "src/lib/ai-discovery.ts:109"
+      "src/lib/ai-discovery.ts:116"
     ]
   },
   "mf5f9ad88": {
@@ -232048,7 +233126,7 @@
     "text": "es un acorde",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:154"
+      "src/app/[locale]/acordes/[acorde]/page.tsx:157"
     ]
   },
   "mf5fc69d4": {
@@ -232274,7 +233352,8 @@
     "references": [
       "src/content/blog/acordes-basicos-de-guitarra-para-principiantes.ts:158",
       "src/content/blog/circulo-de-quintas-explicado.ts:137",
-      "src/content/blog/como-hacer-la-cejilla-en-guitarra.ts:48"
+      "src/content/blog/como-hacer-la-cejilla-en-guitarra.ts:48",
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mf6365d24": {
@@ -232310,6 +233389,13 @@
     "namespace": "UI",
     "references": [
       "Spanish rendered copy"
+    ]
+  },
+  "mf63f7018": {
+    "text": "La bemol séptima mayor",
+    "namespace": "UI",
+    "references": [
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mf64087e0": {
@@ -233207,7 +234293,7 @@
     "text": "La♭ suspendido 4",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mf72a999": {
@@ -233730,8 +234816,8 @@
     "text": "Notas",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:165",
-      "src/app/[locale]/escalas/[escala]/page.tsx:196"
+      "src/app/[locale]/acordes/[acorde]/page.tsx:168",
+      "src/app/[locale]/escalas/[escala]/page.tsx:199"
     ]
   },
   "mf7e73e03": {
@@ -233928,6 +235014,13 @@
     "namespace": "Content",
     "references": [
       "Spanish rendered copy"
+    ]
+  },
+  "mf816c652": {
+    "text": "Content-Type, Accept, Authorization, Mcp-Session-Id, Mcp-Protocol-Version, Last-Event-ID",
+    "namespace": "UI",
+    "references": [
+      "src/app/mcp/route.ts:8"
     ]
   },
   "mf8190cfa": {
@@ -234821,7 +235914,7 @@
     "text": "). Esa fórmula es la misma en cualquier tonalidad: si la aprendes, puedes armar la escala",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/[escala]/page.tsx:274"
+      "src/app/[locale]/escalas/[escala]/page.tsx:277"
     ]
   },
   "mf8f92465": {
@@ -237715,7 +238808,7 @@
     "text": "Otros acordes de",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx:363"
+      "src/app/[locale]/acordes/[acorde]/page.tsx:366"
     ]
   },
   "mfbbea987": {
@@ -237948,8 +239041,10 @@
     "text": "Acorde de {p0} ({p1})",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx",
-      "src/app/[locale]/acordes/page.tsx"
+      "src/app/[locale]/acordes/[acorde]/page.tsx:73",
+      "src/app/[locale]/acordes/[acorde]/page.tsx:128",
+      "src/app/[locale]/acordes/page.tsx",
+      "src/lib/agent-resources.ts"
     ]
   },
   "mfbfd1d9b": {
@@ -238542,6 +239637,13 @@
       "src/content/blog/como-elegir-una-bateria-o-cajon-para-empezar.ts:207"
     ]
   },
+  "mfc825362": {
+    "text": "- Pedir clase: {p0}",
+    "namespace": "UI",
+    "references": [
+      "src/lib/mcp.ts"
+    ]
+  },
   "mfc8486ce": {
     "text": "Entender y escribir lo que suena",
     "namespace": "Content",
@@ -239047,7 +240149,7 @@
     "text": "Si♭ menor armónica",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mfd0958e8": {
@@ -239286,7 +240388,7 @@
     "text": "Mi séptima",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mfd500354": {
@@ -239469,7 +240571,7 @@
     "namespace": "UI",
     "references": [
       "src/app/[locale]/academias/page.tsx:89",
-      "src/app/[locale]/layout.tsx:102",
+      "src/app/[locale]/layout.tsx:120",
       "src/lib/ai-discovery.ts:62"
     ]
   },
@@ -241886,7 +242988,7 @@
     "text": "Re♯ blues",
     "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/lib/music-theory.ts (generated)"
     ]
   },
   "mffdfe29f": {

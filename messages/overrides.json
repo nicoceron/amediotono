@@ -643,5 +643,50 @@
     "en": "blues",
     "pt": "blues",
     "fr": "blues"
+  },
+  "Acorde de {p0} ({p1})": {
+    "en": "{p0} chord ({p1})",
+    "pt": "Acorde de {p0} ({p1})",
+    "fr": "Accord de {p0} ({p1})"
+  },
+  "Escala de {p0}": {
+    "en": "{p0} scale",
+    "pt": "Escala de {p0}",
+    "fr": "Gamme de {p0}"
+  },
+  "Clases de música a domicilio en Bogotá | A ½ tono": {
+    "en": "Music lessons at home in Bogotá | A ½ tono",
+    "pt": "Aulas de música em casa em Bogotá | A ½ tono",
+    "fr": "Cours de musique à domicile à Bogotá | A ½ tono"
+  },
+  "Afinador de violonchelo": {
+    "en": "Cello tuner",
+    "pt": "Afinador de violoncelo",
+    "fr": "Accordeur de violoncelle"
+  },
+  "Afinador de violonchelo online": {
+    "en": "Online cello tuner",
+    "pt": "Afinador de violoncelo online",
+    "fr": "Accordeur de violoncelle en ligne"
+  },
+  "Afinador de violonchelo online — A medio tono": {
+    "en": "Online cello tuner — A medio tono",
+    "pt": "Afinador de violoncelo online — A medio tono",
+    "fr": "Accordeur de violoncelle en ligne — A medio tono"
+  },
+  "Afinador de violonchelo online gratis con micrófono | A ½ tono": {
+    "en": "Free online cello tuner with microphone | A ½ tono",
+    "pt": "Afinador de violoncelo online grátis com microfone | A ½ tono",
+    "fr": "Accordeur de violoncelle gratuit avec microphone | A ½ tono"
+  },
+  "Afinador de requinto colombiano (tiple requinto)": {
+    "en": "Colombian requinto tuner (tiple requinto)",
+    "pt": "Afinador online de tiple requinto colombiano",
+    "fr": "Accordeur de requinto colombien (tiple requinto)"
+  },
+  "Afinador de requinto colombiano (tiple requinto) | A ½ tono": {
+    "en": "Colombian requinto tuner (tiple requinto) | A ½ tono",
+    "pt": "Afinador online de tiple requinto colombiano | A ½ tono",
+    "fr": "Accordeur de requinto colombien (tiple requinto) | A ½ tono"
   }
 }

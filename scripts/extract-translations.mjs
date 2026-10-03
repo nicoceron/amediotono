@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import ts from "typescript";
 import {messageKey, normalizeMessage} from "../src/i18n/key.ts";
+import {CHORDS, SCALES} from "../src/lib/music-theory.ts";
 
 const root = process.cwd();
 const registry = {};
@@ -92,6 +93,12 @@ if (process.argv.includes("--prerender")) {
 }
 
 fs.mkdirSync(path.join(root, "messages"), {recursive: true});
+// These labels are computed from note spelling, so AST string extraction
+// cannot discover every name used by headings, tools and metadata.
+for (const item of [...CHORDS, ...SCALES]) {
+  add(item.name, "UI", "src/lib/music-theory.ts (generated)", true);
+  add(item.longName, "UI", "src/lib/music-theory.ts (generated)", true);
+}
 const previous = fs.existsSync("messages/source.json") ? JSON.parse(fs.readFileSync("messages/source.json", "utf8")) : {};
 // Keep prerendered metadata between normal extraction runs.
 for (const [key, item] of Object.entries(previous)) {
