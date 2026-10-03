@@ -43,18 +43,18 @@ export function LanguagePicker() {
         </button>
       </DropdownMenu.Trigger>
       <DropdownMenu.Portal>
-        <DropdownMenu.Content className="language-menu" align="end" sideOffset={8} collisionPadding={12} loop data-lenis-prevent>
-          <DropdownMenu.Label className="language-menu-label">{tx("Idioma")}</DropdownMenu.Label>
+        <DropdownMenu.Content className="nav-dropdown-menu language-menu" align="end" sideOffset={8} collisionPadding={12} loop data-lenis-prevent>
+          <DropdownMenu.Label className="nav-dropdown-label">{tx("Idioma")}</DropdownMenu.Label>
           <DropdownMenu.RadioGroup value={locale} onValueChange={changeLanguage}>
             {routing.locales.map(language => (
-              <DropdownMenu.RadioItem className="language-menu-item" key={language} value={language} lang={language}>
+              <DropdownMenu.RadioItem className="nav-dropdown-item" key={language} value={language} lang={language}>
                 {localeNames[language]}
                 <DropdownMenu.ItemIndicator><Check size={16} aria-hidden="true" /></DropdownMenu.ItemIndicator>
               </DropdownMenu.RadioItem>
             ))}
           </DropdownMenu.RadioGroup>
-          <DropdownMenu.Separator className="language-menu-separator" />
-          <DropdownMenu.Item className="language-menu-item" onSelect={() => changeLanguage("system")}>
+          <DropdownMenu.Separator className="nav-dropdown-separator" />
+          <DropdownMenu.Item className="nav-dropdown-item" onSelect={() => changeLanguage("system")}>
             {tx("Idioma del sistema")}
           </DropdownMenu.Item>
         </DropdownMenu.Content>

@@ -449,6 +449,26 @@ body:has(#profes-page .profes-mobile-filters[open]) .float-actions {
   outline: none;
 }
 
+.nav-resources-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--nav-ink);
+  font: inherit;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.nav-resources-trigger:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+.nav-resources-trigger[data-state="open"] > svg { transform: rotate(180deg); }
+
 /* Always reserve the same label box; pending feedback only paints an underline. */
 .nav-link-label {
   position: relative;
@@ -9428,7 +9448,7 @@ section.block.ed-cta-section {
 }
 .language-picker:disabled { opacity: 0.5; cursor: wait; }
 
-.language-menu {
+.nav-dropdown-menu {
   z-index: 1100;
   width: 208px;
   max-width: var(--radix-dropdown-menu-content-available-width);
@@ -9443,13 +9463,13 @@ section.block.ed-cta-section {
   font-family: var(--font-body);
   font-size: 14px;
 }
-.language-menu-label {
+.nav-dropdown-label {
   padding: 7px 10px;
   color: var(--ink-soft);
   font-size: 12px;
   font-weight: 600;
 }
-.language-menu-item {
+.nav-dropdown-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -9462,13 +9482,15 @@ section.block.ed-cta-section {
   cursor: pointer;
   user-select: none;
   outline: none;
+  color: inherit;
+  text-decoration: none;
 }
-.language-menu-item[data-highlighted] {
+.nav-dropdown-item[data-highlighted] {
   background: color-mix(in srgb, var(--ink) 8%, transparent);
 }
-.language-menu-item[data-state="checked"] { font-weight: 700; }
-.language-menu-item > span { display: inline-flex; }
-.language-menu-separator {
+.nav-dropdown-item[data-state="checked"] { font-weight: 700; }
+.nav-dropdown-item > span { display: inline-flex; }
+.nav-dropdown-separator {
   height: 1px;
   margin: 5px 4px;
   background: color-mix(in srgb, var(--ink) 12%, transparent);
