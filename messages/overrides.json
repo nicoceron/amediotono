@@ -1,0 +1,647 @@
+{
+  "Clases": {
+    "en": "Lessons",
+    "pt": "Aulas",
+    "fr": "Cours"
+  },
+  "Profes": {
+    "en": "Teachers",
+    "pt": "Professores",
+    "fr": "Professeurs"
+  },
+  "Profesores": {
+    "en": "Teachers",
+    "pt": "Professores",
+    "fr": "Professeurs"
+  },
+  "profe": {
+    "en": "teacher",
+    "pt": "professor",
+    "fr": "professeur"
+  },
+  "profes": {
+    "en": "teachers",
+    "pt": "professores",
+    "fr": "professeurs"
+  },
+  "Academias": {
+    "en": "Academies",
+    "pt": "Academias",
+    "fr": "Académies"
+  },
+  "Nosotros": {
+    "en": "About us",
+    "pt": "Sobre nós",
+    "fr": "À propos"
+  },
+  "Inicio": {
+    "en": "Home",
+    "pt": "Início",
+    "fr": "Accueil"
+  },
+  "Contacto": {
+    "en": "Contact",
+    "pt": "Contato",
+    "fr": "Contact"
+  },
+  "Claro": {
+    "en": "Light",
+    "pt": "Claro",
+    "fr": "Clair"
+  },
+  "Oscuro": {
+    "en": "Dark",
+    "pt": "Escuro",
+    "fr": "Sombre"
+  },
+  "Sistema": {
+    "en": "System",
+    "pt": "Sistema",
+    "fr": "Système"
+  },
+  "Tema": {
+    "en": "Theme",
+    "pt": "Tema",
+    "fr": "Thème"
+  },
+  "Elegir tema": {
+    "en": "Choose theme",
+    "pt": "Escolher tema",
+    "fr": "Choisir le thème"
+  },
+  "Idioma": {
+    "en": "Language",
+    "pt": "Idioma",
+    "fr": "Langue"
+  },
+  "Idioma del sistema": {
+    "en": "System language",
+    "pt": "Idioma do sistema",
+    "fr": "Langue du système"
+  },
+  "Abrir menú": {
+    "en": "Open menu",
+    "pt": "Abrir menu",
+    "fr": "Ouvrir le menu"
+  },
+  "Cerrar menú": {
+    "en": "Close menu",
+    "pt": "Fechar menu",
+    "fr": "Fermer le menu"
+  },
+  "Nombre": {
+    "en": "Name",
+    "pt": "Nome",
+    "fr": "Nom"
+  },
+  "Cargo": {
+    "en": "Job title",
+    "pt": "Cargo",
+    "fr": "Poste"
+  },
+  "Correo": {
+    "en": "Email",
+    "pt": "E-mail",
+    "fr": "E-mail"
+  },
+  "Institución": {
+    "en": "Institution",
+    "pt": "Instituição",
+    "fr": "Établissement"
+  },
+  "Ciudad": {
+    "en": "City",
+    "pt": "Cidade",
+    "fr": "Ville"
+  },
+  "Ubicación": {
+    "en": "Location",
+    "pt": "Localização",
+    "fr": "Localisation"
+  },
+  "Modalidad": {
+    "en": "Lesson format",
+    "pt": "Modalidade",
+    "fr": "Format des cours"
+  },
+  "Guitarra": {
+    "en": "Guitar",
+    "pt": "Guitarra",
+    "fr": "Guitare"
+  },
+  "guitarra": {
+    "en": "guitar",
+    "pt": "guitarra",
+    "fr": "guitare"
+  },
+  "Canto": {
+    "en": "Singing",
+    "pt": "Canto",
+    "fr": "Chant"
+  },
+  "canto": {
+    "en": "singing",
+    "pt": "canto",
+    "fr": "chant"
+  },
+  "Batería": {
+    "en": "Drums",
+    "pt": "Bateria",
+    "fr": "Batterie"
+  },
+  "batería": {
+    "en": "drums",
+    "pt": "bateria",
+    "fr": "batterie"
+  },
+  "Violín": {
+    "en": "Violin",
+    "pt": "Violino",
+    "fr": "Violon"
+  },
+  "violín": {
+    "en": "violin",
+    "pt": "violino",
+    "fr": "violon"
+  },
+  "Bajo": {
+    "en": "Bass",
+    "pt": "Baixo",
+    "fr": "Basse"
+  },
+  "bajo": {
+    "en": "bass",
+    "pt": "baixo",
+    "fr": "basse"
+  },
+  "Acordes": {
+    "en": "Chords",
+    "pt": "Acordes",
+    "fr": "Accords"
+  },
+  "Escalas": {
+    "en": "Scales",
+    "pt": "Escalas",
+    "fr": "Gammes"
+  },
+  "Metrónomo": {
+    "en": "Metronome",
+    "pt": "Metrônomo",
+    "fr": "Métronome"
+  },
+  "Afinador": {
+    "en": "Tuner",
+    "pt": "Afinador",
+    "fr": "Accordeur"
+  },
+  "Herramientas": {
+    "en": "Tools",
+    "pt": "Ferramentas",
+    "fr": "Outils"
+  },
+  "Próximamente": {
+    "en": "Coming soon",
+    "pt": "Em breve",
+    "fr": "Bientôt"
+  },
+  "{p0} profe disponible": {
+    "en": "{p0} teacher available",
+    "pt": "{p0} professor disponível",
+    "fr": "{p0} professeur disponible"
+  },
+  "{p0} profes disponibles": {
+    "en": "{p0} teachers available",
+    "pt": "{p0} professores disponíveis",
+    "fr": "{p0} professeurs disponibles"
+  },
+  "Profe de": {
+    "en": "Teacher of",
+    "pt": "Professor de",
+    "fr": "Professeur de"
+  },
+  "Buscar": {
+    "en": "Search",
+    "pt": "Buscar",
+    "fr": "Rechercher"
+  },
+  "Buscar en el blog": {
+    "en": "Search the blog",
+    "pt": "Buscar no blog",
+    "fr": "Rechercher dans le blog"
+  },
+  "Borrar búsqueda": {
+    "en": "Clear search",
+    "pt": "Limpar busca",
+    "fr": "Effacer la recherche"
+  },
+  "Quiero aprender": {
+    "en": "I want to learn",
+    "pt": "Quero aprender",
+    "fr": "Je veux apprendre"
+  },
+  "Quiero clases de": {
+    "en": "I want lessons in",
+    "pt": "Quero aulas de",
+    "fr": "Je veux des cours de"
+  },
+  "Español": {
+    "en": "Spanish",
+    "pt": "Espanhol",
+    "fr": "Espagnol"
+  },
+  "Inglés": {
+    "en": "English",
+    "pt": "Inglês",
+    "fr": "Anglais"
+  },
+  "Francés": {
+    "en": "French",
+    "pt": "Francês",
+    "fr": "Français"
+  },
+  "Portugués": {
+    "en": "Portuguese",
+    "pt": "Português",
+    "fr": "Portugais"
+  },
+  "A domicilio": {
+    "en": "At home",
+    "pt": "Em domicílio",
+    "fr": "À domicile"
+  },
+  "Virtual": {
+    "en": "Online",
+    "pt": "Online",
+    "fr": "En ligne"
+  },
+  "Sí": {
+    "en": "Yes",
+    "pt": "Sim",
+    "fr": "Oui"
+  },
+  "No": {
+    "en": "No",
+    "pt": "Não",
+    "fr": "Non"
+  },
+  "Enviar solicitud": {
+    "en": "Send request",
+    "pt": "Enviar solicitação",
+    "fr": "Envoyer la demande"
+  },
+  "Enviando…": {
+    "en": "Sending…",
+    "pt": "Enviando…",
+    "fr": "Envoi…"
+  },
+  "Intentar de nuevo": {
+    "en": "Try again",
+    "pt": "Tentar novamente",
+    "fr": "Réessayer"
+  },
+  "Profesores de música a domicilio en Bogotá y virtuales": {
+    "en": "Music teachers for home and online lessons in Bogotá",
+    "pt": "Professores de música para aulas em domicílio em Bogotá e online",
+    "fr": "Professeurs de musique à domicile à Bogotá et en ligne"
+  },
+  "Nosotros: escuela de artes y música en Bogotá | A ½ tono": {
+    "en": "About us: arts and music school in Bogotá | A ½ tono",
+    "pt": "Sobre nós: escola de artes e música em Bogotá | A ½ tono",
+    "fr": "À propos : école de musique et des arts à Bogotá | A ½ tono"
+  },
+  "Modo": {
+    "en": "Mode",
+    "pt": "Modo",
+    "fr": "Mode"
+  },
+  "Nivel": {
+    "en": "Level",
+    "pt": "Nível",
+    "fr": "Niveau"
+  },
+  "Afinar": {
+    "en": "Tune",
+    "pt": "Afinar",
+    "fr": "Accorder"
+  },
+  "Empezar": {
+    "en": "Start",
+    "pt": "Começar",
+    "fr": "Commencer"
+  },
+  "Pausar": {
+    "en": "Pause",
+    "pt": "Pausar",
+    "fr": "Pause"
+  },
+  "Detener": {
+    "en": "Stop",
+    "pt": "Parar",
+    "fr": "Arrêter"
+  },
+  "Parar": {
+    "en": "Stop",
+    "pt": "Parar",
+    "fr": "Arrêter"
+  },
+  "Reiniciar": {
+    "en": "Reset",
+    "pt": "Reiniciar",
+    "fr": "Réinitialiser"
+  },
+  "Metrónomo online gratis": {
+    "en": "Free online metronome",
+    "pt": "Metrônomo online grátis",
+    "fr": "Métronome gratuit en ligne"
+  },
+  "Afinador online gratis": {
+    "en": "Free online tuner",
+    "pt": "Afinador online grátis",
+    "fr": "Accordeur gratuit en ligne"
+  },
+  "Profe de {p0}": {
+    "en": "{p0} teacher",
+    "pt": "Professor de {p0}",
+    "fr": "Professeur de {p0}"
+  },
+  "Iniciación musical": {
+    "en": "Early music education",
+    "pt": "Iniciação musical",
+    "fr": "Éveil musical"
+  },
+  "iniciación musical": {
+    "en": "early music education",
+    "pt": "iniciação musical",
+    "fr": "éveil musical"
+  },
+  "Flauta traversa": {
+    "en": "Flute",
+    "pt": "Flauta transversal",
+    "fr": "Flûte traversière"
+  },
+  "flauta traversa": {
+    "en": "flute",
+    "pt": "flauta transversal",
+    "fr": "flûte traversière"
+  },
+  "Guitarra acústica": {
+    "en": "Acoustic guitar",
+    "pt": "Guitarra acústica",
+    "fr": "Guitare acoustique"
+  },
+  "guitarra acústica": {
+    "en": "acoustic guitar",
+    "pt": "guitarra acústica",
+    "fr": "guitare acoustique"
+  },
+  "Guitarra eléctrica": {
+    "en": "Electric guitar",
+    "pt": "Guitarra elétrica",
+    "fr": "Guitare électrique"
+  },
+  "guitarra eléctrica": {
+    "en": "electric guitar",
+    "pt": "guitarra elétrica",
+    "fr": "guitare électrique"
+  },
+  "Teoría musical": {
+    "en": "Music theory",
+    "pt": "Teoria musical",
+    "fr": "Théorie musicale"
+  },
+  "teoría musical": {
+    "en": "music theory",
+    "pt": "teoria musical",
+    "fr": "théorie musicale"
+  },
+  "Percusión": {
+    "en": "Percussion",
+    "pt": "Percussão",
+    "fr": "Percussion"
+  },
+  "percusión": {
+    "en": "percussion",
+    "pt": "percussão",
+    "fr": "percussion"
+  },
+  "Bajo eléctrico": {
+    "en": "Electric bass",
+    "pt": "Baixo elétrico",
+    "fr": "Basse électrique"
+  },
+  "bajo eléctrico": {
+    "en": "electric bass",
+    "pt": "baixo elétrico",
+    "fr": "basse électrique"
+  },
+  "Bandola andina": {
+    "en": "Andean bandola",
+    "pt": "Bandola andina",
+    "fr": "Bandola andine"
+  },
+  "bandola andina": {
+    "en": "andean bandola",
+    "pt": "bandola andina",
+    "fr": "bandola andine"
+  },
+  "Clarinete": {
+    "en": "Clarinet",
+    "pt": "Clarinete",
+    "fr": "Clarinette"
+  },
+  "clarinete": {
+    "en": "clarinet",
+    "pt": "clarinete",
+    "fr": "clarinette"
+  },
+  "Saxofón": {
+    "en": "Saxophone",
+    "pt": "Saxofone",
+    "fr": "Saxophone"
+  },
+  "saxofón": {
+    "en": "saxophone",
+    "pt": "saxofone",
+    "fr": "saxophone"
+  },
+  "Oboe": {
+    "en": "Oboe",
+    "pt": "Oboé",
+    "fr": "Hautbois"
+  },
+  "oboe": {
+    "en": "oboe",
+    "pt": "oboé",
+    "fr": "hautbois"
+  },
+  "Trompeta": {
+    "en": "Trumpet",
+    "pt": "Trompete",
+    "fr": "Trompette"
+  },
+  "trompeta": {
+    "en": "trumpet",
+    "pt": "trompete",
+    "fr": "trompette"
+  },
+  "Trombón": {
+    "en": "Trombone",
+    "pt": "Trombone",
+    "fr": "Trombone"
+  },
+  "trombón": {
+    "en": "trombone",
+    "pt": "trombone",
+    "fr": "trombone"
+  },
+  "Fagot": {
+    "en": "Bassoon",
+    "pt": "Fagote",
+    "fr": "Basson"
+  },
+  "fagot": {
+    "en": "bassoon",
+    "pt": "fagote",
+    "fr": "basson"
+  },
+  "Violoncello": {
+    "en": "Cello",
+    "pt": "Violoncelo",
+    "fr": "Violoncelle"
+  },
+  "violoncello": {
+    "en": "cello",
+    "pt": "violoncelo",
+    "fr": "violoncelle"
+  },
+  "Contrabajo": {
+    "en": "Double bass",
+    "pt": "Contrabaixo",
+    "fr": "Contrebasse"
+  },
+  "contrabajo": {
+    "en": "double bass",
+    "pt": "contrabaixo",
+    "fr": "contrebasse"
+  },
+  "Flauta dulce": {
+    "en": "Recorder",
+    "pt": "Flauta doce",
+    "fr": "Flûte à bec"
+  },
+  "flauta dulce": {
+    "en": "recorder",
+    "pt": "flauta doce",
+    "fr": "flûte à bec"
+  },
+  "Tiple": {
+    "en": "Tiple",
+    "pt": "Tiple",
+    "fr": "Tiple"
+  },
+  "tiple": {
+    "en": "tiple",
+    "pt": "tiple",
+    "fr": "tiple"
+  },
+  "Viola": {
+    "en": "Viola",
+    "pt": "Viola",
+    "fr": "Alto"
+  },
+  "viola": {
+    "en": "viola",
+    "pt": "viola",
+    "fr": "alto"
+  },
+  "Piano": {
+    "en": "Piano",
+    "pt": "Piano",
+    "fr": "Piano"
+  },
+  "piano": {
+    "en": "piano",
+    "pt": "piano",
+    "fr": "piano"
+  },
+  "mayor": {
+    "en": "major",
+    "pt": "maior",
+    "fr": "majeur"
+  },
+  "menor": {
+    "en": "minor",
+    "pt": "menor",
+    "fr": "mineur"
+  },
+  "séptima": {
+    "en": "seventh",
+    "pt": "sétima",
+    "fr": "septième"
+  },
+  "séptima mayor": {
+    "en": "major seventh",
+    "pt": "sétima maior",
+    "fr": "septième majeure"
+  },
+  "menor séptima": {
+    "en": "minor seventh",
+    "pt": "sétima menor",
+    "fr": "mineur septième"
+  },
+  "suspendido 2": {
+    "en": "sus2",
+    "pt": "sus2",
+    "fr": "sus2"
+  },
+  "suspendido 4": {
+    "en": "sus4",
+    "pt": "sus4",
+    "fr": "sus4"
+  },
+  "disminuido": {
+    "en": "diminished",
+    "pt": "diminuto",
+    "fr": "diminué"
+  },
+  "aumentado": {
+    "en": "augmented",
+    "pt": "aumentado",
+    "fr": "augmenté"
+  },
+  "semidisminuido": {
+    "en": "half-diminished",
+    "pt": "meio-diminuto",
+    "fr": "demi-diminué"
+  },
+  "menor natural": {
+    "en": "natural minor",
+    "pt": "menor natural",
+    "fr": "mineur naturel"
+  },
+  "menor armónica": {
+    "en": "harmonic minor",
+    "pt": "menor harmônica",
+    "fr": "mineur harmonique"
+  },
+  "menor melódica": {
+    "en": "melodic minor",
+    "pt": "menor melódica",
+    "fr": "mineur mélodique"
+  },
+  "pentatónica mayor": {
+    "en": "major pentatonic",
+    "pt": "pentatônica maior",
+    "fr": "pentatonique majeure"
+  },
+  "pentatónica menor": {
+    "en": "minor pentatonic",
+    "pt": "pentatônica menor",
+    "fr": "pentatonique mineure"
+  },
+  "blues": {
+    "en": "blues",
+    "pt": "blues",
+    "fr": "blues"
+  }
+}

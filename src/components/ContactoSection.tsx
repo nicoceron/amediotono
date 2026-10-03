@@ -1,4 +1,5 @@
 "use client";
+import {useText} from "@/i18n/use-text";
 
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
@@ -6,7 +7,6 @@ import { motion, useReducedMotion } from "motion/react";
 import { Fragment, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { whatsappHref } from "@/lib/contact";
 
-const HEADLINE_WORDS = ["Únete", "a", "nuestra", "comunidad", "musical"];
 const PANEL_FOLDED = { opacity: 1, scale: 0.5, rotateX: 90 };
 const PANEL_OPEN = { opacity: 1, scale: 1, rotateX: 0 };
 const PANEL_OPEN_SPRING = { damping: 60, mass: 1, stiffness: 360 };
@@ -95,6 +95,8 @@ function useHasMounted() {
 }
 
 export function ContactoSection() {
+  const tx = useText();
+  const HEADLINE_WORDS = tx("Únete a nuestra comunidad musical").split(" ");
   const reduce = useReducedMotion();
   const breakpoint = useCtaBreakpoint();
   const hasMounted = useHasMounted();
@@ -148,7 +150,7 @@ export function ContactoSection() {
       id="contacto"
       data-scroll-align="center"
       data-scroll-target=".contact-cta-panel"
-      data-screen-label="Contacto"
+      data-screen-label={tx("Contacto")}
     >
       <motion.article
         key={hasMounted ? breakpoint : "static"}
@@ -164,7 +166,7 @@ export function ContactoSection() {
         <Image
           className="contact-cta-bg"
           src="/hero-bg.webp"
-          alt=""
+          alt={tx("")}
           fill
           fetchPriority="low"
           loading="lazy"
@@ -174,23 +176,22 @@ export function ContactoSection() {
         <div className="contact-cta-content">
           <h2
             className="contact-cta-title"
-            aria-label="Únete a nuestra comunidad musical"
+            aria-label={tx("Únete a nuestra comunidad musical")}
           >
             {HEADLINE_WORDS.map((word, index) => (
               <Fragment key={word}>
-                {index > 0 && " "}
-                <span aria-hidden="true">{word}</span>
+                {tx(index > 0 && " ")}
+                <span aria-hidden="true">{tx(word)}</span>
               </Fragment>
             ))}
           </h2>
 
           <p className="contact-cta-copy">
-            Acompañamos el crecimiento artístico con clases cercanas, creativas y llenas de confianza.
-          </p>
+            {tx("Acompañamos el crecimiento artístico con clases cercanas, creativas y llenas de confianza.")}</p>
 
           <motion.a
             className="kidora-pill contact-cta-button"
-            href={whatsappHref("¡Hola! Quiero más información sobre las clases de A medio tono.")}
+            href={whatsappHref(tx("¡Hola! Quiero más información sobre las clases de A medio tono."))}
             target="_blank"
             rel="noopener"
             initial={animateContainer ? { opacity: 0, y: 24, scale: 0.8 } : false}
@@ -199,8 +200,8 @@ export function ContactoSection() {
             transition={{ ...BUTTON_SPRING, delay: 0.2, type: "spring" }}
           >
             <span className="kidora-pill-text" aria-hidden="true">
-              <span>Escríbenos</span>
-              <span>Escríbenos</span>
+              <span>{tx("Escríbenos")}</span>
+              <span>{tx("Escríbenos")}</span>
             </span>
             <span className="kidora-pill-icon" aria-hidden="true">
               <span>
@@ -210,7 +211,7 @@ export function ContactoSection() {
                 <ArrowRight size={20} strokeWidth={2.6} />
               </span>
             </span>
-            <span className="visually-hidden">Escríbenos por WhatsApp</span>
+            <span className="visually-hidden">{tx("Escríbenos por WhatsApp")}</span>
           </motion.a>
         </div>
 
@@ -229,7 +230,7 @@ export function ContactoSection() {
           >
             <Image
               src={asset.src}
-              alt={asset.alt}
+              alt={tx(asset.alt)}
               width={asset.width}
               height={asset.height}
               sizes="60px"

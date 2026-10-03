@@ -1,4 +1,5 @@
-import Link from "next/link";
+import {useText} from "@/i18n/use-text";
+import Link from "@/i18n/navigation";
 import { ArrowRight, ChartColumnIncreasing, ClipboardCheck, SearchCheck } from "lucide-react";
 import type { B2BService, B2BServiceIcon } from "@/lib/b2b";
 
@@ -9,6 +10,7 @@ const ICONS: Record<B2BServiceIcon, typeof SearchCheck> = {
 };
 
 export function B2BServiceCards({ services }: { services: B2BService[] }) {
+  const tx = useText();
   return (
     <ul className="b2b-service-grid">
       {services.map((service) => {
@@ -25,11 +27,10 @@ export function B2BServiceCards({ services }: { services: B2BService[] }) {
               <span className="b2b-service-icon" aria-hidden="true">
                 <Icon size={26} strokeWidth={2.4} />
               </span>
-              <h3>{service.name}</h3>
-              <p>{service.summary}</p>
+              <h3>{tx(service.name)}</h3>
+              <p>{tx(service.summary)}</p>
               <span className="b2b-service-more">
-                Ver servicio
-                <ArrowRight size={18} strokeWidth={2.4} aria-hidden="true" />
+                {tx("Ver servicio")}<ArrowRight size={18} strokeWidth={2.4} aria-hidden="true" />
               </span>
             </Link>
           </li>

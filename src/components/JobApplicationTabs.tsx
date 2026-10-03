@@ -1,10 +1,12 @@
 "use client";
+import {useText} from "@/i18n/use-text";
 
 import { useId, useState } from "react";
 import { JobApplicationForm } from "@/components/JobApplicationForm";
 import { JOB_OVERVIEW_ITEMS } from "@/lib/job-posting";
 
 export function JobApplicationTabs() {
+  const tx = useText();
   const [activeTab, setActiveTab] = useState<"overview" | "application">("application");
   const overviewTabId = useId();
   const applicationTabId = useId();
@@ -13,7 +15,7 @@ export function JobApplicationTabs() {
 
   return (
     <div className="job-tabbed-application" data-active-tab={activeTab}>
-      <nav className="job-application-tabs" role="tablist" aria-label="Detalles del cargo">
+      <nav className="job-application-tabs" role="tablist" aria-label={tx("Detalles del cargo")}>
         <a
           id={overviewTabId}
           role="tab"
@@ -27,7 +29,7 @@ export function JobApplicationTabs() {
             setActiveTab("overview");
           }}
         >
-          <span className="job-overview-tab-label">Descripción</span>
+          <span className="job-overview-tab-label">{tx("Descripción")}</span>
         </a>
         <a
           id={applicationTabId}
@@ -42,7 +44,7 @@ export function JobApplicationTabs() {
             setActiveTab("application");
           }}
         >
-          <span className="job-application-tab-label">Aplicación</span>
+          <span className="job-application-tab-label">{tx("Aplicación")}</span>
         </a>
         <span className="job-tab-slider" aria-hidden="true" />
       </nav>
@@ -57,8 +59,8 @@ export function JobApplicationTabs() {
         <div className="job-overview-panel">
           {JOB_OVERVIEW_ITEMS.map((item) => (
             <section key={item.title}>
-              <h3>{item.title}</h3>
-              <p>{item.body}</p>
+              <h3>{tx(item.title)}</h3>
+              <p>{tx(item.body)}</p>
             </section>
           ))}
         </div>

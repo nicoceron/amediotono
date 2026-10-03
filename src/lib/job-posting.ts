@@ -24,6 +24,10 @@ export const JOB_OVERVIEW_ITEMS = [
   },
 ];
 
-export function jobDescriptionHtml() {
-  return JOB_OVERVIEW_ITEMS.map((item) => `<h3>${item.title}</h3><p>${item.body}</p>`).join("");
+export function jobDescriptionHtml(translate: (text: string) => string = text => text) {
+  return JOB_OVERVIEW_ITEMS.map((item) => `<h3>${escapeHtml(translate(item.title))}</h3><p>${escapeHtml(translate(item.body))}</p>`).join("");
+}
+
+function escapeHtml(text: string) {
+  return text.replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;");
 }

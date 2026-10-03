@@ -1,3 +1,4 @@
+import {useText} from "@/i18n/use-text";
 import { FaqList } from "@/components/editorial/FaqList";
 import type { FaqItem } from "@/lib/content-types";
 
@@ -40,12 +41,13 @@ export const HOME_FAQS: FaqItem[] = [
 ];
 
 export function HomeFaqSection() {
+  const tx = useText();
   return (
     <section className="block ed-section nosotros-faq-section" id="preguntas-frecuentes" aria-labelledby="faq-home-title">
       <div className="container">
         <div className="sec-head ed-sec-head">
-          <h2 id="faq-home-title">Preguntas frecuentes</h2>
-          <p className="sec-sub">Lo que más nos preguntan antes de la primera clase.</p>
+          <h2 id="faq-home-title">{tx("Preguntas frecuentes")}</h2>
+          <p className="sec-sub">{tx("Lo que más nos preguntan antes de la primera clase.")}</p>
         </div>
         <FaqList items={HOME_FAQS} />
       </div>

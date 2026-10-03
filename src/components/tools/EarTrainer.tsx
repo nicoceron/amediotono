@@ -1,4 +1,5 @@
 "use client";
+import {useText} from "@/i18n/use-text";
 
 import { useEffect, useRef, useState } from "react";
 import { Play, RotateCcw, SkipForward } from "lucide-react";
@@ -28,6 +29,7 @@ function randomQuestion(level: Level, previous?: Question): Question {
 }
 
 export function EarTrainer() {
+  const tx = useText();
   const [mode, setMode] = useState<Mode>("ascendente");
   const [level, setLevel] = useState<Level>("basico");
   const [question, setQuestion] = useState<Question | null>(null);
@@ -88,15 +90,15 @@ export function EarTrainer() {
     <div className="tool-card ear-trainer">
       <div className="metronome-options">
         <label className="tool-select">
-          <span>Modo</span>
+          <span>{tx("Modo")}</span>
           <select value={mode} onChange={(event) => setMode(event.target.value as Mode)}>
-            <option value="ascendente">Melódico ascendente</option>
-            <option value="descendente">Melódico descendente</option>
-            <option value="armonico">Armónico (juntas)</option>
+            <option value="ascendente">{tx("Melódico ascendente")}</option>
+            <option value="descendente">{tx("Melódico descendente")}</option>
+            <option value="armonico">{tx("Armónico (juntas)")}</option>
           </select>
         </label>
         <label className="tool-select">
-          <span>Nivel</span>
+          <span>{tx("Nivel")}</span>
           <select
             value={level}
             onChange={(event) => {
@@ -105,18 +107,18 @@ export function EarTrainer() {
               setAnswer(null);
             }}
           >
-            <option value="basico">Básico (6 intervalos)</option>
-            <option value="completo">Completo (12 intervalos)</option>
+            <option value="basico">{tx("Básico (6 intervalos)")}</option>
+            <option value="completo">{tx("Completo (12 intervalos)")}</option>
           </select>
         </label>
       </div>
 
       <div className="ear-score" aria-live="polite">
         <span>
-          Aciertos: <strong>{score.correct}</strong> de {score.total}
+          {tx("Aciertos: ")}<strong>{tx(score.correct)}</strong> {tx(" de ")}{tx(score.total)}
         </span>
         <span>
-          Racha: <strong>{score.streak}</strong>
+          {tx("Racha: ")}<strong>{tx(score.streak)}</strong>
         </span>
       </div>
 
@@ -124,25 +126,21 @@ export function EarTrainer() {
         {question ? (
           <>
             <button type="button" className="ed-button" onClick={() => play(question)}>
-              <Play size={20} strokeWidth={2.4} aria-hidden="true" /> Repetir
-            </button>
+              <Play size={20} strokeWidth={2.4} aria-hidden="true" /> {tx(" Repetir")}</button>
             <button type="button" className="ed-button ed-button--ghost" onClick={nextQuestion}>
-              <SkipForward size={20} strokeWidth={2.4} aria-hidden="true" /> Siguiente
-            </button>
+              <SkipForward size={20} strokeWidth={2.4} aria-hidden="true" /> {tx(" Siguiente")}</button>
           </>
         ) : (
           <button type="button" className="ed-button" onClick={nextQuestion}>
-            <Play size={20} strokeWidth={2.4} aria-hidden="true" /> Escuchar intervalo
-          </button>
+            <Play size={20} strokeWidth={2.4} aria-hidden="true" /> {tx(" Escuchar intervalo")}</button>
         )}
         {score.total > 0 && (
           <button type="button" className="ed-button ed-button--ghost" onClick={reset}>
-            <RotateCcw size={18} strokeWidth={2.4} aria-hidden="true" /> Reiniciar
-          </button>
+            <RotateCcw size={18} strokeWidth={2.4} aria-hidden="true" /> {tx(" Reiniciar")}</button>
         )}
       </div>
 
-      <ul className="ear-options" aria-label="¿Qué intervalo escuchaste?">
+      <ul className="ear-options" aria-label={tx("¿Qué intervalo escuchaste?")}>
         {options.map((interval) => {
           const state =
             answer === null
@@ -155,8 +153,8 @@ export function EarTrainer() {
           return (
             <li key={interval.semitones}>
               <button type="button" className={state} onClick={() => choose(interval.semitones)} disabled={!question}>
-                <strong>{interval.short}</strong>
-                <span>{interval.name}</span>
+                <strong>{tx(interval.short)}</strong>
+                <span>{tx(interval.name)}</span>
               </button>
             </li>
           );
@@ -165,9 +163,9 @@ export function EarTrainer() {
 
       {answer !== null && solution && (
         <p className={`ear-feedback ${isCorrect ? "is-correct" : "is-wrong"}`} role="status">
-          {isCorrect ? "¡Correcto! " : "Era "}
-          <strong>{solution.name}</strong>
-          {solution.hint ? ` · Referencia: ${solution.hint}.` : "."}
+          {tx(isCorrect ? "¡Correcto! " : "Era ")}
+          <strong>{tx(solution.name)}</strong>
+          {tx(solution.hint ? tx.template(" · Referencia: {p0}.", {p0: tx(solution.hint)}) : ".")}
         </p>
       )}
     </div>

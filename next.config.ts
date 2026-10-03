@@ -1,3 +1,4 @@
+import createNextIntlPlugin from "next-intl/plugin";
 import type { NextConfig } from "next";
 import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
 
@@ -35,11 +36,10 @@ const RENAMED_TEACHER_SLUGS: Record<string, string> = {
 const nextConfig: NextConfig = {
   allowedDevOrigins: ["127.0.0.1"],
   async redirects() {
-    return Object.entries(RENAMED_TEACHER_SLUGS).map(([from, to]) => ({
-      source: `/profes/${from}`,
-      destination: `/profes/${to}`,
-      permanent: true,
-    }));
+    return Object.entries(RENAMED_TEACHER_SLUGS).flatMap(([from, to]) => [
+      {source: `/profes/${from}`, destination: `/profes/${to}`, permanent: true},
+      {source: `/:locale(en|pt|fr)/profes/${from}`, destination: `/:locale/profes/${to}`, permanent: true},
+    ]);
   },
   // No headers() here: cache headers for files in public/ live in
   // public/_headers, because Cloudflare serves static files before Next runs.
@@ -78,7 +78,8 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
+export default withNextIntl(nextConfig);
 
 // Gives `next dev` local versions of the Worker bindings (e.g. EMAIL).
 initOpenNextCloudflareForDev();

@@ -1,7 +1,11 @@
 "use client";
+import {useText} from "@/i18n/use-text";
 
 import { useEffect, useMemo, useState } from "react";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname } from "@/i18n/navigation";
+import {useLocale} from "next-intl";
+import {localizedPath} from "@/i18n/routing";
+import {useSearchParams} from "next/navigation";
 import {
   ArrowRight,
   ChevronDown,
@@ -35,7 +39,7 @@ function getExactSuggestedCourseValue(value: string, suggestions: FilterMenuOpti
   if (!normalizedValue) return "";
 
   return (
-    suggestions.find((suggestion) => normalizeSearchText(suggestion.value) === normalizedValue)
+    suggestions.find((suggestion) => [suggestion.value, suggestion.label].some(label => normalizeSearchText(label) === normalizedValue))
       ?.value ?? ""
   );
 }
@@ -55,14 +59,15 @@ function FilterMenu({
   ariaLabel: string;
   onSelect: (value: string) => void;
 }) {
+  const tx = useText();
   const activeLabel = options.find((option) => option.value === value)?.label ?? fallbackLabel;
 
   return (
     <details className="profes-filter-card profes-menu-field">
-      <summary className="profes-menu-summary" aria-label={ariaLabel}>
+      <summary className="profes-menu-summary" aria-label={tx(ariaLabel)}>
         <span>
-          <span className="profes-filter-label">{label}</span>
-          <span className="profes-menu-value">{activeLabel}</span>
+          <span className="profes-filter-label">{tx(label)}</span>
+          <span className="profes-menu-value">{tx(activeLabel)}</span>
         </span>
         <ChevronDown
           className="profes-menu-chevron"
@@ -74,7 +79,7 @@ function FilterMenu({
       <div
         className="profes-menu-options"
         role="listbox"
-        aria-label={ariaLabel}
+        aria-label={tx(ariaLabel)}
         data-lenis-prevent="true"
       >
         {options.map((option) => (
@@ -89,7 +94,7 @@ function FilterMenu({
               event.currentTarget.closest("details")?.removeAttribute("open");
             }}
           >
-            {option.label}
+            {tx(option.label)}
           </button>
         ))}
       </div>
@@ -110,18 +115,18 @@ function CourseAutocomplete({
   onSelect: (value: string) => void;
   onClear: () => void;
 }) {
+  const tx = useText();
   const exactSuggestedValue = getExactSuggestedCourseValue(value, suggestions);
 
   return (
     <div className="profes-filter-card profes-course-field">
       <label className="profes-filter-label" htmlFor="profes-course-input">
-        Quiero aprender
-      </label>
+        {tx("Quiero aprender")}</label>
       <span className="profes-course-control">
         <input
           id="profes-course-input"
           type="search"
-          value={value}
+          value={tx(value)}
           onChange={(event) => onChange(event.target.value)}
           onKeyDown={(event) => {
             if (event.key === "Enter") {
@@ -137,8 +142,8 @@ function CourseAutocomplete({
               event.currentTarget.blur();
             }
           }}
-          placeholder="Piano, canto, guitarra..."
-          aria-label="Filtrar profes por curso"
+          placeholder={tx("Piano, canto, guitarra...")}
+          aria-label={tx("Filtrar profes por curso")}
           aria-controls="profes-course-options"
           aria-haspopup="listbox"
           autoComplete="off"
@@ -148,7 +153,7 @@ function CourseAutocomplete({
             type="button"
             className="profes-filter-clear"
             onClick={onClear}
-            aria-label="Limpiar curso"
+            aria-label={tx("Limpiar curso")}
           >
             <CircleX size={18} strokeWidth={2.4} aria-hidden="true" />
           </button>
@@ -165,7 +170,7 @@ function CourseAutocomplete({
         className="profes-course-options"
         id="profes-course-options"
         role="listbox"
-        aria-label="Cursos disponibles"
+        aria-label={tx("Cursos disponibles")}
         data-lenis-prevent="true"
       >
         {!value && (
@@ -180,8 +185,7 @@ function CourseAutocomplete({
               event.currentTarget.closest(".profes-course-field")?.querySelector("input")?.blur();
             }}
           >
-            Todos los cursos
-          </button>
+            {tx("Todos los cursos")}</button>
         )}
         {suggestions.map((course) => (
           <button
@@ -200,26 +204,26 @@ function CourseAutocomplete({
               event.currentTarget.closest(".profes-course-field")?.querySelector("input")?.blur();
             }}
           >
-            {course.label}
+            {tx(course.label)}
           </button>
         ))}
         {suggestions.length === 0 && value && (
-          <span className="profes-course-empty">No hay cursos con ese nombre</span>
+          <span className="profes-course-empty">{tx("No hay cursos con ese nombre")}</span>
         )}
       </div>
     </div>
   );
 }
 
-function teacherSearchText(teacher: Teacher) {
+function teacherSearchText(teacher: Teacher, tx: ReturnType<typeof useText>) {
   return normalizeSearchText(
     [
       teacher.name,
       teacher.shortName,
       teacher.role,
-      teacher.skills.flatMap((skill) => [skill.label, ...skill.aliases]).join(" "),
+      teacher.skills.flatMap((skill) => [skill.label, tx(skill.label), ...skill.aliases]).join(" "),
       teacher.bio,
-      teacher.longBio,
+      tx(teacher.longBio),
       teacher.highlights.join(" "),
       teacher.location,
       (teacher.classFormats ?? []).join(" "),
@@ -228,17 +232,17 @@ function teacherSearchText(teacher: Teacher) {
   );
 }
 
-function matchesCourse(teacher: Teacher, rawQuery: string) {
+function matchesCourse(teacher: Teacher, rawQuery: string, tx: ReturnType<typeof useText>) {
   const query = normalizeSearchText(rawQuery);
   if (!query) return true;
 
-  const matchedCourses = findCoursesByQuery(query);
+  const matchedCourses = findCoursesByQuery(query, tx);
   return matchedCourses.some((course) => teacher.skillIds.includes(course.id));
 }
 
-function matchesTeacher(teacher: Teacher, filters: FilterState) {
+function matchesTeacher(teacher: Teacher, filters: FilterState, tx: ReturnType<typeof useText>) {
   const keyword = normalizeSearchText(filters.keywordQuery);
-  const matchesKeyword = !keyword || teacherSearchText(teacher).includes(keyword);
+  const matchesKeyword = !keyword || teacherSearchText(teacher, tx).includes(keyword);
   const matchesFormat =
     !filters.formatFilter || (teacher.classFormats ?? []).some((format) => format === filters.formatFilter);
   const matchesLanguage =
@@ -248,7 +252,7 @@ function matchesTeacher(teacher: Teacher, filters: FilterState) {
     !filters.locationFilter || teacher.location === filters.locationFilter;
 
   return (
-    matchesCourse(teacher, filters.courseQuery) &&
+    matchesCourse(teacher, filters.courseQuery, tx) &&
     matchesKeyword &&
     matchesFormat &&
     matchesLanguage &&
@@ -257,7 +261,9 @@ function matchesTeacher(teacher: Teacher, filters: FilterState) {
 }
 
 export function ProfesDirectory({ teachers }: { teachers: Teacher[] }) {
-  const pathname = usePathname();
+  const tx = useText();
+  const locale = useLocale();
+  const pathname = localizedPath(usePathname(), locale);
   const searchParams = useSearchParams();
   const [isMobileFilterOpen, setIsMobileFilterOpen] = useState(false);
   const courseQuery = searchParams.get("curso") ?? "";
@@ -315,31 +321,31 @@ export function ProfesDirectory({ teachers }: { teachers: Teacher[] }) {
   const formatOptions = useMemo(
     () =>
       Array.from(new Set(teachers.flatMap((teacher) => teacher.classFormats ?? []))).sort((a, b) =>
-        a.localeCompare(b, "es"),
+        a.localeCompare(b, locale),
       ),
-    [teachers],
+    [teachers, locale],
   );
   const languageOptions = useMemo(
     () =>
       Array.from(new Set(teachers.flatMap((teacher) => teacher.classLanguages ?? []))).sort(
-        (a, b) => a.localeCompare(b, "es"),
+        (a, b) => a.localeCompare(b, locale),
       ),
-    [teachers],
+    [teachers, locale],
   );
   const locationOptions = useMemo(
     () =>
       Array.from(new Set(teachers.map((teacher) => teacher.location).filter(Boolean))).sort(
-        (a, b) => a.localeCompare(b, "es"),
+        (a, b) => a.localeCompare(b, locale),
       ),
-    [teachers],
+    [teachers, locale],
   );
   const courseSuggestions = useMemo(
     () =>
-      (courseQuery ? findCoursesByQuery(courseQuery) : COURSES).map((course) => ({
+      (courseQuery ? findCoursesByQuery(courseQuery, tx) : COURSES).map((course) => ({
         value: course.label,
-        label: course.label,
+        label: tx(course.label),
       })),
-    [courseQuery],
+    [courseQuery, tx],
   );
   const formatMenuOptions = useMemo(
     () => [
@@ -375,12 +381,12 @@ export function ProfesDirectory({ teachers }: { teachers: Teacher[] }) {
   );
 
   const filteredTeachers = useMemo(
-    () => teachers.filter((teacher) => matchesTeacher(teacher, filters)),
-    [teachers, filters],
+    () => teachers.filter((teacher) => matchesTeacher(teacher, filters, tx)),
+    [teachers, filters, tx],
   );
   const requestedCourse = courseQuery.trim() || "la clase que estás buscando";
   const emptyContactHref = whatsappHref(
-    `¡Hola! Estoy buscando profe para ${requestedCourse}. ¿Me pueden ayudar?`,
+    tx.template("¡Hola! Estoy buscando profe para {p0}. ¿Me pueden ayudar?", {p0: tx(requestedCourse)}),
   );
   const hasActiveFilters =
     Boolean(courseQuery.trim()) ||
@@ -476,15 +482,15 @@ export function ProfesDirectory({ teachers }: { teachers: Teacher[] }) {
             <summary
               className="profes-mobile-filter-summary"
               aria-label={
-                mobileFilterCount > 0
-                  ? `Abrir filtros, ${mobileFilterCount} activos`
-                  : "Abrir filtros"
+                tx(mobileFilterCount > 0
+                  ? tx.template("Abrir filtros, {p0} activos", {p0: tx(mobileFilterCount)})
+                  : "Abrir filtros")
               }
             >
               <span>
                 <SlidersHorizontal size={18} strokeWidth={2.4} aria-hidden="true" />
                 {mobileFilterCount > 0 && (
-                  <span className="profes-mobile-filter-count">{mobileFilterCount}</span>
+                  <span className="profes-mobile-filter-count">{tx(mobileFilterCount)}</span>
                 )}
               </span>
               <ChevronDown
@@ -502,14 +508,13 @@ export function ProfesDirectory({ teachers }: { teachers: Teacher[] }) {
                   onClick={clearMobileSheetFilters}
                   disabled={mobileFilterCount === 0}
                 >
-                  Limpiar
-                </button>
-                <strong className="profes-mobile-filter-sheet-title">Filtros</strong>
+                  {tx("Limpiar")}</button>
+                <strong className="profes-mobile-filter-sheet-title">{tx("Filtros")}</strong>
                 <button
                   type="button"
                   className="profes-mobile-filter-sheet-close"
                   onClick={(event) => closeMobileFilterSheet(event.currentTarget)}
-                  aria-label="Cerrar filtros"
+                  aria-label={tx("Cerrar filtros")}
                 >
                   <X size={28} strokeWidth={2.6} aria-hidden="true" />
                 </button>
@@ -522,15 +527,15 @@ export function ProfesDirectory({ teachers }: { teachers: Teacher[] }) {
                     type="search"
                     value={keywordQuery}
                     onChange={(event) => updateFilters({ keywordQuery: event.target.value })}
-                    placeholder="Buscar profe"
-                    aria-label="Buscar por nombre o palabra clave"
+                    placeholder={tx("Buscar profe")}
+                    aria-label={tx("Buscar por nombre o palabra clave")}
                   />
                   {keywordQuery && (
                     <button
                       type="button"
                       className="profes-filter-clear"
                       onClick={() => updateFilters({ keywordQuery: "" })}
-                      aria-label="Limpiar búsqueda"
+                      aria-label={tx("Limpiar búsqueda")}
                     >
                       <CircleX size={18} strokeWidth={2.4} aria-hidden="true" />
                     </button>
@@ -571,8 +576,7 @@ export function ProfesDirectory({ teachers }: { teachers: Teacher[] }) {
                   className="profes-mobile-filter-sheet-submit"
                   onClick={(event) => closeMobileFilterSheet(event.currentTarget)}
                 >
-                  Ver {filteredTeachers.length} profes
-                </button>
+                  {tx("Ver ")}{tx(filteredTeachers.length)} {tx(" profes")}</button>
               </div>
             </div>
           </details>
@@ -617,15 +621,15 @@ export function ProfesDirectory({ teachers }: { teachers: Teacher[] }) {
                 type="search"
                 value={keywordQuery}
                 onChange={(event) => updateFilters({ keywordQuery: event.target.value })}
-                placeholder="Buscar profe"
-                aria-label="Buscar por nombre o palabra clave"
+                placeholder={tx("Buscar profe")}
+                aria-label={tx("Buscar por nombre o palabra clave")}
               />
               {keywordQuery && (
                 <button
                   type="button"
                   className="profes-filter-clear"
                   onClick={() => updateFilters({ keywordQuery: "" })}
-                  aria-label="Limpiar búsqueda"
+                  aria-label={tx("Limpiar búsqueda")}
                 >
                   <CircleX size={18} strokeWidth={2.4} aria-hidden="true" />
                 </button>
@@ -639,8 +643,8 @@ export function ProfesDirectory({ teachers }: { teachers: Teacher[] }) {
                 type="button"
                 className="profes-clear-filters-icon"
                 onClick={clearFilters}
-                aria-label="Limpiar filtros"
-                title="Limpiar filtros"
+                aria-label={tx("Limpiar filtros")}
+                title={tx("Limpiar filtros")}
               >
                 <X size={22} strokeWidth={2.6} aria-hidden="true" />
               </button>
@@ -657,14 +661,11 @@ export function ProfesDirectory({ teachers }: { teachers: Teacher[] }) {
         </ul>
       ) : (
         <div className="profes-empty">
-          <strong>Contáctanos para encontrar un profesor</strong>
+          <strong>{tx("Contáctanos para encontrar un profesor")}</strong>
           <p>
-            Aún no tenemos un profe disponible para {requestedCourse}. Cuéntanos qué necesitas y
-            buscamos un profesor que pueda ayudarte.
-          </p>
+            {tx("Aún no tenemos un profe disponible para ")}{tx(requestedCourse)}{tx(". Cuéntanos qué necesitas y buscamos un profesor que pueda ayudarte.")}</p>
           <a href={emptyContactHref} target="_blank" rel="noopener">
-            Contáctanos
-            <ArrowRight size={18} strokeWidth={2.4} aria-hidden="true" />
+            {tx("Contáctanos")}<ArrowRight size={18} strokeWidth={2.4} aria-hidden="true" />
           </a>
         </div>
       )}

@@ -1,4 +1,5 @@
-import Link from "next/link";
+import {useText} from "@/i18n/use-text";
+import Link from "@/i18n/navigation";
 import { BrandWordmark } from "@/components/BrandWordmark";
 import {
   ArrowRight,
@@ -84,14 +85,15 @@ const RESOURCES = [
 ];
 
 export function HomeResourcesSection() {
+  const tx = useText();
   return (
     <section className="block ed-section home-resources" aria-labelledby="explora-title">
       <div className="container">
         <div className="sec-head ed-sec-head">
           <h2 id="explora-title">
-            Explora <BrandWordmark />
+            {tx("Explora ")}<BrandWordmark />
           </h2>
-          <p className="sec-sub">Más formas de aprender, practicar y prepararte con nosotros.</p>
+          <p className="sec-sub">{tx("Más formas de aprender, practicar y prepararte con nosotros.")}</p>
         </div>
         <ul className="b2b-service-grid home-resources-grid">
           {RESOURCES.map((resource) => {
@@ -107,10 +109,10 @@ export function HomeResourcesSection() {
                   <span className="b2b-service-icon" aria-hidden="true">
                     <Icon size={26} strokeWidth={2.4} />
                   </span>
-                  <h3>{resource.title}</h3>
-                  <p>{resource.body}</p>
+                  <h3>{tx(resource.title)}</h3>
+                  <p>{tx(resource.body)}</p>
                   <span className="b2b-service-more">
-                    Ver más <ArrowRight size={18} strokeWidth={2.4} aria-hidden="true" />
+                    {tx("Ver más ")}<ArrowRight size={18} strokeWidth={2.4} aria-hidden="true" />
                   </span>
                 </Link>
               </li>

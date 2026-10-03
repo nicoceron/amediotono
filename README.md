@@ -11,7 +11,7 @@ Sitio de [A medio tono](https://www.amediotonomusic.com): clases de música virt
 | Categorías del blog | `src/lib/blog.ts` | Títulos y descripciones de `/blog/categoria/<id>`. |
 | Glosario (`/glosario-musical`) | `src/content/glossary.ts` | Términos con anclas propias. |
 | Herramientas (`/herramientas`) | `src/lib/music-tools.ts`, `src/components/tools/` | Metrónomo, afinador, test de tipo de voz y entrenamiento auditivo. Los afinadores por instrumento se definen en `TUNER_PRESETS`, los rangos de voz en `VOICE_TYPES` y los intervalos en `INTERVALS`. La detección de tono está en `src/lib/pitch.ts`. |
-| Páginas de formato (`/clases-de-musica-online`, `/clases-de-musica-a-domicilio-bogota`, `/preuniversitario-musica`) | `src/app/<ruta>/page.tsx` | Textos, preguntas frecuentes y guías enlazadas en cada archivo. |
+| Páginas de formato (`/clases-de-musica-online`, `/clases-de-musica-a-domicilio-bogota`, `/preuniversitario-musica`) | `src/app/[locale]/<ruta>/page.tsx` | Textos, preguntas frecuentes y guías enlazadas en cada archivo. |
 | Preguntas frecuentes del inicio | `src/components/HomeFaqSection.tsx` | Se muestran en el inicio y alimentan sus datos estructurados. |
 | Imágenes para redes de páginas generales (`/og/<clave>.png`) | `src/lib/share-cards.ts` | Artículos, cursos y profes tienen su propia `share-image.png`. |
 | Servicios para academias (`/academias/*`) | `src/lib/b2b.ts` | Textos, pasos, entregables y preguntas frecuentes. |
@@ -47,7 +47,7 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+You can start editing the page by modifying `src/app/[locale]/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
@@ -67,3 +67,58 @@ The site runs on Cloudflare Workers through [OpenNext](https://opennext.js.org/c
 - `npm run preview` builds the Worker and runs it locally with Wrangler.
 - `npm run deploy` builds and deploys it from your machine.
 - Form emails go through Cloudflare Email Sending (the `EMAIL` binding); locally Wrangler writes them to `.wrangler/tmp/email` instead of sending them.
+
+## Languages and appearance
+
+The site uses Next.js 16.3 and [Next-intl](https://next-intl.dev/docs/routing/setup).
+Spanish is the default and keeps its existing URLs. English (`/en`), Portuguese
+(`/pt`) and French (`/fr`) cover the page copy, editorial content, forms and tools.
+Slugs remain stable across languages. The picker preserves the current path,
+query and anchor. Only a manual language choice is remembered in `TONO_LOCALE`;
+otherwise the next visit uses the browser's preferred supported language. Choose
+“System language” to clear that override. Unsupported languages fall back to Spanish.
+
+Theme follows `prefers-color-scheme` on first paint and when the OS preference
+changes. The theme picker can save Light or Dark, or return to System. Both
+preferences work independently.
+
+Messages are saved in `messages/{es,en,pt,fr}.json`. Source text has a stable key
+from `src/i18n/key.ts`; `useText` / `getText` access these messages through
+Next-intl. Components translate their own copy, and `Inline` translates its full
+Markdown string before parsing it. Interpolation uses Next-intl's ICU formatter.
+Editorial catalogs stay on the server; the browser receives the UI namespace.
+Canonicals, language alternates, structured data and the sitemap use the locale.
+Routing uses the Edge `middleware.ts` convention for OpenNext 1.20 compatibility;
+the new Node `proxy.ts` bundler currently expects a trace file absent from Next
+16.3. The application itself keeps the Node runtime.
+Spanish Markdown/RSS/discovery and share-image endpoints retain their existing
+URLs. Non-Spanish pages do not advertise a translated Markdown twin.
+
+The initial non-Spanish catalogs were machine translated locally with
+[Argos Translate](https://argos-translate.readthedocs.io/). French uses the
+Spanish → English → French path. No visitor-triggered translation request, paid
+API, hosted translation service or API key is needed. The editorial translations
+still benefit from human copy review. Reviewed control wording is kept in
+`messages/overrides.json` and reapplied without replacing other edits.
+
+To update translations after changing Spanish copy:
+
+```sh
+npm run i18n:extract
+# Python 3.12 is recommended for the translation dependencies.
+python3.12 -m venv .venv-translations
+.venv-translations/bin/pip install -r scripts/translation-requirements.txt
+.venv-translations/bin/python scripts/setup-translation-models.py
+.venv-translations/bin/python scripts/translate-catalogs.py
+npm run i18n:overrides
+npm run i18n:check
+npm run build
+```
+
+Model setup downloads public model files; translating the website runs locally.
+Generation preserves existing nonempty translations and checkpoints each batch.
+`i18n:check` rejects missing messages, changed interpolation arguments, damaged
+Markdown destinations and lost bold markers. It also runs before a production
+build. For composed metadata or generated music labels, run
+`node scripts/extract-translations.mjs --prerender` after a build; it reads only
+Spanish pages and retains those messages on later normal extraction runs.

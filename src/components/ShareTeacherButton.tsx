@@ -1,4 +1,8 @@
 "use client";
+import {useLocale} from "next-intl";
+import {localizedPath, routing} from "@/i18n/routing";
+import {SITE_URL} from "@/lib/seo";
+import {useText} from "@/i18n/use-text";
 
 import { useEffect, useState } from "react";
 import { Share } from "lucide-react";
@@ -49,12 +53,24 @@ export function ShareTeacherButton({
   className,
   imageFileName = "a-medio-tono-profe.png",
   imageUrl,
-  title,
-  text,
-  url,
+  title: sourceTitle,
+  text: sourceText,
+  url: sourceUrl,
   showLabel = true,
   shareLabel = "Compartir perfil",
 }: ShareTeacherButtonProps) {
+  const tx = useText();
+  const locale = useLocale();
+  let url = sourceUrl;
+  if (url.startsWith(SITE_URL)) {
+    const target = new URL(url);
+    const prefix = target.pathname.split("/")[1];
+    const path = routing.locales.includes(prefix as typeof routing.locales[number]) ? target.pathname.slice(prefix.length + 1) || "/" : target.pathname;
+    target.pathname = localizedPath(path, locale);
+    url = target.toString();
+  }
+  const title = tx(sourceTitle);
+  const text = tx(sourceText);
   const [copied, setCopied] = useState(false);
   const [shareFile, setShareFile] = useState<File | null>(null);
   const label = copied ? "Enlace copiado" : shareLabel;
@@ -145,11 +161,11 @@ export function ShareTeacherButton({
       type="button"
       className={["pd-share-button", className].filter(Boolean).join(" ")}
       onClick={handleShare}
-      aria-label={label}
+      aria-label={tx(label)}
     >
       <Share size={18} strokeWidth={2.4} aria-hidden="true" />
       <span className={showLabel ? undefined : "visually-hidden"}>
-        {label}
+        {tx(label)}
       </span>
     </button>
   );

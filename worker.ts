@@ -38,9 +38,12 @@ function prefersMarkdown(accept: string | null) {
   return markdown > 0 && markdown >= html;
 }
 
-function withVaryAccept(headers: Headers) {
-  const vary = headers.get("Vary");
-  return vary ? `${vary}, Accept` : "Accept";
+function withVaryAccept(headers: Headers, languagePreference = false) {
+  const values = (headers.get("Vary") ?? "").split(",").map(value => value.trim()).filter(Boolean);
+  for (const name of ["Accept", ...(languagePreference ? ["Accept-Language", "Cookie"] : [])]) {
+    if (!values.some(value => value.toLowerCase() === name.toLowerCase())) values.push(name);
+  }
+  return values.join(", ");
 }
 
 /**
@@ -188,7 +191,7 @@ export default {
     const response: Response = await handler.fetch(request, env, ctx);
     const extra: Record<string, string> = { "Strict-Transport-Security": HSTS };
     // The same URL can answer in Markdown, so shared caches must key on Accept.
-    if (isPage) extra.Vary = withVaryAccept(response.headers);
+    if (isPage) extra.Vary = withVaryAccept(response.headers, !/^\/(?:es|en|pt|fr)(?:\/|$)/.test(url.pathname));
     // OpenNext leaves /_next/image responses without Cache-Control for images
     // under public/, so browsers re-download them on every visit.
     if (url.pathname === "/_next/image" && response.ok && !response.headers.has("Cache-Control")) {

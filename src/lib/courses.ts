@@ -43,7 +43,7 @@ export function findCourseByName(value: string) {
   return COURSE_BY_NORMALIZED_LABEL.get(normalizeSearchText(value));
 }
 
-export function findCoursesByQuery(value: string) {
+export function findCoursesByQuery(value: string, translate: (text: string) => string = text => text) {
   const query = normalizeSearchText(value);
   if (!query) return [];
 
@@ -51,13 +51,13 @@ export function findCoursesByQuery(value: string) {
   const addCourse = (course: Course) => matches.set(course.id, course);
 
   COURSES.forEach((course) => {
-    if (normalizeSearchText(course.label).includes(query)) {
+    if ([course.label, translate(course.label)].some(label => normalizeSearchText(label).includes(query))) {
       addCourse(course);
     }
   });
 
   COURSES.forEach((course) => {
-    if (course.aliases.some((alias) => normalizeSearchText(alias).includes(query))) {
+    if (course.aliases.some((alias) => [alias, translate(alias)].some(label => normalizeSearchText(label).includes(query)))) {
       addCourse(course);
     }
   });

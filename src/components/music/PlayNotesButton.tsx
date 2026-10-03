@@ -1,4 +1,5 @@
 "use client";
+import {useText} from "@/i18n/use-text";
 
 import { useEffect, useRef, useState } from "react";
 import { Volume2 } from "lucide-react";
@@ -18,6 +19,7 @@ export function PlayNotesButton({
   mode: "chord" | "scale";
   label: string;
 }) {
+  const tx = useText();
   const contextRef = useRef<AudioContext | null>(null);
   const timerRef = useRef<number | null>(null);
   const mountedRef = useRef(true);
@@ -73,9 +75,9 @@ export function PlayNotesButton({
     <div className="play-notes-control">
       <button type="button" className="ed-button play-notes-button" onClick={play} disabled={playing}>
         <Volume2 size={20} strokeWidth={2.4} aria-hidden="true" />
-        {playing ? "Sonando…" : label}
+        {tx(playing ? "Sonando…" : label)}
       </button>
-      {error && <p className="tool-hint" role="alert">{error}</p>}
+      {error && <p className="tool-hint" role="alert">{tx(error)}</p>}
     </div>
   );
 }

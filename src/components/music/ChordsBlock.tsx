@@ -1,4 +1,5 @@
-import Link from "next/link";
+import {useText} from "@/i18n/use-text";
+import Link from "@/i18n/navigation";
 import { ChordDiagram } from "@/components/music/ChordDiagram";
 import { GUITAR_TUNING, guitarVoicings } from "@/lib/chord-voicings";
 import { chordPath, voicingNoteNames, voicingRootStrings } from "@/lib/music-pages";
@@ -6,6 +7,7 @@ import { getChord, type Chord } from "@/lib/music-theory";
 
 /** Guitar chord boxes inside an article, each linking to its dictionary page. */
 export function ChordsBlock({ slugs, caption }: { slugs: string[]; caption?: string }) {
+  const tx = useText();
   const chords = slugs.map((slug) => getChord(slug)).filter((chord): chord is Chord => Boolean(chord));
 
   return (
@@ -18,13 +20,12 @@ export function ChordsBlock({ slugs, caption }: { slugs: string[]; caption?: str
               <Link href={chordPath(chord)} prefetch={false}>
                 <figure>
                   <strong>
-                    {chord.name} ({chord.displaySymbol})
-                  </strong>
+                    {tx(chord.name)} {tx(" (")}{tx(chord.displaySymbol)}{tx(")")}</strong>
                   <ChordDiagram
                     voicing={voicing}
                     noteNames={voicingNoteNames(chord, voicing, GUITAR_TUNING)}
                     rootStrings={voicingRootStrings(chord, voicing, GUITAR_TUNING)}
-                    title={`${chord.name} en guitarra`}
+                    title={tx(tx.template("{p0} en guitarra", {p0: tx(chord.name)}))}
                   />
                 </figure>
               </Link>
@@ -32,7 +33,7 @@ export function ChordsBlock({ slugs, caption }: { slugs: string[]; caption?: str
           );
         })}
       </ul>
-      {caption && <figcaption>{caption}</figcaption>}
+      {caption && <figcaption>{tx(caption)}</figcaption>}
     </figure>
   );
 }

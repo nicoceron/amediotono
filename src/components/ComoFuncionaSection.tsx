@@ -1,3 +1,4 @@
+import {useText} from "@/i18n/use-text";
 import Image from "next/image";
 import {
   BadgeCheck,
@@ -31,26 +32,27 @@ const STEPS = [
 ];
 
 export function ComoFuncionaSection() {
+  const tx = useText();
   const featured = TEACHERS.slice(0, 3);
 
   return (
     <section
       className="block alt"
       id="como-funciona"
-      data-screen-label="Cómo funciona"
+      data-screen-label={tx("Cómo funciona")}
     >
       <div className="container cf-container">
         <div className="cf-head">
           <h2 className="cf-title">
-            <span className="cf-title-first" style={{ color: "var(--orange)" }}>Cómo</span>{" "}
+            <span className="cf-title-first" style={{ color: "var(--orange)" }}>{tx("Cómo")}</span>{tx(" ")}
             <span className="cf-title-rest">
-              <span style={{ color: "var(--ink)" }}>funciona</span>
+              <span style={{ color: "var(--ink)" }}>{tx("funciona")}</span>
               <BrandWordmark className="cf-title-logo" />
             </span>
           </h2>
         </div>
 
-        <div className="cf-grid" role="region" aria-label="Pasos para empezar" tabIndex={0}>
+        <div className="cf-grid" role="region" aria-label={tx("Pasos para empezar")} tabIndex={0}>
           {STEPS.map((step, i) => (
             <Reveal as="article" className="cf-card" key={step.number} delay={i * 120}>
               <span
@@ -58,9 +60,9 @@ export function ComoFuncionaSection() {
                 style={{ background: step.accent }}
                 aria-hidden="true"
               >
-                {step.number}
+                {tx(step.number)}
               </span>
-              <h3 className="cf-card-title">{step.title}</h3>
+              <h3 className="cf-card-title">{tx(step.title)}</h3>
               <p className="cf-card-body">
                 <BrandText text={step.body} />
               </p>
@@ -87,7 +89,7 @@ export function ComoFuncionaSection() {
                         />
                         <Image
                           src={t.photo}
-                          alt={t.shortName}
+                          alt={tx(t.shortName)}
                           fill
                           sizes="(max-width: 700px) 112px, 130px"
                           style={
@@ -99,30 +101,30 @@ export function ComoFuncionaSection() {
                       </div>
                       <div className="cf-mini-profe-body">
                         <div className="cf-mini-profe-head">
-                          <strong>{t.shortName}</strong>
+                          <strong>{tx(t.shortName)}</strong>
                           <BadgeCheck
                             size={18}
                             strokeWidth={2.4}
                             style={{ color: t.color }}
-                            aria-label="Profe verificado"
+                            aria-label={tx("Profe verificado")}
                           />
                           {t.countryFlag && (
                             <span
                               className="cf-mini-profe-flag"
-                              aria-label={t.country}
-                              title={t.country}
+                              aria-label={tx(t.country)}
+                              title={tx(t.country)}
                             >
-                              {t.countryFlag}
+                              {tx(t.countryFlag)}
                             </span>
                           )}
                         </div>
                         <span className="cf-mini-profe-line">
                           <GraduationCap size={18} strokeWidth={2.4} aria-hidden="true" />
-                          <span>Profe de {t.skills[0]?.label ?? t.role}</span>
+                          <span>{tx("Profe de ")}{tx(t.skills[0]?.label ?? t.role)}</span>
                         </span>
                         <span className="cf-mini-profe-line">
                           <Languages size={18} strokeWidth={2.4} aria-hidden="true" />
-                          <span>{(t.classLanguages ?? ["Español"]).join(" · ")}</span>
+                          <span>{tx((t.classLanguages ?? ["Español"]).join(" · "))}</span>
                         </span>
                       </div>
                     </div>
@@ -141,7 +143,7 @@ export function ComoFuncionaSection() {
                       muted
                       playsInline
                       poster="/comienza-a-aprender-guitarra-poster.webp"
-                      aria-label="Estudiante tocando guitarra en clase"
+                      aria-label={tx("Estudiante tocando guitarra en clase")}
                     />
                   </div>
                 </div>
@@ -158,7 +160,7 @@ export function ComoFuncionaSection() {
                       loop
                       muted
                       playsInline
-                      aria-label="Presentación musical de estudiantes"
+                      aria-label={tx("Presentación musical de estudiantes")}
                     />
                   </div>
                 </div>
