@@ -17,14 +17,8 @@ export function LanguagePicker() {
   const [pending, startTransition] = useTransition();
 
   function changeLanguage(value: string) {
-    let next = value as SiteLocale;
-    if (value === "system") {
-      document.cookie = "TONO_LOCALE=; Max-Age=0; Path=/; SameSite=Lax";
-      next = navigator.languages.map(language => language.split("-")[0]).find(language => routing.locales.includes(language as SiteLocale)) as SiteLocale ?? routing.defaultLocale;
-    } else {
-      document.cookie = `TONO_LOCALE=${next}; Max-Age=31536000; Path=/; SameSite=Lax`;
-    }
-    // Next's router keeps system mode from recreating a manual locale cookie.
+    const next = value as SiteLocale;
+    document.cookie = `TONO_LOCALE=${next}; Max-Age=31536000; Path=/; SameSite=Lax`;
     startTransition(() => router.replace(getPathname({href: pathname, locale: next}) + window.location.search + window.location.hash, {scroll: false}));
   }
 
@@ -53,10 +47,6 @@ export function LanguagePicker() {
               </DropdownMenu.RadioItem>
             ))}
           </DropdownMenu.RadioGroup>
-          <DropdownMenu.Separator className="nav-dropdown-separator" />
-          <DropdownMenu.Item className="nav-dropdown-item" onSelect={() => changeLanguage("system")}>
-            {tx("Idioma del sistema")}
-          </DropdownMenu.Item>
         </DropdownMenu.Content>
       </DropdownMenu.Portal>
     </DropdownMenu.Root>
