@@ -1,6 +1,5 @@
 "use client";
 import {NextIntlClientProvider} from "next-intl";
-import messages from "../../messages/es.json";
 
 import "./globals.css";
 import { useEffect } from "react";
@@ -23,7 +22,8 @@ export default function GlobalError({ error, unstable_retry, reset }: GlobalErro
       <head><ThemeScript /></head>
       <body suppressHydrationWarning>
         <title>Error | A medio tono</title>
-        <NextIntlClientProvider locale="es" messages={{UI: messages.UI}} timeZone="America/Bogota">
+        {/* Source Spanish keeps this fallback independent of the full catalog. */}
+        <NextIntlClientProvider locale="es" messages={{UI: {}}} timeZone="America/Bogota">
         <ErrorPageState
           status="500"
           title="Algo se desafinó."
