@@ -153,7 +153,9 @@ export default async function CoursePage({
           courseJsonLd({ course, guide, path }),
           teachersItemListJsonLd(teachers, { path, name: `Profes de ${lowerLabel} en A medio tono` }),
           faqPageJsonLd(
-            guide.faqs.map((faq) => ({ question: faq.question, answer: plainText(faq.answer) })),
+            // Translate the source containing Markdown before stripping it,
+            // so the schema answers match the visible localized answers.
+            guide.faqs.map((faq) => ({ question: tx(faq.question), answer: plainText(tx(faq.answer)) })),
             path,
           ),
         ]}

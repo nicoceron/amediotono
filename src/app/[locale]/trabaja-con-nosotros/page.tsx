@@ -17,7 +17,6 @@ import {
   breadcrumbJsonLd,
   createPageMetadata,
   jobPostingJsonLd,
-  jsonLd,
 } from "@/lib/seo";
 import { shareImage } from "@/lib/share-cards";
 
@@ -54,7 +53,7 @@ const baseMetadata: Metadata = createPageMetadata({
 
 export default function TrabajaConNosotrosPage() {
   const tx = useText();
-  const jobsJsonLd = jsonLd([
+  const jobsJsonLd = [
     breadcrumbJsonLd([
       { name: "Inicio", path: "/" },
       { name: "Trabaja con nosotros", path: "/trabaja-con-nosotros" },
@@ -66,11 +65,11 @@ export default function TrabajaConNosotrosPage() {
       datePosted: JOB_POSTED_AT,
       validThrough: JOB_VALID_THROUGH,
     }),
-  ]);
+  ];
 
   return (
     <>
-      <JsonLdScript nodes={JSON.parse(jobsJsonLd)} />
+      <JsonLdScript nodes={jobsJsonLd} />
       <section className="job-application-page" data-screen-label={tx("Aplicación profesor")}>
         <div className="job-application-shell">
           <header className="job-application-top">

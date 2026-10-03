@@ -30,7 +30,6 @@ import {
   breadcrumbJsonLd,
   createPageMetadata,
   faqPageJsonLd,
-  jsonLd,
   webPageJsonLd,
 } from "@/lib/seo";
 import { shareImage } from "@/lib/share-cards";
@@ -109,7 +108,7 @@ export default function ChordsIndexPage() {
     { name: "Acordes", path: CHORDS_PATH },
   ];
   const starters = STARTER_CHORDS.map(([pc, type]) => chordFor(pc, type)!);
-  const listJsonLd = jsonLd({
+  const listJsonLd = {
     "@type": "ItemList",
     "@id": `${absoluteUrl(CHORDS_PATH)}#acordes`,
     name: "Diccionario de acordes",
@@ -120,7 +119,7 @@ export default function ChordsIndexPage() {
       name: `Acorde de ${chord.longName} (${chord.symbol})`,
       url: absoluteUrl(chordPath(chord)),
     })),
-  });
+  };
 
   return (
     <>
@@ -131,7 +130,7 @@ export default function ChordsIndexPage() {
           faqPageJsonLd(FAQS.map((faq) => ({ question: faq.question, answer: plainText(faq.answer) })), CHORDS_PATH),
         ]}
       />
-      <JsonLdScript nodes={JSON.parse(listJsonLd)} />
+      <JsonLdScript nodes={listJsonLd} />
       <section className="block ed-page tool-page" style={{ ["--ed-accent" as string]: "var(--orange)" }}>
         <div className="container">
           <Breadcrumbs items={crumbs} />

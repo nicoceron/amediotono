@@ -178,7 +178,7 @@
     "text": "Afina tu sentido del tiempo, una habilidad que valora cualquier músico con el que toques.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:481"
+      "src/content/courses/guides-a.ts:486"
     ]
   },
   "m102c3738": {
@@ -434,7 +434,7 @@
     "text": "Técnica de púa: púa alterna, economía de movimiento y silenciamiento de cuerdas.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:410"
+      "src/content/courses/guides-a.ts:415"
     ]
   },
   "m10707268": {
@@ -610,7 +610,7 @@
     "text": "Afinador para la voz",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/clases/[curso]/page.tsx:369"
+      "src/app/[locale]/clases/[curso]/page.tsx:371"
     ]
   },
   "m109f44c5": {
@@ -708,7 +708,7 @@
     "text": "Para empezar no es indispensable: puedes arrancar con un pad de práctica y baquetas para trabajar técnica y rudimentos, y luego incorporar una batería acústica o electrónica. Si vas a tomar clases de batería a domicilio, lo ideal es contar con el instrumento en casa.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:489"
+      "src/content/courses/guides-a.ts:494"
     ]
   },
   "m10a85797": {
@@ -1380,7 +1380,7 @@
     "text": "Todas las escalas",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/page.tsx:104"
+      "src/app/[locale]/escalas/page.tsx:103"
     ]
   },
   "m1153aa58": {
@@ -1915,6 +1915,13 @@
     "namespace": "Content",
     "references": [
       "Spanish rendered copy"
+    ]
+  },
+  "m11e04d3a": {
+    "text": "Elige tu profesor de piano, canto, guitarra o violín. Compara experiencia, modalidad e idioma para clases a domicilio en Bogotá o en vivo online.",
+    "namespace": "UI",
+    "references": [
+      "src/app/[locale]/profes/page.tsx:24"
     ]
   },
   "m11e1eaf6": {
@@ -2883,9 +2890,9 @@
     "text": "Idioma",
     "namespace": "UI",
     "references": [
-      "src/components/LanguagePicker.tsx:37",
-      "src/components/LanguagePicker.tsx:38",
-      "src/components/LanguagePicker.tsx:47",
+      "src/components/LanguagePicker.tsx:31",
+      "src/components/LanguagePicker.tsx:32",
+      "src/components/LanguagePicker.tsx:41",
       "src/components/ProfesDirectory.tsx:564",
       "src/components/ProfesDirectory.tsx:608",
       "src/content/blog/canciones-faciles-para-empezar-a-cantar.ts:46"
@@ -2902,7 +2909,7 @@
     "text": "Más profes y guías",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/profes/[slug]/page.tsx:471"
+      "src/app/[locale]/profes/[slug]/page.tsx:470"
     ]
   },
   "m12fe859": {
@@ -3163,7 +3170,7 @@
     "text": "No es necesario. Si la música que te motiva es rock, blues o metal, empezar directamente con la eléctrica es una opción totalmente válida. Ambas comparten acordes y escalas, así que lo que aprendas en una te servirá en la otra.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:433"
+      "src/content/courses/guides-a.ts:438"
     ]
   },
   "m13384333": {
@@ -3283,7 +3290,7 @@
     "text": "Metrónomo (puede ser una aplicación) y protección auditiva si tocas batería acústica.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:476"
+      "src/content/courses/guides-a.ts:481"
     ]
   },
   "m134eeb88": {
@@ -3641,7 +3648,7 @@
     "text": "{p0} en guitarra",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/page.tsx:161",
+      "src/app/[locale]/acordes/page.tsx:160",
       "src/components/music/ChordsBlock.tsx:28",
       "src/lib/music-pages.ts"
     ]
@@ -3776,7 +3783,7 @@
     "text": "Desarrolla la coordinación y la independencia de las cuatro extremidades.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:480"
+      "src/content/courses/guides-a.ts:485"
     ]
   },
   "m13c4b66a": {
@@ -4092,7 +4099,7 @@
     "text": "¿Qué es una cejilla?",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/page.tsx:94"
+      "src/app/[locale]/acordes/page.tsx:93"
     ]
   },
   "m14135635": {
@@ -4190,7 +4197,7 @@
     "text": "Preguntas frecuentes sobre clases de",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/clases/[curso]/page.tsx:317"
+      "src/app/[locale]/clases/[curso]/page.tsx:319"
     ]
   },
   "m142d83c1": {
@@ -6491,7 +6498,7 @@
     "text": "Más profes de",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/profes/[slug]/page.tsx:476"
+      "src/app/[locale]/profes/[slug]/page.tsx:475"
     ]
   },
   "m165e9d4e": {
@@ -6659,7 +6666,7 @@
     "text": "Tiple melódico: punteo de melodías y arreglos como solista.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:581"
+      "src/content/courses/guides-a.ts:586"
     ]
   },
   "m167aedaf": {
@@ -7244,7 +7251,7 @@
     "text": "No es obligatorio, pero ayuda mucho: la teoría cobra sentido cuando la escuchas y la tocas. Si no tocas ninguno, un teclado sencillo basta para comprobar escalas y acordes. Muchos estudiantes combinan la teoría con clases de [piano](/clases/piano) u otro instrumento.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:377"
+      "src/content/courses/guides-a.ts:382"
     ]
   },
   "m17028fba": {
@@ -7461,7 +7468,7 @@
     "text": "¿A qué edad empezar?",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/clases/[curso]/page.tsx:256"
+      "src/app/[locale]/clases/[curso]/page.tsx:258"
     ]
   },
   "m17393ad9": {
@@ -8883,7 +8890,7 @@
     "text": "Es una forma muy física y liberadora de hacer música.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:482"
+      "src/content/courses/guides-a.ts:487"
     ]
   },
   "m18b23e7a": {
@@ -8933,7 +8940,7 @@
     "text": "¿Debo empezar con guitarra acústica antes de la eléctrica?",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:432"
+      "src/content/courses/guides-a.ts:437"
     ]
   },
   "m18bbdd10": {
@@ -9066,7 +9073,7 @@
     "text": "La percusión es el corazón rítmico de la música y abarca mucho más que la batería: congas, bongós, cajón, timbales y los tambores de la música colombiana, como la tambora, el llamador o la caja vallenata. En las clases desarrollas un pulso firme, coordinación entre manos y pies y un repertorio de ritmos que va del rock y el pop a la salsa, la cumbia y el vallenato. Puedes enfocarte en la batería o en la percusión menor, a domicilio en Bogotá y alrededores o de forma virtual.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:461"
+      "src/content/courses/guides-a.ts:466"
     ]
   },
   "m18e22d2c": {
@@ -9494,7 +9501,7 @@
     "text": "¿Me sirve si quiero estudiar música de manera profesional?",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:391"
+      "src/content/courses/guides-a.ts:396"
     ]
   },
   "m19525ee2": {
@@ -10150,7 +10157,7 @@
     "text": "Español",
     "namespace": "UI",
     "references": [
-      "src/components/ComoFuncionaSection.tsx:127",
+      "src/components/ComoFuncionaSection.tsx:133",
       "src/data/teachers.json",
       "src/lib/mcp.ts:53",
       "src/lib/mcp.ts:144",
@@ -10981,7 +10988,7 @@
     "text": "Cómo se forman y en qué se diferencian.",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/page.tsx:161"
+      "src/app/[locale]/escalas/page.tsx:160"
     ]
   },
   "m1ad194fe": {
@@ -11695,13 +11702,6 @@
     "namespace": "Content",
     "references": [
       "src/content/blog/piano-digital-o-teclado-diferencias.ts:81"
-    ]
-  },
-  "m1b754983": {
-    "text": "Idioma del sistema",
-    "namespace": "UI",
-    "references": [
-      "src/components/LanguagePicker.tsx:58"
     ]
   },
   "m1b78886": {
@@ -13002,7 +13002,7 @@
     "text": "Como referencia orientativa, el tiple suele empezarse hacia los 8 años, porque sus órdenes de cuerdas metálicas exigen más fuerza en los dedos que una guitarra de nailon. Para niños menores, la [guitarra acústica](/clases/guitarra-acustica) con cuerdas de nailon o la [iniciación musical](/clases/iniciacion-musical) preparan muy bien el camino; depende de cada niño, y el profe evalúa su caso. Los adultos pueden empezar a cualquier edad, y quienes ya tocan guitarra encuentran una transición natural, porque el tiple se afina como las cuatro primeras cuerdas de la guitarra.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:576"
+      "src/content/courses/guides-a.ts:581"
     ]
   },
   "m1cc39656": {
@@ -13729,7 +13729,7 @@
     "namespace": "UI",
     "references": [
       "src/app/[locale]/acordes/[acorde]/page.tsx:217",
-      "src/app/[locale]/escalas/page.tsx:136"
+      "src/app/[locale]/escalas/page.tsx:135"
     ]
   },
   "m1d782754": {
@@ -13981,7 +13981,7 @@
     "text": "¿Se pueden tomar clases de batería virtuales?",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:503"
+      "src/content/courses/guides-a.ts:508"
     ]
   },
   "m1dac68cd": {
@@ -15024,7 +15024,7 @@
     "text": "Los acordes de cada tonalidad de un vistazo.",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/page.tsx:224"
+      "src/app/[locale]/acordes/page.tsx:223"
     ]
   },
   "m1e8e0f78": {
@@ -16296,7 +16296,7 @@
     "text": "¿Cuáles son los acordes básicos de guitarra?",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/page.tsx:79"
+      "src/app/[locale]/acordes/page.tsx:78"
     ]
   },
   "m1fdbef1b": {
@@ -17859,7 +17859,7 @@
     "text": "Power chords, riffs y acordes con cejilla.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:411"
+      "src/content/courses/guides-a.ts:416"
     ]
   },
   "m2161face": {
@@ -18028,7 +18028,7 @@
     "text": "Acordes semidisminuidos (Bm7♭5, Em7♭5…)",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/page.tsx:74"
+      "src/app/[locale]/acordes/page.tsx:73"
     ]
   },
   "m2193f0ea": {
@@ -18154,7 +18154,7 @@
     "text": "Como orientación, el bajo eléctrico suele empezarse hacia los 9 o 10 años, porque su mástil largo y sus cuerdas gruesas exigen manos más grandes y algo de fuerza. Los bajos de escala corta permiten que estudiantes más jóvenes lo toquen con comodidad, y antes de esa edad la [guitarra](/clases/guitarra-acustica) o la [percusión](/clases/percusion) son buenas maneras de desarrollar oído y ritmo; depende de cada niño. Los adultos pueden empezar a cualquier edad, y el bajo es un gran instrumento para integrarse a tocar en grupo.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:520"
+      "src/content/courses/guides-a.ts:525"
     ]
   },
   "m21aa1d08": {
@@ -18430,7 +18430,7 @@
     "text": "Su sonido brillante y armónico llena el espacio incluso cuando tocas solo.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:593"
+      "src/content/courses/guides-a.ts:598"
     ]
   },
   "m21f2df98": {
@@ -18451,7 +18451,7 @@
     "text": "Acordes de séptima o dominante (G7, D7…)",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/page.tsx:67"
+      "src/app/[locale]/acordes/page.tsx:66"
     ]
   },
   "m21f5963e": {
@@ -19050,7 +19050,7 @@
     "text": "Por qué aprender",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/clases/[curso]/page.tsx:273"
+      "src/app/[locale]/clases/[curso]/page.tsx:275"
     ]
   },
   "m22a65fd9": {
@@ -19291,7 +19291,7 @@
     "text": "Los primeros que se aprenden son los acordes abiertos: Do (C), Sol (G), Re (D), La (A) y Mi (E) mayores, y La menor (Am), Mi menor (Em) y Re menor (Dm). Con ellos ya puedes acompañar muchísimas canciones. En nuestra [guía de acordes básicos](/blog/acordes-basicos-de-guitarra-para-principiantes) te contamos en qué orden aprenderlos.",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/page.tsx:80"
+      "src/app/[locale]/acordes/page.tsx:79"
     ]
   },
   "m22df13b": {
@@ -19312,7 +19312,7 @@
     "text": "Armaduras, relativas y acordes de cada tonalidad.",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/page.tsx:149"
+      "src/app/[locale]/escalas/page.tsx:148"
     ]
   },
   "m22e67a84": {
@@ -19709,7 +19709,7 @@
     "text": "Digitación de mano izquierda y silenciamiento de cuerdas para un sonido limpio.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:523"
+      "src/content/courses/guides-a.ts:528"
     ]
   },
   "m2344e2c4": {
@@ -20002,7 +20002,7 @@
     "text": "¿Se puede aprender bajo en clases virtuales?",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:559"
+      "src/content/courses/guides-a.ts:564"
     ]
   },
   "m23832dfe": {
@@ -20409,7 +20409,7 @@
     "text": "¿Batería acústica o electrónica: cuál conviene?",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:493"
+      "src/content/courses/guides-a.ts:498"
     ]
   },
   "m23d6c677": {
@@ -20945,7 +20945,7 @@
     "text": "escalas de piano",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/page.tsx:37"
+      "src/app/[locale]/escalas/page.tsx:36"
     ]
   },
   "m2467e794": {
@@ -22024,7 +22024,7 @@
     "text": "Profe — A ½ tono",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/profes/[slug]/page.tsx:132"
+      "src/app/[locale]/profes/[slug]/page.tsx:131"
     ]
   },
   "m258f9da0": {
@@ -22122,7 +22122,7 @@
     "text": "Aplica para trabajar como profesor o profesora de música en A medio tono. Buscamos profes para clases virtuales y a domicilio en Bogotá y alrededores.",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/trabaja-con-nosotros/page.tsx:49"
+      "src/app/[locale]/trabaja-con-nosotros/page.tsx:48"
     ]
   },
   "m25a86cd": {
@@ -22559,7 +22559,7 @@
     "text": "¿Qué se aprende en percusión además de la batería?",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:498"
+      "src/content/courses/guides-a.ts:503"
     ]
   },
   "m25f43955": {
@@ -23731,7 +23731,7 @@
     "text": "Te permite expresarte con pocas notas: cuando el groove está bien puesto, menos es más.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:539"
+      "src/content/courses/guides-a.ts:544"
     ]
   },
   "m2704d729": {
@@ -23857,7 +23857,7 @@
     "text": "escalas de guitarra",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/page.tsx:37"
+      "src/app/[locale]/escalas/page.tsx:36"
     ]
   },
   "m272c892a": {
@@ -24538,7 +24538,7 @@
     "text": "Estilos como rock, funk, pop, reggae, salsa y cumbia, incluido el tumbao latino.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:527"
+      "src/content/courses/guides-a.ts:532"
     ]
   },
   "m27eb2e3": {
@@ -24615,7 +24615,7 @@
     "text": "Técnicas expresivas: bends, vibrato, slides, hammer-on y pull-off.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:413"
+      "src/content/courses/guides-a.ts:418"
     ]
   },
   "m2805f87e": {
@@ -25088,7 +25088,7 @@
     "text": "acordes de ukelele",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/page.tsx:47"
+      "src/app/[locale]/acordes/page.tsx:46"
     ]
   },
   "m2875e1f5": {
@@ -26669,7 +26669,7 @@
     "text": "¿Necesito saber guitarra para aprender bajo?",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:544"
+      "src/content/courses/guides-a.ts:549"
     ]
   },
   "m29f676e4": {
@@ -27113,7 +27113,7 @@
     "text": "Grooves de rock, pop, funk, balada y salsa, entre otros estilos.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:469"
+      "src/content/courses/guides-a.ts:474"
     ]
   },
   "m2a64907d": {
@@ -27809,18 +27809,18 @@
     "namespace": "UI",
     "references": [
       "src/app/[locale]/acordes/[acorde]/page.tsx:274",
-      "src/app/[locale]/acordes/page.tsx:202",
-      "src/app/[locale]/acordes/page.tsx:205",
+      "src/app/[locale]/acordes/page.tsx:201",
+      "src/app/[locale]/acordes/page.tsx:204",
       "src/app/[locale]/clases-de-musica-a-domicilio-bogota/page.tsx:206",
       "src/app/[locale]/clases-de-musica-a-domicilio-bogota/page.tsx:241",
       "src/app/[locale]/escalas/[escala]/page.tsx:189",
-      "src/app/[locale]/escalas/page.tsx:132",
+      "src/app/[locale]/escalas/page.tsx:131",
       "src/app/[locale]/herramientas/afinador/[instrumento]/page.tsx:195",
       "src/app/[locale]/herramientas/afinador/page.tsx:209",
       "src/app/[locale]/herramientas/circulo-de-quintas/page.tsx:215",
       "src/app/[locale]/herramientas/entrenamiento-auditivo/page.tsx:196",
       "src/app/[locale]/herramientas/metronomo/page.tsx:191",
-      "src/app/[locale]/profes/[slug]/page.tsx:367",
+      "src/app/[locale]/profes/[slug]/page.tsx:366",
       "src/components/CalidadBanner.tsx:16"
     ]
   },
@@ -28556,8 +28556,8 @@
     "namespace": "UI",
     "references": [
       "src/app/[locale]/acordes/[acorde]/page.tsx:210",
-      "src/app/[locale]/acordes/page.tsx:156",
-      "src/app/[locale]/acordes/page.tsx:204",
+      "src/app/[locale]/acordes/page.tsx:155",
+      "src/app/[locale]/acordes/page.tsx:203",
       "src/app/[locale]/herramientas/afinador/page.tsx:170",
       "src/app/[locale]/herramientas/entrenamiento-auditivo/page.tsx:145",
       "src/components/music/ChordsBlock.tsx:23",
@@ -29737,9 +29737,9 @@
     "text": "(",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/page.tsx:156",
-      "src/app/[locale]/acordes/page.tsx:204",
-      "src/app/[locale]/escalas/page.tsx:136",
+      "src/app/[locale]/acordes/page.tsx:155",
+      "src/app/[locale]/acordes/page.tsx:203",
+      "src/app/[locale]/escalas/page.tsx:135",
       "src/app/[locale]/herramientas/afinador/page.tsx:170",
       "src/app/[locale]/herramientas/entrenamiento-auditivo/page.tsx:145",
       "src/components/music/ChordsBlock.tsx:23",
@@ -30837,7 +30837,7 @@
     "text": "Técnica de baquetas y de manos: agarre, rebote y rudimentos como redobles y paradiddles.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:466"
+      "src/content/courses/guides-a.ts:471"
     ]
   },
   "m2e1c34e4": {
@@ -30893,7 +30893,7 @@
     "text": "Cargo",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/trabaja-con-nosotros/page.tsx:26",
+      "src/app/[locale]/trabaja-con-nosotros/page.tsx:25",
       "src/components/B2BLeadForm.tsx:70"
     ]
   },
@@ -31747,7 +31747,7 @@
     "text": "Profe de",
     "namespace": "UI",
     "references": [
-      "src/components/ComoFuncionaSection.tsx:123",
+      "src/components/ComoFuncionaSection.tsx:129",
       "src/lib/teacher-share-image.tsx"
     ]
   },
@@ -31797,7 +31797,7 @@
     "text": "El tiple tiene 12 cuerdas metálicas agrupadas en cuatro órdenes de tres, un cuerpo más pequeño y un sonido más brillante. La guitarra tiene seis cuerdas simples y un registro más grave. En la música andina suelen tocar juntos: la guitarra aporta los bajos y el tiple, el colchón armónico y rítmico.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:606"
+      "src/content/courses/guides-a.ts:611"
     ]
   },
   "m2f0ae5c3": {
@@ -33003,7 +33003,7 @@
     "text": "Sí. Para que el profe escuche bien tu sonido conviene conectar la guitarra a una interfaz de audio o a un amplificador con salida USB, en lugar de depender solo del micrófono del computador. Con una cámara bien ubicada, puede corregirte técnica y postura en tiempo real.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:443"
+      "src/content/courses/guides-a.ts:448"
     ]
   },
   "m3038a1e2": {
@@ -33849,7 +33849,7 @@
     "text": "Escalas mayores y menores explicadas",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/page.tsx:160"
+      "src/app/[locale]/escalas/page.tsx:159"
     ]
   },
   "m3112a1fa": {
@@ -34456,7 +34456,7 @@
       "src/app/[locale]/herramientas/metronomo/page.tsx:143",
       "src/app/[locale]/herramientas/metronomo/page.tsx:209",
       "src/app/[locale]/herramientas/tipo-de-voz/page.tsx:143",
-      "src/components/ComoFuncionaSection.tsx:55",
+      "src/components/ComoFuncionaSection.tsx:57",
       "src/components/RichText.tsx:119",
       "src/components/music/MusicIndexTable.tsx:27",
       "src/components/tools/TunerStringsTable.tsx:15",
@@ -35190,13 +35190,6 @@
     "namespace": "Content",
     "references": [
       "Spanish rendered copy"
-    ]
-  },
-  "m325adf0e": {
-    "text": "La teoría musical es el idioma que explica lo que suena: cómo se construyen escalas y acordes, por qué una progresión genera tensión y reposo, y cómo leer y escribir lo que escuchas. Estudiarla con un profe, de la mano del oído y de ejemplos reales, la convierte en una herramienta práctica y no en una lista de reglas. Te sirve si tocas cualquier instrumento, si cantas, si quieres componer o si tienes en mente estudiar música de manera profesional.",
-    "namespace": "UI",
-    "references": [
-      "src/content/courses/guides-a.ts:349"
     ]
   },
   "m32602a9b": {
@@ -36672,7 +36665,7 @@
     "text": "5,0",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/profes/[slug]/page.tsx:348"
+      "src/app/[locale]/profes/[slug]/page.tsx:347"
     ]
   },
   "m33de9f40": {
@@ -36807,7 +36800,7 @@
     "text": "Acordes suspendidos 4 (Dsus4, Asus4…)",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/page.tsx:71"
+      "src/app/[locale]/acordes/page.tsx:70"
     ]
   },
   "m3406e66b": {
@@ -37359,7 +37352,7 @@
     "text": "Desarrolla precisión rítmica y control fino de ambas manos.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:425"
+      "src/content/courses/guides-a.ts:430"
     ]
   },
   "m349818b": {
@@ -37725,7 +37718,7 @@
     "text": "Te enseña armonía de forma práctica, porque cada línea parte de los acordes.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:537"
+      "src/content/courses/guides-a.ts:542"
     ]
   },
   "m34f3674b": {
@@ -38333,7 +38326,7 @@
     "namespace": "UI",
     "references": [
       "src/app/[locale]/nosotros/page.tsx:110",
-      "src/app/[locale]/profes/[slug]/page.tsx:80",
+      "src/app/[locale]/profes/[slug]/page.tsx:79",
       "src/components/ProfesDirectory.tsx:35",
       "src/content/blog/clases-de-musica-a-domicilio-o-virtuales.ts:40",
       "src/content/blog/clases-de-musica-hibridas-virtual-y-presencial.ts:118",
@@ -38751,7 +38744,7 @@
     "text": "acordes de piano",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/page.tsx:47"
+      "src/app/[locale]/acordes/page.tsx:46"
     ]
   },
   "m35fcb731": {
@@ -39426,7 +39419,7 @@
     "text": "Un ritmo sólido, trabajando con metrónomo y pistas de acompañamiento.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:414"
+      "src/content/courses/guides-a.ts:419"
     ]
   },
   "m36b63bcb": {
@@ -39513,7 +39506,7 @@
     "references": [
       "src/app/[locale]/herramientas/afinador/[instrumento]/page.tsx",
       "src/app/[locale]/herramientas/metronomo/[ritmo]/page.tsx",
-      "src/app/[locale]/profes/[slug]/page.tsx:429",
+      "src/app/[locale]/profes/[slug]/page.tsx:428",
       "src/app/api/job-applications/route.ts",
       "src/app/clases/[curso]/share-image.png/route.ts",
       "src/components/ShareTeacherButton.tsx",
@@ -39544,7 +39537,7 @@
     "text": "Depende de cómo se enseñe. En las clases se parte de la música que te interesa, de canciones que conoces, ejercicios de oído y aplicaciones al instrumento, así que cada concepto tiene un para qué. El profe ajusta el enfoque a tu objetivo.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:382"
+      "src/content/courses/guides-a.ts:387"
     ]
   },
   "m36cfe06c": {
@@ -40466,7 +40459,7 @@
     "text": "Presentación musical de estudiantes",
     "namespace": "UI",
     "references": [
-      "src/components/ComoFuncionaSection.tsx:163"
+      "src/components/ComoFuncionaSection.tsx:169"
     ]
   },
   "m37c34535": {
@@ -40930,9 +40923,9 @@
     "text": "Diccionario de acordes",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/page.tsx:115",
-      "src/app/[locale]/clases/[curso]/page.tsx:391",
-      "src/app/[locale]/escalas/page.tsx:154",
+      "src/app/[locale]/acordes/page.tsx:114",
+      "src/app/[locale]/clases/[curso]/page.tsx:393",
+      "src/app/[locale]/escalas/page.tsx:153",
       "src/app/[locale]/herramientas/circulo-de-quintas/page.tsx:235",
       "src/app/[locale]/herramientas/page.tsx:80",
       "src/lib/ai-discovery.ts:67",
@@ -41782,6 +41775,14 @@
       "src/content/blog/mi-hijo-quiere-dejar-el-instrumento-que-hacer.ts:85"
     ]
   },
+  "m3907756c": {
+    "text": "Profesores de música en Bogotá y online",
+    "namespace": "UI",
+    "references": [
+      "src/app/[locale]/profes/page.tsx:23",
+      "src/app/[locale]/profes/page.tsx:36"
+    ]
+  },
   "m390ac89f": {
     "text": "Una configuración básica de cinco piezas —bombo, redoblante, dos toms aéreos y tom de piso—, más hi-hat y un platillo, es suficiente para aprender.",
     "namespace": "Content",
@@ -42319,7 +42320,7 @@
     "namespace": "UI",
     "references": [
       "src/app/[locale]/blog/categoria/[categoria]/page.tsx:123",
-      "src/app/[locale]/profes/[slug]/page.tsx:495"
+      "src/app/[locale]/profes/[slug]/page.tsx:494"
     ]
   },
   "m3999f5f3": {
@@ -42678,7 +42679,7 @@
     "text": "Clases de bajo eléctrico a domicilio en Bogotá",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:514"
+      "src/content/courses/guides-a.ts:519"
     ]
   },
   "m39f85c5d": {
@@ -43342,13 +43343,6 @@
     "namespace": "Content",
     "references": [
       "src/content/blog/musica-y-tdah-como-apoyar-el-aprendizaje.ts:14"
-    ]
-  },
-  "m3a9d9229": {
-    "text": "TONO_LOCALE=; Max-Age=0; Path=/; SameSite=Lax",
-    "namespace": "UI",
-    "references": [
-      "src/components/LanguagePicker.tsx:22"
     ]
   },
   "m3a9ea3d6": {
@@ -45050,7 +45044,7 @@
     "text": "reseñas",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/profes/[slug]/page.tsx:429"
+      "src/app/[locale]/profes/[slug]/page.tsx:428"
     ]
   },
   "m3c5a915b": {
@@ -45562,7 +45556,7 @@
     "text": "¡Hola! Vengo de las escalas musicales y quiero información sobre clases.",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/page.tsx:178"
+      "src/app/[locale]/escalas/page.tsx:177"
     ]
   },
   "m3cf128c9": {
@@ -45639,7 +45633,7 @@
     "text": "acordes de guitarra",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/page.tsx:47"
+      "src/app/[locale]/acordes/page.tsx:46"
     ]
   },
   "m3d06a722": {
@@ -46909,7 +46903,7 @@
     "text": "¿Quieres que la teoría te sirva para tocar?",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/page.tsx:176"
+      "src/app/[locale]/escalas/page.tsx:175"
     ]
   },
   "m3e5d2452": {
@@ -47776,13 +47770,6 @@
       "Spanish rendered copy"
     ]
   },
-  "m3f37d9ba": {
-    "text": "{p0} profes de música evaluados para clases particulares a domicilio en Bogotá o virtuales: piano, canto, guitarra, violín y más. Filtra por instrumento, formato e idioma.",
-    "namespace": "UI",
-    "references": [
-      "src/app/[locale]/profes/page.tsx"
-    ]
-  },
   "m3f3a149": {
     "text": "prueba teórico-auditiva",
     "namespace": "Content",
@@ -47997,7 +47984,7 @@
     "text": "Ver las clases de",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/profes/[slug]/page.tsx:480"
+      "src/app/[locale]/profes/[slug]/page.tsx:479"
     ]
   },
   "m3f79b131": {
@@ -48181,7 +48168,7 @@
     "text": "Tienes camino adelantado, porque comparte la afinación de las cuatro primeras cuerdas de la guitarra y muchas posiciones de acordes se parecen. Lo nuevo está en la presión que exigen las cuerdas agrupadas, en la mano derecha y en los ritmos andinos. Con un profe, esa transición se vuelve mucho más clara.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:601"
+      "src/content/courses/guides-a.ts:606"
     ]
   },
   "m3fa67b6b": {
@@ -49295,7 +49282,7 @@
     "text": "Bogotá y alrededores",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/clases/[curso]/page.tsx:205",
+      "src/app/[locale]/clases/[curso]/page.tsx:207",
       "src/lib/share-cards.ts:48"
     ]
   },
@@ -49754,7 +49741,7 @@
     "text": "Abre la puerta a tríos, estudiantinas y agrupaciones de música tradicional junto a la [bandola andina](/clases/bandola-andina).",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:595"
+      "src/content/courses/guides-a.ts:600"
     ]
   },
   "m41359aa3": {
@@ -52045,7 +52032,7 @@
     "text": "¿No te convence?",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/profes/[slug]/page.tsx:457"
+      "src/app/[locale]/profes/[slug]/page.tsx:456"
     ]
   },
   "m4375217c": {
@@ -53110,7 +53097,7 @@
     "text": "Acordes básicos y rasgueos de acompañamiento.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:579"
+      "src/content/courses/guides-a.ts:584"
     ]
   },
   "m447cfdf4": {
@@ -53921,7 +53908,7 @@
     "text": "Cómo empezar a improvisar",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/page.tsx:166"
+      "src/app/[locale]/escalas/page.tsx:165"
     ]
   },
   "m453e8892": {
@@ -54275,7 +54262,7 @@
     "text": "¡Hola! Quiero más información sobre las clases con {p0}.",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/profes/[slug]/page.tsx:165",
+      "src/app/[locale]/profes/[slug]/page.tsx:164",
       "src/components/TeacherCard.tsx:37"
     ]
   },
@@ -54339,7 +54326,7 @@
     "text": "¿Necesito tener una batería en casa para tomar clases?",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:488"
+      "src/content/courses/guides-a.ts:493"
     ]
   },
   "m45a3c3cb": {
@@ -54425,7 +54412,7 @@
     "text": "Tipos de acordes",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/page.tsx:195"
+      "src/app/[locale]/acordes/page.tsx:194"
     ]
   },
   "m45c05b3e": {
@@ -54638,7 +54625,7 @@
     "text": "Clases de bajo eléctrico en Bogotá a domicilio o virtuales: groove, líneas, lectura y ritmos latinos con profes elegidos a mano, y oído.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:515"
+      "src/content/courses/guides-a.ts:520"
     ]
   },
   "m45fcfb82": {
@@ -54695,7 +54682,7 @@
     "text": "¿Qué equipo necesito para empezar?",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:437"
+      "src/content/courses/guides-a.ts:442"
     ]
   },
   "m4609b62f": {
@@ -55202,7 +55189,7 @@
     "text": "Construcción de líneas de bajo a partir de los acordes: fundamentales, arpegios y notas de paso.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:524"
+      "src/content/courses/guides-a.ts:529"
     ]
   },
   "m46894517": {
@@ -57566,6 +57553,13 @@
       "src/content/blog/como-cantar-sin-lastimar-la-garganta.ts:112"
     ]
   },
+  "m48e24d11": {
+    "text": "Clases de teoría musical y solfeo en Bogotá y online",
+    "namespace": "UI",
+    "references": [
+      "src/content/courses/guides-a.ts:346"
+    ]
+  },
   "m48e24df8": {
     "text": "Instrumento ideal",
     "namespace": "Content",
@@ -58372,7 +58366,7 @@
     "text": "Sí: la teoría, el solfeo y el entrenamiento auditivo son la base que suelen exigir los programas de formación musical. Cuéntale al profe cuál es tu meta y con qué tiempo cuentas, para que organice un plan acorde. Los tiempos de preparación dependen de tu punto de partida.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:392"
+      "src/content/courses/guides-a.ts:397"
     ]
   },
   "m49cc6be2": {
@@ -59177,6 +59171,13 @@
       "src/content/blog/como-aprender-musica-desde-cero.ts:47"
     ]
   },
+  "m4aba699a": {
+    "text": "{p0} profes disponibles. Consulta qué aprenderás y cómo empezar.",
+    "namespace": "UI",
+    "references": [
+      "src/app/[locale]/profes/page.tsx:78"
+    ]
+  },
   "m4ac18c4d": {
     "text": "En clase, el profe corrige detalles que cambian todo, como unos centímetros de altura en la banca o el ángulo de la guitarra. En las",
     "namespace": "Content",
@@ -59188,7 +59189,7 @@
     "text": "Filtrar profes de",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/clases/[curso]/page.tsx:232"
+      "src/app/[locale]/clases/[curso]/page.tsx:234"
     ]
   },
   "m4ac5a999": {
@@ -60288,7 +60289,7 @@
     "text": "A domicilio en",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/clases/[curso]/page.tsx:204"
+      "src/app/[locale]/clases/[curso]/page.tsx:206"
     ]
   },
   "m4be13d81": {
@@ -60792,7 +60793,7 @@
     "text": "Trabajo como profesor/a de música en Bogotá",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/trabaja-con-nosotros/page.tsx:48"
+      "src/app/[locale]/trabaja-con-nosotros/page.tsx:47"
     ]
   },
   "m4c5dd413": {
@@ -62569,7 +62570,7 @@
     "text": "¿Cómo se lee un diagrama de acordes?",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/page.tsx:84"
+      "src/app/[locale]/acordes/page.tsx:83"
     ]
   },
   "m4e3339ae": {
@@ -63282,7 +63283,7 @@
     "text": "Una batería acústica o electrónica, o un pad de práctica si estás empezando.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:474"
+      "src/content/courses/guides-a.ts:479"
     ]
   },
   "m4eee6edd": {
@@ -63520,7 +63521,7 @@
     "text": "Afinador cromático (puede ser una aplicación), muy útil para las cuerdas en octava.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:587"
+      "src/content/courses/guides-a.ts:592"
     ]
   },
   "m4f3b0354": {
@@ -63928,7 +63929,7 @@
     "text": "Es su repertorio más natural, pero no el único. Hoy el tiple aparece también en música popular, fusiones y arreglos contemporáneos, y puede acompañar canciones de otros géneros. Tu profe adapta el repertorio a lo que te interesa, sin perder la base rítmica andina.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:611"
+      "src/content/courses/guides-a.ts:616"
     ]
   },
   "m4f8d1fb4": {
@@ -64409,7 +64410,7 @@
     "text": "Basado en reseñas de",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/profes/[slug]/page.tsx:366"
+      "src/app/[locale]/profes/[slug]/page.tsx:365"
     ]
   },
   "m502b95b7": {
@@ -64633,7 +64634,7 @@
     "text": "Reseñas de mis estudiantes",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/profes/[slug]/page.tsx:346"
+      "src/app/[locale]/profes/[slug]/page.tsx:345"
     ]
   },
   "m50567d4d": {
@@ -64753,7 +64754,7 @@
     "text": "Imparte",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/profes/[slug]/page.tsx:273"
+      "src/app/[locale]/profes/[slug]/page.tsx:272"
     ]
   },
   "m5078595c": {
@@ -65075,7 +65076,7 @@
     "text": "Desde los 7 años",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:407"
+      "src/content/courses/guides-a.ts:412"
     ]
   },
   "m50c270d": {
@@ -66084,7 +66085,7 @@
     "text": "No. El bajo tiene técnica y función propias, y puedes empezar desde cero. Si ya tocas guitarra tendrás ventaja para ubicar las notas en el mástil, pero la mano derecha, el rol rítmico y la forma de pensar las líneas se aprenden de nuevo.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:545"
+      "src/content/courses/guides-a.ts:550"
     ]
   },
   "m51adf004": {
@@ -68893,7 +68894,7 @@
     "text": "escala menor",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/page.tsx:37"
+      "src/app/[locale]/escalas/page.tsx:36"
     ]
   },
   "m5464b637": {
@@ -69145,7 +69146,7 @@
     "text": "Datos clave de las clases de {p0}",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/clases/[curso]/page.tsx:191"
+      "src/app/[locale]/clases/[curso]/page.tsx:193"
     ]
   },
   "m549c9b60": {
@@ -70784,8 +70785,9 @@
     "namespace": "UI",
     "references": [
       "src/app/[locale]/clases/[curso]/page.tsx",
-      "src/app/[locale]/clases/[curso]/page.tsx:164",
+      "src/app/[locale]/clases/[curso]/page.tsx:166",
       "src/app/[locale]/layout.tsx",
+      "src/app/[locale]/profes/page.tsx:77",
       "src/app/clases/[curso]/share-image.png/route.ts",
       "src/lib/agent-resources.ts",
       "src/lib/ai-discovery.ts",
@@ -71244,7 +71246,7 @@
     "text": "Para clases virtuales: conexión estable y una cámara que muestre manos y pies.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:477"
+      "src/content/courses/guides-a.ts:482"
     ]
   },
   "m56a62702": {
@@ -72355,7 +72357,7 @@
     "text": "Como referencia orientativa, los niños pueden explorar la percusión menor desde los 5 años con instrumentos a su medida, y la batería suele empezarse hacia los 6 o 7 años, cuando alcanzan los pedales y coordinan mejor manos y pies; existen baterías de tamaño junior. Cada niño avanza distinto, y para los más pequeños la [iniciación musical](/clases/iniciacion-musical) es una gran puerta de entrada. Los adultos pueden empezar a cualquier edad, y tocar ritmos junto a otras personas es de lo más gratificante.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:464"
+      "src/content/courses/guides-a.ts:469"
     ]
   },
   "m57c6a919": {
@@ -75695,7 +75697,7 @@
     "text": "¿Qué escala aprender primero?",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/page.tsx:52"
+      "src/app/[locale]/escalas/page.tsx:51"
     ]
   },
   "m5af70e54": {
@@ -75828,7 +75830,7 @@
     "text": "5 estrellas",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/profes/[slug]/page.tsx:416"
+      "src/app/[locale]/profes/[slug]/page.tsx:415"
     ]
   },
   "m5b169772": {
@@ -75949,7 +75951,7 @@
     "text": "escalas musicales",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/page.tsx:37"
+      "src/app/[locale]/escalas/page.tsx:36"
     ]
   },
   "m5b3bf12c": {
@@ -76532,7 +76534,7 @@
     "text": "Trabaja con nosotros",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/trabaja-con-nosotros/page.tsx:60",
+      "src/app/[locale]/trabaja-con-nosotros/page.tsx:59",
       "src/components/Footer.tsx:40",
       "src/components/JobsCTASection.tsx:15"
     ]
@@ -76870,7 +76872,7 @@
     "namespace": "UI",
     "references": [
       "src/app/[locale]/acordes/[acorde]/page.tsx:157",
-      "src/app/[locale]/clases/[curso]/page.tsx:211",
+      "src/app/[locale]/clases/[curso]/page.tsx:213",
       "src/components/tools/EarTrainer.tsx:118"
     ]
   },
@@ -77649,7 +77651,7 @@
     "references": [
       "src/app/[locale]/clases-de-musica-a-domicilio-bogota/page.tsx:62",
       "src/app/[locale]/nosotros/page.tsx:105",
-      "src/app/[locale]/profes/[slug]/page.tsx:43",
+      "src/app/[locale]/profes/[slug]/page.tsx:42",
       "src/components/ProfesDirectory.tsx:35",
       "src/components/TeacherCard.tsx:28",
       "src/content/blog/clases-de-musica-a-domicilio-o-virtuales.ts:40",
@@ -78268,7 +78270,7 @@
     "text": "La acústica ofrece la respuesta y el sonido reales, pero requiere espacio y genera mucho volumen. La electrónica permite practicar con audífonos y controlar el volumen, algo muy práctico en apartamento. Para aprender sirven ambas; tu profe te orienta según tu espacio y tus objetivos.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:494"
+      "src/content/courses/guides-a.ts:499"
     ]
   },
   "m5d72ff56": {
@@ -78280,9 +78282,9 @@
   },
   "m5d7481f5": {
     "text": "clases de música a domicilio en Bogotá",
-    "namespace": "Content",
+    "namespace": "UI",
     "references": [
-      "Spanish rendered copy"
+      "src/app/[locale]/profes/page.tsx:85"
     ]
   },
   "m5d76af41": {
@@ -78432,7 +78434,7 @@
     "text": "¿Se pueden tomar clases de tiple virtuales?",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:615"
+      "src/content/courses/guides-a.ts:620"
     ]
   },
   "m5d91da20": {
@@ -79815,7 +79817,7 @@
     "text": "Ubicación",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/trabaja-con-nosotros/page.tsx:36",
+      "src/app/[locale]/trabaja-con-nosotros/page.tsx:35",
       "src/app/api/job-applications/route.ts:121",
       "src/components/ProfesDirectory.tsx:555",
       "src/components/ProfesDirectory.tsx:597"
@@ -80129,7 +80131,7 @@
     "text": "tipos de acorde más usados.",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/page.tsx:142"
+      "src/app/[locale]/acordes/page.tsx:141"
     ]
   },
   "m5f2d6af1": {
@@ -80150,7 +80152,7 @@
     "text": "La teoría es el marco general: notas, ritmos, escalas, intervalos y acordes. El solfeo se enfoca en leer y entonar una partitura o marcar sus ritmos, y la armonía estudia cómo se combinan los acordes y cómo se mueven entre sí. En las clases se trabajan de forma integrada según tu nivel.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:387"
+      "src/content/courses/guides-a.ts:392"
     ]
   },
   "m5f2f737f": {
@@ -81677,7 +81679,7 @@
     "text": "Profes evaluados",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/clases/[curso]/page.tsx:209",
+      "src/app/[locale]/clases/[curso]/page.tsx:211",
       "src/content/service-pages.ts:61"
     ]
   },
@@ -85365,7 +85367,7 @@
     "text": "¿Puedo practicar sin molestar a los vecinos?",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:447"
+      "src/content/courses/guides-a.ts:452"
     ]
   },
   "m641b37b2": {
@@ -85820,7 +85822,7 @@
     "references": [
       "src/app/[locale]/acordes/[acorde]/page.tsx:406",
       "src/app/[locale]/blog/[slug]/page.tsx:292",
-      "src/app/[locale]/clases/[curso]/page.tsx:337",
+      "src/app/[locale]/clases/[curso]/page.tsx:339",
       "src/app/[locale]/escalas/[escala]/page.tsx:367",
       "src/app/[locale]/herramientas/afinador/[instrumento]/page.tsx:258",
       "src/app/[locale]/herramientas/metronomo/[ritmo]/page.tsx:229",
@@ -85910,7 +85912,7 @@
     "text": "Acordes de guitarra, piano y ukelele con diagramas",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/page.tsx:43"
+      "src/app/[locale]/acordes/page.tsx:42"
     ]
   },
   "m649e605a": {
@@ -86342,7 +86344,7 @@
     "text": "¿La teoría musical es aburrida?",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:381"
+      "src/content/courses/guides-a.ts:386"
     ]
   },
   "m651359d6": {
@@ -87917,7 +87919,7 @@
     "text": "Acordes mayores (C, G, D…)",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/page.tsx:65"
+      "src/app/[locale]/acordes/page.tsx:64"
     ]
   },
   "m66a14a4b": {
@@ -90236,7 +90238,7 @@
     "text": "Para clases virtuales: conexión estable, una cámara que muestre ambas manos y, en lo posible, una interfaz para enviar el sonido del bajo con claridad.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:533"
+      "src/content/courses/guides-a.ts:538"
     ]
   },
   "m68c4dd60": {
@@ -90593,7 +90595,7 @@
     "text": "Virtual y a domicilio",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/clases/[curso]/page.tsx:200"
+      "src/app/[locale]/clases/[curso]/page.tsx:202"
     ]
   },
   "m692e53f1": {
@@ -90916,7 +90918,7 @@
     "text": "Una guitarra eléctrica y un cable de instrumento.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:418"
+      "src/content/courses/guides-a.ts:423"
     ]
   },
   "m698b84f3": {
@@ -90987,7 +90989,7 @@
     "text": "Es una serie de notas ordenadas de grave a agudo a partir de una nota principal (la tónica), siguiendo un patrón fijo de tonos y semitonos. Ese patrón le da a cada escala su color: la mayor suena brillante, la menor más oscura y la pentatónica abierta y sin tensiones.",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/page.tsx:43"
+      "src/app/[locale]/escalas/page.tsx:42"
     ]
   },
   "m699b2b6b": {
@@ -92442,8 +92444,8 @@
     "text": "Quiero clases con",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/profes/[slug]/page.tsx:257",
-      "src/app/[locale]/profes/[slug]/page.tsx:443"
+      "src/app/[locale]/profes/[slug]/page.tsx:256",
+      "src/app/[locale]/profes/[slug]/page.tsx:442"
     ]
   },
   "m6afc8387": {
@@ -93090,7 +93092,7 @@
     "text": "y alrededores, para niños, jóvenes y adultos.",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/clases/[curso]/page.tsx:298"
+      "src/app/[locale]/clases/[curso]/page.tsx:300"
     ]
   },
   "m6b934a1a": {
@@ -93147,6 +93149,13 @@
     "namespace": "Content",
     "references": [
       "src/content/blog/villancicos-faciles-para-aprender-en-navidad.ts:115"
+    ]
+  },
+  "m6ba1c2e2": {
+    "text": "Clases de teoría musical, solfeo y entrenamiento auditivo con profesor. Lectura, dictados y armonía a tu nivel, online o a domicilio en Bogotá.",
+    "namespace": "UI",
+    "references": [
+      "src/content/courses/guides-a.ts:347"
     ]
   },
   "m6ba215c6": {
@@ -93759,7 +93768,7 @@
     "text": "Tipos de escalas",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/page.tsx:125"
+      "src/app/[locale]/escalas/page.tsx:124"
     ]
   },
   "m6c152a0f": {
@@ -94849,7 +94858,7 @@
     "text": "Ver todos los profes →",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/profes/[slug]/page.tsx:461"
+      "src/app/[locale]/profes/[slug]/page.tsx:460"
     ]
   },
   "m6d2702c0": {
@@ -95802,7 +95811,7 @@
     "text": "y todos sus profes",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/profes/[slug]/page.tsx:480"
+      "src/app/[locale]/profes/[slug]/page.tsx:479"
     ]
   },
   "m6e38f8b4": {
@@ -96977,6 +96986,13 @@
       "src/content/blog/como-afinar-el-bajo-electrico.ts:63"
     ]
   },
+  "m6f4b08e4": {
+    "text": "{p0} profe disponible. Consulta qué aprenderás y cómo empezar.",
+    "namespace": "UI",
+    "references": [
+      "src/app/[locale]/profes/page.tsx:78"
+    ]
+  },
   "m6f52a786": {
     "text": "La escala de do mayor y la idea de tono y semitono.",
     "namespace": "Content",
@@ -98022,7 +98038,7 @@
     "text": "Todos los acordes",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/page.tsx:172"
+      "src/app/[locale]/acordes/page.tsx:171"
     ]
   },
   "m7047e2c": {
@@ -98907,7 +98923,7 @@
     "text": "diccionario de acordes",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/page.tsx:47"
+      "src/app/[locale]/acordes/page.tsx:46"
     ]
   },
   "m7101d2d": {
@@ -99412,7 +99428,7 @@
     "text": "Según tus intereses, las clases pueden incluir percusión menor como congas, bongós, cajón, timbales o guacharaca. Esto amplía mucho tu vocabulario rítmico y te sirve incluso si tu meta principal es la batería. Cuéntale a tu profe qué estilos e instrumentos te llaman la atención para enfocar el plan de clases.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:499"
+      "src/content/courses/guides-a.ts:504"
     ]
   },
   "m718648d": {
@@ -100318,6 +100334,7 @@
     "references": [
       "src/app/[locale]/clases-de-musica-a-domicilio-bogota/page.tsx:240",
       "src/app/[locale]/clases-de-musica-online/page.tsx:53",
+      "src/app/[locale]/profes/page.tsx:87",
       "src/content/blog/por-que-tomar-clases-de-musica-online.ts:12"
     ]
   },
@@ -101038,7 +101055,7 @@
     "text": "Construir tu tono: ajustes básicos del amplificador y uso de pedales de efecto.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:415"
+      "src/content/courses/guides-a.ts:420"
     ]
   },
   "m732c53a5": {
@@ -101212,7 +101229,7 @@
     "text": "¿Qué es una escala musical?",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/page.tsx:42"
+      "src/app/[locale]/escalas/page.tsx:41"
     ]
   },
   "m735a5ec2": {
@@ -101457,7 +101474,7 @@
     "text": "Acordes menores con séptima (Am7, Dm7…)",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/page.tsx:69"
+      "src/app/[locale]/acordes/page.tsx:68"
     ]
   },
   "m73936f2f": {
@@ -101900,6 +101917,13 @@
     "namespace": "UI",
     "references": [
       "src/content/courses/guides-b.ts:74"
+    ]
+  },
+  "m73e4c7a6": {
+    "text": "Elige también dónde quieres aprender:",
+    "namespace": "UI",
+    "references": [
+      "src/app/[locale]/profes/page.tsx:84"
     ]
   },
   "m73e880ee": {
@@ -103212,7 +103236,7 @@
     "text": "Guías para profes de música",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/trabaja-con-nosotros/page.tsx:117",
+      "src/app/[locale]/trabaja-con-nosotros/page.tsx:116",
       "src/lib/blog.ts:54"
     ]
   },
@@ -103416,8 +103440,8 @@
     "text": "A medio tono",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/trabaja-con-nosotros/page.tsx:82",
-      "src/app/[locale]/trabaja-con-nosotros/page.tsx:90",
+      "src/app/[locale]/trabaja-con-nosotros/page.tsx:81",
+      "src/app/[locale]/trabaja-con-nosotros/page.tsx:89",
       "src/components/BrandWordmark.tsx:17",
       "src/components/ErrorPageState.tsx:60",
       "src/components/Footer.tsx:106",
@@ -103441,7 +103465,7 @@
     "text": "Sí, sobre todo para técnica, rudimentos, lectura y coordinación, con un pad o una batería electrónica. Con una batería acústica el sonido puede saturar el micrófono, así que conviene alejar el dispositivo o ajustar su volumen de entrada. Si dudas, compara formatos en [clases a domicilio o virtuales](/blog/clases-de-musica-a-domicilio-o-virtuales).",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:504"
+      "src/content/courses/guides-a.ts:509"
     ]
   },
   "m75674fd8": {
@@ -103931,7 +103955,7 @@
     "text": "Busca cualquier acorde y míralo en guitarra, piano y ukelele: notas, digitación paso a paso, inversiones, progresiones y cómo suena. Los 12 tonos y los",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/page.tsx:142"
+      "src/app/[locale]/acordes/page.tsx:141"
     ]
   },
   "m75fab56": {
@@ -104037,7 +104061,7 @@
     "text": "Depende de tu práctica y del repertorio, pero el bajo permite aportar desde temprano con líneas sencillas y un buen pulso. El profe trabaja con pistas de acompañamiento para que te acostumbres a tocar con otros. No hay un tiempo fijo: cada proceso es distinto.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:555"
+      "src/content/courses/guides-a.ts:560"
     ]
   },
   "m760d926b": {
@@ -106380,7 +106404,7 @@
     "text": "Quiero clases de",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/clases/[curso]/page.tsx:179"
+      "src/app/[locale]/clases/[curso]/page.tsx:181"
     ]
   },
   "m7890d2fe": {
@@ -106899,7 +106923,7 @@
     "text": "¿Cuál es la diferencia entre la escala mayor y la menor?",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/page.tsx:47"
+      "src/app/[locale]/escalas/page.tsx:46"
     ]
   },
   "m7924f545": {
@@ -106955,7 +106979,7 @@
     "text": "Clases de batería y percusión a domicilio en Bogotá",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:458"
+      "src/content/courses/guides-a.ts:463"
     ]
   },
   "m792db763": {
@@ -107028,7 +107052,7 @@
     "namespace": "UI",
     "references": [
       "src/content/courses/guides-a.ts:71",
-      "src/content/courses/guides-a.ts:575",
+      "src/content/courses/guides-a.ts:580",
       "src/content/courses/guides-b.ts:13",
       "src/content/courses/guides-b.ts:69",
       "src/content/courses/guides-b.ts:237",
@@ -107222,7 +107246,7 @@
     "text": "Área",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/trabaja-con-nosotros/page.tsx:41",
+      "src/app/[locale]/trabaja-con-nosotros/page.tsx:40",
       "src/content/blog/admision-licenciatura-en-musica-universidad-pedagogica.ts:108",
       "src/content/blog/admision-musica-universidad-de-antioquia.ts:131",
       "src/content/blog/admision-musica-universidad-del-atlantico.ts:127",
@@ -107520,7 +107544,7 @@
       "src/app/[locale]/academias/[servicio]/page.tsx:63",
       "src/app/[locale]/academias/page.tsx:72",
       "src/app/[locale]/acordes/[acorde]/page.tsx:130",
-      "src/app/[locale]/acordes/page.tsx:108",
+      "src/app/[locale]/acordes/page.tsx:107",
       "src/app/[locale]/blog/[slug]/page.tsx:107",
       "src/app/[locale]/blog/categoria/[categoria]/page.tsx:74",
       "src/app/[locale]/blog/page.tsx:66",
@@ -107530,7 +107554,7 @@
       "src/app/[locale]/clases-de-musica-online/page.tsx:67",
       "src/app/[locale]/error.tsx:30",
       "src/app/[locale]/escalas/[escala]/page.tsx:161",
-      "src/app/[locale]/escalas/page.tsx:66",
+      "src/app/[locale]/escalas/page.tsx:65",
       "src/app/[locale]/forbidden.tsx:23",
       "src/app/[locale]/glosario-musical/page.tsx:59",
       "src/app/[locale]/herramientas/afinador/[instrumento]/page.tsx:106",
@@ -107544,9 +107568,9 @@
       "src/app/[locale]/nosotros/page.tsx:139",
       "src/app/[locale]/not-found.tsx:35",
       "src/app/[locale]/preuniversitario-musica/page.tsx:71",
-      "src/app/[locale]/profes/[slug]/page.tsx:194",
-      "src/app/[locale]/profes/page.tsx:31",
-      "src/app/[locale]/trabaja-con-nosotros/page.tsx:59",
+      "src/app/[locale]/profes/[slug]/page.tsx:193",
+      "src/app/[locale]/profes/page.tsx:41",
+      "src/app/[locale]/trabaja-con-nosotros/page.tsx:58",
       "src/app/[locale]/unauthorized.tsx:23",
       "src/app/global-error.tsx:35",
       "src/lib/seo.ts:501"
@@ -107838,7 +107862,7 @@
     "references": [
       "src/app/[locale]/blog/[slug]/page.tsx:387",
       "src/app/[locale]/blog/categoria/[categoria]/page.tsx:161",
-      "src/app/[locale]/clases/[curso]/page.tsx:428",
+      "src/app/[locale]/clases/[curso]/page.tsx:430",
       "src/app/[locale]/clases-de-musica-a-domicilio-bogota/page.tsx:249",
       "src/app/[locale]/clases-de-musica-online/page.tsx:221",
       "src/app/[locale]/nosotros/page.tsx:382"
@@ -108117,7 +108141,7 @@
     "text": "Sobre mí",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/profes/[slug]/page.tsx:338"
+      "src/app/[locale]/profes/[slug]/page.tsx:337"
     ]
   },
   "m7a470722": {
@@ -109356,7 +109380,7 @@
     "text": "Clases de percusión y batería en Bogotá a domicilio o virtuales: técnica, coordinación y ritmos colombianos como cumbia y vallenato, a tu ritmo.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:459"
+      "src/content/courses/guides-a.ts:464"
     ]
   },
   "m7b54df78": {
@@ -111680,9 +111704,9 @@
     "text": "Modalidad",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/clases/[curso]/page.tsx:199",
+      "src/app/[locale]/clases/[curso]/page.tsx:201",
       "src/app/[locale]/preuniversitario-musica/page.tsx:138",
-      "src/app/[locale]/trabaja-con-nosotros/page.tsx:31",
+      "src/app/[locale]/trabaja-con-nosotros/page.tsx:30",
       "src/content/blog/admision-musica-eafit.ts:52",
       "src/content/blog/admision-musica-universidad-el-bosque.ts:49",
       "src/content/blog/preuniversitario-de-musica-que-es.ts:157",
@@ -111793,7 +111817,7 @@
     "text": "Volver al inicio",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/trabaja-con-nosotros/page.tsx:77"
+      "src/app/[locale]/trabaja-con-nosotros/page.tsx:76"
     ]
   },
   "m7e0e869": {
@@ -116084,7 +116108,7 @@
     "namespace": "UI",
     "references": [
       "src/app/[locale]/acordes/[acorde]/page.tsx:131",
-      "src/app/[locale]/acordes/page.tsx:109",
+      "src/app/[locale]/acordes/page.tsx:108",
       "src/components/Footer.tsx:36",
       "src/components/HomeResourcesSection.tsx:66",
       "src/content/blog/canciones-faciles-para-guitarra-principiantes.ts:57",
@@ -116634,7 +116658,7 @@
     "text": "Sí. Lo ideal es enviar el sonido del bajo por una interfaz de audio, porque los micrófonos de computadores y celulares suelen captar mal las frecuencias graves. Con la cámara mostrando ambas manos, el profe puede corregir tu técnica y digitación en tiempo real.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:560"
+      "src/content/courses/guides-a.ts:565"
     ]
   },
   "m82abfb0": {
@@ -118161,7 +118185,7 @@
     "text": "Para conocer las notas de una tonalidad, entender de dónde salen los acordes de una canción, improvisar y ganar agilidad y precisión en los dedos. También son la base de los ejercicios de lectura y de oído de las pruebas de admisión a música.",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/page.tsx:58"
+      "src/app/[locale]/escalas/page.tsx:57"
     ]
   },
   "m84235077": {
@@ -120093,7 +120117,7 @@
     "text": "tabla de acordes",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/page.tsx:47"
+      "src/app/[locale]/acordes/page.tsx:46"
     ]
   },
   "m85e02ee7": {
@@ -120199,7 +120223,7 @@
     "text": "Es la forma de escribir los acordes con letras: C = Do, D = Re, E = Mi, F = Fa, G = Sol, A = La y B = Si. Una «m» indica menor (Am = La menor), un «7» indica séptima (G7 = Sol séptima) y «maj7» séptima mayor.",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/page.tsx:90"
+      "src/app/[locale]/acordes/page.tsx:89"
     ]
   },
   "m85feded1": {
@@ -120726,7 +120750,7 @@
     "text": "Acordes suspendidos 2 (Dsus2, Asus2…)",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/page.tsx:70"
+      "src/app/[locale]/acordes/page.tsx:69"
     ]
   },
   "m865f6b66": {
@@ -122849,7 +122873,7 @@
     "text": "Tocar con metrónomo y pistas para desarrollar un pulso estable.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:471"
+      "src/content/courses/guides-a.ts:476"
     ]
   },
   "m88882e8f": {
@@ -123382,7 +123406,7 @@
     "text": "Elige una tónica y un tipo de escala para ver sus notas, su fórmula de tonos y semitonos, sus acordes, el teclado del piano, el mástil de la guitarra y cómo suena.",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/page.tsx:99"
+      "src/app/[locale]/escalas/page.tsx:98"
     ]
   },
   "m8902606d": {
@@ -124351,7 +124375,7 @@
     "text": "Sí. El tiple funciona bien por videollamada si la cámara muestra ambas manos y hay buena iluminación. Afinarlo con calma antes de cada clase ahorra tiempo, porque son 12 cuerdas y las que van en octava requieren atención.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:616"
+      "src/content/courses/guides-a.ts:621"
     ]
   },
   "m8a0e6d81": {
@@ -125504,7 +125528,7 @@
     "text": "Abre muchas oportunidades de tocar en grupo, porque casi cualquier agrupación necesita un bajista.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:538"
+      "src/content/courses/guides-a.ts:543"
     ]
   },
   "m8b3c92dd": {
@@ -126203,14 +126227,14 @@
     "text": "Los 8 acordes para empezar en guitarra",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/page.tsx:147"
+      "src/app/[locale]/acordes/page.tsx:146"
     ]
   },
   "m8bed1382": {
     "text": "Elige profes de piano, canto, guitarra, violín, flauta y más para clases virtuales o a domicilio en Bogotá.",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/profes/page.tsx:49"
+      "src/app/[locale]/profes/page.tsx:59"
     ]
   },
   "m8bf05ce5": {
@@ -126513,7 +126537,7 @@
     "text": "Clases de guitarra eléctrica en Bogotá a domicilio o virtuales: riffs, solos, escalas y tono con profes evaluados. Rock, blues, metal, funk y más.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:403"
+      "src/content/courses/guides-a.ts:408"
     ]
   },
   "m8c3ce14": {
@@ -127642,7 +127666,7 @@
     "text": "Usa la pentatónica para tus primeros solos.",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/page.tsx:167"
+      "src/app/[locale]/escalas/page.tsx:166"
     ]
   },
   "m8d459494": {
@@ -128890,9 +128914,9 @@
     "namespace": "UI",
     "references": [
       "src/app/[locale]/acordes/[acorde]/page.tsx:173",
-      "src/app/[locale]/acordes/page.tsx:202",
+      "src/app/[locale]/acordes/page.tsx:201",
       "src/app/[locale]/escalas/[escala]/page.tsx:204",
-      "src/app/[locale]/escalas/page.tsx:132",
+      "src/app/[locale]/escalas/page.tsx:131",
       "src/content/blog/escalas-mayores-y-menores-explicadas.ts:159",
       "src/content/blog/modos-griegos-explicados.ts:53"
     ]
@@ -128929,14 +128953,14 @@
     "text": "¿Cuándo podré tocar con una banda?",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:554"
+      "src/content/courses/guides-a.ts:559"
     ]
   },
   "m8eaa17f3": {
     "text": "Edad para empezar",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/clases/[curso]/page.tsx:194"
+      "src/app/[locale]/clases/[curso]/page.tsx:196"
     ]
   },
   "m8eab4f30": {
@@ -129020,7 +129044,7 @@
     "text": "escala pentatónica",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/page.tsx:37"
+      "src/app/[locale]/escalas/page.tsx:36"
     ]
   },
   "m8ebcb3cf": {
@@ -129160,7 +129184,7 @@
     "text": "El tiple es uno de los instrumentos más representativos de Colombia y la voz característica de la música andina: sus 12 cuerdas metálicas, agrupadas en cuatro órdenes de tres, le dan un sonido brillante y lleno de armónicos. Aprenderlo te permite acompañar bambucos, pasillos, guabinas y torbellinos, y también interpretar melodías punteadas como instrumento solista. Las clases están pensadas tanto para quienes vienen de la guitarra como para quienes empiezan desde cero.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:573"
+      "src/content/courses/guides-a.ts:578"
     ]
   },
   "m8edaa7c4": {
@@ -130118,7 +130142,7 @@
     "text": "Coordinación e independencia entre manos y pies en la batería.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:467"
+      "src/content/courses/guides-a.ts:472"
     ]
   },
   "m8fd59727": {
@@ -130167,7 +130191,7 @@
     "text": "Aplicación profesor",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/trabaja-con-nosotros/page.tsx:74"
+      "src/app/[locale]/trabaja-con-nosotros/page.tsx:73"
     ]
   },
   "m8fdd4e8d": {
@@ -133213,7 +133237,7 @@
     "text": "Para comenzar, lo más habitual es un bajo de cuatro cuerdas: es más sencillo de manejar y cubre la mayoría del repertorio. El de cinco cuerdas añade notas graves útiles en ciertos estilos, y puedes pasar a él más adelante si lo necesitas. Consulta con tu profe antes de comprar.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:550"
+      "src/content/courses/guides-a.ts:555"
     ]
   },
   "m932fa3d9": {
@@ -133578,7 +133602,7 @@
     "text": "¿Qué diferencia hay entre teoría, armonía y solfeo?",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:386"
+      "src/content/courses/guides-a.ts:391"
     ]
   },
   "m93841ccb": {
@@ -133935,7 +133959,7 @@
     "text": "Acordes menores (Am, Em, Dm…)",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/page.tsx:66"
+      "src/app/[locale]/acordes/page.tsx:65"
     ]
   },
   "m93e3a89f": {
@@ -134769,7 +134793,7 @@
     "text": "Pasos para empezar",
     "namespace": "UI",
     "references": [
-      "src/components/ComoFuncionaSection.tsx:55"
+      "src/components/ComoFuncionaSection.tsx:58"
     ]
   },
   "m94a53b28": {
@@ -137077,7 +137101,7 @@
     "text": "Cada profe pasó por nuestra evaluación de música, pedagogía y calidad humana antes de su primera clase. Mira su perfil y escríbele directo.",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/clases/[curso]/page.tsx:223"
+      "src/app/[locale]/clases/[curso]/page.tsx:225"
     ]
   },
   "m96ff177d": {
@@ -138229,7 +138253,7 @@
     "text": "De manera orientativa, muchos niños pueden empezar con guitarra eléctrica hacia los 7 u 8 años, con un instrumento de escala corta o tamaño 3/4. Sus cuerdas son más delgadas y suaves que las de una acústica, lo que facilita pisar las notas, aunque el peso del instrumento y el manejo del volumen requieren acompañamiento. Cada niño es diferente y el profe evalúa su caso. Los adultos pueden empezar a cualquier edad, incluso sin haber tocado nunca otra guitarra.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:408"
+      "src/content/courses/guides-a.ts:413"
     ]
   },
   "m983efd60": {
@@ -138525,7 +138549,7 @@
     "text": "¿Prefieres aprender con alguien al lado?",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/page.tsx:245"
+      "src/app/[locale]/acordes/page.tsx:244"
     ]
   },
   "m9875d9ca": {
@@ -139579,7 +139603,7 @@
     "text": "profe disponible",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/clases/[curso]/page.tsx:340"
+      "src/app/[locale]/clases/[curso]/page.tsx:342"
     ]
   },
   "m998ee50": {
@@ -139915,7 +139939,7 @@
     "text": "Clases de guitarra y piano virtuales o a domicilio en Bogotá, con profes evaluados.",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/page.tsx:246"
+      "src/app/[locale]/acordes/page.tsx:245"
     ]
   },
   "m99ee4dad": {
@@ -140069,7 +140093,7 @@
     "text": "Estimula la creatividad con la improvisación y la búsqueda de un sonido propio.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:426"
+      "src/content/courses/guides-a.ts:431"
     ]
   },
   "m9a0e50ee": {
@@ -140865,7 +140889,7 @@
     "namespace": "UI",
     "references": [
       "src/app/[locale]/blog/[slug]/page.tsx:313",
-      "src/app/[locale]/clases/[curso]/page.tsx:221"
+      "src/app/[locale]/clases/[curso]/page.tsx:223"
     ]
   },
   "m9af944f2": {
@@ -141304,6 +141328,13 @@
     "namespace": "Content",
     "references": [
       "src/content/blog/como-cuidar-una-bateria-y-los-instrumentos-de-percusion.ts:99"
+    ]
+  },
+  "m9b7e1350": {
+    "text": "Trabaja teoría musical, solfeo y entrenamiento auditivo con un profe que adapte los ejercicios a tu nivel. Aprende a leer ritmos y melodías, entonar una partitura y reconocer intervalos y acordes de oído. Las clases conectan lo que escuchas con lo que tocas o cantas: sirven para empezar desde cero, reforzar tu instrumento, componer o preparar una prueba de admisión a música. Puedes tomarlas online o a domicilio en Bogotá.",
+    "namespace": "UI",
+    "references": [
+      "src/content/courses/guides-a.ts:349"
     ]
   },
   "m9b7f2d36": {
@@ -142999,7 +143030,7 @@
     "text": "Clases de piano, guitarra y teoría musical virtuales o a domicilio en Bogotá, con profes evaluados.",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/page.tsx:177"
+      "src/app/[locale]/escalas/page.tsx:176"
     ]
   },
   "m9d1f533c": {
@@ -143847,8 +143878,8 @@
     "text": "profe",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/clases/[curso]/page.tsx:182",
-      "src/app/[locale]/clases/[curso]/page.tsx:211",
+      "src/app/[locale]/clases/[curso]/page.tsx:184",
+      "src/app/[locale]/clases/[curso]/page.tsx:213",
       "src/app/[locale]/clases/page.tsx:144",
       "src/app/[locale]/clases-de-musica-a-domicilio-bogota/page.tsx:158",
       "src/app/[locale]/clases-de-musica-online/page.tsx:160",
@@ -144166,7 +144197,7 @@
     "text": "Un amplificador pequeño de práctica, o una interfaz o procesador con audífonos.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:419"
+      "src/content/courses/guides-a.ts:424"
     ]
   },
   "m9e2d5292": {
@@ -145038,7 +145069,7 @@
     "text": "Sí, la eléctrica es de los instrumentos más fáciles de practicar en silencio: basta con conectar audífonos al amplificador o a un procesador. Así puedes estudiar a cualquier hora sin problemas de volumen. En [cómo practicar música en casa](/blog/como-practicar-musica-en-casa) encontrarás ideas para organizar esas sesiones.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:448"
+      "src/content/courses/guides-a.ts:453"
     ]
   },
   "m9f14f4be": {
@@ -145311,7 +145342,7 @@
     "text": "Escalas musicales: notas, piano y guitarra",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/page.tsx:28",
+      "src/app/[locale]/escalas/page.tsx:27",
       "src/lib/share-cards.ts:111"
     ]
   },
@@ -145645,7 +145676,7 @@
     "text": "Clases de tiple en Bogotá, a domicilio y virtuales",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:569"
+      "src/content/courses/guides-a.ts:574"
     ]
   },
   "m9fb4f9c8": {
@@ -146365,7 +146396,7 @@
     "text": "Desde los 9 años",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:519",
+      "src/content/courses/guides-a.ts:524",
       "src/content/courses/guides-b.ts:125",
       "src/content/courses/guides-b.ts:293"
     ]
@@ -146507,7 +146538,7 @@
     "text": "Clases virtuales",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/clases/[curso]/page.tsx:294",
+      "src/app/[locale]/clases/[curso]/page.tsx:296",
       "src/components/VocesStrip.tsx:12",
       "src/lib/seo.ts:529",
       "src/lib/seo.ts:571"
@@ -146917,7 +146948,7 @@
     "text": "profes disponibles",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/clases/[curso]/page.tsx:340"
+      "src/app/[locale]/clases/[curso]/page.tsx:342"
     ]
   },
   "ma0f96ae4": {
@@ -146931,7 +146962,7 @@
     "text": "Acordes de guitarra, piano y ukelele",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/page.tsx:38",
+      "src/app/[locale]/acordes/page.tsx:37",
       "src/lib/share-cards.ts:104"
     ]
   },
@@ -147450,7 +147481,7 @@
     "text": "¿El tiple es difícil si ya toco guitarra?",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:600"
+      "src/content/courses/guides-a.ts:605"
     ]
   },
   "ma17f1780": {
@@ -148642,7 +148673,7 @@
     "text": "Para clases virtuales: conexión estable, una cámara que muestre ambas manos e, idealmente, una interfaz para que el profe escuche tu guitarra con claridad.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:421"
+      "src/content/courses/guides-a.ts:426"
     ]
   },
   "ma2a315f1": {
@@ -148663,7 +148694,7 @@
     "text": "¡Mira el perfil de {p0}, tu profe de {p1}! A 1/2 tono - Escuela de Artes y Música",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/profes/[slug]/page.tsx:174"
+      "src/app/[locale]/profes/[slug]/page.tsx:173"
     ]
   },
   "ma2a60ab1": {
@@ -149444,7 +149475,7 @@
     "text": "¿Para qué sirven las escalas?",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/page.tsx:57"
+      "src/app/[locale]/escalas/page.tsx:56"
     ]
   },
   "ma36a43d8": {
@@ -150775,7 +150806,7 @@
     "text": "Solo cambia una nota: la tercera. En el mayor está a dos tonos de la fundamental (Do – Mi) y en el menor a un tono y medio (Do – Mi♭). Por eso el mayor suena luminoso y el menor más oscuro o melancólico.",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/page.tsx:100"
+      "src/app/[locale]/acordes/page.tsx:99"
     ]
   },
   "ma4f45a5f": {
@@ -151209,7 +151240,7 @@
     "text": "En qué orden aprenderlos y cómo cambiar entre ellos.",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/page.tsx:230"
+      "src/app/[locale]/acordes/page.tsx:229"
     ]
   },
   "ma5667015": {
@@ -151400,7 +151431,7 @@
     "text": "Otras clases que te pueden interesar",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/clases/[curso]/page.tsx:328"
+      "src/app/[locale]/clases/[curso]/page.tsx:330"
     ]
   },
   "ma590fd7e": {
@@ -151890,7 +151921,7 @@
     "text": "Lectura en clave de fa, cifrado y tablatura.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:526"
+      "src/content/courses/guides-a.ts:531"
     ]
   },
   "ma611fbb7": {
@@ -153445,7 +153476,7 @@
     "text": "Tabla de escalas por tónica y tipo",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/page.tsx:106"
+      "src/app/[locale]/escalas/page.tsx:105"
     ]
   },
   "ma79c4b6d": {
@@ -153947,8 +153978,8 @@
     "namespace": "UI",
     "references": [
       "src/app/[locale]/not-found.tsx:37",
-      "src/app/[locale]/profes/[slug]/page.tsx:195",
-      "src/app/[locale]/profes/page.tsx:32",
+      "src/app/[locale]/profes/[slug]/page.tsx:194",
+      "src/app/[locale]/profes/page.tsx:42",
       "src/components/Footer.tsx:23",
       "src/components/Navbar.tsx:145",
       "src/components/Navbar.tsx:169",
@@ -154308,7 +154339,7 @@
     "namespace": "UI",
     "references": [
       "src/app/[locale]/escalas/[escala]/page.tsx:162",
-      "src/app/[locale]/escalas/page.tsx:67",
+      "src/app/[locale]/escalas/page.tsx:66",
       "src/content/blog/repertorio-para-la-audicion-de-admision.ts:99"
     ]
   },
@@ -154467,6 +154498,13 @@
     "namespace": "Content",
     "references": [
       "src/content/blog/cuanto-tiempo-toma-aprender-clarinete.ts:108"
+    ]
+  },
+  "ma8a9a57f": {
+    "text": "Compara profesores de música por instrumento, experiencia, modalidad e idioma.",
+    "namespace": "UI",
+    "references": [
+      "src/app/[locale]/profes/page.tsx:37"
     ]
   },
   "ma8ab6fac": {
@@ -155833,14 +155871,14 @@
       "src/app/[locale]/academias/[servicio]/page.tsx:184",
       "src/app/[locale]/academias/page.tsx:268",
       "src/app/[locale]/acordes/[acorde]/page.tsx:361",
-      "src/app/[locale]/acordes/page.tsx:209",
+      "src/app/[locale]/acordes/page.tsx:208",
       "src/app/[locale]/blog/[slug]/page.tsx:218",
       "src/app/[locale]/blog/[slug]/page.tsx:253",
       "src/app/[locale]/clases/page.tsx:160",
       "src/app/[locale]/clases-de-musica-a-domicilio-bogota/page.tsx:234",
       "src/app/[locale]/clases-de-musica-online/page.tsx:211",
       "src/app/[locale]/escalas/[escala]/page.tsx:305",
-      "src/app/[locale]/escalas/page.tsx:140",
+      "src/app/[locale]/escalas/page.tsx:139",
       "src/app/[locale]/herramientas/afinador/[instrumento]/page.tsx:248",
       "src/app/[locale]/herramientas/afinador/page.tsx:211",
       "src/app/[locale]/herramientas/circulo-de-quintas/page.tsx:221",
@@ -157712,13 +157750,6 @@
       "src/content/courses/guides-a.ts:107"
     ]
   },
-  "mac04a58": {
-    "text": "Clases de teoría musical a domicilio en Bogotá",
-    "namespace": "UI",
-    "references": [
-      "src/content/courses/guides-a.ts:346"
-    ]
-  },
   "mac04f832": {
     "text": "aprender guitarra a los 40",
     "namespace": "Content",
@@ -159460,7 +159491,7 @@
     "text": "Un amplificador de bajo de práctica o una interfaz con audífonos.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:531"
+      "src/content/courses/guides-a.ts:536"
     ]
   },
   "mada65aac": {
@@ -159775,7 +159806,7 @@
     "text": "escala mayor",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/page.tsx:37"
+      "src/app/[locale]/escalas/page.tsx:36"
     ]
   },
   "made5b6cd": {
@@ -160383,7 +160414,7 @@
     "text": "Clases de percusión y batería en Bogotá, a domicilio y virtuales",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:457"
+      "src/content/courses/guides-a.ts:462"
     ]
   },
   "mae863c27": {
@@ -160579,7 +160610,7 @@
     "text": "¿Bajo de cuatro o de cinco cuerdas para empezar?",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:549"
+      "src/content/courses/guides-a.ts:554"
     ]
   },
   "maeb12cf9": {
@@ -161344,7 +161375,7 @@
     "text": "Clases de tiple en Bogotá a domicilio o virtuales: acompañamiento, punteo y ritmos andinos como bambuco, pasillo, guabina y torbellino.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:571"
+      "src/content/courses/guides-a.ts:576"
     ]
   },
   "maf70256a": {
@@ -161601,7 +161632,7 @@
     "text": "Lectura rítmica y de partituras de batería.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:468"
+      "src/content/courses/guides-a.ts:473"
     ]
   },
   "mafa93256": {
@@ -161812,7 +161843,7 @@
     "text": "Es cuando el dedo índice pisa varias cuerdas a la vez en el mismo traste, como una cejuela móvil. Permite tocar cualquier acorde moviendo la misma forma por el mástil. En nuestra [guía de la cejilla](/blog/como-hacer-la-cejilla-en-guitarra) te explicamos cómo lograrla sin dolor.",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/page.tsx:95"
+      "src/app/[locale]/acordes/page.tsx:94"
     ]
   },
   "mafe689e8": {
@@ -162002,7 +162033,7 @@
     "text": "Lectura de cifrado y de partitura aplicada al repertorio colombiano.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:583"
+      "src/content/courses/guides-a.ts:588"
     ]
   },
   "mb02024b6": {
@@ -163235,13 +163266,6 @@
       "src/content/blog/canciones-colombianas-para-aprender-en-tiple-o-guitarra.ts:48"
     ]
   },
-  "mb14b7cce": {
-    "text": "Clases de teoría musical en Bogotá, a domicilio o virtuales: lectura, armonía y entrenamiento auditivo para entender lo que tocas y cantas.",
-    "namespace": "UI",
-    "references": [
-      "src/content/courses/guides-a.ts:347"
-    ]
-  },
   "mb14cdba0": {
     "text": "Marca encima T, S o D y busca las cadencias al final de cada frase.",
     "namespace": "Content",
@@ -164255,9 +164279,9 @@
     "namespace": "UI",
     "references": [
       "src/app/[locale]/acordes/[acorde]/page.tsx:386",
-      "src/app/[locale]/acordes/page.tsx:223",
+      "src/app/[locale]/acordes/page.tsx:222",
       "src/app/[locale]/escalas/[escala]/page.tsx:341",
-      "src/app/[locale]/escalas/page.tsx:148",
+      "src/app/[locale]/escalas/page.tsx:147",
       "src/app/[locale]/herramientas/circulo-de-quintas/page.tsx:37",
       "src/lib/share-cards.ts:118"
     ]
@@ -164772,7 +164796,7 @@
     "text": "¡Hola! Vengo del diccionario de acordes y quiero información sobre clases.",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/page.tsx:247"
+      "src/app/[locale]/acordes/page.tsx:246"
     ]
   },
   "mb29af82": {
@@ -164793,7 +164817,7 @@
     "text": "Guías para aprender",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/clases/[curso]/page.tsx:407"
+      "src/app/[locale]/clases/[curso]/page.tsx:409"
     ]
   },
   "mb2a50333": {
@@ -166199,8 +166223,8 @@
     "text": "Ejemplo:",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/page.tsx:202",
-      "src/app/[locale]/escalas/page.tsx:132"
+      "src/app/[locale]/acordes/page.tsx:201",
+      "src/app/[locale]/escalas/page.tsx:131"
     ]
   },
   "mb3fcf5d9": {
@@ -167412,7 +167436,7 @@
     "text": "La guitarra eléctrica tiene su propio lenguaje: riffs, power chords, bends, vibrato, palm mute y un sonido que se moldea tanto con las manos como con el amplificador y los efectos. En las clases desarrollas una técnica limpia y un buen ritmo mientras aprendes las canciones y los estilos que te mueven, del rock y el blues al metal, el funk o el pop. Tu profe te acompaña a domicilio en Bogotá y alrededores o por videollamada.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:405"
+      "src/content/courses/guides-a.ts:410"
     ]
   },
   "mb52c8a37": {
@@ -167912,7 +167936,7 @@
     "text": "El bajo es el puente entre el ritmo y la armonía: se entiende con la batería para crear el groove y sostiene los acordes sobre los que suena toda la banda. Aprender bajo es aprender a escuchar a los demás y a tocar justo lo necesario, con un pulso firme. En las clases trabajas la técnica de ambas manos, la construcción de líneas y estilos como rock, funk, pop, salsa o cumbia, a domicilio en Bogotá y alrededores o de forma virtual.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:517"
+      "src/content/courses/guides-a.ts:522"
     ]
   },
   "mb59a967d": {
@@ -168087,7 +168111,7 @@
     "text": "¿En el tiple solo se toca música tradicional?",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:610"
+      "src/content/courses/guides-a.ts:615"
     ]
   },
   "mb5c5d17e": {
@@ -168249,6 +168273,13 @@
     "namespace": "Content",
     "references": [
       "Spanish rendered copy"
+    ]
+  },
+  "mb5f34ee1": {
+    "text": "¿Puedo tomar clases de solfeo y entrenamiento auditivo con un profesor?",
+    "namespace": "UI",
+    "references": [
+      "src/content/courses/guides-a.ts:376"
     ]
   },
   "mb5f5a606": {
@@ -169098,7 +169129,7 @@
     "text": "Postura, afinación del tiple y manejo de sus órdenes de cuerdas.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:578"
+      "src/content/courses/guides-a.ts:583"
     ]
   },
   "mb6c78df1": {
@@ -169133,7 +169164,7 @@
     "text": "Te conecta con la riqueza rítmica de la música colombiana y latinoamericana.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:483"
+      "src/content/courses/guides-a.ts:488"
     ]
   },
   "mb6d8ba3f": {
@@ -170996,7 +171027,7 @@
     "text": "¿Qué diferencia hay entre el tiple y la guitarra?",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:605"
+      "src/content/courses/guides-a.ts:610"
     ]
   },
   "mb8b358f9": {
@@ -171118,7 +171149,7 @@
     "text": "Guitarra, piano y ukelele, con digitación y sonido.",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/page.tsx:155"
+      "src/app/[locale]/escalas/page.tsx:154"
     ]
   },
   "mb8c08a15": {
@@ -171714,7 +171745,7 @@
     "text": "¿Qué significa el cifrado americano (C, Dm, G7…)?",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/page.tsx:89"
+      "src/app/[locale]/acordes/page.tsx:88"
     ]
   },
   "mb9543ab6": {
@@ -172964,7 +172995,7 @@
     "text": "Lo que aprendes se transfiere a la [guitarra acústica](/clases/guitarra-acustica) y al [bajo eléctrico](/clases/bajo-electrico).",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:427"
+      "src/content/courses/guides-a.ts:432"
     ]
   },
   "mba8bf003": {
@@ -173125,7 +173156,7 @@
     "text": "Empieza tus clases de {p0}",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/clases/[curso]/page.tsx:425"
+      "src/app/[locale]/clases/[curso]/page.tsx:427"
     ]
   },
   "mbabf8643": {
@@ -173146,12 +173177,12 @@
     "text": "profes",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/clases/[curso]/page.tsx:182",
-      "src/app/[locale]/clases/[curso]/page.tsx:211",
+      "src/app/[locale]/clases/[curso]/page.tsx:184",
+      "src/app/[locale]/clases/[curso]/page.tsx:213",
       "src/app/[locale]/clases/page.tsx:144",
       "src/app/[locale]/clases-de-musica-a-domicilio-bogota/page.tsx:158",
       "src/app/[locale]/clases-de-musica-online/page.tsx:160",
-      "src/app/[locale]/profes/page.tsx:24",
+      "src/app/[locale]/profes/page.tsx:27",
       "src/app/profes/llms.txt/route.ts:6",
       "src/components/ProfesDirectory.tsx:579",
       "src/lib/agent-resources.ts:52",
@@ -173333,7 +173364,7 @@
     "text": "Cómo empezar tus clases de",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/clases/[curso]/page.tsx:291"
+      "src/app/[locale]/clases/[curso]/page.tsx:293"
     ]
   },
   "mbb0264e8": {
@@ -174383,7 +174414,7 @@
     "text": "Cambian el tercer, sexto y séptimo grados: en la menor natural están medio tono más abajo. Por eso Do mayor (Do – Re – Mi – Fa – Sol – La – Si) y Do menor (Do – Re – Mi♭ – Fa – Sol – La♭ – Si♭) comparten la tónica pero suenan muy distinto. Te lo explicamos en detalle en [escalas mayores y menores explicadas](/blog/escalas-mayores-y-menores-explicadas).",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/page.tsx:48"
+      "src/app/[locale]/escalas/page.tsx:47"
     ]
   },
   "mbc05b4f3": {
@@ -175227,7 +175258,7 @@
     "text": "por formato e idioma",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/clases/[curso]/page.tsx:232"
+      "src/app/[locale]/clases/[curso]/page.tsx:234"
     ]
   },
   "mbcdc33c": {
@@ -175612,7 +175643,7 @@
     "text": "Un bajo eléctrico, de escala corta si tienes manos pequeñas, y un cable.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:530"
+      "src/content/courses/guides-a.ts:535"
     ]
   },
   "mbd42d4f7": {
@@ -176135,7 +176166,7 @@
     "text": "Acordes básicos de guitarra para principiantes",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/page.tsx:229",
+      "src/app/[locale]/acordes/page.tsx:228",
       "src/content/blog/acordes-basicos-de-guitarra-para-principiantes.ts:5"
     ]
   },
@@ -176780,7 +176811,7 @@
     "text": "Mayores, menores, pentatónicas y blues en las 12 tonalidades.",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/page.tsx:218"
+      "src/app/[locale]/acordes/page.tsx:217"
     ]
   },
   "mbe5fd503": {
@@ -177745,7 +177776,7 @@
     "text": "Un tiple en buen estado y bien calibrado; pídele al profe que lo revise si es usado o heredado.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:586"
+      "src/content/courses/guides-a.ts:591"
     ]
   },
   "mbf50e80b": {
@@ -178370,7 +178401,7 @@
     "text": "Acordes de séptima mayor (Cmaj7, Fmaj7…)",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/page.tsx:68"
+      "src/app/[locale]/acordes/page.tsx:67"
     ]
   },
   "mbfd2e8f8": {
@@ -179694,7 +179725,7 @@
     "text": "Herramientas gratis para practicar",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/clases/[curso]/page.tsx:352"
+      "src/app/[locale]/clases/[curso]/page.tsx:354"
     ]
   },
   "mc121c960": {
@@ -179820,7 +179851,7 @@
     "text": "Ritmo y groove, tocando con metrónomo y con pistas de batería.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:525"
+      "src/content/courses/guides-a.ts:530"
     ]
   },
   "mc13ab02f": {
@@ -180598,13 +180629,6 @@
       "Spanish rendered copy"
     ]
   },
-  "mc1fd965a": {
-    "text": "{p0} profesores de música a domicilio en Bogotá y virtuales",
-    "namespace": "UI",
-    "references": [
-      "src/app/[locale]/profes/page.tsx"
-    ]
-  },
   "mc1feeb9": {
     "text": "Teoría, armonía y dictado con profes evaluados, en clases virtuales o a domicilio en Bogotá.",
     "namespace": "UI",
@@ -180695,15 +180719,15 @@
     "namespace": "UI",
     "references": [
       "src/app/[locale]/acordes/[acorde]/page.tsx:433",
-      "src/app/[locale]/acordes/page.tsx:247",
+      "src/app/[locale]/acordes/page.tsx:246",
       "src/app/[locale]/blog/[slug]/page.tsx:384",
       "src/app/[locale]/blog/categoria/[categoria]/page.tsx:158",
-      "src/app/[locale]/clases/[curso]/page.tsx:427",
+      "src/app/[locale]/clases/[curso]/page.tsx:429",
       "src/app/[locale]/clases/page.tsx:171",
       "src/app/[locale]/clases-de-musica-a-domicilio-bogota/page.tsx:248",
       "src/app/[locale]/clases-de-musica-online/page.tsx:220",
       "src/app/[locale]/escalas/[escala]/page.tsx:388",
-      "src/app/[locale]/escalas/page.tsx:178",
+      "src/app/[locale]/escalas/page.tsx:177",
       "src/app/[locale]/glosario-musical/page.tsx:163",
       "src/app/[locale]/herramientas/afinador/[instrumento]/page.tsx:315",
       "src/app/[locale]/herramientas/afinador/page.tsx:233",
@@ -181706,7 +181730,7 @@
     "text": "Ritmos andinos colombianos: bambuco, pasillo, guabina, torbellino y danza.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:580"
+      "src/content/courses/guides-a.ts:585"
     ]
   },
   "mc2fdd4d7": {
@@ -183299,6 +183323,13 @@
       "src/content/blog/como-proteger-tu-audicion-si-eres-musico.ts:93"
     ]
   },
+  "mc48de6b5": {
+    "text": "Sí. En las clases de teoría musical puedes trabajar lectura rítmica, solfeo cantado, reconocimiento de intervalos y dictados. Cuéntanos qué te cuesta y tu nivel para recomendarte un profe y definir el enfoque. Para practicar entre clases puedes usar el [entrenamiento auditivo gratuito](/herramientas/entrenamiento-auditivo); si preparas una admisión, consulta el [preuniversitario de música](/preuniversitario-musica).",
+    "namespace": "UI",
+    "references": [
+      "src/content/courses/guides-a.ts:377"
+    ]
+  },
   "mc490a7f4": {
     "text": "cents",
     "namespace": "UI",
@@ -184250,7 +184281,7 @@
     "text": "Baquetas del grosor que te recomiende el profe.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:475"
+      "src/content/courses/guides-a.ts:480"
     ]
   },
   "mc56f8f58": {
@@ -184610,7 +184641,7 @@
     "namespace": "UI",
     "references": [
       "src/content/courses/guides-a.ts:183",
-      "src/content/courses/guides-a.ts:463"
+      "src/content/courses/guides-a.ts:468"
     ]
   },
   "mc5be420a": {
@@ -185797,15 +185828,15 @@
     "text": "¿Necesito tocar un instrumento para estudiar teoría musical?",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:376"
+      "src/content/courses/guides-a.ts:381"
     ]
   },
   "mc6ff7e34": {
     "text": "Más teoría",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/page.tsx:213",
-      "src/app/[locale]/escalas/page.tsx:144"
+      "src/app/[locale]/acordes/page.tsx:212",
+      "src/app/[locale]/escalas/page.tsx:143"
     ]
   },
   "mc7009de9": {
@@ -186750,6 +186781,13 @@
     "namespace": "Content",
     "references": [
       "src/content/blog/trompeta-o-trombon.ts:196"
+    ]
+  },
+  "mc7dc276f": {
+    "text": "Consulta qué aprenderás, qué necesitas para empezar y los perfiles de los profes de cada clase.",
+    "namespace": "UI",
+    "references": [
+      "src/app/[locale]/profes/page.tsx:71"
     ]
   },
   "mc7dcc895": {
@@ -189361,7 +189399,7 @@
     "text": "Círculo de quintas",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/clases/[curso]/page.tsx:400",
+      "src/app/[locale]/clases/[curso]/page.tsx:402",
       "src/app/[locale]/herramientas/circulo-de-quintas/page.tsx:121",
       "src/app/[locale]/herramientas/page.tsx:72",
       "src/components/HomeResourcesSection.tsx:80",
@@ -190097,7 +190135,7 @@
     "text": "Cuéntanos tu edad, nivel y horario. Te respondemos por WhatsApp con el profe que mejor encaja contigo.",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/clases/[curso]/page.tsx:426"
+      "src/app/[locale]/clases/[curso]/page.tsx:428"
     ]
   },
   "mcb45f9ba": {
@@ -190914,7 +190952,7 @@
     "text": "a domicilio en Bogotá",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/clases/[curso]/page.tsx:297"
+      "src/app/[locale]/clases/[curso]/page.tsx:299"
     ]
   },
   "mcc23843a": {
@@ -191426,7 +191464,7 @@
     "text": "Clases de guitarra eléctrica en Bogotá, a domicilio y virtuales",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:401"
+      "src/content/courses/guides-a.ts:406"
     ]
   },
   "mccafed53": {
@@ -191503,7 +191541,7 @@
     "text": "desde cualquier lugar o",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/clases/[curso]/page.tsx:295"
+      "src/app/[locale]/clases/[curso]/page.tsx:297"
     ]
   },
   "mccc96ed0": {
@@ -192358,7 +192396,7 @@
     "text": "Te conecta con el repertorio y la tradición de la música andina colombiana.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:592"
+      "src/content/courses/guides-a.ts:597"
     ]
   },
   "mcd93f7f5": {
@@ -194549,7 +194587,7 @@
     "text": "Te permite tocar en banda desde etapas tempranas, algo muy motivador.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:424"
+      "src/content/courses/guides-a.ts:429"
     ]
   },
   "md00f2e83": {
@@ -195343,7 +195381,7 @@
     "text": "Clases de bajo eléctrico en Bogotá, a domicilio y virtuales",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:513"
+      "src/content/courses/guides-a.ts:518"
     ]
   },
   "md0e63839": {
@@ -195797,7 +195835,7 @@
     "text": "Cuerdas de repuesto, porque las más delgadas pueden romperse al afinar.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:588"
+      "src/content/courses/guides-a.ts:593"
     ]
   },
   "md14f5746": {
@@ -196197,7 +196235,7 @@
     "text": "Si ya tocas guitarra, amplía tus recursos rítmicos y de acompañamiento con un instrumento nuevo.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:594"
+      "src/content/courses/guides-a.ts:599"
     ]
   },
   "md1a9390": {
@@ -197039,7 +197077,7 @@
     "text": "Con la guitarra, un cable, un amplificador pequeño de práctica y un afinador ya puedes arrancar. No hace falta invertir en pedales al principio, porque muchos amplificadores de práctica traen efectos básicos. Pregúntale a tu profe antes de comprar para que tu equipo se ajuste a la música que quieres tocar.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:438"
+      "src/content/courses/guides-a.ts:443"
     ]
   },
   "md2847d25": {
@@ -198007,7 +198045,7 @@
     "text": "Escala",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/page.tsx:130"
+      "src/app/[locale]/escalas/page.tsx:129"
     ]
   },
   "md37a1f19": {
@@ -198331,7 +198369,7 @@
     "namespace": "UI",
     "references": [
       "src/app/[locale]/clases/[curso]/page.tsx",
-      "src/app/[locale]/profes/[slug]/page.tsx:292"
+      "src/app/[locale]/profes/[slug]/page.tsx:291"
     ]
   },
   "md3c4481a": {
@@ -200339,7 +200377,7 @@
     "text": "En el piano, Do mayor, porque se toca solo con teclas blancas. En la guitarra, la pentatónica menor de La (en el traste 5), que es la base para improvisar en rock y blues. Después vale la pena seguir el orden del [círculo de quintas](/herramientas/circulo-de-quintas): Sol, Re, La… agregando un sostenido a la vez.",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/page.tsx:53"
+      "src/app/[locale]/escalas/page.tsx:52"
     ]
   },
   "md5afda5a": {
@@ -200740,7 +200778,7 @@
     "text": "Afinador y una correa para tocar de pie.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:532"
+      "src/content/courses/guides-a.ts:537"
     ]
   },
   "md62a0f82": {
@@ -200887,7 +200925,7 @@
     "text": "Resumen del cargo",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/trabaja-con-nosotros/page.tsx:103"
+      "src/app/[locale]/trabaja-con-nosotros/page.tsx:102"
     ]
   },
   "md656bc7a": {
@@ -201503,8 +201541,8 @@
     "namespace": "UI",
     "references": [
       "src/app/[locale]/nosotros/page.tsx:410",
-      "src/app/[locale]/profes/[slug]/page.tsx:237",
-      "src/components/ComoFuncionaSection.tsx:109"
+      "src/app/[locale]/profes/[slug]/page.tsx:236",
+      "src/components/ComoFuncionaSection.tsx:115"
     ]
   },
   "md6dbebfc": {
@@ -202081,7 +202119,7 @@
     "text": "Tabla de acordes por nota y tipo",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/page.tsx:174"
+      "src/app/[locale]/acordes/page.tsx:173"
     ]
   },
   "md7864b5c": {
@@ -202165,7 +202203,7 @@
     "text": "Acordes disminuidos (Bdim, C♯dim…)",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/page.tsx:72"
+      "src/app/[locale]/acordes/page.tsx:71"
     ]
   },
   "md795b53": {
@@ -202737,7 +202775,7 @@
     "namespace": "UI",
     "references": [
       "src/app/[locale]/profes/loading.tsx:15",
-      "src/app/[locale]/profes/page.tsx:47"
+      "src/app/[locale]/profes/page.tsx:57"
     ]
   },
   "md83528b6": {
@@ -203946,7 +203984,7 @@
     "text": "Ritmos para acompañar tus primeras canciones.",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/page.tsx:236"
+      "src/app/[locale]/acordes/page.tsx:235"
     ]
   },
   "md94ce4e8": {
@@ -204430,7 +204468,7 @@
     "text": "Las líneas verticales son las cuerdas (la más gruesa a la izquierda) y las horizontales son los trastes. Cada punto indica dónde pisar y el número es el dedo: 1 índice, 2 medio, 3 anular y 4 meñique. Una × encima de una cuerda significa que no se toca y un ○ que suena al aire. Si aparece un número al lado, el diagrama empieza en ese traste.",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/page.tsx:85"
+      "src/app/[locale]/acordes/page.tsx:84"
     ]
   },
   "md9c5b57f": {
@@ -206171,7 +206209,7 @@
     "text": "virtual y a domicilio",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/profes/[slug]/page.tsx:77",
+      "src/app/[locale]/profes/[slug]/page.tsx:76",
       "src/lib/markdown.ts:132",
       "src/lib/markdown.ts:190"
     ]
@@ -207499,7 +207537,7 @@
     "namespace": "UI",
     "references": [
       "src/app/[locale]/profes/loading.tsx:10",
-      "src/app/[locale]/profes/page.tsx:43"
+      "src/app/[locale]/profes/page.tsx:53"
     ]
   },
   "mdc8c719d": {
@@ -207520,7 +207558,7 @@
     "text": "Técnica de mano derecha con dedos alternados y, si te interesa, con púa o slap.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:522"
+      "src/content/courses/guides-a.ts:527"
     ]
   },
   "mdc905889": {
@@ -207696,7 +207734,7 @@
     "text": "Desarrolla un sentido del ritmo muy sólido y la capacidad de escuchar a toda la banda.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:536"
+      "src/content/courses/guides-a.ts:541"
     ]
   },
   "mdcca3a6e": {
@@ -208641,7 +208679,7 @@
     "text": "Escalas musicales: notas en piano y guitarra",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/page.tsx:33"
+      "src/app/[locale]/escalas/page.tsx:32"
     ]
   },
   "mddc960bd": {
@@ -214455,7 +214493,7 @@
     "text": "Clases de guitarra eléctrica a domicilio en Bogotá",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:402"
+      "src/content/courses/guides-a.ts:407"
     ]
   },
   "me34dff0d": {
@@ -215081,7 +215119,7 @@
     "text": "Rasgueos básicos de guitarra",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/page.tsx:235"
+      "src/app/[locale]/acordes/page.tsx:234"
     ]
   },
   "me3fda96a": {
@@ -215738,7 +215776,7 @@
     "text": "Ver",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/clases/[curso]/page.tsx:182",
+      "src/app/[locale]/clases/[curso]/page.tsx:184",
       "src/components/ProfesDirectory.tsx:579"
     ]
   },
@@ -216081,7 +216119,7 @@
     "text": "Entrenamiento auditivo",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/clases/[curso]/page.tsx:386",
+      "src/app/[locale]/clases/[curso]/page.tsx:388",
       "src/app/[locale]/herramientas/circulo-de-quintas/page.tsx:247",
       "src/app/[locale]/herramientas/entrenamiento-auditivo/page.tsx:78",
       "src/app/[locale]/herramientas/page.tsx:64",
@@ -217273,7 +217311,7 @@
     "text": "¿Cuál es la diferencia entre un acorde mayor y uno menor?",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/page.tsx:99"
+      "src/app/[locale]/acordes/page.tsx:98"
     ]
   },
   "me612100d": {
@@ -217771,7 +217809,7 @@
     "text": "Afinador, púas y una correa.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:420"
+      "src/content/courses/guides-a.ts:425"
     ]
   },
   "me6961f55": {
@@ -220822,7 +220860,7 @@
     "text": "Estudiante tocando guitarra en clase",
     "namespace": "UI",
     "references": [
-      "src/components/ComoFuncionaSection.tsx:146"
+      "src/components/ComoFuncionaSection.tsx:152"
     ]
   },
   "me9fc6355": {
@@ -221068,7 +221106,7 @@
     "text": "Acordes aumentados (Caug, Gaug…)",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/page.tsx:73"
+      "src/app/[locale]/acordes/page.tsx:72"
     ]
   },
   "mea2c363d": {
@@ -223044,7 +223082,7 @@
     "text": "español",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/profes/[slug]/page.tsx:47",
+      "src/app/[locale]/profes/[slug]/page.tsx:46",
       "src/lib/markdown.ts:191",
       "src/lib/mcp.ts:119"
     ]
@@ -224134,9 +224172,9 @@
     "namespace": "UI",
     "references": [
       "src/app/[locale]/acordes/[acorde]/page.tsx:436",
-      "src/app/[locale]/acordes/page.tsx:248",
+      "src/app/[locale]/acordes/page.tsx:247",
       "src/app/[locale]/escalas/[escala]/page.tsx:391",
-      "src/app/[locale]/escalas/page.tsx:179",
+      "src/app/[locale]/escalas/page.tsx:178",
       "src/app/[locale]/herramientas/afinador/[instrumento]/page.tsx:318",
       "src/app/[locale]/herramientas/afinador/page.tsx:236",
       "src/app/[locale]/herramientas/metronomo/[ritmo]/page.tsx:283",
@@ -225912,7 +225950,7 @@
     "text": "Escalas pentatónicas, escala de blues y modos para improvisar solos.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:412"
+      "src/content/courses/guides-a.ts:417"
     ]
   },
   "meee2cd0e": {
@@ -227388,7 +227426,7 @@
     "text": "Qué necesitas para empezar",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/clases/[curso]/page.tsx:261"
+      "src/app/[locale]/clases/[curso]/page.tsx:263"
     ]
   },
   "mf04b3c83": {
@@ -228024,7 +228062,7 @@
     "text": "¿Se puede aprender guitarra eléctrica en clases virtuales?",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:442"
+      "src/content/courses/guides-a.ts:447"
     ]
   },
   "mf1055680": {
@@ -229045,7 +229083,7 @@
     "text": "reseña",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/profes/[slug]/page.tsx:429"
+      "src/app/[locale]/profes/[slug]/page.tsx:428"
     ]
   },
   "mf215f48b": {
@@ -230185,7 +230223,7 @@
     "namespace": "UI",
     "references": [
       "src/app/[locale]/acordes/[acorde]/page.tsx:157",
-      "src/app/[locale]/acordes/page.tsx:202"
+      "src/app/[locale]/acordes/page.tsx:201"
     ]
   },
   "mf322118a": {
@@ -230858,7 +230896,7 @@
     "text": "Acompañar la voz y tocar en formatos tradicionales como el trío andino, junto a bandola y guitarra.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:582"
+      "src/content/courses/guides-a.ts:587"
     ]
   },
   "mf3cebc4d": {
@@ -231739,7 +231777,7 @@
     "namespace": "UI",
     "references": [
       "src/app/[locale]/escalas/[escala]/page.tsx:188",
-      "src/app/[locale]/escalas/page.tsx:132"
+      "src/app/[locale]/escalas/page.tsx:131"
     ]
   },
   "mf4a7c528": {
@@ -232845,7 +232883,7 @@
     "text": "Metrónomo online",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/clases/[curso]/page.tsx:375",
+      "src/app/[locale]/clases/[curso]/page.tsx:377",
       "src/app/[locale]/escalas/[escala]/page.tsx:347",
       "src/app/[locale]/herramientas/afinador/page.tsx:218",
       "src/app/[locale]/herramientas/page.tsx:40",
@@ -233112,9 +233150,9 @@
     "text": "Escalas musicales",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/page.tsx:217",
-      "src/app/[locale]/clases/[curso]/page.tsx:396",
-      "src/app/[locale]/escalas/page.tsx:72",
+      "src/app/[locale]/acordes/page.tsx:216",
+      "src/app/[locale]/clases/[curso]/page.tsx:398",
+      "src/app/[locale]/escalas/page.tsx:71",
       "src/app/[locale]/herramientas/circulo-de-quintas/page.tsx:229",
       "src/app/[locale]/herramientas/page.tsx:88",
       "src/components/Footer.tsx:37",
@@ -233524,6 +233562,13 @@
     "namespace": "Content",
     "references": [
       "src/content/blog/como-elegir-un-contrabajo-para-empezar.ts:131"
+    ]
+  },
+  "mf65dc870": {
+    "text": "Encuentra tu profe por instrumento",
+    "namespace": "UI",
+    "references": [
+      "src/app/[locale]/profes/page.tsx:70"
     ]
   },
   "mf65f4671": {
@@ -234723,7 +234768,7 @@
     "text": "Tónica",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/escalas/page.tsx:107",
+      "src/app/[locale]/escalas/page.tsx:106",
       "src/content/blog/escalas-mayores-y-menores-explicadas.ts:119",
       "src/content/blog/que-es-la-armonia-musical.ts:85",
       "src/lib/music-theory.ts:493"
@@ -235864,7 +235909,7 @@
     "text": "Ritmos colombianos como cumbia, porro, vallenato, bambuco y currulao, en batería o percusión menor.",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:470"
+      "src/content/courses/guides-a.ts:475"
     ]
   },
   "mf8e52a74": {
@@ -236960,7 +237005,7 @@
     "text": "Qué vas a aprender en clases de",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/clases/[curso]/page.tsx:242"
+      "src/app/[locale]/clases/[curso]/page.tsx:244"
     ]
   },
   "mf9e6e93f": {
@@ -239552,7 +239597,7 @@
     "text": "Conoce al resto del equipo y elige otro profe.",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/profes/[slug]/page.tsx:459"
+      "src/app/[locale]/profes/[slug]/page.tsx:458"
     ]
   },
   "mfc718cac": {
@@ -240984,7 +241029,7 @@
     "text": "Clases de tiple colombiano a domicilio en Bogotá",
     "namespace": "UI",
     "references": [
-      "src/content/courses/guides-a.ts:570"
+      "src/content/courses/guides-a.ts:575"
     ]
   },
   "mfdeb0a99": {
@@ -241146,7 +241191,7 @@
     "namespace": "UI",
     "references": [
       "src/content/courses/guides-a.ts:253",
-      "src/content/courses/guides-a.ts:589"
+      "src/content/courses/guides-a.ts:594"
     ]
   },
   "mfe0e7ac2": {
@@ -242047,7 +242092,7 @@
     "text": "Test de tipo de voz",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/clases/[curso]/page.tsx:365",
+      "src/app/[locale]/clases/[curso]/page.tsx:367",
       "src/app/[locale]/herramientas/tipo-de-voz/page.tsx:88",
       "src/lib/ai-discovery.ts:20"
     ]

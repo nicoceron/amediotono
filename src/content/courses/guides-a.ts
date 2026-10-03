@@ -343,11 +343,11 @@ export const GUIDES_A: CourseGuide[] = [
     id: "teoria-musical",
     family: "formacion",
     headline: "Clases de teoría musical en Bogotá, a domicilio y virtuales",
-    seoTitle: "Clases de teoría musical a domicilio en Bogotá",
+    seoTitle: "Clases de teoría musical y solfeo en Bogotá y online",
     metaDescription:
-      "Clases de teoría musical en Bogotá, a domicilio o virtuales: lectura, armonía y entrenamiento auditivo para entender lo que tocas y cantas.",
+      "Clases de teoría musical, solfeo y entrenamiento auditivo con profesor. Lectura, dictados y armonía a tu nivel, online o a domicilio en Bogotá.",
     intro:
-      "La teoría musical es el idioma que explica lo que suena: cómo se construyen escalas y acordes, por qué una progresión genera tensión y reposo, y cómo leer y escribir lo que escuchas. Estudiarla con un profe, de la mano del oído y de ejemplos reales, la convierte en una herramienta práctica y no en una lista de reglas. Te sirve si tocas cualquier instrumento, si cantas, si quieres componer o si tienes en mente estudiar música de manera profesional.",
+      "Trabaja teoría musical, solfeo y entrenamiento auditivo con un profe que adapte los ejercicios a tu nivel. Aprende a leer ritmos y melodías, entonar una partitura y reconocer intervalos y acordes de oído. Las clases conectan lo que escuchas con lo que tocas o cantas: sirven para empezar desde cero, reforzar tu instrumento, componer o preparar una prueba de admisión a música. Puedes tomarlas online o a domicilio en Bogotá.",
     startingAge: "Cualquier edad",
     ageNote:
       "La teoría musical no tiene una edad mínima estricta: con niños pequeños se aborda de forma lúdica dentro de la [iniciación musical](/clases/iniciacion-musical) o de las clases de instrumento, y como materia independiente suele funcionar mejor desde los 9 o 10 años, cuando hay más capacidad de abstracción. Es una referencia orientativa que depende de cada niño. Los adultos pueden empezar a cualquier edad, tengan o no experiencia tocando un instrumento.",
@@ -372,6 +372,11 @@ export const GUIDES_A: CourseGuide[] = [
       "Fortalece tu oído, y eso se refleja en tu afinación y en tu forma de escuchar música.",
     ],
     faqs: [
+      {
+        question: "¿Puedo tomar clases de solfeo y entrenamiento auditivo con un profesor?",
+        answer:
+          "Sí. En las clases de teoría musical puedes trabajar lectura rítmica, solfeo cantado, reconocimiento de intervalos y dictados. Cuéntanos qué te cuesta y tu nivel para recomendarte un profe y definir el enfoque. Para practicar entre clases puedes usar el [entrenamiento auditivo gratuito](/herramientas/entrenamiento-auditivo); si preparas una admisión, consulta el [preuniversitario de música](/preuniversitario-musica).",
+      },
       {
         question: "¿Necesito tocar un instrumento para estudiar teoría musical?",
         answer:
