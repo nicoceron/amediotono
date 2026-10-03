@@ -33,6 +33,8 @@ async function check(path) {
         const url = new URL(match[1]);
         if (url.hostname !== "www.amediotonomusic.com") continue;
         if (url.pathname.startsWith("/md/") || url.pathname.startsWith("/api/")) throw new Error("Index links a private path");
+        // The MCP endpoint only answers POST; it's checked separately below.
+        if (url.pathname === "/mcp") continue;
         queue.add(url.pathname + url.search);
       }
     }
@@ -64,7 +66,45 @@ for (const path of ["/", ...pagesWithMarkdown]) {
   }
 }
 
+const robots = await (await fetch(new URL("/robots.txt", origin))).text();
+if (!robots.includes("Content-Signal: search=yes, ai-input=yes, ai-train=yes")) failures.push("robots.txt: missing Content-Signal");
+
+const catalogResponse = await fetch(new URL("/.well-known/api-catalog", origin));
+const catalog = await catalogResponse.json().catch(() => ({}));
+if (!catalogResponse.headers.get("content-type")?.startsWith("application/linkset+json")) failures.push("api-catalog: not served as application/linkset+json");
+if (!catalog.linkset?.some((entry) => entry.anchor?.endsWith("/mcp") && entry["service-desc"]?.length)) failures.push("api-catalog: missing the MCP server");
+
+const card = await (await fetch(new URL("/.well-known/mcp/server-card.json", origin))).json().catch(() => ({}));
+if (!card.transport?.endpoint?.endsWith("/mcp") || !(card.tools?.length >= 5)) failures.push("server-card: missing endpoint or tools");
+
+async function mcp(body) {
+  const response = await fetch(new URL("/mcp", origin), {
+    method: "POST",
+    headers: { "content-type": "application/json", accept: "application/json, text/event-stream" },
+    body: JSON.stringify(body),
+  });
+  return { status: response.status, body: response.status === 202 ? null : await response.json() };
+}
+const init = await mcp({ jsonrpc: "2.0", id: 1, method: "initialize", params: { protocolVersion: "2025-06-18", capabilities: {}, clientInfo: { name: "audit", version: "1" } } });
+if (init.body?.result?.protocolVersion !== "2025-06-18") failures.push("mcp: initialize did not negotiate 2025-06-18");
+if ((await mcp({ jsonrpc: "2.0", method: "notifications/initialized" })).status !== 202) failures.push("mcp: notification was not accepted with 202");
+const listed = await mcp({ jsonrpc: "2.0", id: 2, method: "tools/list" });
+const toolNames = listed.body?.result?.tools?.map((tool) => tool.name) ?? [];
+for (const name of ["search", "fetch", "find_teachers", "school_info", "whatsapp_link"]) {
+  if (!toolNames.includes(name)) failures.push(`mcp: tools/list is missing ${name}`);
+}
+const searched = await mcp({ jsonrpc: "2.0", id: 3, method: "tools/call", params: { name: "search", arguments: { query: "afinación del tiple" } } });
+const first = JSON.parse(searched.body?.result?.content?.[0]?.text ?? "{}").results?.[0];
+if (first?.id !== "/herramientas/afinador/tiple") failures.push(`mcp: search for the tiple tuning returned ${first?.id}`);
+const fetched = await mcp({ jsonrpc: "2.0", id: 4, method: "tools/call", params: { name: "fetch", arguments: { id: first?.id ?? "/" } } });
+if (!JSON.parse(fetched.body?.result?.content?.[0]?.text ?? "{}").text?.startsWith("# ")) failures.push("mcp: fetch did not return Markdown");
+const teachers = await mcp({ jsonrpc: "2.0", id: 5, method: "tools/call", params: { name: "find_teachers", arguments: { instrument: "piano" } } });
+if (!teachers.body?.result?.content?.[0]?.text?.includes("wa.me/")) failures.push("mcp: find_teachers did not return contact links");
+
 if (throughWorker) {
+  const home = await fetch(new URL("/", origin), { method: "HEAD" });
+  if (!/rel="api-catalog"/.test(home.headers.get("link") ?? "")) failures.push("/: HTML response has no api-catalog Link header");
+
   const agentAccept = "text/markdown, text/html, */*";
   const browserAccept = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8";
   const negotiation = [
@@ -98,4 +138,4 @@ if (failures.length) {
   console.error(failures.join("\n"));
   process.exit(1);
 }
-console.log(`✓ ${checked.size} discovery links, ${indices} indices and ${markdownPages} Markdown pages; HTML discovery${throughWorker ? ", Markdown negotiation" : ""} and unknown-resource 404s passed at ${origin.origin}.`);
+console.log(`✓ ${checked.size} discovery links, ${indices} indices and ${markdownPages} Markdown pages; HTML discovery${throughWorker ? ", Link headers, Markdown negotiation" : ""}, Content Signals, API catalog, MCP server and unknown-resource 404s passed at ${origin.origin}.`);

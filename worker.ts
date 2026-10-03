@@ -187,8 +187,17 @@ export default {
 
     const response: Response = await handler.fetch(request, env, ctx);
     const extra: Record<string, string> = { "Strict-Transport-Security": HSTS };
-    // The same URL can answer in Markdown, so shared caches must key on Accept.
-    if (isPage) extra.Vary = withVaryAccept(response.headers);
+    if (isPage) {
+      // The same URL can answer in Markdown, so shared caches must key on Accept.
+      extra.Vary = withVaryAccept(response.headers);
+      // Agents that only read headers (HEAD requests) still find the AI index
+      // and the API catalog that lists the MCP server.
+      if (response.headers.get("Content-Type")?.startsWith("text/html")) {
+        const discovery = `<${url.origin}/llms.txt>; rel="describedby"; type="text/markdown", <${url.origin}/.well-known/api-catalog>; rel="api-catalog"`;
+        const link = response.headers.get("Link");
+        extra.Link = link ? `${link}, ${discovery}` : discovery;
+      }
+    }
     // OpenNext leaves /_next/image responses without Cache-Control for images
     // under public/, so browsers re-download them on every visit.
     if (url.pathname === "/_next/image" && response.ok && !response.headers.has("Cache-Control")) {
