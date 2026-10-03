@@ -228,7 +228,7 @@ export default async function ScalePage({
 
           <div className="music-panel" id="guitarra">
             <h2>{tx("Escala de ")}{tx(scale.name)} {tx(" en guitarra")}</h2>
-            <div className="fretboard-wrap" role="region" aria-label={tx(tx.template("Mástil de guitarra: {p0}", {p0: tx(scale.name)}))} tabIndex={0} data-lenis-prevent>
+            <div className="fretboard-wrap" role="region" aria-label={tx(tx.template("Mástil de guitarra: {p0}", {p0: tx(scale.name)}))} tabIndex={0} data-lenis-prevent-horizontal>
               <Fretboard
                 tuning={GUITAR_TUNING}
                 stringLabels={GUITAR_STRING_NAMES}

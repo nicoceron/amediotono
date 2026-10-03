@@ -124,10 +124,10 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
           duration: 1,
           smoothWheel: true,
           syncTouch: false,
-          // Directory filters and music diagrams declare their own exclusions.
-          // Horizontal carousels exclude only horizontal gestures so vertical
-          // input never hands off to native scroll during a Lenis animation.
-          prevent: (node) => node.classList.contains("prose-table-wrap"),
+          // Let actual nested scroll containers consume their own axis.
+          // Tables that only overflow horizontally must keep vertical input
+          // with Lenis, including every article and tool using RichText.
+          allowNestedScroll: true,
         });
         lenisRef.current = lenis;
       });
