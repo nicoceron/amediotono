@@ -35,7 +35,7 @@ export const SITE_KEYWORDS = [
  * date (home, directories, service pages). Bump it when that copy changes so
  * sitemap `lastmod` stays trustworthy instead of changing on every build.
  */
-export const SITE_CONTENT_UPDATED_AT = "2026-10-01";
+export const SITE_CONTENT_UPDATED_AT = "2026-10-03";
 
 type SocialImage = {
   url: string;

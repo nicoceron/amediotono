@@ -108,7 +108,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     return routing.locales.map(locale => ({
       ...item,
       url: absoluteUrl(localizedPath(path, locale)),
-      ...(locale === "es" ? {} : {lastModified: "2026-10-02"}),
+      // A translated page changes when its source changes too. Do not mask
+      // later editorial updates with the date of the initial translation.
+      ...(locale === "es" ? {} : {lastModified: [String(item.lastModified), "2026-10-02"].sort().at(-1)}),
       alternates: {languages},
     }));
   });

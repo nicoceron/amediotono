@@ -6,6 +6,45 @@ const failures = [];
 const titles = new Map();
 const internalPaths = new Set();
 
+function schemaNodes(value) {
+  if (Array.isArray(value)) return value.flatMap(schemaNodes);
+  if (!value || typeof value !== "object") return [];
+  return [value, ...Object.values(value).flatMap(schemaNodes)];
+}
+
+function schemaIdentity(id) {
+  const url = new URL(id);
+  url.pathname = url.pathname.replace(/^\/(en|pt|fr)(?=\/|$)/, "") || "/";
+  return url.href;
+}
+
+function checkStructuredData(scripts, pageUrl) {
+  const graphs = scripts.map((match) => JSON.parse(match[1]));
+  for (const graph of graphs) {
+    assert(Array.isArray(graph["@graph"]), "Expected a structured-data graph");
+    assert(graph["@graph"].every((node) => node["@type"]), "Nested graph wrapper hides top-level entities");
+  }
+  const nodes = schemaNodes(graphs);
+  const definitions = new Map();
+  for (const node of nodes) {
+    if (!node["@type"] || !node["@id"]?.startsWith(`${pageUrl.origin}/`)) continue;
+    const identity = schemaIdentity(node["@id"]);
+    const existing = definitions.get(identity);
+    assert(!existing || existing === node["@id"], `Inconsistent entity ID: ${node["@id"]} vs ${existing}`);
+    definitions.set(identity, node["@id"]);
+  }
+  for (const node of nodes) {
+    const id = node["@id"];
+    if (typeof id !== "string" || !id.startsWith(`${pageUrl.origin}/`)) continue;
+    const definition = definitions.get(schemaIdentity(id));
+    if (definition) assert.equal(id, definition, `Reference does not match defined entity: ${id}`);
+  }
+  for (const node of nodes.filter((node) => node["@type"] === "BreadcrumbList")) {
+    const last = node.itemListElement?.at(-1)?.item;
+    assert.equal(last, pageUrl.href, "Structured breadcrumb differs from canonical page");
+  }
+}
+
 async function read(path) {
   const response = await fetch(new URL(path, base), { signal: AbortSignal.timeout(30000) });
   assert.equal(response.status, 200, `${path}: HTTP ${response.status}`);
@@ -57,7 +96,7 @@ await Promise.all(Array.from({ length: 6 }, async () => {
       assert(!response.headers.get("x-robots-tag")?.includes("noindex"), "Noindex header");
       const structuredData = [...html.matchAll(/<script\b[^>]*type="application\/ld\+json"[^>]*>(.*?)<\/script>/gs)];
       assert(structuredData.length > 0, "Missing structured data");
-      for (const match of structuredData) JSON.parse(match[1]);
+      checkStructuredData(structuredData, url);
       for (const match of html.matchAll(/<a\b[^>]*href="([^"]+)"/g)) {
         const target = new URL(decode(match[1]), url);
         if (target.origin === canonicalOrigin && !/\.[a-z0-9]+$/i.test(target.pathname)) {

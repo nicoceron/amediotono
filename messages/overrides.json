@@ -693,5 +693,85 @@
     "en": "Colombian requinto tuner (tiple requinto) | A ½ tono",
     "pt": "Afinador online de tiple requinto colombiano | A ½ tono",
     "fr": "Accordeur de requinto colombien (tiple requinto) | A ½ tono"
+  },
+  "Profesores de música en Bogotá y online": {
+    "en": "Music teachers in Bogotá and online",
+    "pt": "Professores de música em Bogotá e online",
+    "fr": "Professeurs de musique à Bogotá et en ligne"
+  },
+  "Elige tu profesor de piano, canto, guitarra o violín. Compara experiencia, modalidad e idioma para clases a domicilio en Bogotá o en vivo online.": {
+    "en": "Choose a piano, singing, guitar or violin teacher. Compare experience, lesson format and language for lessons at home in Bogotá or live online.",
+    "pt": "Escolha seu professor de piano, canto, guitarra ou violino. Compare experiência, modalidade e idioma para aulas em casa em Bogotá ou ao vivo online.",
+    "fr": "Choisissez un professeur de piano, chant, guitare ou violon. Comparez expérience, format et langue pour des cours à domicile à Bogotá ou en ligne."
+  },
+  "Compara profesores de música por instrumento, experiencia, modalidad e idioma.": {
+    "en": "Compare music teachers by instrument, experience, lesson format and language.",
+    "pt": "Compare professores de música por instrumento, experiência, modalidade e idioma.",
+    "fr": "Comparez les professeurs de musique selon leur instrument, expérience, format de cours et langue."
+  },
+  "Encuentra tu profe por instrumento": {
+    "en": "Find your teacher by instrument",
+    "pt": "Encontre seu professor por instrumento",
+    "fr": "Trouvez votre professeur par instrument"
+  },
+  "Consulta qué aprenderás, qué necesitas para empezar y los perfiles de los profes de cada clase.": {
+    "en": "See what you will learn, what you need to get started and the teacher profiles for each subject.",
+    "pt": "Veja o que você vai aprender, o que precisa para começar e os perfis dos professores de cada aula.",
+    "fr": "Découvrez ce que vous apprendrez, ce dont vous avez besoin pour commencer et les profils des professeurs de chaque cours."
+  },
+  "Elige también dónde quieres aprender:": {
+    "en": "Choose where you want to learn:",
+    "pt": "Escolha também onde você quer aprender:",
+    "fr": "Choisissez aussi où vous souhaitez apprendre :"
+  },
+  "Clases de teoría musical y solfeo en Bogotá y online": {
+    "en": "Music theory and sight-singing lessons in Bogotá and online",
+    "pt": "Aulas de teoria musical e solfejo em Bogotá e online",
+    "fr": "Cours de théorie musicale et de solfège à Bogotá et en ligne"
+  },
+  "Clases de teoría musical, solfeo y entrenamiento auditivo con profesor. Lectura, dictados y armonía a tu nivel, online o a domicilio en Bogotá.": {
+    "en": "Music theory, sight-singing and ear training with a teacher. Reading, dictation and harmony at your level, online or at home in Bogotá.",
+    "pt": "Teoria musical, solfejo e treinamento auditivo com professor. Leitura, ditados e harmonia no seu nível, online ou em casa em Bogotá.",
+    "fr": "Théorie musicale, solfège et formation de l’oreille avec un professeur. Lecture, dictées et harmonie à votre niveau, en ligne ou à domicile à Bogotá."
+  },
+  "Trabaja teoría musical, solfeo y entrenamiento auditivo con un profe que adapte los ejercicios a tu nivel. Aprende a leer ritmos y melodías, entonar una partitura y reconocer intervalos y acordes de oído. Las clases conectan lo que escuchas con lo que tocas o cantas: sirven para empezar desde cero, reforzar tu instrumento, componer o preparar una prueba de admisión a música. Puedes tomarlas online o a domicilio en Bogotá.": {
+    "en": "Study music theory, sight-singing and ear training with a teacher who adapts the exercises to your level. Learn to read rhythms and melodies, sing from a score and recognize intervals and chords by ear. Lessons connect what you hear with what you play or sing: start from scratch, strengthen your instrumental skills, compose or prepare for a music entrance exam. Take lessons online or at home in Bogotá.",
+    "pt": "Estude teoria musical, solfejo e treinamento auditivo com um professor que adapte os exercícios ao seu nível. Aprenda a ler ritmos e melodias, cantar a partir de uma partitura e reconhecer intervalos e acordes de ouvido. As aulas conectam o que você ouve ao que toca ou canta: comece do zero, aprimore seu instrumento, componha ou prepare-se para uma prova de admissão em música. Você pode fazer as aulas online ou em casa em Bogotá.",
+    "fr": "Travaillez la théorie musicale, le solfège et votre oreille avec un professeur qui adapte les exercices à votre niveau. Apprenez à lire les rythmes et les mélodies, à chanter une partition et à reconnaître les intervalles et les accords à l’oreille. Les cours relient ce que vous entendez à ce que vous jouez ou chantez : débutez, progressez sur votre instrument, composez ou préparez un examen d’entrée en musique. Suivez les cours en ligne ou à domicile à Bogotá."
+  },
+  "¿Puedo tomar clases de solfeo y entrenamiento auditivo con un profesor?": {
+    "en": "Can I take sight-singing and ear-training lessons with a teacher?",
+    "pt": "Posso fazer aulas de solfejo e treinamento auditivo com um professor?",
+    "fr": "Puis-je suivre des cours de solfège et de formation de l’oreille avec un professeur ?"
+  },
+  "Sí. En las clases de teoría musical puedes trabajar lectura rítmica, solfeo cantado, reconocimiento de intervalos y dictados. Cuéntanos qué te cuesta y tu nivel para recomendarte un profe y definir el enfoque. Para practicar entre clases puedes usar el [entrenamiento auditivo gratuito](/herramientas/entrenamiento-auditivo); si preparas una admisión, consulta el [preuniversitario de música](/preuniversitario-musica).": {
+    "en": "Yes. Music theory lessons can cover rhythm reading, sight-singing, interval recognition and dictation. Tell us your level and what you find difficult so we can recommend a teacher and agree on a focus. Between lessons, use our [free ear-training tool](/herramientas/entrenamiento-auditivo); if you are preparing for an entrance exam, see our [music entrance preparation lessons](/preuniversitario-musica).",
+    "pt": "Sim. Nas aulas de teoria musical você pode trabalhar leitura rítmica, solfejo cantado, reconhecimento de intervalos e ditados. Conte seu nível e suas dificuldades para recomendarmos um professor e definirmos o foco. Entre as aulas, use o [treinamento auditivo gratuito](/herramientas/entrenamiento-auditivo); se você está preparando uma prova de admissão, consulte o [preparatório de música](/preuniversitario-musica).",
+    "fr": "Oui. Les cours de théorie musicale peuvent porter sur la lecture rythmique, le solfège chanté, la reconnaissance des intervalles et les dictées. Indiquez-nous votre niveau et vos difficultés pour que nous vous proposions un professeur et définissions les objectifs. Entre les cours, utilisez notre [outil gratuit de formation de l’oreille](/herramientas/entrenamiento-auditivo) ; pour un examen d’entrée, consultez nos [cours de préparation aux études musicales](/preuniversitario-musica)."
+  },
+  "{p0} profes disponibles. Consulta qué aprenderás y cómo empezar.": {
+    "en": "{p0} teachers available. See what you will learn and how to get started.",
+    "pt": "{p0} professores disponíveis. Veja o que você vai aprender e como começar.",
+    "fr": "{p0} professeurs disponibles. Découvrez ce que vous apprendrez et comment commencer."
+  },
+  "clases de música a domicilio en Bogotá": {
+    "en": "music lessons at home in Bogotá",
+    "pt": "aulas de música em casa em Bogotá",
+    "fr": "cours de musique à domicile à Bogotá"
+  },
+  "Elige profes de piano, canto, guitarra, violín, flauta y más para clases virtuales o a domicilio en Bogotá.": {
+    "en": "Choose a piano, singing, guitar, violin, flute or other music teacher for lessons online or at home in Bogotá.",
+    "pt": "Escolha professores de piano, canto, guitarra, violino, flauta e outros instrumentos para aulas online ou em casa em Bogotá.",
+    "fr": "Choisissez un professeur de piano, chant, guitare, violon, flûte ou d’un autre instrument pour des cours en ligne ou à domicile à Bogotá."
+  },
+  "{p0} profe disponible. Consulta qué aprenderás y cómo empezar.": {
+    "en": "{p0} teacher available. See what you will learn and how to get started.",
+    "pt": "{p0} professor disponível. Veja o que você vai aprender e como começar.",
+    "fr": "{p0} professeur disponible. Découvrez ce que vous apprendrez et comment commencer."
+  },
+  "Clases de {p0}": {
+    "en": "{p0} lessons",
+    "pt": "Aulas de {p0}",
+    "fr": "Cours : {p0}"
   }
 }

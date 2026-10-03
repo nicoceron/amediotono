@@ -20,7 +20,6 @@ import {
   breadcrumbJsonLd,
   createPageMetadata,
   faqPageJsonLd,
-  jsonLd,
   webPageJsonLd,
 } from "@/lib/seo";
 import { shareImage } from "@/lib/share-cards";
@@ -66,7 +65,7 @@ export default function ScalesIndexPage() {
     { name: "Inicio", path: "/" },
     { name: "Escalas", path: SCALES_PATH },
   ];
-  const listJsonLd = jsonLd({
+  const listJsonLd = {
     "@type": "ItemList",
     "@id": `${absoluteUrl(SCALES_PATH)}#escalas`,
     name: "Escalas musicales",
@@ -77,7 +76,7 @@ export default function ScalesIndexPage() {
       name: `Escala de ${scale.longName}`,
       url: absoluteUrl(scalePath(scale)),
     })),
-  });
+  };
 
   return (
     <>
@@ -88,7 +87,7 @@ export default function ScalesIndexPage() {
           faqPageJsonLd(FAQS.map((faq) => ({ question: faq.question, answer: plainText(faq.answer) })), SCALES_PATH),
         ]}
       />
-      <JsonLdScript nodes={JSON.parse(listJsonLd)} />
+      <JsonLdScript nodes={listJsonLd} />
       <section className="block ed-page tool-page" style={{ ["--ed-accent" as string]: "var(--blue)" }}>
         <div className="container">
           <Breadcrumbs items={crumbs} />

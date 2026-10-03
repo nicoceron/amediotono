@@ -33,7 +33,6 @@ import {
   absoluteUrl,
   brandTitle,
   createPageMetadata,
-  jsonLd,
   teacherJsonLd,
 } from "@/lib/seo";
 
@@ -168,7 +167,7 @@ export default async function ProfeDetailPage({
   const classFormats = teacher.classFormats ?? [];
   const classLanguages = teacher.classLanguages ?? [];
   const hasReviews = teacher.reviews.length > 0;
-  const profeJsonLd = jsonLd(teacherJsonLd(teacher, COURSE_PAGE_PATHS));
+  const profeJsonLd = teacherJsonLd(teacher, COURSE_PAGE_PATHS);
   const profileUrl = absoluteUrl(`/profes/${teacher.slug}`);
   const shareTitle = teacherProfileTitle(teacher);
   const shareText = tx.template("¡Mira el perfil de {p0}, tu profe de {p1}!\nA 1/2 tono - Escuela de Artes y Música", {p0: teacher.name, p1: teacher.skills.map(skill => tx(skill.label)).join(", ")});
@@ -182,7 +181,7 @@ export default async function ProfeDetailPage({
 
   return (
     <>
-      <JsonLdScript nodes={JSON.parse(profeJsonLd)} />
+      <JsonLdScript nodes={profeJsonLd} />
       <section
         className="block profe-detail"
         data-screen-label={teacher.name}
