@@ -189,7 +189,7 @@ export default async function ScalePage({
                 {tx(scale.type.sound)}{tx(". ")}{tx(scale.type.usage)}
               </p>
               <div className="ed-actions">
-                <PlayNotesButton key={scale.slug} midis={midis} mode="scale" label="Escuchar la escala" />
+                <PlayNotesButton key={scale.slug} midis={midis} mode="scale" label={tx("Escuchar la escala")} />
               </div>
             </div>
           </header>

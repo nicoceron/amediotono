@@ -126,3 +126,9 @@ Markdown destinations and lost bold markers. It also runs before a production
 build. For composed metadata or generated music labels, run
 `node scripts/extract-translations.mjs --prerender` after a build; it reads only
 Spanish pages and retains those messages on later normal extraction runs.
+
+Production builds regenerate `src/i18n/client-message-keys.json` from the client
+module graph and extraction references. Only those messages, note labels and
+form validation responses reach `NextIntlClientProvider`. Translate labels
+passed from server components to client components before passing the props.
+This keeps page payloads and the OpenNext static cache within build disk limits.

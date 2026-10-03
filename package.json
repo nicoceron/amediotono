@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "predev": "node scripts/generate-blog-index.mjs",
+    "predev": "node scripts/generate-blog-index.mjs && node scripts/generate-client-message-keys.mjs",
     "dev": "next dev",
-    "prebuild": "node scripts/generate-blog-index.mjs && node scripts/check-translations.mjs",
+    "prebuild": "node scripts/generate-blog-index.mjs && node scripts/check-translations.mjs && node scripts/generate-client-message-keys.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
@@ -18,7 +18,7 @@
     "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
     "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
     "deploy:production": "sh scripts/deploy-production.sh",
-    "i18n:extract": "node scripts/extract-translations.mjs",
+    "i18n:extract": "node scripts/extract-translations.mjs && node scripts/generate-client-message-keys.mjs",
     "i18n:overrides": "node scripts/apply-translation-overrides.mjs",
     "i18n:check": "node scripts/check-translations.mjs",
     "i18n:translate": "python3 scripts/translate-catalogs.py"
