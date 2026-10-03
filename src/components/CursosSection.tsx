@@ -1,5 +1,6 @@
+import {useText} from "@/i18n/use-text";
 import Image from "next/image";
-import Link from "next/link";
+import Link from "@/i18n/navigation";
 import { ChevronRight, Minus, Plus } from "lucide-react";
 import { courseLandingHref } from "@/lib/course-pages";
 import { MAIN_COURSES, MORE_COURSES, type Course } from "@/lib/courses";
@@ -14,22 +15,23 @@ for (const teacher of TEACHERS) {
   }
 }
 
-function courseCountLabel(course: Course) {
+function courseCountLabel(course: Course, tx: ReturnType<typeof useText>) {
   const count = COURSE_TEACHER_COUNTS.get(course.id) ?? 0;
 
   if (count === 0) return "Próximamente";
-  return `${count} ${count === 1 ? "profe disponible" : "profes disponibles"}`;
+  return tx.template(count === 1 ? "{p0} profe disponible" : "{p0} profes disponibles", {p0: count});
 }
 
 function CourseCard({ course }: { course: Course }) {
+  const tx = useText();
   const content = (
     <>
       <span className="course-icon" aria-hidden="true">
-        <Image src={course.icon} alt="" width={64} height={64} />
+        <Image src={course.icon} alt={tx("")} width={64} height={64} />
       </span>
       <div className="course-copy">
-        <span className="course-name">{course.label}</span>
-        <span className="course-count">{courseCountLabel(course)}</span>
+        <span className="course-name">{tx(course.label)}</span>
+        <span className="course-count">{tx(courseCountLabel(course, tx))}</span>
       </div>
     </>
   );
@@ -52,18 +54,19 @@ function CourseCard({ course }: { course: Course }) {
 }
 
 export function CursosSection() {
+  const tx = useText();
   return (
     <section
       className="block courses-section"
       id="cursos"
-      data-screen-label="Cursos"
+      data-screen-label={tx("Cursos")}
       data-scroll-align="center"
       data-scroll-target=".courses-grid"
     >
       <div className="hero-cloud-separator" aria-hidden="true">
         <Image
           src={cloudSeparator}
-          alt=""
+          alt={tx("")}
           fill
           fetchPriority="low"
           loading="lazy"
@@ -72,11 +75,9 @@ export function CursosSection() {
       </div>
       <div className="container">
         <div className="visually-hidden">
-          <h2>Cursos de música disponibles</h2>
+          <h2>{tx("Cursos de música disponibles")}</h2>
           <p>
-            Encuentra clases de piano, canto, guitarra, violín, flauta, percusión,
-            teoría musical e iniciación musical con profes de A medio tono.
-          </p>
+            {tx("Encuentra clases de piano, canto, guitarra, violín, flauta, percusión, teoría musical e iniciación musical con profes de A medio tono.")}</p>
         </div>
         <div className="courses-grid">
           {MAIN_COURSES.map((course) => (
@@ -87,8 +88,7 @@ export function CursosSection() {
           <summary>
             <Plus className="courses-more-icon courses-more-icon-plus" size={24} strokeWidth={2.5} aria-hidden="true" />
             <Minus className="courses-more-icon courses-more-icon-minus" size={24} strokeWidth={2.5} aria-hidden="true" />
-            Ver más cursos
-          </summary>
+            {tx("Ver más cursos")}</summary>
           <div className="courses-grid courses-grid-extra">
             {MORE_COURSES.map((course) => (
               <CourseCard course={course} key={course.id} />

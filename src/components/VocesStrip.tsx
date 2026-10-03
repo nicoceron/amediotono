@@ -1,3 +1,4 @@
+import {useText} from "@/i18n/use-text";
 import Image from "next/image";
 
 type StripItem =
@@ -14,20 +15,21 @@ const ITEMS: StripItem[] = [
 ];
 
 function VocesItems() {
+  const tx = useText();
   return ITEMS.map((item, i) => (
     <span className={`voces-badge ${item.type === "asset" ? "voces-badge-asset" : ""}`} key={i}>
       {item.type === "asset" ? (
         <Image
           src={item.icon}
-          alt=""
+          alt={tx("")}
           width={96}
           height={96}
           className="voces-strip-icon"
         />
       ) : (
         <span className="voces-offer">
-          <span className="voces-offer-title">{item.title}</span>
-          <span className="voces-offer-sub">{item.subtitle}</span>
+          <span className="voces-offer-title">{tx(item.title)}</span>
+          <span className="voces-offer-sub">{tx(item.subtitle)}</span>
         </span>
       )}
     </span>

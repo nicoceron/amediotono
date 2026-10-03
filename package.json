@@ -5,7 +5,7 @@
   "scripts": {
     "predev": "node scripts/generate-blog-index.mjs",
     "dev": "next dev",
-    "prebuild": "node scripts/generate-blog-index.mjs",
+    "prebuild": "node scripts/generate-blog-index.mjs && node scripts/check-translations.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
@@ -17,13 +17,18 @@
     "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
     "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
     "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
-    "deploy:production": "sh scripts/deploy-production.sh"
+    "deploy:production": "sh scripts/deploy-production.sh",
+    "i18n:extract": "node scripts/extract-translations.mjs",
+    "i18n:overrides": "node scripts/apply-translation-overrides.mjs",
+    "i18n:check": "node scripts/check-translations.mjs",
+    "i18n:translate": "python3 scripts/translate-catalogs.py"
   },
   "dependencies": {
     "lenis": "^1.3.23",
     "lucide-react": "^1.14.0",
     "motion": "^12.38.0",
     "next": "^16.3.8",
+    "next-intl": "^4.14.9",
     "react": "19.2.4",
     "react-dom": "19.2.4"
   },

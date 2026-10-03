@@ -38,9 +38,12 @@ function prefersMarkdown(accept: string | null) {
   return markdown > 0 && markdown >= html;
 }
 
-function withVaryAccept(headers: Headers) {
-  const vary = headers.get("Vary");
-  return vary ? `${vary}, Accept` : "Accept";
+function withVaryAccept(headers: Headers, languagePreference = false) {
+  const values = (headers.get("Vary") ?? "").split(",").map(value => value.trim()).filter(Boolean);
+  for (const name of ["Accept", ...(languagePreference ? ["Accept-Language", "Cookie"] : [])]) {
+    if (!values.some(value => value.toLowerCase() === name.toLowerCase())) values.push(name);
+  }
+  return values.join(", ");
 }
 
 /**
@@ -189,7 +192,7 @@ export default {
     const extra: Record<string, string> = { "Strict-Transport-Security": HSTS };
     if (isPage) {
       // The same URL can answer in Markdown, so shared caches must key on Accept.
-      extra.Vary = withVaryAccept(response.headers);
+      extra.Vary = withVaryAccept(response.headers, !/^\/(?:es|en|pt|fr)(?:\/|$)/.test(url.pathname));
       // Agents that only read headers (HEAD requests) still find the AI index
       // and the API catalog that lists the MCP server.
       if (response.headers.get("Content-Type")?.startsWith("text/html")) {

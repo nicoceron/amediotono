@@ -1,30 +1,16 @@
 "use client";
+import {NextIntlClientProvider} from "next-intl";
 
 import "./globals.css";
 import { useEffect } from "react";
 import { ErrorPageState } from "@/components/ErrorPageState";
+import { ThemeScript } from "@/components/ThemeScript";
 
 type GlobalErrorProps = {
   error: Error & { digest?: string };
   unstable_retry?: () => void;
   reset?: () => void;
 };
-
-const themeInitScript = `
-  (function() {
-    try {
-      var root = document.documentElement;
-      var media = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
-      var stored = localStorage.getItem('tono-theme');
-      var theme = stored || (media && media.matches ? 'dark' : 'light');
-      root.setAttribute('data-theme', theme);
-      root.setAttribute('data-theme-ready', 'true');
-    } catch (error) {
-      document.documentElement.setAttribute('data-theme', 'light');
-      document.documentElement.setAttribute('data-theme-ready', 'true');
-    }
-  })();
-`;
 
 export default function GlobalError({ error, unstable_retry, reset }: GlobalErrorProps) {
   useEffect(() => {
@@ -33,9 +19,11 @@ export default function GlobalError({ error, unstable_retry, reset }: GlobalErro
 
   return (
     <html lang="es" className="antialiased" suppressHydrationWarning>
+      <head><ThemeScript /></head>
       <body suppressHydrationWarning>
-        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <title>Error | A medio tono</title>
+        {/* Source Spanish keeps this fallback independent of the full catalog. */}
+        <NextIntlClientProvider locale="es" messages={{UI: {}}} timeZone="America/Bogota">
         <ErrorPageState
           status="500"
           title="Algo se desafinó."
@@ -47,6 +35,7 @@ export default function GlobalError({ error, unstable_retry, reset }: GlobalErro
           actions={[{ href: "/", label: "Inicio", icon: "home", variant: "secondary" }]}
           global
         />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

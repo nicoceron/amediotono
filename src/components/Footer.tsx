@@ -1,5 +1,6 @@
+import {useText} from "@/i18n/use-text";
 import Image from "next/image";
-import Link from "next/link";
+import Link from "@/i18n/navigation";
 import { Mail } from "lucide-react";
 import { FooterReveal } from "@/components/FooterReveal";
 import {
@@ -89,19 +90,20 @@ const SOCIAL_LINKS = [
 ];
 
 export function Footer() {
+  const tx = useText();
   const year = new Date().getFullYear();
 
   return (
-    <footer className="site-footer" data-screen-label="Footer">
+    <footer className="site-footer" data-screen-label={tx("Footer")}>
       <div className="footer-shell">
         <div className="footer-content">
           <div className="footer-main">
             <div className="footer-brand-social">
               <FooterReveal className="footer-brand-form" delay={0.1}>
-                <Link href="/" className="footer-logo-link" aria-label="A medio tono — inicio" prefetch={false}>
+                <Link href="/" className="footer-logo-link" aria-label={tx("A medio tono — inicio")} prefetch={false}>
                   <Image
                     src="/logo-nav.webp"
-                    alt="A medio tono"
+                    alt={tx("A medio tono")}
                     width={1205}
                     height={300}
                     className="footer-logo-img logo-desktop-wordmark"
@@ -109,7 +111,7 @@ export function Footer() {
                   />
                   <Image
                     src="/logo-mark-transparent.webp"
-                    alt="A medio tono"
+                    alt={tx("A medio tono")}
                     width={48}
                     height={42}
                     className="footer-logo-img logo-mobile-mark"
@@ -118,8 +120,7 @@ export function Footer() {
                 </Link>
 
                 <p className="footer-tagline">
-                  Una escuela donde el arte se vive, se siente y se comparte todos los días.
-                </p>
+                  {tx("Una escuela donde el arte se vive, se siente y se comparte todos los días.")}</p>
               </FooterReveal>
 
               <FooterReveal className="footer-social-block" delay={0.2}>
@@ -130,19 +131,19 @@ export function Footer() {
                       href={link.href}
                       target={link.href.startsWith("http") ? "_blank" : undefined}
                       rel={link.href.startsWith("http") ? "noopener" : undefined}
-                      aria-label={link.label}
-                      title={link.label}
+                      aria-label={tx(link.label)}
+                      title={tx(link.label)}
                       key={link.label}
                     >
-                      {link.icon}
+                      {tx(link.icon)}
                     </a>
                   ))}
                 </div>
                 <a className="footer-direct-link" href={whatsappHref()} target="_blank" rel="noopener">
-                  {WHATSAPP_DISPLAY}
+                  {tx(WHATSAPP_DISPLAY)}
                 </a>
                 <a className="footer-direct-link" href={`mailto:${CONTACT_EMAIL}`}>
-                  {CONTACT_EMAIL}
+                  {tx(CONTACT_EMAIL)}
                 </a>
               </FooterReveal>
             </div>
@@ -157,7 +158,7 @@ export function Footer() {
                 <div className="footer-menu-column" key={columnIndex}>
                   {column.map((link) => (
                     <Link className="footer-menu-link" href={link.href} prefetch={false} key={link.label}>
-                      <span>{link.label}</span>
+                      <span>{tx(link.label)}</span>
                     </Link>
                   ))}
                 </div>
@@ -165,13 +166,13 @@ export function Footer() {
             </FooterReveal>
           </div>
 
-          <nav className="footer-courses" aria-label="Clases de música por instrumento">
-            <p className="footer-courses-title">Clases de música en Bogotá y virtuales</p>
+          <nav className="footer-courses" aria-label={tx("Clases de música por instrumento")}>
+            <p className="footer-courses-title">{tx("Clases de música en Bogotá y virtuales")}</p>
             <ul className="footer-courses-list">
               {COURSE_PAGES.map((page) => (
                 <li key={page.path}>
                   <Link href={page.path} prefetch={false}>
-                    Clases de {page.course.label.toLowerCase()}
+                    {tx("Clases de ")}{tx(page.course.label.toLowerCase())}
                   </Link>
                 </li>
               ))}
@@ -179,12 +180,11 @@ export function Footer() {
           </nav>
 
           <div className="footer-bottom">
-            <span>© {year} A medio tono</span>
+            <span>{tx("© ")}{tx(year)} {tx(" A medio tono")}</span>
             <span className="footer-credit">
-              Diseño y desarrollo:{" "}
+              {tx("Diseño y desarrollo:")}{tx(" ")}
               <a href="https://dardo.studio/es/" target="_blank" rel="noopener">
-                Dardo
-              </a>
+                {tx("Dardo")}</a>
             </span>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import {localizedPath, routing} from "@/i18n/routing";
 import { B2B_HUB_PATH, B2B_SERVICES } from "@/lib/b2b";
 import {
   BLOG_CATEGORY_ORDER,
@@ -54,7 +55,7 @@ function entry(
 export default function sitemap(): MetadataRoute.Sitemap {
   const blogUpdatedAt = latestPostDate();
 
-  return [
+  const entries: MetadataRoute.Sitemap = [
     entry("/", SITE_CONTENT_UPDATED_AT, "weekly", 1, ["/og-logo-white.png"]),
     entry("/clases", SITE_CONTENT_UPDATED_AT, "weekly", 0.95),
     ...COURSE_PAGES.map((page) =>
@@ -98,4 +99,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     entry("/nosotros", SITE_CONTENT_UPDATED_AT, "monthly", 0.6),
     entry("/trabaja-con-nosotros", SITE_CONTENT_UPDATED_AT, "monthly", 0.5),
   ];
+  return entries.flatMap(item => {
+    const path = new URL(item.url).pathname;
+    const languages = Object.fromEntries([
+      ...routing.locales.map(locale => [locale, absoluteUrl(localizedPath(path, locale))]),
+      ["x-default", item.url],
+    ]);
+    return routing.locales.map(locale => ({
+      ...item,
+      url: absoluteUrl(localizedPath(path, locale)),
+      ...(locale === "es" ? {} : {lastModified: "2026-10-02"}),
+      alternates: {languages},
+    }));
+  });
 }

@@ -1,4 +1,5 @@
 "use client";
+import {useText} from "@/i18n/use-text";
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Minus, Pause, Play, Plus, Hand } from "lucide-react";
@@ -57,6 +58,7 @@ export function Metronome({
   /** Rhythm presets: the first one loads, the others are one tap away. */
   setups?: MetronomeSetup[];
 }) {
+  const tx = useText();
   const first = setups[0];
   const [bpm, setBpm] = useState(first?.bpm ?? initialBpm);
   const [meterId, setMeterId] = useState<MeterId>(first?.meter ?? "4/4");
@@ -229,7 +231,7 @@ export function Metronome({
   return (
     <div className="tool-card metronome">
       {setups.length > 1 && (
-        <div className="metronome-setups" role="group" aria-label="Compás del ritmo">
+        <div className="metronome-setups" role="group" aria-label={tx("Compás del ritmo")}>
           {setups.map((setup, index) => (
             <button
               key={setup.label}
@@ -238,7 +240,7 @@ export function Metronome({
               aria-pressed={setupIndex === index}
               onClick={() => applySetup(index)}
             >
-              {setup.label}
+              {tx(setup.label)}
             </button>
           ))}
         </div>
@@ -246,12 +248,12 @@ export function Metronome({
 
       <div className="metronome-display">
         <p className="metronome-bpm" aria-live="polite">
-          <strong>{bpm}</strong>
+          <strong>{tx(bpm)}</strong>
           <span>
-            BPM{meter.pulse === "negra" ? "" : ` (${meter.pulse})`} · {meterId} · {marking.name}
+            {tx("BPM")}{tx(meter.pulse === "negra" ? "" : tx.template(" ({p0})", {p0: tx(meter.pulse)}))} {tx(" · ")}{tx(meterId)} {tx(" · ")}{tx(marking.name)}
           </span>
         </p>
-        <ol className="metronome-beats" aria-label="Tiempos del compás">
+        <ol className="metronome-beats" aria-label={tx("Tiempos del compás")}>
           {accents.slice(0, beats).map((level, index) => (
             <li key={index}>
               <button
@@ -262,7 +264,7 @@ export function Metronome({
                   accent && level === 1 ? "is-secondary" : "",
                 ].join(" ")}
                 onClick={() => cycleAccent(index)}
-                aria-label={`Tiempo ${index + 1}: ${ACCENT_NAMES[accent ? level : 0]}. Toca para cambiar el acento.`}
+                aria-label={tx(tx.template("Tiempo {p0}: {p1}. Toca para cambiar el acento.", {p0: tx(index + 1), p1: tx(ACCENT_NAMES[accent ? level : 0])}))}
               />
             </li>
           ))}
@@ -270,11 +272,11 @@ export function Metronome({
       </div>
 
       <div className="metronome-tempo">
-        <button type="button" className="tool-round" onClick={() => setBpm((value) => clampBpm(value - 1))} aria-label="Bajar 1 BPM">
+        <button type="button" className="tool-round" onClick={() => setBpm((value) => clampBpm(value - 1))} aria-label={tx("Bajar 1 BPM")}>
           <Minus size={20} strokeWidth={2.6} aria-hidden="true" />
         </button>
         <label className="metronome-slider">
-          <span className="visually-hidden">Tempo en BPM</span>
+          <span className="visually-hidden">{tx("Tempo en BPM")}</span>
           <input
             type="range"
             min={MIN_BPM}
@@ -283,7 +285,7 @@ export function Metronome({
             onChange={(event) => setBpm(clampBpm(Number(event.target.value)))}
           />
         </label>
-        <button type="button" className="tool-round" onClick={() => setBpm((value) => clampBpm(value + 1))} aria-label="Subir 1 BPM">
+        <button type="button" className="tool-round" onClick={() => setBpm((value) => clampBpm(value + 1))} aria-label={tx("Subir 1 BPM")}>
           <Plus size={20} strokeWidth={2.6} aria-hidden="true" />
         </button>
       </div>
@@ -292,46 +294,43 @@ export function Metronome({
         <button type="button" className="ed-button metronome-toggle" onClick={toggle}>
           {running ? (
             <>
-              <Pause size={20} strokeWidth={2.4} aria-hidden="true" /> Detener
-            </>
+              <Pause size={20} strokeWidth={2.4} aria-hidden="true" /> {tx(" Detener")}</>
           ) : (
             <>
-              <Play size={20} strokeWidth={2.4} aria-hidden="true" /> Iniciar
-            </>
+              <Play size={20} strokeWidth={2.4} aria-hidden="true" /> {tx(" Iniciar")}</>
           )}
         </button>
         <button type="button" className="ed-button ed-button--ghost" onClick={tap}>
-          <Hand size={20} strokeWidth={2.4} aria-hidden="true" /> Tap tempo
-        </button>
+          <Hand size={20} strokeWidth={2.4} aria-hidden="true" /> {tx(" Tap tempo")}</button>
       </div>
 
       <div className="metronome-options">
         <label className="tool-select">
-          <span>Compás</span>
+          <span>{tx("Compás")}</span>
           <select value={meterId} onChange={(event) => changeMeter(event.target.value as MeterId)}>
             {METERS.map((option) => (
               <option key={option.id} value={option.id}>
-                {option.id}
+                {tx(option.id)}
               </option>
             ))}
           </select>
         </label>
         <label className="tool-select">
-          <span>Subdivisión</span>
+          <span>{tx("Subdivisión")}</span>
           <select value={subdivision} onChange={(event) => setSubdivision(Number(event.target.value))}>
             {subdivisionOptions(meter.pulse).map((option) => (
               <option key={option.value} value={option.value}>
-                {option.label}
+                {tx(option.label)}
               </option>
             ))}
           </select>
         </label>
         <label className="tool-check">
           <input type="checkbox" checked={accent} onChange={(event) => setAccent(event.target.checked)} />
-          <span>Acentuar tiempos</span>
+          <span>{tx("Acentuar tiempos")}</span>
         </label>
         <label className="tool-select tool-volume">
-          <span>Volumen</span>
+          <span>{tx("Volumen")}</span>
           <input
             type="range"
             min={0.1}
@@ -343,9 +342,7 @@ export function Metronome({
         </label>
       </div>
       <p className="tool-hint">
-        Toca un punto para cambiar su acento: fuerte, suave o ninguno. Atajos: barra espaciadora para
-        iniciar o detener, flechas para cambiar el tempo.
-      </p>
+        {tx("Toca un punto para cambiar su acento: fuerte, suave o ninguno. Atajos: barra espaciadora para iniciar o detener, flechas para cambiar el tempo.")}</p>
     </div>
   );
 }

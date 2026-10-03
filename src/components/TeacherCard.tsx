@@ -1,5 +1,6 @@
+import {useText} from "@/i18n/use-text";
 import Image from "next/image";
-import Link from "next/link";
+import Link from "@/i18n/navigation";
 import {
   BadgeCheck,
   GraduationCap,
@@ -28,13 +29,14 @@ export function classFormatIcon(format: string) {
 }
 
 export function TeacherCard({ teacher }: { teacher: Teacher }) {
+  const tx = useText();
   const instruments = teacher.skills.map((skill) => skill.label);
   const classFormats = teacher.classFormats ?? [];
   const classLanguages = teacher.classLanguages ?? [];
   const teacherContactHref = whatsappHref(
-    `¡Hola! Quiero más información sobre las clases con ${teacher.name}.`,
+    tx.template("¡Hola! Quiero más información sobre las clases con {p0}.", {p0: tx(teacher.name)}),
   );
-  const bio = splitBioLead(teacher.longBio);
+  const bio = splitBioLead(tx(teacher.longBio));
 
   return (
     <li className="profe-card-wrap">
@@ -45,9 +47,9 @@ export function TeacherCard({ teacher }: { teacher: Teacher }) {
         <Link
           href={`/profes/${teacher.slug}`}
           className="profe-card-click-target"
-          aria-label={`Ver perfil de ${teacher.name}`}
+          aria-label={tx(tx.template("Ver perfil de {p0}", {p0: teacher.name}))}
         >
-          <span className="visually-hidden">Ver perfil de {teacher.name}</span>
+          <span className="visually-hidden">{tx("Ver perfil de ")}{teacher.name}</span>
         </Link>
 
         <div
@@ -79,18 +81,18 @@ export function TeacherCard({ teacher }: { teacher: Teacher }) {
             <span
               className="profe-card-badge"
               role="img"
-              aria-label="Profesor verificado"
-              title="Profesor verificado"
+              aria-label={tx("Profesor verificado")}
+              title={tx("Profesor verificado")}
             >
               <BadgeCheck size={17} strokeWidth={2.4} aria-hidden="true" />
             </span>
             {teacher.countryFlag && (
               <span
                 className="profe-card-flag"
-                aria-label={teacher.country}
-                title={teacher.country}
+                aria-label={tx(teacher.country)}
+                title={tx(teacher.country)}
               >
-                {teacher.countryFlag}
+                {tx(teacher.countryFlag)}
               </span>
             )}
           </div>
@@ -98,23 +100,23 @@ export function TeacherCard({ teacher }: { teacher: Teacher }) {
           <ul className="profe-card-meta">
             <li className="profe-card-meta-primary">
               <GraduationCap size={15} strokeWidth={2.4} />
-              <ul className="profe-card-instrument-list" aria-label="Cursos que imparte">
+              <ul className="profe-card-instrument-list" aria-label={tx("Cursos que imparte")}>
                 {instruments.map((instrument) => (
                   <li key={instrument}>
-                    <strong>{instrument}</strong>
+                    <strong>{tx(instrument)}</strong>
                   </li>
                 ))}
               </ul>
             </li>
             <li>
               <Languages size={15} strokeWidth={2.4} />
-              <span>{classLanguages.join(" · ")}</span>
+              <span>{tx(classLanguages.map(tx).join(" · "))}</span>
             </li>
           </ul>
 
           <p className="profe-card-bio">
-            <strong>{bio.lead}</strong>
-            {bio.rest && <span> {bio.rest}</span>}
+            <strong>{tx(bio.lead)}</strong>
+            {bio.rest && <span> {tx(bio.rest)}</span>}
           </p>
         </div>
 
@@ -124,15 +126,15 @@ export function TeacherCard({ teacher }: { teacher: Teacher }) {
             className="profe-card-chat"
             target="_blank"
             rel="noopener"
-            aria-label={`Escribir por WhatsApp sobre ${teacher.name}`}
+            aria-label={tx(tx.template("Escribir por WhatsApp sobre {p0}", {p0: teacher.name}))}
           >
             <MessageCircle size={22} strokeWidth={2.4} aria-hidden="true" />
-            <span className="profe-card-chat-label">WhatsApp</span>
+            <span className="profe-card-chat-label">{tx("WhatsApp")}</span>
           </a>
-          <ul className="profe-card-action-details" aria-label="Detalles de clase">
+          <ul className="profe-card-action-details" aria-label={tx("Detalles de clase")}>
             <li>
               <MapPin size={20} strokeWidth={2.4} aria-hidden="true" />
-              <span>{teacher.location}</span>
+              <span>{tx(teacher.location)}</span>
             </li>
             {classFormats.map((format) => {
               const FormatIcon = classFormatIcon(format);
@@ -140,7 +142,7 @@ export function TeacherCard({ teacher }: { teacher: Teacher }) {
               return (
                 <li key={format}>
                   <FormatIcon size={20} strokeWidth={2.4} aria-hidden="true" />
-                  <span>{format}</span>
+                  <span>{tx(format)}</span>
                 </li>
               );
             })}

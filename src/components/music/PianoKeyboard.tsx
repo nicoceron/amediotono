@@ -1,3 +1,4 @@
+import {useText} from "@/i18n/use-text";
 import "./music.css";
 
 const WHITE_WIDTH = 26;
@@ -28,6 +29,7 @@ export function PianoKeyboard({
   octaves?: number;
   title: string;
 }) {
+  const tx = useText();
   const startMidi = (startOctave + 1) * 12;
   const whites: number[] = [];
   const blacks: { midi: number; x: number }[] = [];
@@ -48,13 +50,13 @@ export function PianoKeyboard({
     highlighted.includes(midi) ? `${base} is-on${roots.includes(midi) ? " is-root" : ""}` : base;
 
   return (
-    <svg className="piano-keyboard" viewBox={`0 0 ${width + 2} ${WHITE_HEIGHT + 2}`} role="img" aria-label={title}>
+    <svg className="piano-keyboard" viewBox={`0 0 ${width + 2} ${WHITE_HEIGHT + 2}`} role="img" aria-label={tx(title)}>
       {whites.map((midi, i) => (
         <g key={midi}>
           <rect className={keyClass(midi, "piano-white")} x={1 + i * WHITE_WIDTH} y={1} width={WHITE_WIDTH} height={WHITE_HEIGHT} rx={3} />
           {highlighted.includes(midi) && (
             <text className="piano-label" x={1 + i * WHITE_WIDTH + WHITE_WIDTH / 2} y={WHITE_HEIGHT - 10} textAnchor="middle">
-              {label(midi)}
+              {tx(label(midi))}
             </text>
           )}
         </g>
@@ -64,7 +66,7 @@ export function PianoKeyboard({
           <rect className={keyClass(midi, "piano-black")} x={1 + x} y={1} width={BLACK_WIDTH} height={BLACK_HEIGHT} rx={2} />
           {highlighted.includes(midi) && (
             <text className="piano-label piano-label--black" x={1 + x + BLACK_WIDTH / 2} y={BLACK_HEIGHT - 8} textAnchor="middle">
-              {label(midi)}
+              {tx(label(midi))}
             </text>
           )}
         </g>

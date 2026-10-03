@@ -1,4 +1,5 @@
 "use client";
+import {useText} from "@/i18n/use-text";
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Mic, RotateCcw } from "lucide-react";
@@ -27,6 +28,7 @@ function label(midi: number | null) {
 }
 
 export function VoiceTypeTest() {
+  const tx = useText();
   const [phase, setPhase] = useState<Phase>("idle");
   const [error, setError] = useState("");
   const [current, setCurrent] = useState<number | null>(null);
@@ -125,22 +127,19 @@ export function VoiceTypeTest() {
 
   return (
     <div className="tool-card voice-test">
-      <ol className="voice-steps" aria-label="Pasos del test">
-        <li className={phase === "low" ? "is-active" : lowest !== null ? "is-done" : ""}>1. Nota grave</li>
-        <li className={phase === "high" ? "is-active" : highest !== null ? "is-done" : ""}>2. Nota aguda</li>
-        <li className={phase === "result" ? "is-active" : ""}>3. Resultado</li>
+      <ol className="voice-steps" aria-label={tx("Pasos del test")}>
+        <li className={phase === "low" ? "is-active" : lowest !== null ? "is-done" : ""}>{tx("1. Nota grave")}</li>
+        <li className={phase === "high" ? "is-active" : highest !== null ? "is-done" : ""}>{tx("2. Nota aguda")}</li>
+        <li className={phase === "result" ? "is-active" : ""}>{tx("3. Resultado")}</li>
       </ol>
 
       {phase === "idle" && (
         <div className="voice-intro">
           <p>
-            Calienta la voz un par de minutos. Luego canta con una vocal abierta («a») y sostén
-            cada nota un segundo. Canta solo hasta donde estés cómodo: nunca fuerces.
-          </p>
+            {tx("Calienta la voz un par de minutos. Luego canta con una vocal abierta («a») y sostén cada nota un segundo. Canta solo hasta donde estés cómodo: nunca fuerces.")}</p>
           <div className="tool-actions">
             <button type="button" className="ed-button" onClick={start}>
-              <Mic size={20} strokeWidth={2.4} aria-hidden="true" /> Empezar el test
-            </button>
+              <Mic size={20} strokeWidth={2.4} aria-hidden="true" /> {tx(" Empezar el test")}</button>
           </div>
         </div>
       )}
@@ -148,17 +147,17 @@ export function VoiceTypeTest() {
       {(phase === "low" || phase === "high") && (
         <div className="voice-live" aria-live="polite">
           <p className="voice-instruction">
-            {phase === "low"
+            {tx(phase === "low"
               ? "Baja poco a poco y sostén la nota más grave que puedas cantar con comodidad."
-              : "Ahora sube poco a poco y sostén la nota más aguda que puedas cantar sin forzar."}
+              : "Ahora sube poco a poco y sostén la nota más aguda que puedas cantar sin forzar.")}
           </p>
           <p className="tuner-note">
-            <strong>{current !== null ? noteLabel(current).es : "—"}</strong>
-            <span>{current !== null ? noteLabel(current).scientific : "Canta una nota"}</span>
+            <strong>{tx(current !== null ? noteLabel(current).es : "—")}</strong>
+            <span>{tx(current !== null ? noteLabel(current).scientific : "Canta una nota")}</span>
           </p>
           <p className="voice-record">
-            {phase === "low" ? "Nota más grave registrada: " : "Nota más aguda registrada: "}
-            <strong>{label(phase === "low" ? lowest : highest)}</strong>
+            {tx(phase === "low" ? "Nota más grave registrada: " : "Nota más aguda registrada: ")}
+            <strong>{tx(label(phase === "low" ? lowest : highest))}</strong>
           </p>
           <div className="tool-actions">
             <button
@@ -167,11 +166,10 @@ export function VoiceTypeTest() {
               onClick={next}
               disabled={phase === "low" ? lowest === null : highest === null}
             >
-              {phase === "low" ? "Siguiente: nota aguda" : "Ver mi resultado"}
+              {tx(phase === "low" ? "Siguiente: nota aguda" : "Ver mi resultado")}
             </button>
             <button type="button" className="ed-button ed-button--ghost" onClick={reset}>
-              <RotateCcw size={18} strokeWidth={2.4} aria-hidden="true" /> Reiniciar
-            </button>
+              <RotateCcw size={18} strokeWidth={2.4} aria-hidden="true" /> {tx(" Reiniciar")}</button>
           </div>
         </div>
       )}
@@ -181,31 +179,28 @@ export function VoiceTypeTest() {
           {result ? (
             <>
               <p className="voice-range">
-                Tu rango: <strong>{label(lowest)}</strong> a <strong>{label(highest)}</strong>
-                <span> · {span} semitonos</span>
+                {tx("Tu rango: ")}<strong>{tx(label(lowest))}</strong> {tx(" a ")}<strong>{tx(label(highest))}</strong>
+                <span> {tx(" · ")}{tx(span)} {tx(" semitonos")}</span>
               </p>
               <p className="voice-type">
-                Tu rango se parece al de la voz de <strong>{result.name.toLowerCase()}</strong>
+                {tx("Tu rango se parece al de la voz de ")}<strong>{tx(result.name.toLowerCase())}</strong>
               </p>
               <p className="tool-hint">
-                Es una orientación: el tipo de voz también depende del color, de dónde cambia tu voz
-                de registro y de dónde te sientes cómodo. Un profe de canto puede confirmarlo.
-              </p>
+                {tx("Es una orientación: el tipo de voz también depende del color, de dónde cambia tu voz de registro y de dónde te sientes cómodo. Un profe de canto puede confirmarlo.")}</p>
             </>
           ) : (
-            <p>No alcanzamos a registrar tu rango. Intenta de nuevo en un lugar silencioso y sostén cada nota un poco más.</p>
+            <p>{tx("No alcanzamos a registrar tu rango. Intenta de nuevo en un lugar silencioso y sostén cada nota un poco más.")}</p>
           )}
           <div className="tool-actions">
             <button type="button" className="ed-button" onClick={reset}>
-              <RotateCcw size={18} strokeWidth={2.4} aria-hidden="true" /> Repetir el test
-            </button>
+              <RotateCcw size={18} strokeWidth={2.4} aria-hidden="true" /> {tx(" Repetir el test")}</button>
           </div>
         </div>
       )}
 
       {error && (
         <p className="ed-form-error" role="alert">
-          {error}
+          {tx(error)}
         </p>
       )}
 
@@ -215,7 +210,7 @@ export function VoiceTypeTest() {
           const width = ((type.high - type.low) / (88 - 36)) * 100;
           return (
             <div className="voice-scale-row" key={type.name}>
-              <span>{type.name}</span>
+              <span>{tx(type.name)}</span>
               <div className="voice-scale-track">
                 <i style={{ left: `${left}%`, width: `${width}%` }} className={result?.name === type.name ? "is-match" : undefined} />
                 {lowest !== null && highest !== null && phase === "result" && (

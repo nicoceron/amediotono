@@ -1,7 +1,8 @@
 "use client";
+import {useText} from "@/i18n/use-text";
 
 import { useMemo, useState } from "react";
-import Link from "next/link";
+import Link from "@/i18n/navigation";
 import { Search, X } from "lucide-react";
 
 export type BlogSearchItem = {
@@ -22,15 +23,16 @@ function normalize(value: string) {
 }
 
 export function BlogSearch({ items }: { items: BlogSearchItem[] }) {
+  const tx = useText();
   const [query, setQuery] = useState("");
   const index = useMemo(
     () =>
       items.map((item) => ({
         item,
-        haystack: normalize(`${item.title} ${item.excerpt} ${item.category} ${item.keywords}`),
-        title: normalize(item.title),
+        haystack: normalize(`${tx(item.title)} ${tx(item.excerpt)} ${tx(item.category)} ${item.keywords}`),
+        title: normalize(tx(item.title)),
       })),
-    [items],
+    [items, tx],
   );
 
   const terms = normalize(query).split(/\s+/).filter((term) => term.length > 1);
@@ -50,18 +52,17 @@ export function BlogSearch({ items }: { items: BlogSearchItem[] }) {
       <form className="blog-search-field" role="search" onSubmit={(event) => event.preventDefault()}>
         <Search size={20} strokeWidth={2.4} aria-hidden="true" />
         <label className="visually-hidden" htmlFor="blog-search-input">
-          Buscar en el blog
-        </label>
+          {tx("Buscar en el blog")}</label>
         <input
           id="blog-search-input"
           type="search"
           value={query}
           onChange={(event) => setQuery(event.target.value)}
-          placeholder="Busca: violín para niños, afinar guitarra, admisión…"
+          placeholder={tx("Busca: violín para niños, afinar guitarra, admisión…")}
           autoComplete="off"
         />
         {query && (
-          <button type="button" onClick={() => setQuery("")} aria-label="Borrar búsqueda">
+          <button type="button" onClick={() => setQuery("")} aria-label={tx("Borrar búsqueda")}>
             <X size={18} strokeWidth={2.4} aria-hidden="true" />
           </button>
         )}
@@ -70,17 +71,17 @@ export function BlogSearch({ items }: { items: BlogSearchItem[] }) {
       {terms.length > 0 && (
         <div className="blog-search-results" aria-live="polite">
           <p className="blog-search-count">
-            {results.length === 0
+            {tx(results.length === 0
               ? "No encontramos artículos con esas palabras. Prueba con otra búsqueda."
-              : `${results.length} ${results.length === 1 ? "artículo" : "artículos"}`}
+              : tx.template("{p0} {p1}", {p0: tx(results.length), p1: tx(results.length === 1 ? "artículo" : "artículos")}))}
           </p>
           {results.length > 0 && (
             <ul>
               {results.slice(0, MAX_RESULTS).map((item) => (
                 <li key={item.slug}>
                   <Link href={`/blog/${item.slug}`} prefetch={false}>
-                    <span>{item.category}</span>
-                    <strong>{item.title}</strong>
+                    <span>{tx(item.category)}</span>
+                    <strong>{tx(item.title)}</strong>
                   </Link>
                 </li>
               ))}

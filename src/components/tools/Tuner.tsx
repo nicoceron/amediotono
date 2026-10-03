@@ -1,4 +1,5 @@
 "use client";
+import {useText} from "@/i18n/use-text";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Mic, MicOff, Volume2 } from "lucide-react";
@@ -66,6 +67,7 @@ export function Tuner({
   /** Spell notes with flats (Mi♭) instead of sharps (Re♯). */
   flats?: boolean;
 }) {
+  const tx = useText();
   const [status, setStatus] = useState<"idle" | "listening" | "error">("idle");
   const [error, setError] = useState("");
   const [reading, setReading] = useState<Reading | null>(null);
@@ -199,25 +201,25 @@ export function Tuner({
         <p className="tuner-note">
           {targetNote ? (
             <>
-              <strong>{targetNote.es}</strong>
+              <strong>{tx(targetNote.es)}</strong>
               <span>
-                {targetNote.scientific}
-                {target ? ` · ${target.label}` : ""}
+                {tx(targetNote.scientific)}
+                {tx(target ? tx.template(" · {p0}", {p0: tx(target.label)}) : "")}
               </span>
             </>
           ) : (
             <>
-              <strong>—</strong>
-              <span>{status === "listening" ? "Toca una cuerda o una nota" : "Activa el micrófono"}</span>
+              <strong>{tx("—")}</strong>
+              <span>{tx(status === "listening" ? "Toca una cuerda o una nota" : "Activa el micrófono")}</span>
             </>
           )}
         </p>
 
-        <div className="tuner-meter" role="meter" aria-valuemin={-50} aria-valuemax={50} aria-valuenow={reading ? Math.round(reading.cents) : 0} aria-label="Desviación en cents">
+        <div className="tuner-meter" role="meter" aria-valuemin={-50} aria-valuemax={50} aria-valuenow={reading ? Math.round(reading.cents) : 0} aria-label={tx("Desviación en cents")}>
           <div className="tuner-scale" aria-hidden="true">
             {[-50, -25, 0, 25, 50].map((mark) => (
               <span key={mark} style={{ left: `${50 + mark}%` }}>
-                {mark > 0 ? `+${mark}` : mark}
+                {tx(mark > 0 ? tx.template("+{p0}", {p0: tx(mark)}) : mark)}
               </span>
             ))}
           </div>
@@ -233,18 +235,17 @@ export function Tuner({
         <p className="tuner-status">
           {reading ? (
             <>
-              <strong>{direction}</strong>
+              <strong>{tx(direction)}</strong>
               <span>
-                {reading.frequency.toFixed(1)} Hz · {reading.cents > 0 ? "+" : ""}
-                {Math.round(reading.cents)} cents
-              </span>
-              {octaveNote && <span className="tuner-octave">{octaveNote}</span>}
+                {tx(reading.frequency.toFixed(1))} {tx(" Hz · ")}{tx(reading.cents > 0 ? "+" : "")}
+                {tx(Math.round(reading.cents))} {tx(" cents")}</span>
+              {octaveNote && <span className="tuner-octave">{tx(octaveNote)}</span>}
             </>
           ) : (
             <span>
-              {status === "listening"
-                ? `Escuchando${instrumentName ? ` tu ${instrumentName}` : ""}…`
-                : "El sonido se analiza en tu dispositivo: no grabamos ni enviamos audio."}
+              {tx(status === "listening"
+                ? tx.template("Escuchando{p0}…", {p0: tx(instrumentName ? ` tu ${instrumentName}` : "")})
+                : "El sonido se analiza en tu dispositivo: no grabamos ni enviamos audio.")}
             </span>
           )}
         </p>
@@ -254,21 +255,18 @@ export function Tuner({
         <button type="button" className="ed-button" onClick={toggle}>
           {status === "listening" ? (
             <>
-              <MicOff size={20} strokeWidth={2.4} aria-hidden="true" /> Detener
-            </>
+              <MicOff size={20} strokeWidth={2.4} aria-hidden="true" /> {tx(" Detener")}</>
           ) : (
             <>
-              <Mic size={20} strokeWidth={2.4} aria-hidden="true" /> Activar micrófono
-            </>
+              <Mic size={20} strokeWidth={2.4} aria-hidden="true" /> {tx(" Activar micrófono")}</>
           )}
         </button>
         <label className="tool-select">
-          <span>La =</span>
+          <span>{tx("La =")}</span>
           <select value={a4} onChange={(event) => setA4(Number(event.target.value))}>
             {[430, 432, 435, 438, 440, 441, 442, 443, 445].map((value) => (
               <option key={value} value={value}>
-                {value} Hz
-              </option>
+                {tx(value)} {tx(" Hz")}</option>
             ))}
           </select>
         </label>
@@ -276,14 +274,14 @@ export function Tuner({
 
       {error && (
         <p className="ed-form-error" role="alert">
-          {error}
+          {tx(error)}
         </p>
       )}
 
       {targets.length > 0 && (
         <div className="tuner-strings">
           <p className="tuner-strings-title">
-            Cuerda objetivo: {selected === null || !targets[selected] ? "detección automática" : targets[selected].label}
+            {tx("Cuerda objetivo: ")}{tx(selected === null || !targets[selected] ? "detección automática" : targets[selected].label)}
           </p>
           <ul>
             <li>
@@ -293,8 +291,7 @@ export function Tuner({
                 onClick={() => setSelected(null)}
                 aria-pressed={selected === null}
               >
-                Auto
-              </button>
+                {tx("Auto")}</button>
             </li>
             {targets.map((item, index) => {
               const label = noteLabel(item.midi, flats);
@@ -306,18 +303,18 @@ export function Tuner({
                     className={[selected === index ? "is-active" : "", isTarget ? "is-target" : ""].join(" ")}
                     onClick={() => setSelected(index)}
                     aria-pressed={selected === index}
-                    aria-label={`${item.label}: ${label.es} (${label.scientific})`}
-                    title={item.label}
+                    aria-label={tx(tx.template("{p0}: {p1} ({p2})", {p0: tx(item.label), p1: tx(label.es), p2: tx(label.scientific)}))}
+                    title={tx(item.label)}
                   >
-                    <strong>{label.es}</strong>
-                    <span>{label.scientific}</span>
+                    <strong>{tx(label.es)}</strong>
+                    <span>{tx(label.scientific)}</span>
                   </button>
                   <button
                     type="button"
                     className="tuner-play"
                     onClick={() => playReference(item.midi)}
-                    aria-label={`Escuchar ${label.es} (${label.scientific})`}
-                    title="Escuchar nota de referencia"
+                    aria-label={tx(tx.template("Escuchar {p0} ({p1})", {p0: tx(label.es), p1: tx(label.scientific)}))}
+                    title={tx("Escuchar nota de referencia")}
                   >
                     <Volume2 size={16} strokeWidth={2.4} aria-hidden="true" />
                   </button>

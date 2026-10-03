@@ -3216,6 +3216,42 @@ body:has(.job-application-page) {
     visibility 0.18s ease;
 }
 
+.theme-picker {
+  position: relative;
+}
+
+.theme-picker-options {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  right: 0;
+  min-width: 144px;
+  padding: 6px;
+  border: 1px solid var(--button-base-border);
+  border-radius: 16px;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.theme-picker-options button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 12px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.theme-picker-options button:hover,
+.theme-picker-options button[aria-pressed="true"] {
+  background: var(--button-base-bg);
+  color: var(--button-base-text);
+}
+
 .theme-float-toggle {
   width: 44px;
   height: 44px;
@@ -3233,6 +3269,11 @@ body:has(.job-application-page) {
   cursor: pointer;
   box-shadow: none;
   transition: none;
+  list-style: none;
+}
+
+.theme-float-toggle::-webkit-details-marker {
+  display: none;
 }
 
 .theme-float-toggle:focus-visible {
@@ -9359,3 +9400,24 @@ section.block.ed-cta-section {
   text-decoration: underline;
   text-underline-offset: 3px;
 }
+.language-picker {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+}
+.language-picker select {
+  max-width: 115px;
+  padding: 6px 2px;
+  border: 0;
+  border-radius: 6px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 650;
+  color: inherit;
+  background: transparent;
+  cursor: pointer;
+  color-scheme: light dark;
+}
+.language-picker select option { color: CanvasText; background: Canvas; }
+.language-picker select:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }

@@ -1,3 +1,4 @@
+import {useText} from "@/i18n/use-text";
 import "./music.css";
 
 const FRET_WIDTH = 54;
@@ -29,6 +30,7 @@ export function Fretboard({
   title: string;
   lastFret?: number;
 }) {
+  const tx = useText();
   const strings = tuning.length;
   const width = LEFT + lastFret * FRET_WIDTH + 12;
   const height = TOP * 2 + (strings - 1) * STRING_GAP + 18;
@@ -37,7 +39,7 @@ export function Fretboard({
   const dotX = (fret: number) => (fret === 0 ? LEFT - 22 : LEFT + (fret - 0.5) * FRET_WIDTH);
 
   return (
-    <svg className="fretboard" viewBox={`0 0 ${width} ${height}`} role="img" aria-label={title}>
+    <svg className="fretboard" viewBox={`0 0 ${width} ${height}`} role="img" aria-label={tx(title)}>
       {INLAYS.map((fret) => (
         <circle key={fret} className="fretboard-inlay" cx={dotX(fret)} cy={y((strings - 1) / 2)} r={5} />
       ))}
@@ -52,7 +54,7 @@ export function Fretboard({
       ))}
       {Array.from({ length: lastFret }, (_, i) => (
         <text key={i} className="fretboard-number" x={dotX(i + 1)} y={height - 4} textAnchor="middle">
-          {i + 1}
+          {tx(i + 1)}
         </text>
       ))}
       {tuning.map((open, stringIndex) => {
@@ -60,7 +62,7 @@ export function Fretboard({
         return (
           <g key={stringIndex}>
             <text className="fretboard-string-label" x={4} y={y(row) + 4}>
-              {stringLabels[stringIndex]}
+              {tx(stringLabels[stringIndex])}
             </text>
             {Array.from({ length: lastFret + 1 }, (_, fret) => {
               const pc = (open + fret) % 12;
@@ -69,7 +71,7 @@ export function Fretboard({
                 <g key={fret}>
                   <circle className={pc === rootPc ? "fretboard-dot is-root" : "fretboard-dot"} cx={dotX(fret)} cy={y(row)} r={10} />
                   <text className="fretboard-dot-label" x={dotX(fret)} y={y(row) + 3.5} textAnchor="middle">
-                    {noteLabel[pc]}
+                    {tx(noteLabel[pc])}
                   </text>
                 </g>
               );

@@ -1,4 +1,5 @@
 "use client";
+import {useText} from "@/i18n/use-text";
 
 import { useEffect, useId, useMemo, useRef, useState } from "react";
 import type { FormEvent, HTMLAttributes, ReactNode, RefObject } from "react";
@@ -72,10 +73,10 @@ function normalizeSearch(value: string) {
 }
 
 function RequiredMark() {
+  const tx = useText();
   return (
     <span aria-hidden="true" className="job-required">
-      *
-    </span>
+      {tx("*")}</span>
   );
 }
 
@@ -126,15 +127,16 @@ function TextField({
   autoComplete?: string;
   placeholder?: string;
 }) {
+  const tx = useText();
   return (
     <label className="job-gh-field">
-      <RequiredLabel>{label}</RequiredLabel>
+      <RequiredLabel>{tx(label)}</RequiredLabel>
       <input
         name={name}
         type={type}
         inputMode={inputMode}
         autoComplete={autoComplete}
-        placeholder={placeholder}
+        placeholder={tx(placeholder)}
         required
       />
     </label>
@@ -162,6 +164,7 @@ function DropdownField({
   searchPlaceholder?: string;
   display?: "label" | "flag" | "countryCode";
 }) {
+  const tx = useText();
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState<DropdownOption | undefined>(() =>
     options.find((option) => option.value === defaultValue),
@@ -196,7 +199,7 @@ function DropdownField({
 
   return (
     <div className={open ? "job-gh-field job-gh-field-open" : "job-gh-field"} ref={fieldRef}>
-      <RequiredLabel id={labelId}>{label}</RequiredLabel>
+      <RequiredLabel id={labelId}>{tx(label)}</RequiredLabel>
       <input name={name} type="hidden" value={selected?.value ?? ""} />
       <button
         type="button"
@@ -209,7 +212,7 @@ function DropdownField({
         aria-haspopup="listbox"
         aria-expanded={open}
         aria-labelledby={labelId}
-        aria-label={selected ? `${label}: ${selected.label}` : label}
+        aria-label={tx(selected ? tx.template("{p0}: {p1}", {p0: tx(label), p1: tx(selected.label)}) : label)}
         onClick={() => {
           if (open) {
             closeMenu();
@@ -224,19 +227,19 @@ function DropdownField({
             <>
               {selected.flag && (
                 <span aria-hidden="true" className="job-country-flag-display">
-                  {selected.flag}
+                  {tx(selected.flag)}
                 </span>
               )}
-              <span className="job-country-code">{selected.value}</span>
+              <span className="job-country-code">{tx(selected.value)}</span>
             </>
           ) : display === "flag" && selected?.flag ? (
             <span aria-hidden="true" className="job-country-flag-display">
-              {selected.flag}
+              {tx(selected.flag)}
             </span>
           ) : (
             <>
-              {selected?.flag && <span aria-hidden="true">{selected.flag}</span>}
-              {selected?.label ?? placeholder}
+              {selected?.flag && <span aria-hidden="true">{tx(selected.flag)}</span>}
+              {tx(selected?.label ?? placeholder)}
             </>
           )}
         </span>
@@ -252,8 +255,8 @@ function DropdownField({
                 type="search"
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
-                placeholder={searchPlaceholder}
-                aria-label={searchPlaceholder}
+                placeholder={tx(searchPlaceholder)}
+                aria-label={tx(searchPlaceholder)}
               />
             </div>
           )}
@@ -271,12 +274,12 @@ function DropdownField({
                   closeMenu();
                 }}
               >
-                {option.flag && <span aria-hidden="true">{option.flag}</span>}
-                <span>{option.label}</span>
+                {option.flag && <span aria-hidden="true">{tx(option.flag)}</span>}
+                <span>{tx(option.label)}</span>
               </button>
             ))
           ) : (
-            <div className="job-gh-empty">Sin resultados</div>
+            <div className="job-gh-empty">{tx("Sin resultados")}</div>
           )}
         </div>
       )}
@@ -285,6 +288,7 @@ function DropdownField({
 }
 
 function LocationField() {
+  const tx = useText();
   const [value, setValue] = useState("");
   const [focused, setFocused] = useState(false);
   const [residenceType, setResidenceType] = useState<"bogota" | "nearby">("bogota");
@@ -322,8 +326,7 @@ function LocationField() {
     <div className="job-residence-group">
       <fieldset className="job-choice job-residence-choice" aria-labelledby={residenceTypeLabelId}>
         <legend id={residenceTypeLabelId}>
-          ¿Vives en Bogotá?
-          <RequiredMark />
+          {tx("¿Vives en Bogotá?")}<RequiredMark />
         </legend>
         <label>
           <input
@@ -334,7 +337,7 @@ function LocationField() {
             onChange={() => handleResidenceTypeChange("bogota")}
             required
           />
-          <span>Sí, en Bogotá</span>
+          <span>{tx("Sí, en Bogotá")}</span>
         </label>
         <label>
           <input
@@ -344,7 +347,7 @@ function LocationField() {
             checked={residenceType === "nearby"}
             onChange={() => handleResidenceTypeChange("nearby")}
           />
-          <span>No, vivo cerca de Bogotá</span>
+          <span>{tx("No, vivo cerca de Bogotá")}</span>
         </label>
       </fieldset>
 
@@ -352,7 +355,7 @@ function LocationField() {
         className={showSuggestions ? "job-gh-field job-gh-field-open" : "job-gh-field"}
         ref={fieldRef}
       >
-        <RequiredLabel id={labelId}>{locationLabel}</RequiredLabel>
+        <RequiredLabel id={labelId}>{tx(locationLabel)}</RequiredLabel>
         <div className="job-combobox-control">
           <input
             ref={inputRef}
@@ -360,7 +363,7 @@ function LocationField() {
             type="text"
             autoComplete="address-level2"
             value={value}
-            placeholder={locationPlaceholder}
+            placeholder={tx(locationPlaceholder)}
             onChange={(event) => {
               setValue(event.target.value);
               setFocused(true);
@@ -376,7 +379,7 @@ function LocationField() {
           <button
             type="button"
             className="job-combobox-toggle"
-            aria-label={showSuggestions ? "Ocultar opciones" : "Mostrar opciones"}
+            aria-label={tx(showSuggestions ? "Ocultar opciones" : "Mostrar opciones")}
             aria-expanded={showSuggestions}
             onMouseDown={(event) => event.preventDefault()}
             onClick={() => {
@@ -407,7 +410,7 @@ function LocationField() {
                   setFocused(false);
                 }}
               >
-                {location}
+                {tx(location)}
               </button>
             ))}
           </div>
@@ -418,16 +421,17 @@ function LocationField() {
 }
 
 function LanguageChecklist() {
+  const tx = useText();
   return (
     <fieldset className="job-language-checks">
       <legend>
-        <FieldLabel>Idiomas adicionales</FieldLabel>
+        <FieldLabel>{tx("Idiomas adicionales")}</FieldLabel>
       </legend>
       <div className="job-language-options">
         {LANGUAGE_OPTIONS.map((language) => (
           <label key={language}>
             <input type="checkbox" name="idiomas" value={language} />
-            <span>{language}</span>
+            <span>{tx(language)}</span>
           </label>
         ))}
       </div>
@@ -436,6 +440,7 @@ function LanguageChecklist() {
 }
 
 export function JobApplicationForm() {
+  const tx = useText();
   const [submissionStatus, setSubmissionStatus] = useState<
     "idle" | "submitting" | "success" | "error"
   >("idle");
@@ -475,8 +480,7 @@ export function JobApplicationForm() {
     <form className="job-form" encType="multipart/form-data" onSubmit={handleSubmit}>
       <section className="job-form-section" aria-labelledby="general-info-title">
         <h2 className="visually-hidden" id="general-info-title">
-          Información general
-        </h2>
+          {tx("Información general")}</h2>
 
         <TextField label="Nombre" name="nombre" autoComplete="name" />
         <TextField label="Correo electrónico" name="correo" type="email" autoComplete="email" />
@@ -504,37 +508,35 @@ export function JobApplicationForm() {
         <TextField
           label="Instrumento que interpreta"
           name="instrumento"
-          placeholder="Ej. Piano, violín, guitarra, canto..."
+          placeholder={tx("Ej. Piano, violín, guitarra, canto...")}
         />
 
         <div className="job-form-grid">
           <fieldset className="job-choice">
             <legend>
-              Experiencia en pedagogía musical
-              <RequiredMark />
+              {tx("Experiencia en pedagogía musical")}<RequiredMark />
             </legend>
             <label>
               <input type="radio" name="pedagogia_musical" value="si" required />
-              <span>Sí</span>
+              <span>{tx("Sí")}</span>
             </label>
             <label>
               <input type="radio" name="pedagogia_musical" value="no" />
-              <span>No</span>
+              <span>{tx("No")}</span>
             </label>
           </fieldset>
 
           <fieldset className="job-choice">
             <legend>
-              Experiencia en formación preuniversitaria
-              <RequiredMark />
+              {tx("Experiencia en formación preuniversitaria")}<RequiredMark />
             </legend>
             <label>
               <input type="radio" name="formacion_preuniversitaria" value="si" required />
-              <span>Sí</span>
+              <span>{tx("Sí")}</span>
             </label>
             <label>
               <input type="radio" name="formacion_preuniversitaria" value="no" />
-              <span>No</span>
+              <span>{tx("No")}</span>
             </label>
           </fieldset>
         </div>
@@ -546,13 +548,12 @@ export function JobApplicationForm() {
 
       <section className="job-form-section" aria-labelledby="cv-title">
         <h2 className="visually-hidden" id="cv-title">
-          CV
-        </h2>
+          {tx("CV")}</h2>
         <label className="job-upload" id="cv-upload">
           <Upload aria-hidden="true" size={30} strokeWidth={2.4} />
-          <span>{cvFileName ? "Cambiar CV" : "Subir CV"}</span>
+          <span>{tx(cvFileName ? "Cambiar CV" : "Subir CV")}</span>
           <small className={cvFileName ? "job-upload-file" : undefined} aria-live="polite">
-            {cvFileName || "PDF, DOC o DOCX · máx. 4 MB"}
+            {tx(cvFileName || "PDF, DOC o DOCX · máx. 4 MB")}
           </small>
           <input
             name="cv"
@@ -572,12 +573,12 @@ export function JobApplicationForm() {
           role={submissionStatus === "error" ? "alert" : "status"}
           aria-live="polite"
         >
-          {submissionMessage}
+          {tx(submissionMessage)}
         </p>
       )}
 
       <button className="job-submit" type="submit" disabled={isSubmitting}>
-        {isSubmitting ? "Enviando..." : "Enviar aplicación"}
+        {tx(isSubmitting ? "Enviando..." : "Enviar aplicación")}
         {!isSubmitting && <ArrowRight aria-hidden="true" size={22} strokeWidth={2.7} />}
       </button>
     </form>

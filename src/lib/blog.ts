@@ -152,15 +152,10 @@ export function postAuthor(post: BlogPost) {
   };
 }
 
-const DATE_FORMAT = new Intl.DateTimeFormat("es-CO", {
-  day: "numeric",
-  month: "long",
-  year: "numeric",
-  timeZone: "UTC",
-});
-
-export function formatPostDate(isoDate: string) {
-  return DATE_FORMAT.format(new Date(`${isoDate}T00:00:00Z`));
+export function formatPostDate(isoDate: string, locale = "es-CO") {
+  return new Intl.DateTimeFormat(locale, {
+    day: "numeric", month: "long", year: "numeric", timeZone: "UTC",
+  }).format(new Date(`${isoDate}T00:00:00Z`));
 }
 
 export function latestPostDate() {

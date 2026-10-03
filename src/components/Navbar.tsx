@@ -1,12 +1,17 @@
 "use client";
+import {LanguagePicker} from "@/components/LanguagePicker";
+import {useLocale} from "next-intl";
+import {localizedPath} from "@/i18n/routing";
+import {useText} from "@/i18n/use-text";
 
 import { useEffect, useState } from "react";
 import type { MouseEvent } from "react";
 import Image from "next/image";
-import Link, { useLinkStatus } from "next/link";
+import Link from "@/i18n/navigation";
+import {useLinkStatus} from "next/link";
 import navLogo from "../../public/logo-nav.webp";
 import mobileLogo from "../../public/logo-mark-transparent.webp";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname, useRouter } from "@/i18n/navigation";
 
 const SMOOTH_SCROLL_TO_EVENT = "mediotono:smooth-scroll-to";
 const PENDING_SCROLL_TARGET_KEY = "mediotono:pending-scroll-target";
@@ -22,6 +27,9 @@ function NavigationLabel({ children }: { children: React.ReactNode }) {
 }
 
 export function Navbar() {
+  const tx = useText();
+  const locale = useLocale();
+  const homePath = localizedPath("/", locale);
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
@@ -56,7 +64,7 @@ export function Navbar() {
       return;
     }
 
-    window.history.pushState(null, "", "/#contacto");
+    window.history.pushState(null, "", `${homePath}#contacto`);
     window.dispatchEvent(
       new CustomEvent(SMOOTH_SCROLL_TO_EVENT, {
         detail: { hash: "#contacto" },
@@ -72,14 +80,14 @@ export function Navbar() {
     event.preventDefault();
     window.sessionStorage.removeItem(PENDING_SCROLL_TARGET_KEY);
 
-    if (window.location.pathname !== "/") {
+    if (pathname !== "/") {
       window.sessionStorage.setItem(PENDING_SCROLL_TARGET_KEY, "#top");
       router.replace("/", { scroll: false });
       return;
     }
 
-    if (window.location.pathname !== "/" || window.location.search || window.location.hash) {
-      window.history.replaceState(null, "", "/");
+    if (pathname !== "/" || window.location.search || window.location.hash) {
+      window.history.replaceState(null, "", homePath);
     }
 
     window.dispatchEvent(
@@ -98,7 +106,7 @@ export function Navbar() {
           <Link
             href="/"
             className="nav-logo"
-            aria-label="A medio tono — inicio"
+            aria-label={tx("A medio tono — inicio")}
             replace
             scroll={false}
             onClick={handleHomeClick}
@@ -106,7 +114,7 @@ export function Navbar() {
             <Image
               className="nav-logo-img logo-desktop-wordmark"
               src={navLogo}
-              alt="A medio tono"
+              alt={tx("A medio tono")}
               width={1205}
               height={300}
               sizes="136px"
@@ -115,7 +123,7 @@ export function Navbar() {
             <Image
               className="nav-logo-img logo-mobile-mark"
               src={mobileLogo}
-              alt="A medio tono"
+              alt={tx("A medio tono")}
               width={48}
               height={42}
               sizes="48px"
@@ -130,13 +138,12 @@ export function Navbar() {
               prefetch={true}
               onClick={() => setMenuOpen(false)}
             >
-              <NavigationLabel>Profes</NavigationLabel>
-            </Link>
+              <NavigationLabel>{tx("Profes")}</NavigationLabel></Link>
 
             <button
               type="button"
               className="nav-menu-toggle"
-              aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
+              aria-label={tx(menuOpen ? "Cerrar menú" : "Abrir menú")}
               aria-controls="navMenu"
               aria-expanded={menuOpen}
               onClick={() => setMenuOpen((open) => !open)}
@@ -149,22 +156,21 @@ export function Navbar() {
 
         <div className="nav-right" id="navMenu">
           <nav className="nav-links" id="navLinks">
-            <Link href="/clases" prefetch={true} onClick={() => setMenuOpen(false)}><NavigationLabel>Clases</NavigationLabel></Link>
+            <Link href="/clases" prefetch={true} onClick={() => setMenuOpen(false)}><NavigationLabel>{tx("Clases")}</NavigationLabel></Link>
             <Link
               href="/profes"
               className="nav-link-profes"
               prefetch={true}
               onClick={() => setMenuOpen(false)}
             >
-              <NavigationLabel>Profes</NavigationLabel>
-            </Link>
-            <Link href="/academias" prefetch={true} onClick={() => setMenuOpen(false)}><NavigationLabel>Academias</NavigationLabel></Link>
-            <Link href="/blog" prefetch={true} onClick={() => setMenuOpen(false)}><NavigationLabel>Blog</NavigationLabel></Link>
-            <Link href="/nosotros" prefetch={true} onClick={() => setMenuOpen(false)}><NavigationLabel>Nosotros</NavigationLabel></Link>
+              <NavigationLabel>{tx("Profes")}</NavigationLabel></Link>
+            <Link href="/academias" prefetch={true} onClick={() => setMenuOpen(false)}><NavigationLabel>{tx("Academias")}</NavigationLabel></Link>
+            <Link href="/blog" prefetch={true} onClick={() => setMenuOpen(false)}><NavigationLabel>{tx("Blog")}</NavigationLabel></Link>
+            <Link href="/nosotros" prefetch={true} onClick={() => setMenuOpen(false)}><NavigationLabel>{tx("Nosotros")}</NavigationLabel></Link>
           </nav>
+          <LanguagePicker />
           <Link className="nav-cta" href="/#contacto" scroll={false} onClick={handleContactClick}>
-            Contacto
-          </Link>
+            {tx("Contacto")}</Link>
         </div>
       </div>
     </header>

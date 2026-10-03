@@ -1,4 +1,5 @@
 "use client";
+import {useText} from "@/i18n/use-text";
 
 import type { ReactNode } from "react";
 import { motion, useReducedMotion } from "motion/react";
@@ -19,13 +20,14 @@ export function FooterReveal({
   label?: string;
   children: ReactNode;
 }) {
+  const tx = useText();
   const reduce = useReducedMotion();
   const Component = as === "nav" ? motion.nav : motion.div;
 
   return (
     <Component
       className={className}
-      aria-label={label}
+      aria-label={tx(label)}
       initial={reduce ? false : REVEAL_INITIAL}
       whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0 }}

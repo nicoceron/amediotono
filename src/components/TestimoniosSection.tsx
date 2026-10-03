@@ -1,4 +1,5 @@
 "use client";
+import {useText} from "@/i18n/use-text";
 
 import { Star } from "lucide-react";
 import {
@@ -58,6 +59,7 @@ function clampVelocity(velocity: number) {
 }
 
 export function TestimoniosSection() {
+  const tx = useText();
   const reduce = useReducedMotion();
   const trackRef = useRef<HTMLDivElement>(null);
   const loopWidthRef = useRef(0);
@@ -249,17 +251,17 @@ export function TestimoniosSection() {
     <section
       className="block voces-block"
       id="testimonios"
-      data-screen-label="Voces"
+      data-screen-label={tx("Voces")}
     >
       <div className="container">
         <div className="sec-head voces-head">
-          <h2 className="voces-title">Lo que dicen las familias</h2>
+          <h2 className="voces-title">{tx("Lo que dicen las familias")}</h2>
         </div>
 
         <div
           className={`voces-marquee${isDragging ? " voces-marquee--dragging" : ""}`}
           tabIndex={0}
-          aria-label="Reseñas de familias"
+          aria-label={tx("Reseñas de familias")}
           onPointerDown={handlePointerDown}
           onPointerMove={handlePointerMove}
           onPointerUp={finishDrag}
@@ -294,13 +296,13 @@ export function TestimoniosSection() {
                     ))}
                   </div>
                   <p className="voces-card-quote">
-                    <BrandText text={trimQuote(q.quote, 130)} />
+                    <BrandText text={trimQuote(tx(q.quote), 130)} />
                   </p>
                   <footer className="voces-card-foot">
                     <strong>{q.author}</strong>
                     <span>
-                      Estudiante de {q.teacherShortName}
-                      {q.instrument ? ` · ${q.instrument}` : ""}
+                      {tx("Estudiante de ")}{tx(q.teacherShortName)}
+                      {tx(q.instrument ? tx.template(" · {p0}", {p0: tx(q.instrument)}) : "")}
                     </span>
                   </footer>
                 </article>

@@ -1,3 +1,4 @@
+import {useText} from "@/i18n/use-text";
 import "./music.css";
 import type { Voicing } from "@/lib/chord-voicings";
 
@@ -27,6 +28,7 @@ export function ChordDiagram({
   title: string;
   frets?: number;
 }) {
+  const tx = useText();
   const strings = voicing.frets.length;
   const fretted = voicing.frets.filter((fret) => fret > 0);
   const highest = fretted.length ? Math.max(...fretted) : 0;
@@ -42,11 +44,11 @@ export function ChordDiagram({
       className="chord-diagram"
       viewBox={`0 0 ${width} ${height}`}
       role="img"
-      aria-label={`${title}: ${fretList}`}
+      aria-label={tx(tx.template("{p0}: {p1}", {p0: tx(title), p1: tx(fretList)}))}
     >
       {base > 1 && (
         <text className="chord-diagram-base" x={LEFT - 12} y={y(base) + 4} textAnchor="end">
-          {base}
+          {tx(base)}
         </text>
       )}
       {Array.from({ length: frets + 1 }, (_, i) => (
@@ -65,8 +67,7 @@ export function ChordDiagram({
       {voicing.frets.map((fret, i) =>
         fret < 0 ? (
           <text key={`mute-${i}`} className="chord-diagram-marker" x={x(i)} y={TOP - 10} textAnchor="middle">
-            ×
-          </text>
+            {tx("×")}</text>
         ) : fret === 0 ? (
           <circle key={`open-${i}`} className="chord-diagram-open" cx={x(i)} cy={TOP - 14} r={5.5} />
         ) : null,
@@ -93,7 +94,7 @@ export function ChordDiagram({
             {onBarre && rootStrings[i] && <circle className="chord-diagram-dot is-root" cx={x(i)} cy={y(fret)} r={9} />}
             {finger ? (
               <text className="chord-diagram-finger" x={x(i)} y={y(fret) + 4} textAnchor="middle">
-                {finger}
+                {tx(finger)}
               </text>
             ) : null}
           </g>
@@ -101,7 +102,7 @@ export function ChordDiagram({
       })}
       {noteNames.map((name, i) => (
         <text key={`note-${i}`} className="chord-diagram-note" x={x(i)} y={height - 8} textAnchor="middle">
-          {name}
+          {tx(name)}
         </text>
       ))}
     </svg>

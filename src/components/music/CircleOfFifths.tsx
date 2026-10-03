@@ -1,7 +1,8 @@
 "use client";
+import {useText} from "@/i18n/use-text";
 
 import "./music.css";
-import Link from "next/link";
+import Link from "@/i18n/navigation";
 import { useRef, useState, type KeyboardEvent } from "react";
 
 export type CircleChord = { symbol: string; roman: string; href?: string };
@@ -46,19 +47,20 @@ function wedge(index: number, inner: number, outer: number) {
 }
 
 function ChordChips({ chords }: { chords: CircleChord[] }) {
+  const tx = useText();
   return (
     <ul className="fifths-chords">
       {chords.map((chord) => (
         <li key={chord.roman}>
           {chord.href ? (
             <Link href={chord.href} prefetch={false}>
-              <strong>{chord.symbol}</strong>
-              <small>{chord.roman}</small>
+              <strong>{tx(chord.symbol)}</strong>
+              <small>{tx(chord.roman)}</small>
             </Link>
           ) : (
             <span>
-              <strong>{chord.symbol}</strong>
-              <small>{chord.roman}</small>
+              <strong>{tx(chord.symbol)}</strong>
+              <small>{tx(chord.roman)}</small>
             </span>
           )}
         </li>
@@ -73,6 +75,7 @@ function ChordChips({ chords }: { chords: CircleChord[] }) {
  * exactly the chords of that key.
  */
 export function CircleOfFifths({ keys }: { keys: CircleKey[] }) {
+  const tx = useText();
   const [selected, setSelected] = useState(0);
   const keyRefs = useRef<Array<SVGGElement | null>>([]);
   const current = keys[selected];
@@ -109,7 +112,7 @@ export function CircleOfFifths({ keys }: { keys: CircleKey[] }) {
 
   return (
     <div className="fifths-tool">
-      <svg className="fifths-wheel" viewBox={`0 0 ${SIZE} ${SIZE}`} role="group" aria-label="Círculo de quintas">
+      <svg className="fifths-wheel" viewBox={`0 0 ${SIZE} ${SIZE}`} role="group" aria-label={tx("Círculo de quintas")}>
         {keys.map((key, index) => {
           const angle = index * 30 - 90;
           const [mx, my] = polar((OUTER + MIDDLE) / 2, angle);
@@ -123,72 +126,70 @@ export function CircleOfFifths({ keys }: { keys: CircleKey[] }) {
               role="button"
               tabIndex={isSelected ? 0 : -1}
               aria-pressed={isSelected}
-              aria-label={`${key.major.name} y ${key.minor.name}: ${key.signature}`}
+              aria-label={tx(tx.template("{p0} y {p1}: {p2}", {p0: tx(key.major.name), p1: tx(key.minor.name), p2: tx(key.signature)}))}
               onClick={() => setSelected(index)}
               onKeyDown={(event) => onKey(event, index)}
             >
               <path className={segmentClass(index, false)} d={wedge(index, MIDDLE, OUTER)} />
               <path className={segmentClass(index, true)} d={wedge(index, INNER, MIDDLE)} />
               <text className={`fifths-label${isSelected ? " is-selected" : ""}`} x={mx} y={my + (key.signatureShort ? 0 : 5)} textAnchor="middle">
-                {key.major.label}
+                {tx(key.major.label)}
               </text>
               {key.signatureShort && (
                 <text className={`fifths-signature${isSelected ? " is-selected" : ""}`} x={mx} y={my + 15} textAnchor="middle">
-                  {key.signatureShort}
+                  {tx(key.signatureShort)}
                 </text>
               )}
               <text className={`fifths-label is-minor${isSelected ? " is-selected" : ""}`} x={nx} y={ny + 4} textAnchor="middle">
-                {key.minor.label}
+                {tx(key.minor.label)}
               </text>
             </g>
           );
         })}
         <circle cx={CENTER} cy={CENTER} r={INNER - 4} fill="none" />
         <text className="fifths-center" x={CENTER} y={CENTER - 8} textAnchor="middle">
-          {current.major.label} mayor
-        </text>
+          {tx(current.major.label)} {tx(" mayor")}</text>
         <text className="fifths-center" x={CENTER} y={CENTER + 14} textAnchor="middle">
-          {current.signatureShort || "Sin alteraciones"}
+          {tx(current.signatureShort || "Sin alteraciones")}
         </text>
       </svg>
 
       <div className="fifths-details" aria-live="polite">
         <h2>
-          {current.major.name} y {current.minor.name}
+          {tx(current.major.name)} {tx(" y ")}{tx(current.minor.name)}
         </h2>
         <dl>
-          <dt>Armadura</dt>
-          <dd>{current.signature}</dd>
+          <dt>{tx("Armadura")}</dt>
+          <dd>{tx(current.signature)}</dd>
           {current.enharmonic && (
             <>
-              <dt>También</dt>
-              <dd>{current.enharmonic}</dd>
+              <dt>{tx("También")}</dt>
+              <dd>{tx(current.enharmonic)}</dd>
             </>
           )}
-          <dt>{current.major.name}</dt>
-          <dd>{current.major.notes}</dd>
-          <dt>{current.minor.name}</dt>
-          <dd>{current.minor.notes}</dd>
-          <dt>Vecinas</dt>
+          <dt>{tx(current.major.name)}</dt>
+          <dd>{tx(current.major.notes)}</dd>
+          <dt>{tx(current.minor.name)}</dt>
+          <dd>{tx(current.minor.notes)}</dd>
+          <dt>{tx("Vecinas")}</dt>
           <dd>
-            {keys[(selected + 11) % 12].major.name} (IV) · {keys[(selected + 1) % 12].major.name} (V)
-          </dd>
+            {tx(keys[(selected + 11) % 12].major.name)} {tx(" (IV) · ")}{tx(keys[(selected + 1) % 12].major.name)} {tx(" (V)")}</dd>
         </dl>
         <div>
-          <strong>Acordes de {current.major.name}</strong>
+          <strong>{tx("Acordes de ")}{tx(current.major.name)}</strong>
           <ChordChips chords={current.majorChords} />
         </div>
         <div>
-          <strong>Acordes de {current.minor.name}</strong>
+          <strong>{tx("Acordes de ")}{tx(current.minor.name)}</strong>
           <ChordChips chords={current.minorChords} />
         </div>
         <p>
           <Link href={current.major.href} prefetch={false}>
-            Escala de {current.major.name}
-          </Link>{" "}
-          ·{" "}
+            {tx("Escala de ")}{tx(current.major.name)}
+          </Link>{tx(" ")}
+          {tx("·")}{tx(" ")}
           <Link href={current.minor.href} prefetch={false}>
-            Escala de {current.minor.name}
+            {tx("Escala de ")}{tx(current.minor.name)}
           </Link>
         </p>
       </div>

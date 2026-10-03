@@ -1,4 +1,5 @@
-import Link from "next/link";
+import {useText} from "@/i18n/use-text";
+import Link from "@/i18n/navigation";
 import type { ReactNode } from "react";
 import type { RichBlock } from "@/lib/content-types";
 import { resolveContentHref } from "@/lib/content-links";
@@ -8,7 +9,9 @@ import { chordsSummary } from "@/lib/music-pages";
 const INLINE_PATTERN = /\*\*([^*]+)\*\*|\[([^\]]+)\]\(([^)\s]+)\)/g;
 
 /** Renders `**bold**` and `[label](/href)` inside a plain string. */
-export function Inline({ text }: { text: string }) {
+export function Inline({ text: sourceText }: { text: string }) {
+  const tx = useText();
+  const text = tx(sourceText);
   const nodes: ReactNode[] = [];
   let lastIndex = 0;
 
@@ -28,13 +31,13 @@ export function Inline({ text }: { text: string }) {
     } else if (href.startsWith("/") || href.startsWith("#")) {
       nodes.push(
         <Link key={key} href={resolveContentHref(href)} prefetch={false}>
-          {label}
+          {tx(label)}
         </Link>,
       );
     } else {
       nodes.push(
         <a key={key} href={href} target="_blank" rel="noopener">
-          {label}
+          {tx(label)}
         </a>,
       );
     }
@@ -54,6 +57,7 @@ export function plainText(text: string): string {
 }
 
 export function RichBlocks({ blocks }: { blocks: RichBlock[] }) {
+  const tx = useText();
   return blocks.map((block, index) => {
     switch (block.type) {
       case "p":
@@ -107,14 +111,14 @@ export function RichBlocks({ blocks }: { blocks: RichBlock[] }) {
             <p>
               <Inline text={block.text} />
             </p>
-            {block.cite && <cite>{block.cite}</cite>}
+            {block.cite && <cite>{tx(block.cite)}</cite>}
           </blockquote>
         );
       case "table":
         return (
-          <div className="prose-table-wrap" key={index} role="region" aria-label={block.caption ?? `Tabla: ${block.head.filter((cell) => cell.trim()).map(plainText).join(", ")}`} tabIndex={0}>
+          <div className="prose-table-wrap" key={index} role="region" aria-label={tx(block.caption ?? tx.template("Tabla: {p0}", {p0: tx(block.head.filter((cell) => cell.trim()).map(plainText).join(", "))}))} tabIndex={0}>
             <table>
-              {block.caption && <caption>{block.caption}</caption>}
+              {block.caption && <caption>{tx(block.caption)}</caption>}
               <thead>
                 <tr>
                   {block.head.map((cell, cellIndex) =>

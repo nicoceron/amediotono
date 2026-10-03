@@ -1,3 +1,4 @@
+import {useText} from "@/i18n/use-text";
 import { HeroEntrance } from "./HeroEntrance";
 
 export const HERO_MOBILE_AVIF_SRCSET =
@@ -11,6 +12,7 @@ export const HERO_DESKTOP_AVIF_SRCSET =
  * sources come first and the unconditioned mobile sources cover the rest.
  */
 function HeroBackground() {
+  const tx = useText();
   return (
     <picture className="hero-bg-layer">
       <source media="(min-width: 881px)" srcSet={HERO_DESKTOP_AVIF_SRCSET} sizes="100vw" type="image/avif" />
@@ -34,7 +36,7 @@ function HeroBackground() {
         decoding="async"
         loading="eager"
         fetchPriority="high"
-        alt=""
+        alt={tx("")}
         className="hero-bg-image"
         draggable={false}
       />
@@ -43,13 +45,14 @@ function HeroBackground() {
 }
 
 export function Hero() {
+  const tx = useText();
   return (
-    <section className="hero hero-with-bg" data-screen-label="Hero">
+    <section className="hero hero-with-bg" data-screen-label={tx("Hero")}>
       <HeroBackground />
       <div className="container hero-grid">
         <HeroEntrance />
       </div>
-      <a className="hero-scroll-cue" href="#cursos" aria-label="Ir a cursos">
+      <a className="hero-scroll-cue" href="#cursos" aria-label={tx("Ir a cursos")}>
         <span className="hero-scroll-arrow-wrap" aria-hidden="true">
           <svg className="hero-scroll-arrow" viewBox="0 0 44 38" focusable="false">
             <path d="M22 6V28" />

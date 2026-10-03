@@ -43,8 +43,14 @@ await Promise.all(Array.from({ length: 6 }, async () => {
       assert.equal([...html.matchAll(/<h1\b/g)].length, 1, "Expected one h1");
       const title = html.match(/<title>(.*?)<\/title>/s)?.[1];
       assert(title?.trim(), "Missing title");
-      assert(!titles.has(title), `Duplicate title: ${titles.get(title)}`);
-      titles.set(title, url.pathname);
+      const language = attributes(html.match(/<html\b[^>]*>/)?.[0] ?? "").lang;
+      const expectedLanguage = url.pathname.match(/^\/(en|pt|fr)(?:\/|$)/)?.[1] ?? "es";
+      assert.equal(language, expectedLanguage, "HTML language differs from URL");
+      // Musical names can legitimately match across languages. Each language
+      // still needs distinct titles for its own pages (e.g. violin vs cello).
+      const titleKey = `${language}\0${title}`;
+      assert(!titles.has(titleKey), `Duplicate title: ${titles.get(titleKey)}`);
+      titles.set(titleKey, url.pathname);
       const meta = [...html.matchAll(/<meta\b[^>]*>/g)].map((m) => attributes(m[0]));
       assert(meta.some((tag) => tag.name === "description" && tag.content?.trim()), "Missing description");
       assert(!meta.some((tag) => /^(robots|googlebot)$/.test(tag.name) && /noindex/.test(tag.content)), "Noindex meta");
