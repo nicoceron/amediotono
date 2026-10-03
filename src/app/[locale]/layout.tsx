@@ -2,6 +2,7 @@ import {NextIntlClientProvider} from "next-intl";
 import {getLocale, getMessages} from "next-intl/server";
 import {routing} from "@/i18n/routing";
 import {localizeMetadata, localizeStructuredData} from "@/i18n/server";
+import clientMessageKeys from "@/i18n/client-message-keys.json";
 import type { Metadata } from "next";
 import Script from "next/script";
 import localFont from "next/font/local";
@@ -164,6 +165,7 @@ export default async function RootLayout({
 }>) {
   const locale = await getLocale();
   const messages = await getMessages();
+  const clientMessages = Object.fromEntries(clientMessageKeys.map(key => [key, messages.UI[key]]));
   const localizedJsonLd = JSON.stringify(await localizeStructuredData(JSON.parse(rootJsonLd))).replace(/</g, "\\u003c");
   return (
     <html lang={locale} className={`${satoshi.variable} antialiased`} suppressHydrationWarning>
@@ -177,7 +179,7 @@ export default async function RootLayout({
         />
       </head>
       <body suppressHydrationWarning>
-        <NextIntlClientProvider messages={{UI: messages.UI}}>
+        <NextIntlClientProvider messages={{UI: clientMessages}}>
         <SmoothScrollProvider>
           <Navbar />
           <main id="top">

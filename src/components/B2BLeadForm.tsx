@@ -13,7 +13,7 @@ export function B2BLeadForm({
   services,
   defaultService = "",
 }: {
-  institutionTypes: string[];
+  institutionTypes: Array<{ value: string; label: string }>;
   services: Array<{ slug: string; name: string }>;
   defaultService?: string;
 }) {
@@ -79,9 +79,9 @@ export function B2BLeadForm({
           <select name="tipo" required defaultValue="">
             <option value="" disabled>
               {tx("Selecciona una opción")}</option>
-            {institutionTypes.map((type) => (
-              <option key={type} value={type}>
-                {tx(type)}
+            {institutionTypes.map(({ value, label }) => (
+              <option key={value} value={value}>
+                {label}
               </option>
             ))}
           </select>

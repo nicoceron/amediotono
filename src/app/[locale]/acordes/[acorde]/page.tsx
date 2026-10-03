@@ -158,7 +158,7 @@ export default async function ChordPage({
                 {tx(chord.type.sound)}{tx(". Aquí lo tienes en guitarra, piano y ukelele, con digitación y sonido.")}{tx(enharmonic && tx.template(" También se llama {p0} ({p1}).", {p0: tx(enharmonic.name), p1: tx(enharmonic.symbol)}))}
               </p>
               <div className="ed-actions">
-                <PlayNotesButton key={chord.slug} midis={ascendingMidi(chord.notes, 3)} mode="chord" label={`Escuchar ${chord.displaySymbol}`} />
+                <PlayNotesButton key={chord.slug} midis={ascendingMidi(chord.notes, 3)} mode="chord" label={tx.template("Escuchar {p0}", {p0: chord.displaySymbol})} />
               </div>
             </div>
           </header>

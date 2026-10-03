@@ -26,8 +26,8 @@ export function B2BLeadSection({
               {tx("Tus datos se usan solo para responder tu solicitud.")}</p>
           </div>
           <B2BLeadForm
-            institutionTypes={B2B_INSTITUTION_TYPES}
-            services={B2B_SERVICES.map(({ slug, name }) => ({ slug, name }))}
+            institutionTypes={B2B_INSTITUTION_TYPES.map(value => ({ value, label: tx(value) }))}
+            services={B2B_SERVICES.map(({ slug, name }) => ({ slug, name: tx(name) }))}
             defaultService={defaultService}
           />
         </div>
