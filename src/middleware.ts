@@ -22,5 +22,5 @@ export default function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: "/((?!api|md|_next|_vercel|profes/[^/]+/opengraph-image|.*\\..*).*)",
+  matcher: "/((?!api|md|mcp(?:/|$)|_next|_vercel|profes/[^/]+/opengraph-image|.*\\..*).*)",
 };

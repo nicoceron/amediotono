@@ -8,12 +8,23 @@ import { useEffect, useState } from "react";
 import type { MouseEvent } from "react";
 import Image from "next/image";
 import Link from "@/i18n/navigation";
+import {useLinkStatus} from "next/link";
 import navLogo from "../../public/logo-nav.webp";
 import mobileLogo from "../../public/logo-mark-transparent.webp";
 import { usePathname, useRouter } from "@/i18n/navigation";
 
 const SMOOTH_SCROLL_TO_EVENT = "mediotono:smooth-scroll-to";
 const PENDING_SCROLL_TARGET_KEY = "mediotono:pending-scroll-target";
+
+function NavigationLabel({ children }: { children: React.ReactNode }) {
+  const { pending } = useLinkStatus();
+
+  return (
+    <span className="nav-link-label" data-pending={pending || undefined} aria-busy={pending}>
+      {children}
+    </span>
+  );
+}
 
 export function Navbar() {
   const tx = useText();
@@ -124,10 +135,10 @@ export function Navbar() {
             <Link
               href="/profes"
               className="nav-mobile-profes"
-              prefetch={false}
+              prefetch={true}
               onClick={() => setMenuOpen(false)}
             >
-              {tx("Profes")}</Link>
+              <NavigationLabel>{tx("Profes")}</NavigationLabel></Link>
 
             <button
               type="button"
@@ -145,17 +156,17 @@ export function Navbar() {
 
         <div className="nav-right" id="navMenu">
           <nav className="nav-links" id="navLinks">
-            <Link href="/clases" prefetch={false} onClick={() => setMenuOpen(false)}>{tx("Clases")}</Link>
+            <Link href="/clases" prefetch={true} onClick={() => setMenuOpen(false)}><NavigationLabel>{tx("Clases")}</NavigationLabel></Link>
             <Link
               href="/profes"
               className="nav-link-profes"
-              prefetch={false}
+              prefetch={true}
               onClick={() => setMenuOpen(false)}
             >
-              {tx("Profes")}</Link>
-            <Link href="/academias" prefetch={false} onClick={() => setMenuOpen(false)}>{tx("Academias")}</Link>
-            <Link href="/blog" prefetch={false} onClick={() => setMenuOpen(false)}>{tx("Blog")}</Link>
-            <Link href="/nosotros" prefetch={false} onClick={() => setMenuOpen(false)}>{tx("Nosotros")}</Link>
+              <NavigationLabel>{tx("Profes")}</NavigationLabel></Link>
+            <Link href="/academias" prefetch={true} onClick={() => setMenuOpen(false)}><NavigationLabel>{tx("Academias")}</NavigationLabel></Link>
+            <Link href="/blog" prefetch={true} onClick={() => setMenuOpen(false)}><NavigationLabel>{tx("Blog")}</NavigationLabel></Link>
+            <Link href="/nosotros" prefetch={true} onClick={() => setMenuOpen(false)}><NavigationLabel>{tx("Nosotros")}</NavigationLabel></Link>
           </nav>
           <LanguagePicker />
           <Link className="nav-cta" href="/#contacto" scroll={false} onClick={handleContactClick}>

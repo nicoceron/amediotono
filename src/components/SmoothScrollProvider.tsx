@@ -124,14 +124,12 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
           duration: 1,
           smoothWheel: true,
           syncTouch: false,
+          // Check only the ancestors of the scroll event. Directory filters
+          // and music diagrams already declare data-lenis-prevent themselves.
+          prevent: (node) =>
+            node.classList.contains("prose-table-wrap") || node.classList.contains("cf-grid"),
         });
         lenisRef.current = lenis;
-
-        Array.from(document.getElementsByTagName("*")).forEach((node) => {
-          if (node instanceof HTMLElement && getComputedStyle(node).overflow === "auto") {
-            node.setAttribute("data-lenis-prevent", "true");
-          }
-        });
       });
     }
 

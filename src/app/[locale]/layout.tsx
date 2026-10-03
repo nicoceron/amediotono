@@ -4,6 +4,7 @@ import {routing} from "@/i18n/routing";
 import {localizeMetadata, localizeStructuredData} from "@/i18n/server";
 import type { Metadata } from "next";
 import Script from "next/script";
+import localFont from "next/font/local";
 import "../globals.css";
 import { Navbar } from "@/components/Navbar";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
@@ -30,6 +31,23 @@ import {
 // Cloudflare Web Analytics (cookieless). The token is public by design; the
 // site is managed in the Cloudflare dashboard under Analytics > Web Analytics.
 const CLOUDFLARE_WEB_ANALYTICS_TOKEN = "34f7314ed803427fa410404495e39475";
+
+// Preload the brand font and let Next derive fallback metrics from its files.
+// Optional display prevents a late download from reflowing article headers.
+const satoshi = localFont({
+  src: [
+    { path: "../../../public/fonts/satoshi-regular.woff2", weight: "400", style: "normal" },
+    { path: "../../../public/fonts/satoshi-medium.woff2", weight: "500", style: "normal" },
+    { path: "../../../public/fonts/satoshi-bold.woff2", weight: "700", style: "normal" },
+    { path: "../../../public/fonts/satoshi-black.woff2", weight: "900", style: "normal" },
+    { path: "../../../public/fonts/satoshi-medium-italic.woff2", weight: "500", style: "italic" },
+    { path: "../../../public/fonts/satoshi-bold-italic.woff2", weight: "700", style: "italic" },
+    { path: "../../../public/fonts/satoshi-black-italic.woff2", weight: "900", style: "italic" },
+  ],
+  variable: "--font-satoshi",
+  display: "optional",
+  adjustFontFallback: "Arial",
+});
 
 const baseMetadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -106,6 +124,39 @@ const rootJsonLd = jsonLd([
   websiteJsonLd(),
 ]);
 
+// WebMCP: browsers with in-page agents (navigator.modelContext) get the same
+// read-only tools as /mcp. Other browsers return on the first line.
+const webMcpScript = `
+  (function() {
+    var context = navigator.modelContext;
+    if (!context) return;
+    var rpc = function(method, params) {
+      return fetch('/mcp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ jsonrpc: '2.0', id: Date.now(), method: method, params: params })
+      }).then(function(response) { return response.json(); });
+    };
+    rpc('tools/list').then(function(message) {
+      var tools = ((message.result && message.result.tools) || []).map(function(tool) {
+        return {
+          name: tool.name,
+          description: tool.description,
+          inputSchema: tool.inputSchema,
+          annotations: tool.annotations,
+          execute: function(args) {
+            return rpc('tools/call', { name: tool.name, arguments: args || {} }).then(function(reply) {
+              return reply.result || { content: [{ type: 'text', text: (reply.error && reply.error.message) || 'Error' }], isError: true };
+            });
+          }
+        };
+      });
+      if (typeof context.provideContext === 'function') context.provideContext({ tools: tools });
+      else if (typeof context.registerTool === 'function') tools.forEach(function(tool) { context.registerTool(tool); });
+    }).catch(function() {});
+  })();
+`;
+
 export default async function RootLayout({
   children,
 }: Readonly<{
@@ -115,10 +166,11 @@ export default async function RootLayout({
   const messages = await getMessages();
   const localizedJsonLd = JSON.stringify(await localizeStructuredData(JSON.parse(rootJsonLd))).replace(/</g, "\\u003c");
   return (
-    <html lang={locale} className="antialiased" suppressHydrationWarning>
+    <html lang={locale} className={`${satoshi.variable} antialiased`} suppressHydrationWarning>
       <head>
         <link rel="describedby" type="text/markdown" href={absoluteUrl("/llms.txt")} />
         <ThemeScript />
+        <script dangerouslySetInnerHTML={{ __html: webMcpScript }} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: localizedJsonLd }}

@@ -73,6 +73,13 @@ export function rootAiMarkdown() {
       { name: "Nosotros y criterios de selección", path: "/nosotros" },
       { name: "Trabaja como profe", path: "/trabaja-con-nosotros" },
     ]), "",
+    "## Para agentes", "",
+    ...linksMarkdown([
+      { name: "Servidor MCP", path: "/mcp", description: "Streamable HTTP de solo lectura y sin autenticación, con las herramientas search, fetch, find_teachers, school_info y whatsapp_link. Descripción en /.well-known/mcp/server-card.json." },
+      { name: "Catálogo de APIs", path: "/.well-known/api-catalog", description: "RFC 9727." },
+    ]),
+    "",
+    "Las páginas HTML también responden en Markdown cuando la solicitud prefiere `Accept: text/markdown`.", "",
     "## Optional", "",
     ...linksMarkdown([
       { name: "Contenido ampliado", path: "/llms-full.txt", description: "Clases, profes, servicios, glosario e índice del blog; para consultas de una sección usa los índices anteriores." },

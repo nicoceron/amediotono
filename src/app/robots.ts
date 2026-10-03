@@ -56,6 +56,13 @@ const aiAnswerBots = [
 // /md/ is only reached through the public `<page>.md` URLs (see next.config.ts).
 const privatePaths = ["/api/", "/md/"];
 
+/**
+ * Content Signals (https://contentsignals.org): the same permission, stated
+ * as use categories. search = search results and links, ai-input = answers
+ * grounded on the page (RAG), ai-train = model training.
+ */
+const contentSignals = { "Content-Signal": "search=yes, ai-input=yes, ai-train=yes" };
+
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
@@ -63,11 +70,13 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: [...searchAndPreviewBots, ...aiAnswerBots],
         allow: "/",
         disallow: privatePaths,
+        other: contentSignals,
       },
       {
         userAgent: "*",
         allow: "/",
         disallow: privatePaths,
+        other: contentSignals,
       },
     ],
     sitemap: absoluteUrl("/sitemap.xml"),
