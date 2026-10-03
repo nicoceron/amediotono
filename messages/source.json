@@ -2883,8 +2883,9 @@
     "text": "Idioma",
     "namespace": "UI",
     "references": [
-      "src/components/LanguagePicker.tsx:20",
-      "src/components/LanguagePicker.tsx:21",
+      "src/components/LanguagePicker.tsx:37",
+      "src/components/LanguagePicker.tsx:38",
+      "src/components/LanguagePicker.tsx:47",
       "src/components/ProfesDirectory.tsx:564",
       "src/components/ProfesDirectory.tsx:608",
       "src/content/blog/canciones-faciles-para-empezar-a-cantar.ts:46"
@@ -11700,7 +11701,7 @@
     "text": "Idioma del sistema",
     "namespace": "UI",
     "references": [
-      "src/components/LanguagePicker.tsx:33"
+      "src/components/LanguagePicker.tsx:58"
     ]
   },
   "m1b78886": {
@@ -14946,7 +14947,7 @@
     "text": "Abrir menú",
     "namespace": "UI",
     "references": [
-      "src/components/Navbar.tsx:146"
+      "src/components/Navbar.tsx:150"
     ]
   },
   "m1e7f7038": {
@@ -43347,7 +43348,7 @@
     "text": "TONO_LOCALE=; Max-Age=0; Path=/; SameSite=Lax",
     "namespace": "UI",
     "references": [
-      "src/components/LanguagePicker.tsx:24"
+      "src/components/LanguagePicker.tsx:22"
     ]
   },
   "m3a9ea3d6": {
@@ -53349,7 +53350,7 @@
     "references": [
       "src/app/[locale]/clases-de-musica-online/page.tsx:68",
       "src/app/[locale]/clases-de-musica-online/page.tsx:86",
-      "src/app/[locale]/layout.tsx:118"
+      "src/app/[locale]/layout.tsx:119"
     ]
   },
   "m44b40e9d": {
@@ -77683,7 +77684,7 @@
       "src/app/[locale]/clases/page.tsx:74",
       "src/app/[locale]/clases/page.tsx:94",
       "src/components/Footer.tsx:19",
-      "src/components/Navbar.tsx:159",
+      "src/components/Navbar.tsx:181",
       "src/lib/teacher-share-image.tsx"
     ]
   },
@@ -88701,7 +88702,7 @@
     "namespace": "UI",
     "references": [
       "src/app/[locale]/blog/page.tsx:58",
-      "src/app/[locale]/layout.tsx:74"
+      "src/app/[locale]/layout.tsx:75"
     ]
   },
   "m67567a3d": {
@@ -89756,7 +89757,7 @@
     "text": "Escuchar {p0}",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/acordes/[acorde]/page.tsx"
+      "src/app/[locale]/acordes/[acorde]/page.tsx:161"
     ]
   },
   "m68401c1e": {
@@ -96217,6 +96218,13 @@
     "namespace": "Content",
     "references": [
       "src/content/blog/ritmos-colombianos-bambuco-pasillo-y-cumbia-explicados.ts:182"
+    ]
+  },
+  "m6e9a5865": {
+    "text": "Recursos",
+    "namespace": "UI",
+    "references": [
+      "src/components/Navbar.tsx:174"
     ]
   },
   "m6e9b296d": {
@@ -103415,8 +103423,8 @@
       "src/components/Footer.tsx:106",
       "src/components/Footer.tsx:114",
       "src/components/Footer.tsx:183",
-      "src/components/Navbar.tsx:117",
-      "src/components/Navbar.tsx:126",
+      "src/components/Navbar.tsx:121",
+      "src/components/Navbar.tsx:130",
       "src/lib/seo.ts:13",
       "src/lib/seo.ts:52",
       "src/lib/share-cards.ts:207"
@@ -113158,7 +113166,7 @@
     "text": "Preuniversitario de música",
     "namespace": "UI",
     "references": [
-      "src/app/[locale]/layout.tsx:119",
+      "src/app/[locale]/layout.tsx:120",
       "src/app/[locale]/preuniversitario-musica/page.tsx:72",
       "src/app/[locale]/preuniversitario-musica/page.tsx:91",
       "src/components/HomeResourcesSection.tsx:38",
@@ -123959,7 +123967,7 @@
     "namespace": "UI",
     "references": [
       "src/components/Footer.tsx:103",
-      "src/components/Navbar.tsx:109"
+      "src/components/Navbar.tsx:113"
     ]
   },
   "m89af401f": {
@@ -153942,8 +153950,8 @@
       "src/app/[locale]/profes/[slug]/page.tsx:195",
       "src/app/[locale]/profes/page.tsx:32",
       "src/components/Footer.tsx:23",
-      "src/components/Navbar.tsx:141",
-      "src/components/Navbar.tsx:166",
+      "src/components/Navbar.tsx:145",
+      "src/components/Navbar.tsx:169",
       "src/lib/seo.ts:502"
     ]
   },
@@ -183403,7 +183411,7 @@
     "references": [
       "src/app/[locale]/forbidden.tsx:24",
       "src/components/ContactoSection.tsx:153",
-      "src/components/Navbar.tsx:173"
+      "src/components/Navbar.tsx:196"
     ]
   },
   "mc4aff823": {
@@ -183854,7 +183862,7 @@
     "namespace": "UI",
     "references": [
       "src/app/[locale]/academias/page.tsx:103",
-      "src/components/Navbar.tsx:167"
+      "src/components/Navbar.tsx:170"
     ]
   },
   "mc5196f4a": {
@@ -186436,7 +186444,7 @@
       "src/app/[locale]/blog/page.tsx:67",
       "src/app/[locale]/blog/page.tsx:101",
       "src/components/Footer.tsx:34",
-      "src/components/Navbar.tsx:168",
+      "src/components/Navbar.tsx:186",
       "src/lib/seo.ts:734"
     ]
   },
@@ -201270,7 +201278,7 @@
       "src/app/[locale]/nosotros/page.tsx:140",
       "src/app/[locale]/nosotros/page.tsx:165",
       "src/components/Footer.tsx:24",
-      "src/components/Navbar.tsx:169"
+      "src/components/Navbar.tsx:192"
     ]
   },
   "md6ae5264": {
@@ -215003,7 +215011,7 @@
     "text": "Cerrar menú",
     "namespace": "UI",
     "references": [
-      "src/components/Navbar.tsx:146"
+      "src/components/Navbar.tsx:150"
     ]
   },
   "me3ebec7c": {
@@ -218382,6 +218390,7 @@
       "src/app/api/job-applications/route.ts",
       "src/app/llms-full.txt/route.ts",
       "src/components/JobApplicationForm.tsx:215",
+      "src/components/LanguagePicker.tsx",
       "src/components/music/ChordDiagram.tsx:47"
     ]
   },
@@ -240571,7 +240580,7 @@
     "namespace": "UI",
     "references": [
       "src/app/[locale]/academias/page.tsx:89",
-      "src/app/[locale]/layout.tsx:120",
+      "src/app/[locale]/layout.tsx:121",
       "src/lib/ai-discovery.ts:62"
     ]
   },

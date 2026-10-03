@@ -3,6 +3,8 @@ import {LanguagePicker} from "@/components/LanguagePicker";
 import {useLocale} from "next-intl";
 import {localizedPath} from "@/i18n/routing";
 import {useText} from "@/i18n/use-text";
+import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
+import {ChevronDown} from "lucide-react";
 
 import { useEffect, useState } from "react";
 import type { MouseEvent } from "react";
@@ -31,15 +33,17 @@ export function Navbar() {
   const locale = useLocale();
   const homePath = localizedPath("/", locale);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [resourcesOpen, setResourcesOpen] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setMenuOpen(false);
+      if (event.key === "Escape" && !event.defaultPrevented) setMenuOpen(false);
     };
 
     const handleResize = () => {
+      setResourcesOpen(false);
       if (window.innerWidth >= 810) setMenuOpen(false);
     };
 
@@ -156,7 +160,6 @@ export function Navbar() {
 
         <div className="nav-right" id="navMenu">
           <nav className="nav-links" id="navLinks">
-            <Link href="/clases" prefetch={true} onClick={() => setMenuOpen(false)}><NavigationLabel>{tx("Clases")}</NavigationLabel></Link>
             <Link
               href="/profes"
               className="nav-link-profes"
@@ -165,7 +168,27 @@ export function Navbar() {
             >
               <NavigationLabel>{tx("Profes")}</NavigationLabel></Link>
             <Link href="/academias" prefetch={true} onClick={() => setMenuOpen(false)}><NavigationLabel>{tx("Academias")}</NavigationLabel></Link>
-            <Link href="/blog" prefetch={true} onClick={() => setMenuOpen(false)}><NavigationLabel>{tx("Blog")}</NavigationLabel></Link>
+            <DropdownMenu.Root modal={false} open={resourcesOpen} onOpenChange={setResourcesOpen}>
+              <DropdownMenu.Trigger asChild>
+                <button type="button" className="nav-resources-trigger">
+                  {tx("Recursos")} <ChevronDown size={14} aria-hidden="true" />
+                </button>
+              </DropdownMenu.Trigger>
+              <DropdownMenu.Portal>
+                <DropdownMenu.Content className="nav-dropdown-menu resources-menu" align="center" sideOffset={8} collisionPadding={12} loop data-lenis-prevent>
+                  <DropdownMenu.Item asChild>
+                    <Link className="nav-dropdown-item" href="/clases" prefetch={true} onClick={() => setMenuOpen(false)}>
+                      <NavigationLabel>{tx("Clases")}</NavigationLabel>
+                    </Link>
+                  </DropdownMenu.Item>
+                  <DropdownMenu.Item asChild>
+                    <Link className="nav-dropdown-item" href="/blog" prefetch={true} onClick={() => setMenuOpen(false)}>
+                      <NavigationLabel>{tx("Blog")}</NavigationLabel>
+                    </Link>
+                  </DropdownMenu.Item>
+                </DropdownMenu.Content>
+              </DropdownMenu.Portal>
+            </DropdownMenu.Root>
             <Link href="/nosotros" prefetch={true} onClick={() => setMenuOpen(false)}><NavigationLabel>{tx("Nosotros")}</NavigationLabel></Link>
           </nav>
           <LanguagePicker />

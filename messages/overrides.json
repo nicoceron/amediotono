@@ -1,4 +1,9 @@
 {
+  "Recursos": {
+    "en": "Resources",
+    "pt": "Recursos",
+    "fr": "Ressources"
+  },
   "Clases": {
     "en": "Lessons",
     "pt": "Aulas",
