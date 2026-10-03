@@ -24,7 +24,7 @@ export function MusicIndexTable({
   return (
     <div className={styles.index}>
       <p className={styles.scrollHint}>{tx("Desliza la tabla para ver todos los tipos →")}</p>
-      <div className={styles.scroll} role="region" aria-label={tx(label)} tabIndex={0} data-lenis-prevent>
+      <div className={styles.scroll} role="region" aria-label={tx(label)} tabIndex={0} data-lenis-prevent-horizontal>
         <table className={styles.table}>
           <thead>
             <tr>
