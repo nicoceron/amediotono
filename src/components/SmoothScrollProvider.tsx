@@ -124,10 +124,10 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
           duration: 1,
           smoothWheel: true,
           syncTouch: false,
-          // Check only the ancestors of the scroll event. Directory filters
-          // and music diagrams already declare data-lenis-prevent themselves.
-          prevent: (node) =>
-            node.classList.contains("prose-table-wrap") || node.classList.contains("cf-grid"),
+          // Directory filters and music diagrams declare their own exclusions.
+          // Horizontal carousels exclude only horizontal gestures so vertical
+          // input never hands off to native scroll during a Lenis animation.
+          prevent: (node) => node.classList.contains("prose-table-wrap"),
         });
         lenisRef.current = lenis;
       });

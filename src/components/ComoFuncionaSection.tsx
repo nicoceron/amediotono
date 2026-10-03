@@ -52,7 +52,13 @@ export function ComoFuncionaSection() {
           </h2>
         </div>
 
-        <div className="cf-grid" role="region" aria-label={tx("Pasos para empezar")} tabIndex={0}>
+        <div
+          className="cf-grid"
+          role="region"
+          aria-label={tx("Pasos para empezar")}
+          tabIndex={0}
+          data-lenis-prevent-horizontal
+        >
           {STEPS.map((step, i) => (
             <Reveal as="article" className="cf-card" key={step.number} delay={i * 120}>
               <span
